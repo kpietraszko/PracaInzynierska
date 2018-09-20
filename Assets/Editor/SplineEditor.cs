@@ -26,7 +26,7 @@ public class SplineEditor : Editor
 		{
 			return;
 		}
-		int segments = 1 * spline.ControlPointCount;
+		int segments = 10 * spline.ControlPointCount;
 		if (spline != null && spline.ControlPointCount >= 3)
 		{
 			float t = 0f;
