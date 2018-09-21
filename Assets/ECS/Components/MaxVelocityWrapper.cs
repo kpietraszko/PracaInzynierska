@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Entities;
 using UnityEngine;
 
+[Serializable]
 public struct MaxVelocity : IComponentData
 {
 	public float Value;

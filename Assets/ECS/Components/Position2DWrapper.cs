@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Mathematics;
 using Unity.Entities;
+using System;
 
+[Serializable]
 public struct Position2D : IComponentData
 {
 	public float2 Value;

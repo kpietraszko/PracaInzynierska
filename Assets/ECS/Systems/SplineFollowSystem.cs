@@ -25,6 +25,7 @@ public class SplineFollowSystem : ComponentSystem
 	struct CarsData
 	{
 		public readonly int Length;
+        public ComponentDataArray<Car> Cars;
 		public ComponentDataArray<PositionAlongSpline> PositionsAlongSpline;
 		[ReadOnly]
 		public SharedComponentDataArray<SplineId> SplineIds;

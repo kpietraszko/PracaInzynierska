@@ -6,4 +6,3 @@ using UnityEngine;
 public struct Accelerating : IComponentData
 {
 }
-public class AcceleratingWrapper : ComponentDataWrapper<Accelerating> { } //TODO: usunąć
