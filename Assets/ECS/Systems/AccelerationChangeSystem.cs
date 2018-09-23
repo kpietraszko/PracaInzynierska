@@ -35,7 +35,6 @@ public class AccelerationChangeSystem : ComponentSystem
 		float breakingAcceleration = -20f; //TODO: jw.
 		for (int i = 0; i < Accelerating.Length; i++)
 		{
-			//PostUpdateCommands.SetComponent(Accelerating.Entities[i], new MaxVelocity(0.2f)); //TODO: do testów, usunąć
 			float velocityToMaxVelocityRatio = Accelerating.Velocities[i] / maxVelocity;//Accelerating.MaxVelocities[i];
 			float acceleration = (1 - velocityToMaxVelocityRatio) * peakAcceleration; //max jeśli stoi, 0 jeśli jedzie z maksymalną v
 			PostUpdateCommands.SetComponent(Accelerating.Entities[i], new Acceleration(acceleration));

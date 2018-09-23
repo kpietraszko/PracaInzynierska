@@ -8,7 +8,7 @@ using UnityEngine;
 [Serializable]
 public struct Obstacle : IComponentData
 {
-	public int CurveId;
+	public int SplineId;
 	public float PositionAlongCurve;
 	public float2 Position;
 }

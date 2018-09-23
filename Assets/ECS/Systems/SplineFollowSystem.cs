@@ -25,13 +25,14 @@ public class SplineFollowSystem : ComponentSystem
 	struct CarsData
 	{
 		public readonly int Length;
-        public ComponentDataArray<Car> Cars;
+		public ComponentDataArray<Car> Cars;
 		public ComponentDataArray<PositionAlongSpline> PositionsAlongSpline;
 		[ReadOnly]
 		public SharedComponentDataArray<SplineId> SplineIds;
 		public ComponentArray<Transform> Transforms;
 		public ComponentDataArray<Velocity> Velocities;
-        public ComponentDataArray<Position2D> Positions;
+		public ComponentDataArray<Position2D> Positions;
+		public ComponentDataArray<Obstacle> Obstacles;
 		public EntityArray Entities;
 	}
 	[Inject] ControlPointsData ControlPoints;
@@ -42,25 +43,26 @@ public class SplineFollowSystem : ComponentSystem
 		Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-GB");
 	}
 
-	protected override void OnUpdate()
+protected override void OnUpdate()
 	{
 		// ogolnie działa, ale czasem freezuje Unity po przejechaniu spline'a i przy zatrzymaniu na świetle
-		var maxMovementError = 0.001f; //1mm na klatke // TODO: tweak
+		var maxMovementError = 0.001f; //chyba wystarczy 1mm na klatke // TODO: dostosować
 		var controlPointsIndices = new List<int>();
 		for (int carIndex = 0; carIndex < Cars.Length; carIndex++)
 		{
 			var curveId = Cars.SplineIds[carIndex];
 			GetCurvesControlPoints(curveId, controlPointsIndices);
 			var numOfCurves = controlPointsIndices.Count / 2; //krzywych w tym splinie
-			//PostUpdateCommands.SetComponent(Cars.Entities[carIndex], new Velocity(15f)); //do testów TODO: usunąć
+																			  //PostUpdateCommands.SetComponent(Cars.Entities[carIndex], new Velocity(15f)); //do testów TODO: usunąć
 			float v = Cars.Velocities[carIndex] * Time.deltaTime;
-            if (v < 0.02)
-            {
-                Debug.Log(v);
-            }
+			if (v <= maxMovementError)
+			{
+				continue;
+			}
+			//Debug.Log("v = " + v);
 			float positionAlongSpline = Cars.PositionsAlongSpline[carIndex];
 			float leftBound = 0f;
-			float rightBound = 1f - positionAlongSpline; 
+			float rightBound = 1f - positionAlongSpline;
 
 			float2 position = new float2();
 			Vector3 newPosition;
@@ -68,14 +70,14 @@ public class SplineFollowSystem : ComponentSystem
 			float error = float.MaxValue;
 			if (positionAlongSpline + maxMovementError >= 0.99f)
 			{
-                PostUpdateCommands.RemoveComponent<Velocity>(Cars.Entities[carIndex]); //raczej usunąć
+				PostUpdateCommands.RemoveComponent<Velocity>(Cars.Entities[carIndex]); //raczej usunąć
 				continue; //to moze psuc przy t>0.9
 			}
 			int iterations = 0; //do debugowania TODO: usunąć
 			float midPoint;
 			do
 			{
-				midPoint = (leftBound+rightBound) / 2f; // punkt środkowy obecnego przedziału
+				midPoint = (leftBound + rightBound) / 2f; // punkt środkowy obecnego przedziału
 				splineT = positionAlongSpline + midPoint;
 				int currentCurveStartIndex;
 				if (splineT >= 1f)
@@ -100,13 +102,17 @@ public class SplineFollowSystem : ComponentSystem
 				}
 				if (iterations++ == 100)  //TODO: usunąć
 				{
-					Debug.LogError("Stuck in do while loop"); // czasem leftBound == rightBound i iteruje w nieskonczonosc
+					Debug.LogError("Stuck in do while loop"); // czasem iteruje w nieskonczonosc
 				}
 			} while (abs(error) > maxMovementError);
 			Cars.PositionsAlongSpline[carIndex] = new PositionAlongSpline { Value = splineT };
-            Cars.Positions[carIndex] = new float2(newPosition.x, newPosition.z);
+			Cars.Positions[carIndex] = new float2(newPosition.x, newPosition.z);
 			var newRotation = Quaternion.LookRotation(newPosition - Cars.Transforms[carIndex].position, Vector3.up); //* Quaternion.Euler(-90,0,0); //obrocone o -90 bo blender - działa
 			Cars.Transforms[carIndex].SetPositionAndRotation(newPosition, newRotation);
+
+			var obstacle = Cars.Obstacles[carIndex];
+			obstacle.PositionAlongCurve = splineT;
+			obstacle.Position = new float2(newPosition.x, newPosition.z);
 		}
 	}
 	private void GetCurvesControlPoints(int curveId, List<int> pointsIndices)
