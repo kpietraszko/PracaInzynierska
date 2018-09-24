@@ -75,7 +75,6 @@ public class EcsBootstrap : MonoBehaviour
 			var meshRenderer = newCar.GetComponent<MeshRenderer>();
 			var hue = UnityEngine.Random.Range(0f, 1f);
 			var randomColor = Color.HSVToRGB(hue, 0.7f, 1f);
-			Debug.Log("randomColor = " + randomColor);
 			meshRenderer.material.color = randomColor;
 		}
 	}

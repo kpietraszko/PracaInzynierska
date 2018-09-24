@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Entities;
 using UnityEngine;
 
-public class IsSplineStartClearSystem : ComponentSystem
+public class IsSplineStartOccupiedSystem : ComponentSystem
 {
 	struct ObstacleData
 	{
@@ -36,8 +36,10 @@ public class IsSplineStartClearSystem : ComponentSystem
 				int splineId = Obstacles.Obstacles[obstacleIndex].SplineId;
 				if (!occupiedSplines.Contains(splineId))
 				{
-					PostUpdateCommands.CreateEntity(EntityManager.CreateArchetype(typeof(SplineStartOccupied))); //jak do tego dodać komponent?
-				}
+                    occupiedSplines.Add(splineId);
+                    PostUpdateCommands.CreateEntity();//EntityManager.CreateArchetype(typeof(SplineStartOccupied)));
+                    PostUpdateCommands.AddComponent(new SplineStartOccupied { SplineId = splineId });
+                }
 			}
 		}
 	}

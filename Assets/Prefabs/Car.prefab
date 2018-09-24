@@ -24,8 +24,6 @@ GameObject:
   - component: {fileID: 23334852142413466}
   - component: {fileID: 114537532201858334}
   - component: {fileID: 114993484408877426}
-  - component: {fileID: 114082474404293458}
-  - component: {fileID: 114929079884102056}
   - component: {fileID: 114537347884039130}
   m_Layer: 0
   m_Name: Car
@@ -89,19 +87,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1934698960348948}
   m_Mesh: {fileID: 4300000, guid: 4125229579d5584438fcfe64c3022acd, type: 3}
---- !u!114 &114082474404293458
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1934698960348948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ef9d7696f5d48549bc43e21d976ab7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedData:
-    Value: 0
 --- !u!114 &114537347884039130
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,19 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114929079884102056
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1934698960348948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9eae4aa3b7f70d48a93653532722099, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedData:
-    Value: 0
 --- !u!114 &114993484408877426
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -5,4 +5,5 @@ using UnityEngine;
 
 public struct SplineStartOccupied : IComponentData
 {
+    public int SplineId;
 }
