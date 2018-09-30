@@ -40,10 +40,10 @@ public class CarSpawnSystem : ComponentSystem
 
         for (int i = 0; i < CarSpawns.Length; i++)
         {
-            foreach (var item in occupiedSplines)
-            {
-                Debug.Log(item);
-            }
+            //foreach (var item in occupiedSplines)
+            //{
+            //    Debug.Log(item);
+            //}
             if (!occupiedSplines.Contains(CarSpawns.CarSpawns[i].SplineId))
             {
                 Debug.Log("Spawning");

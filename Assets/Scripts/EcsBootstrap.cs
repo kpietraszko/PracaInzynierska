@@ -53,7 +53,7 @@ public class EcsBootstrap : MonoBehaviour
 			{
 				var lightEntity = em.CreateEntity(typeof(Obstacle));
 				var worldPos = Splines[splineIndex].GetPointOnSpline(light - 0.035f);
-				em.SetComponentData(lightEntity, new Obstacle { SplineId = splineIndex, /*PositionAlongCurve = light-0.1f,*/ Position = new float2(worldPos.x, worldPos.z) });
+				em.SetComponentData(lightEntity, new Obstacle { SplineId = splineIndex, PositionAlongCurve = light-0.035f, Position = new float2(worldPos.x, worldPos.z) });
 			}
 		}
 	}

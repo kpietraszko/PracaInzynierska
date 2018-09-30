@@ -113,6 +113,7 @@ protected override void OnUpdate()
 			var obstacle = Cars.Obstacles[carIndex];
 			obstacle.PositionAlongCurve = splineT;
 			obstacle.Position = new float2(newPosition.x, newPosition.z);
+			Cars.Obstacles[carIndex] = obstacle;
 		}
 	}
 	private void GetCurvesControlPoints(int curveId, List<int> pointsIndices)
