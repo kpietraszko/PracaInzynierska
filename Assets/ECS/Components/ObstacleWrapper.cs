@@ -9,7 +9,7 @@ using UnityEngine;
 public struct Obstacle : IComponentData
 {
 	public int SplineId;
-	public float PositionAlongCurve;
+	public float PositionAlongSpline;
 	public float2 Position;
 }
 public class ObstacleWrapper : ComponentDataWrapper<Obstacle> { }

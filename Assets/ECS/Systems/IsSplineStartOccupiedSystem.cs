@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using Unity.Entities;
+using Unity.Mathematics;
 using UnityEngine;
 using static Unity.Mathematics.math;
 
@@ -19,28 +21,47 @@ public class IsSplineStartOccupiedSystem : ComponentSystem
 		public ComponentDataArray<SplineStartOccupied> OccupiedSplinesStarts;
 		public EntityArray Entities;
 	}
-	[Inject] ObstacleData Obstacles;
+    struct ControlPointsData
+    {
+        public readonly int Length;
+        [ReadOnly]
+        public SharedComponentDataArray<SplineId> CurveIds;
+        public ComponentDataArray<ControlPointId> ControlPointIds;
+        public ComponentDataArray<Position2D> Positions;
+    }
+    [Inject] ObstacleData Obstacles;
 	[Inject] OccupiedSplineStartData OccupiedSplinesStarts;
-	protected override void OnUpdate() //TODO: sprawdzić czy działa
+    [Inject] ControlPointsData ControlPoints;
+    Dictionary<int, float2> _splineStartPositions = new Dictionary<int, float2>(10);
+    List<int> _occupiedSplines = new List<int>(10);
+    protected override void OnUpdate() //TODO: sprawdzić czy działa
 	{
-		var splineStartSizeInT = 0.2f;
 		const float carLength = 4.5f;
-		const float distanceBetweenCars = 0.4f;
-		//sprawdzenie czy początek spline'a jest pusty
 		//usunac wszystkie occupiedSplinesStarts (entities) i dodać dla tych co mają obstacle
 		for (int i = 0; i < OccupiedSplinesStarts.Length; i++)
 		{
 			PostUpdateCommands.DestroyEntity(OccupiedSplinesStarts.Entities[i]);
 		}
-		List<int> occupiedSplines = new List<int>(10);
-		for (int obstacleIndex = 0; obstacleIndex < Obstacles.Length; obstacleIndex++)
+        _splineStartPositions.Clear();
+        for (int i = 0; i < ControlPoints.Length; i++)
+        {
+            //ustawia pozycję pierwszego punktu jako początek jego spline'a
+            if (ControlPoints.ControlPointIds[i] == 0)
+            {
+                _splineStartPositions[ControlPoints.CurveIds[i]] = ControlPoints.Positions[i];
+            }
+        }
+        //sprawdzenie czy początek spline'a jest pusty
+        _occupiedSplines.Clear();
+        for (int obstacleIndex = 0; obstacleIndex < Obstacles.Length; obstacleIndex++)
 		{
-			if (Obstacles.Obstacles[obstacleIndex].PositionAlongCurve <= splineStartSizeInT) //slabe, bedzie zalezalo od dlugosci spline'a //TODO: wymyślić coś lepszego
+            var obstacle = Obstacles.Obstacles[obstacleIndex];
+            if (lengthsq(obstacle.Position - _splineStartPositions[obstacle.SplineId]) < carLength * carLength/*distance(obstacle.Position, _splineStartPositions[obstacle.SplineId]) < carLength*/ /*możliwe że 1.5*carLength plus distanceBetweenCars*/)
 			{
-				int splineId = Obstacles.Obstacles[obstacleIndex].SplineId;
-				if (!occupiedSplines.Contains(splineId))
+				int splineId = obstacle.SplineId;
+				if (!_occupiedSplines.Contains(splineId))
 				{
-					occupiedSplines.Add(splineId);
+					_occupiedSplines.Add(splineId);
 					PostUpdateCommands.CreateEntity();//EntityManager.CreateArchetype(typeof(SplineStartOccupied)));
 					PostUpdateCommands.AddComponent(new SplineStartOccupied { SplineId = splineId });
 				}

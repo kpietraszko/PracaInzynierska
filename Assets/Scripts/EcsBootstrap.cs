@@ -52,8 +52,8 @@ public class EcsBootstrap : MonoBehaviour
 			foreach (var light in Splines[splineIndex].TrafficLights)
 			{
 				var lightEntity = em.CreateEntity(typeof(Obstacle));
-				var worldPos = Splines[splineIndex].GetPointOnSpline(light - 0.035f);
-				em.SetComponentData(lightEntity, new Obstacle { SplineId = splineIndex, PositionAlongCurve = light-0.035f, Position = new float2(worldPos.x, worldPos.z) });
+				var worldPos = Splines[splineIndex].GetPointOnSpline(light/* - 0.035f*/);
+				em.SetComponentData(lightEntity, new Obstacle { SplineId = splineIndex, PositionAlongSpline = light/*-0.035f*/, Position = new float2(worldPos.x, worldPos.z) });
 			}
 		}
 	}

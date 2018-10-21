@@ -411,10 +411,10 @@ MonoBehaviour:
   Splines:
   - {fileID: 11400000, guid: 9e313ac8a7e6d5343a69f447ce262249, type: 2}
   CarPrefab: {fileID: 1934698960348948, guid: ec70a0fabd8bae740b9f9c5a08511ce8, type: 2}
-  CarPoolSize: 2
+  CarPoolSize: 20
   TrafficLightPrefab: {fileID: 1621101216866946, guid: 65331e4262d93e542b0d6dc83bd3f0dd,
     type: 2}
-  CarsToSpawnTemp: 2
+  CarsToSpawnTemp: 20
 --- !u!4 &1774726366
 Transform:
   m_ObjectHideFlags: 0

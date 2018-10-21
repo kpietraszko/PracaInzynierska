@@ -37,7 +37,8 @@ public class SplineFollowSystem : ComponentSystem
 	}
 	[Inject] ControlPointsData ControlPoints;
 	[Inject] CarsData Cars;
-	protected override void OnCreateManager()
+    List<int> _controlPointsIndices = new List<int>(30);
+    protected override void OnCreateManager()
 	{
 		base.OnCreateManager();
 		Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-GB");
@@ -47,12 +48,12 @@ protected override void OnUpdate()
 	{
 		// ogolnie działa, ale czasem freezuje Unity po przejechaniu spline'a i przy zatrzymaniu na świetle
 		var maxMovementError = 0.001f; //chyba wystarczy 1mm na klatke // TODO: dostosować
-		var controlPointsIndices = new List<int>();
+        _controlPointsIndices.Clear();
 		for (int carIndex = 0; carIndex < Cars.Length; carIndex++)
 		{
 			var curveId = Cars.SplineIds[carIndex];
-			GetCurvesControlPoints(curveId, controlPointsIndices);
-			var numOfCurves = controlPointsIndices.Count / 2; //krzywych w tym splinie
+			GetCurvesControlPoints(curveId, _controlPointsIndices);
+			var numOfCurves = _controlPointsIndices.Count / 2; //krzywych w tym splinie
 																			  //PostUpdateCommands.SetComponent(Cars.Entities[carIndex], new Velocity(15f)); //do testów TODO: usunąć
 			float v = Cars.Velocities[carIndex] * Time.deltaTime;
 			if (v <= maxMovementError)
@@ -111,7 +112,7 @@ protected override void OnUpdate()
 			Cars.Transforms[carIndex].SetPositionAndRotation(newPosition, newRotation);
 
 			var obstacle = Cars.Obstacles[carIndex];
-			obstacle.PositionAlongCurve = splineT;
+			obstacle.PositionAlongSpline = splineT;
 			obstacle.Position = new float2(newPosition.x, newPosition.z);
 			Cars.Obstacles[carIndex] = obstacle;
 		}
