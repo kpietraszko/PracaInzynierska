@@ -71,7 +71,7 @@ public class EcsBootstrap : MonoBehaviour
 	{
 		for (int i = 0; i < CarPoolSize; i++)
 		{
-			var newCar = GameObject.Instantiate(CarPrefab);
+			var newCar = GameObject.Instantiate(CarPrefab, new Vector3(1000f,0f,0f), Quaternion.identity);
 			var meshRenderer = newCar.GetComponent<MeshRenderer>();
 			var hue = UnityEngine.Random.Range(0f, 1f);
 			var randomColor = Color.HSVToRGB(hue, 0.7f, 1f);

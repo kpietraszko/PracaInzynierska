@@ -6,7 +6,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using static Unity.Mathematics.math;
 
-[UpdateBefore(typeof(CarSpawnSystem))]
+[UpdateAfter(typeof(SplineFollowSystem))]
 public class IsSplineStartOccupiedSystem : ComponentSystem
 {
 	struct ObstacleData

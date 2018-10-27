@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Entities;
 using UnityEngine;
 
+[UpdateBefore(typeof(SplineFollowSystem))]
 public class CarSpawnSystem : ComponentSystem
 {
     struct UnusedCarsData
@@ -40,21 +41,20 @@ public class CarSpawnSystem : ComponentSystem
 
         for (int i = 0; i < CarSpawns.Length; i++)
         {
-            //foreach (var item in occupiedSplines)
-            //{
-            //    Debug.Log(item);
-            //}
-            if (!occupiedSplines.Contains(CarSpawns.CarSpawns[i].SplineId))
+            // BUG: spawnuje 2 samochody na raz (jeden w jednej i drugi w nastepnej klatce)
+            // bo obstacle nie ma ustawionego Position zanim nie wykona się SplineFollowSystem
+            if (!occupiedSplines.Contains(CarSpawns.CarSpawns[i].SplineId)) 
             {
-                Debug.Log("Spawning");
+                Debug.Log($"Spawning on frame {Time.frameCount}"); 
                 var splineId = CarSpawns.CarSpawns[i].SplineId;
                 var spawningCar = UnusedCars.Entities[unusedCarIndex++];
                 PostUpdateCommands.AddSharedComponent(spawningCar, new SplineId(CarSpawns.CarSpawns[i].SplineId));
                 PostUpdateCommands.AddComponent(spawningCar, new PositionAlongSpline(0f));
                 PostUpdateCommands.AddComponent(spawningCar, new Accelerating());
-                PostUpdateCommands.AddComponent(spawningCar, new Obstacle { SplineId = splineId }); //wyjatek?
+                PostUpdateCommands.AddComponent(spawningCar, new Obstacle { SplineId = splineId, PositionAlongSpline = 0 });
                 PostUpdateCommands.AddComponent(spawningCar, new Velocity());
                 PostUpdateCommands.AddComponent(spawningCar, new Acceleration());
+                PostUpdateCommands.AddComponent(spawningCar, new FirstCarFrame());
                 PostUpdateCommands.DestroyEntity(CarSpawns.Entities[i]);
                 occupiedSplines.Add(splineId);
             }
