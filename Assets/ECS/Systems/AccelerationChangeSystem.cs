@@ -32,7 +32,7 @@ public class AccelerationChangeSystem : ComponentSystem
 	{
 		const float peakAcceleration = 30f; //TODO: przenieść do komponentu
 		float maxVelocity = 20f; //TODO: jw.
-		float breakingAcceleration = -20f; //TODO: jw.
+		float breakingAcceleration = -15f; //TODO: jw.
 		for (int i = 0; i < Accelerating.Length; i++)
 		{
 			float velocityToMaxVelocityRatio = Accelerating.Velocities[i] / maxVelocity;//Accelerating.MaxVelocities[i];

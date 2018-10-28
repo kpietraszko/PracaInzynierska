@@ -4,7 +4,7 @@ using Unity.Entities;
 using UnityEngine;
 using static Unity.Mathematics.math;
 
-//może ustalić execution order
+[UpdateBefore(typeof(SplineFollowSystem))]
 public class VelocityChangeSystem : ComponentSystem
 {
 	struct Data

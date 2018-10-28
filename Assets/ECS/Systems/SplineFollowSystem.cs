@@ -47,7 +47,6 @@ public class SplineFollowSystem : ComponentSystem
     protected override void OnUpdate()
     {
         const float carLength = 4.5f;
-        //dodać komponent FirstFrame przy spawnie samochodu, i jeśli go ma to ustawić pozycję na pierwszy punkt krzywej i usunąć komponent
         var maxMovementError = 0.001f; //chyba wystarczy 1mm na klatke // TODO: dostosować
         _controlPointsIndices.Clear();
         for (int carIndex = 0; carIndex < Cars.Length; carIndex++)
@@ -56,8 +55,12 @@ public class SplineFollowSystem : ComponentSystem
             GetSplineControlPoints(curveId, _controlPointsIndices);
             var numOfCurves = _controlPointsIndices.Count / 2; //krzywych w tym splinie
             float v = Cars.Velocities[carIndex] * Time.deltaTime;
+            var obstacle = Cars.Obstacles[carIndex];
+            float2 currentPosition = Cars.Positions[carIndex];
             if (v <= maxMovementError)
             {
+                obstacle.Position = GetOffsetObstaclePosition(currentPosition, currentPosition, carLength); 
+                Cars.Obstacles[carIndex] = obstacle;
                 continue;
             }
             //Debug.Log("v = " + v);
@@ -72,9 +75,9 @@ public class SplineFollowSystem : ComponentSystem
             if (positionAlongSpline + maxMovementError >= 0.99f)
             {
                 PostUpdateCommands.RemoveComponent<Velocity>(Cars.Entities[carIndex]); //raczej usunąć
+                PostUpdateCommands.RemoveComponent<Obstacle>(Cars.Entities[carIndex]); //jw.
                 continue; //to moze psuc przy t>0.9
             }
-            float2 currentPosition = Cars.Positions[carIndex];
             if (EntityManager.HasComponent<FirstCarFrame>(Cars.Entities[carIndex]))
             {
                 currentPosition = GetSplineFirstControlPoint(Cars.SplineIds[carIndex]);
@@ -123,9 +126,10 @@ public class SplineFollowSystem : ComponentSystem
             var newRotation = Quaternion.LookRotation(newPosVector - Cars.Transforms[carIndex].position, Vector3.up); //* Quaternion.Euler(-90,0,0); //obrocone o -90 bo blender - działa
             Cars.Transforms[carIndex].SetPositionAndRotation(newPosVector, newRotation);
 
-            var obstacle = Cars.Obstacles[carIndex];
             obstacle.PositionAlongSpline = splineT;
-            obstacle.Position = newPosition - normalize(newPosition - currentPosition) * (carLength / 2); // dobrze by było przesunąć to do tyłu o pół długości samochodu
+            // BUG: obstacle jest przed splinem, nie jestem pewien czy to problem
+            var obstaclePosition = newPosition - normalize(newPosition - currentPosition) * (carLength / 2); // pozycja przesunięta do tyłu o pół długości samochodu
+            obstacle.Position = GetOffsetObstaclePosition(currentPosition, newPosition, carLength);
             Cars.Obstacles[carIndex] = obstacle;
         }
     }
@@ -152,4 +156,6 @@ public class SplineFollowSystem : ComponentSystem
         }
         throw new IndexOutOfRangeException($"First control point not found for spline #{splineId}");
     }
+    private float2 GetOffsetObstaclePosition(float2 currentPosition, float2 newPosition, float carLength) => 
+        newPosition - normalize(newPosition - currentPosition) * (carLength / 2); // pozycja przesunięta do tyłu o pół długości samochodu
 }

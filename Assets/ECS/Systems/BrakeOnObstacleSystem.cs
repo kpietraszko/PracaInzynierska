@@ -45,7 +45,7 @@ public class BreakOnObstacleSystem : ComponentSystem
     protected override void OnUpdate()
     {
         var brakingAcceleration = -15f; //-20f było w miarę, ale chyba trochę szybko hamują
-        var brakingDistanceOffset = 3f;
+        var brakingDistanceOffset = 3.4f;
         for (int carIndex = 0; carIndex < NotBrakingCars.Length; carIndex++)
         {
             var carEntity = NotBrakingCars.Entities[carIndex];

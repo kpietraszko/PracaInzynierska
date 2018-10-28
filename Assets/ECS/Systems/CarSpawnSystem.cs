@@ -41,11 +41,14 @@ public class CarSpawnSystem : ComponentSystem
 
         for (int i = 0; i < CarSpawns.Length; i++)
         {
-            // BUG: spawnuje 2 samochody na raz (jeden w jednej i drugi w nastepnej klatce)
-            // bo obstacle nie ma ustawionego Position zanim nie wykona się SplineFollowSystem
+            // BUG: przy którymś samochodzie nagle z każdą klatką usuwa jeden carSpawn mimo że nie spawnuje bo spline zajęty
+            // spline start zostaje usunięty (chyba prawidłowo) i zaczyna sie usuwanie z każdą kolejną klatką
+            // usuwa nie tylko Spawny ale i UnusedCars
+            // jak ustawione na 4 lub 5 samochodów to działa wszystko ok, jak 6 lub wiecej to gdy 4. samochód minie początek to zaczyna sie psuć
+            // wygląda na to że zależy od długości spline'a, im dłuższy tym więcej samochodów spawnuje sie poprawnie zanim sie zepsuje
             if (!occupiedSplines.Contains(CarSpawns.CarSpawns[i].SplineId)) 
             {
-                Debug.Log($"Spawning on frame {Time.frameCount}"); 
+                Debug.Log($"[Frame {Time.frameCount}]Spline free, spawning");
                 var splineId = CarSpawns.CarSpawns[i].SplineId;
                 var spawningCar = UnusedCars.Entities[unusedCarIndex++];
                 PostUpdateCommands.AddSharedComponent(spawningCar, new SplineId(CarSpawns.CarSpawns[i].SplineId));
