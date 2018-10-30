@@ -59,7 +59,8 @@ public class SplineFollowSystem : ComponentSystem
             float2 currentPosition = Cars.Positions[carIndex];
             if (v <= maxMovementError)
             {
-                obstacle.Position = GetOffsetObstaclePosition(currentPosition, currentPosition, carLength); 
+                obstacle.Position = GetSplineFirstControlPoint(Cars.SplineIds[carIndex]);
+                // uwaga, nowy samochód w ten sposób może mieć pozycję przed poprzednim samochodem (który ma pozycję przesuniętą do tyłu)
                 Cars.Obstacles[carIndex] = obstacle;
                 continue;
             }
@@ -128,9 +129,11 @@ public class SplineFollowSystem : ComponentSystem
 
             obstacle.PositionAlongSpline = splineT;
             // BUG: obstacle jest przed splinem, nie jestem pewien czy to problem
-            var obstaclePosition = newPosition - normalize(newPosition - currentPosition) * (carLength / 2); // pozycja przesunięta do tyłu o pół długości samochodu
-            obstacle.Position = GetOffsetObstaclePosition(currentPosition, newPosition, carLength);
-            Cars.Obstacles[carIndex] = obstacle;
+            if (any(currentPosition != newPosition))
+            {
+                obstacle.Position = GetOffsetObstaclePosition(currentPosition, newPosition, carLength);
+                Cars.Obstacles[carIndex] = obstacle;
+            }
         }
     }
     private void GetSplineControlPoints(int splineId, List<int> pointsIndices)
@@ -156,6 +159,11 @@ public class SplineFollowSystem : ComponentSystem
         }
         throw new IndexOutOfRangeException($"First control point not found for spline #{splineId}");
     }
-    private float2 GetOffsetObstaclePosition(float2 currentPosition, float2 newPosition, float carLength) => 
-        newPosition - normalize(newPosition - currentPosition) * (carLength / 2); // pozycja przesunięta do tyłu o pół długości samochodu
+    private float2 GetOffsetObstaclePosition(float2 currentPosition, float2 newPosition, float carLength)
+    {
+
+        var obstaclePosition = newPosition - normalize(newPosition - currentPosition) * (carLength / 2); // pozycja przesunięta do tyłu o pół długości samochodu
+        //System.Diagnostics.Debug.WriteLine(obstaclePosition);
+        return obstaclePosition;
+    }
 }

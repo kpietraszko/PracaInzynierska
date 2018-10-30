@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
@@ -53,10 +54,13 @@ public class IsSplineStartOccupiedSystem : ComponentSystem
         }
         //sprawdzenie czy początek spline'a jest pusty
         _occupiedSplines.Clear();
+        var debugDistances = "";
         for (int obstacleIndex = 0; obstacleIndex < Obstacles.Length; obstacleIndex++)
 		{
             var obstacle = Obstacles.Obstacles[obstacleIndex];
-            var distanceToObstacleDebug = distance(obstacle.Position, _splineStartPositions[obstacle.SplineId]);
+            var distanceToObstacleDebug = distance(obstacle.Position, _splineStartPositions[obstacle.SplineId]); // obstacle.Position NaN!!
+            var distString = distanceToObstacleDebug.ToString();
+            debugDistances += distString + "\n";
             if (lengthsq(obstacle.Position - _splineStartPositions[obstacle.SplineId]) < carLength * carLength/*distance(obstacle.Position, _splineStartPositions[obstacle.SplineId]) < carLength*/ /*możliwe że 1.5*carLength plus distanceBetweenCars*/)
 			{
 				int splineId = obstacle.SplineId;
@@ -68,6 +72,10 @@ public class IsSplineStartOccupiedSystem : ComponentSystem
 				}
 			}
 		}
+        if(!_occupiedSplines.Any())
+        {
+            ;
+        }
 		//string debugSplines = "";
 		//foreach (var item in occupiedSplines)
 		//{

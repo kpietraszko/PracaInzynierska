@@ -31,6 +31,10 @@ public class CarSpawnSystem : ComponentSystem
 
     protected override void OnUpdate()
     {
+        if (CarSpawns.Length == 0)
+        {
+            return;
+        }
         const float carLength = 4.5f;
         var unusedCarIndex = 0;
         List<int> occupiedSplines = new List<int>(10);
@@ -46,7 +50,7 @@ public class CarSpawnSystem : ComponentSystem
             // usuwa nie tylko Spawny ale i UnusedCars
             // jak ustawione na 4 lub 5 samochodów to działa wszystko ok, jak 6 lub wiecej to gdy 4. samochód minie początek to zaczyna sie psuć
             // wygląda na to że zależy od długości spline'a, im dłuższy tym więcej samochodów spawnuje sie poprawnie zanim sie zepsuje
-            if (!occupiedSplines.Contains(CarSpawns.CarSpawns[i].SplineId)) 
+            if (!occupiedSplines.Contains(CarSpawns.CarSpawns[i].SplineId))
             {
                 Debug.Log($"[Frame {Time.frameCount}]Spline free, spawning");
                 var splineId = CarSpawns.CarSpawns[i].SplineId;
