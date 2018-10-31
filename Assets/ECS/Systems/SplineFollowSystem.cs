@@ -84,6 +84,9 @@ public class SplineFollowSystem : ComponentSystem
             {
                 PostUpdateCommands.RemoveComponent<Velocity>(Cars.Entities[carIndex]); //raczej usunąć
                 PostUpdateCommands.RemoveComponent<Obstacle>(Cars.Entities[carIndex]); //jw.
+                PostUpdateCommands.SetComponent(Cars.Entities[carIndex], new Position2D(1000f, 0f)); // może niepotrzebne
+                Cars.Transforms[carIndex].position = new Vector3(1000f, 0f, 0f); // wyrzuca samochód gdzieś daleko żeby schować
+                // TODO: powinien trafić do unused cars, sprawdzić
                 continue; //to moze psuc przy t>0.9
             }
 

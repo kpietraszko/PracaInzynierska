@@ -10,6 +10,15 @@ public struct Position2D : IComponentData
 {
 	public float2 Value;
 
+    public Position2D(float2 value)
+    {
+        Value = value;
+    }
+    public Position2D(float x, float y)
+    {
+        Value = new float2(x, y);
+    }
+
 	public static implicit operator float2(Position2D position)
 	{
 		return position.Value;
