@@ -57,11 +57,18 @@ public class SplineFollowSystem : ComponentSystem
             float v = Cars.Velocities[carIndex] * Time.deltaTime;
             var obstacle = Cars.Obstacles[carIndex];
             float2 currentPosition = Cars.Positions[carIndex];
-            if (v <= maxMovementError)
+            if (EntityManager.HasComponent<FirstCarFrame>(Cars.Entities[carIndex]))
             {
                 obstacle.Position = GetSplineFirstControlPoint(Cars.SplineIds[carIndex]);
                 // uwaga, nowy samochód w ten sposób może mieć pozycję przed poprzednim samochodem (który ma pozycję przesuniętą do tyłu)
                 Cars.Obstacles[carIndex] = obstacle;
+                Cars.Positions[carIndex] = obstacle.Position;
+                currentPosition = obstacle.Position; //GetSplineFirstControlPoint(Cars.SplineIds[carIndex]);
+                PostUpdateCommands.RemoveComponent<FirstCarFrame>(Cars.Entities[carIndex]);
+            }
+            if (v <= maxMovementError)
+            {
+                
                 continue;
             }
             //Debug.Log("v = " + v);
@@ -78,11 +85,6 @@ public class SplineFollowSystem : ComponentSystem
                 PostUpdateCommands.RemoveComponent<Velocity>(Cars.Entities[carIndex]); //raczej usunąć
                 PostUpdateCommands.RemoveComponent<Obstacle>(Cars.Entities[carIndex]); //jw.
                 continue; //to moze psuc przy t>0.9
-            }
-            if (EntityManager.HasComponent<FirstCarFrame>(Cars.Entities[carIndex]))
-            {
-                currentPosition = GetSplineFirstControlPoint(Cars.SplineIds[carIndex]);
-                PostUpdateCommands.RemoveComponent<FirstCarFrame>(Cars.Entities[carIndex]);
             }
 
             int iterations = 0; //do debugowania TODO: usunąć

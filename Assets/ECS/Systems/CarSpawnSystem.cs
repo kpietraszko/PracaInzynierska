@@ -52,13 +52,14 @@ public class CarSpawnSystem : ComponentSystem
             // wygląda na to że zależy od długości spline'a, im dłuższy tym więcej samochodów spawnuje sie poprawnie zanim sie zepsuje
             if (!occupiedSplines.Contains(CarSpawns.CarSpawns[i].SplineId))
             {
-                Debug.Log($"[Frame {Time.frameCount}]Spline free, spawning");
+                //Debug.Log($"[Frame {Time.frameCount}]Spline free, spawning");
                 var splineId = CarSpawns.CarSpawns[i].SplineId;
                 var spawningCar = UnusedCars.Entities[unusedCarIndex++];
                 PostUpdateCommands.AddSharedComponent(spawningCar, new SplineId(CarSpawns.CarSpawns[i].SplineId));
                 PostUpdateCommands.AddComponent(spawningCar, new PositionAlongSpline(0f));
                 PostUpdateCommands.AddComponent(spawningCar, new Accelerating());
-                PostUpdateCommands.AddComponent(spawningCar, new Obstacle { SplineId = splineId, PositionAlongSpline = 0 });
+                // OD RAZU POTRZEBNE OBSTACLE.POSITION 
+                PostUpdateCommands.AddComponent(spawningCar, new Obstacle { SplineId = splineId, PositionAlongSpline = 0 }); 
                 PostUpdateCommands.AddComponent(spawningCar, new Velocity());
                 PostUpdateCommands.AddComponent(spawningCar, new Acceleration());
                 PostUpdateCommands.AddComponent(spawningCar, new FirstCarFrame());
