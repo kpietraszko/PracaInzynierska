@@ -51,14 +51,6 @@ public class BreakOnObstacleSystem : ComponentSystem
         for (int carIndex = 0; carIndex < NotBrakingCars.Length; carIndex++)
         {
             var carEntity = NotBrakingCars.Entities[carIndex];
-            if (carEntity.Index == 10)
-            {
-                if (EntityManager.HasComponent<Accelerating>(carEntity))
-                {
-                    Debug.Log("Car 10 has Accelerating component");
-                    //Debug.Break();
-                }
-            }
             var v = NotBrakingCars.Velocities[carIndex];
             var a = NotBrakingCars.Accelerations[carIndex];
             for (int obstacleIndex = 0; obstacleIndex < Obstacles.Length; obstacleIndex++)
@@ -68,11 +60,7 @@ public class BreakOnObstacleSystem : ComponentSystem
                 NotBrakingCars.SplineIds[carIndex], NotBrakingCars.PositionsAlongSpline[carIndex], NotBrakingCars.Positions[carIndex]))
                 {
                     PostUpdateCommands.RemoveComponent<Accelerating>(carEntity);
-                    PostUpdateCommands.AddComponent<Decelerating>(carEntity, new Decelerating());
-                    if (carEntity.Index == 10)
-                    {
-                        Debug.Log("Decelerating");
-                    }
+                    PostUpdateCommands.AddComponent(carEntity, new Decelerating());
                     break;
                 }
             }
@@ -80,28 +68,20 @@ public class BreakOnObstacleSystem : ComponentSystem
         for (int carIndex = 0; carIndex < BrakingCars.Length; carIndex++)
         {
             var carEntity = BrakingCars.Entities[carIndex];
-            if (carEntity.Index == 10)
-            {
-                Debug.Log("Car 10 is in braking group");
-            }
             var v = BrakingCars.Velocities[carIndex];
             var a = BrakingCars.Accelerations[carIndex];
             var shouldKeepBraking = false;
             for (int obstacleIndex = 0; obstacleIndex < Obstacles.Length; obstacleIndex++)
             {
                 if (shouldBrake(v, a, brakingAcceleration, brakingDistanceOffset, obstacleIndex, carEntity,
-                BrakingCars.SplineIds[carIndex], BrakingCars.PositionsAlongSpline[carIndex], BrakingCars.Positions[carIndex], true))
+                BrakingCars.SplineIds[carIndex], BrakingCars.PositionsAlongSpline[carIndex], BrakingCars.Positions[carIndex]))
                 {
                     shouldKeepBraking = true;
-                    if (carEntity.Index == 10)
-                    {
-                        Debug.Log("10 should keep braking");
-                    }
                 }
             }
             if (!shouldKeepBraking) // jeśli żadna przeszkoda nie jest blisko
             {
-                Debug.Log($"Car {BrakingCars.Entities[carIndex].Index}: Road clear, accelerating");
+                //Debug.Log($"Car {BrakingCars.Entities[carIndex].Index}: Road clear, accelerating");
                 PostUpdateCommands.RemoveComponent<Decelerating>(carEntity);
                 PostUpdateCommands.AddComponent(carEntity, new Accelerating());
                 break;
@@ -110,7 +90,7 @@ public class BreakOnObstacleSystem : ComponentSystem
     }
 
     private bool shouldBrake(float v, float a, float brakingAcceleration, float brakingDistanceOffset, int obstacleIndex, Entity carEntity,
-        int carSpline, float carPositionAlongSpline, float2 carPosition, bool checkingIfShouldKeepBraking = false)
+        int carSpline, float carPositionAlongSpline, float2 carPosition)
     {
         var brakingDistance = v * v / -brakingAcceleration / 2;
         var obstacle = Obstacles.Obstacles[obstacleIndex];
@@ -121,11 +101,6 @@ public class BreakOnObstacleSystem : ComponentSystem
             return false;
         }
         var distanceToObstacle = distance(Obstacles.Obstacles[obstacleIndex].Position, carPosition);
-        if (checkingIfShouldKeepBraking && carEntity.Index == 10 && distanceToObstacle < brakingDistanceOffset)
-        {
-            Debug.Log($"Must keep braking, obstacle entity #{Obstacles.Entities[obstacleIndex].Index} is near, am at {carPosition}");
-            //Debug.Break();
-        }
         bool shouldBrake = distanceToObstacle <= brakingDistance + brakingDistanceOffset;
         return shouldBrake;
     }
