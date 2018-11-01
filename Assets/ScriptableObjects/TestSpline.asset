@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Name: TestSpline
   m_EditorClassIdentifier: 
   ControlPoints:
-  - {x: 0, y: -30.71}
+  - {x: 0, y: -44.04523}
   - {x: 0, y: 0}
-  - {x: 0, y: 20}
+  - {x: 0, y: 15}
   - {x: 0, y: 30}
+  - {x: 15, y: 30}
   - {x: 10, y: 30}
-  - {x: 10, y: 30}
-  - {x: 54.680733, y: 30}
+  - {x: 77.74985, y: 30}
   _TrafficLights: []

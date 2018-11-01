@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Entities;
 using Unity.Mathematics;
-using System;
 
 public class EcsBootstrap : MonoBehaviour
 {
@@ -74,7 +73,9 @@ public class EcsBootstrap : MonoBehaviour
 			var newCar = GameObject.Instantiate(CarPrefab, new Vector3(1000f,0f,0f), Quaternion.identity);
 			var meshRenderer = newCar.GetComponent<MeshRenderer>();
 			var hue = UnityEngine.Random.Range(0f, 1f);
-			var randomColor = Color.HSVToRGB(hue, 0.7f, 1f);
+            var saturation = 0.55f + UnityEngine.Random.Range(-0.05f, 0.05f);
+            var value = 0.5f + UnityEngine.Random.Range(-0.1f, 0.1f);
+            var randomColor = Color.HSVToRGB(hue, saturation, value);
 			meshRenderer.material.color = randomColor;
 		}
 	}

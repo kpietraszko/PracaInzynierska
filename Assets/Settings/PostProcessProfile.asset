@@ -31,35 +31,35 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 4
+    value: 10
   threshold:
     overrideState: 1
-    value: 1.05
+    value: 1.07
   softKnee:
-    overrideState: 0
-    value: 0.5
+    overrideState: 1
+    value: 0
   clamp:
     overrideState: 0
     value: 65472
   diffusion:
-    overrideState: 0
-    value: 7
+    overrideState: 1
+    value: 1
   anamorphicRatio:
     overrideState: 0
-    value: 0
+    value: 1
   color:
     overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
   fastMode:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 1
   dirtTexture:
     overrideState: 0
     value: {fileID: 0}
     defaultState: 1
   dirtIntensity:
     overrideState: 0
-    value: 0
+    value: 22.1
 --- !u!114 &114375464177707528
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -84,22 +84,22 @@ MonoBehaviour:
     defaultState: 1
   tonemapper:
     overrideState: 1
-    value: 1
+    value: 2
   toneCurveToeStrength:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.701
   toneCurveToeLength:
-    overrideState: 0
-    value: 0.5
+    overrideState: 1
+    value: 0.482
   toneCurveShoulderStrength:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.189
   toneCurveShoulderLength:
     overrideState: 0
     value: 0.5
   toneCurveShoulderAngle:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.374
   toneCurveGamma:
     overrideState: 0
     value: 1
@@ -124,7 +124,7 @@ MonoBehaviour:
     value: 0
   saturation:
     overrideState: 0
-    value: 0
+    value: -1.2
   brightness:
     overrideState: 0
     value: 0
@@ -163,13 +163,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    value: {x: 1, y: 1, z: 1, w: -0.042164445}
   gamma:
     overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    value: {x: 1, y: 1, z: 1, w: 0.05621926}
   gain:
     overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    value: {x: 1, y: 1, z: 1, w: 0.084328875}
   masterCurve:
     overrideState: 0
     value:
