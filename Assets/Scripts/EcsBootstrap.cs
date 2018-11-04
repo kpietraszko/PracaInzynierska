@@ -23,6 +23,7 @@ public class EcsBootstrap : MonoBehaviour
 		CreateSplineEntities(em);
 		InstantiateTrafficLights();
 		InstantiateCars(em);
+        CreateArchetypes(em);
 		var startEntity = em.CreateEntity();
 		em.AddComponent(startEntity, typeof(Start));
 		for (int i = 0; i < CarsToSpawnTemp; i++) //temp
@@ -73,10 +74,31 @@ public class EcsBootstrap : MonoBehaviour
 			var newCar = GameObject.Instantiate(CarPrefab, new Vector3(1000f,0f,0f), Quaternion.identity);
 			var meshRenderer = newCar.GetComponent<MeshRenderer>();
 			var hue = UnityEngine.Random.Range(0f, 1f);
-            var saturation = 0.55f + UnityEngine.Random.Range(-0.05f, 0.05f);
-            var value = 0.5f + UnityEngine.Random.Range(-0.1f, 0.1f);
-            var randomColor = Color.HSVToRGB(hue, saturation, value);
-			meshRenderer.material.color = randomColor;
+            var randomColor = GetRandomColor();
+            meshRenderer.material.color = randomColor;
 		}
 	}
+    void CreateArchetypes(EntityManager em) // tworzenie archetypów zmienia układ komponentów w pamięci, zmniejszając liczbe przesunięć i alokacji
+    { // poprawka, jednak to nic nie daje, trzeba AddMatchingArchetypes?
+        // samochody nieużywane
+        //em.CreateArchetype(typeof(Car), typeof(Position2D), typeof(MaxVelocity), typeof(Transform), typeof(MeshFilter), typeof(MeshRenderer));
+        //em.CreateArchetype(typeof(CarSpawn));
+        //// samochody przyspieszające
+        //em.CreateArchetype(typeof(Car), typeof(Position2D), typeof(MaxVelocity), typeof(Transform), typeof(MeshFilter), typeof(MeshRenderer), typeof(SplineId), typeof(PositionAlongSpline), typeof(Acceleration), typeof(Velocity), typeof(Obstacle), typeof(Accelerating));
+        //// samochody w stanie pośrednim 
+        //em.CreateArchetype(typeof(Car), typeof(Position2D), typeof(MaxVelocity), typeof(Transform), typeof(MeshFilter), typeof(MeshRenderer), typeof(SplineId), typeof(PositionAlongSpline), typeof(Acceleration), typeof(Velocity), typeof(Obstacle));
+        //// samochody hamujące
+        //em.CreateArchetype(typeof(Car), typeof(Position2D), typeof(MaxVelocity), typeof(Transform), typeof(MeshFilter), typeof(MeshRenderer), typeof(SplineId), typeof(PositionAlongSpline), typeof(Acceleration), typeof(Velocity), typeof(Obstacle), typeof(Decelerating));
+        //// punkty kontrolne
+        //em.CreateArchetype(typeof(SplineId), typeof(ControlPointId), typeof(Position2D));
+        
+
+    }
+    Color GetRandomColor()
+    {
+        var hue = UnityEngine.Random.Range(0f, 1f);
+        var saturation = 0.50f + UnityEngine.Random.Range(-0.05f, 0.05f);
+        var value = 0.5f + UnityEngine.Random.Range(-0.1f, 0.1f);
+        return Color.HSVToRGB(hue, saturation, value);
+    }
 }

@@ -19,4 +19,5 @@ MonoBehaviour:
   - {x: 15, y: 30}
   - {x: 10, y: 30}
   - {x: 77.74985, y: 30}
-  _TrafficLights: []
+  _TrafficLights:
+  - 0.32

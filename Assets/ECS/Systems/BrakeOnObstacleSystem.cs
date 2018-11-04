@@ -44,8 +44,27 @@ public class BreakOnObstacleSystem : ComponentSystem
     [Inject] ObstacleData Obstacles;
     [Inject] NotBrakingCarsData NotBrakingCars;
     [Inject] BrakingCarsData BrakingCars;
+    NativeList<Entity> CarsToStartBraking;
+    NativeList<Entity> CarsToStartAccelerating;
+
+    protected override void OnCreateManager()
+    {
+        base.OnCreateManager();
+        CarsToStartBraking = new NativeList<Entity>(100, Allocator.Persistent);
+        CarsToStartAccelerating = new NativeList<Entity>(100, Allocator.Persistent);
+    }
     protected override void OnUpdate()
     {
+        //var archetypesList = new List<EntityArchetype>();
+        //using (NativeList<EntityArchetype> allArchetypes = new NativeList<EntityArchetype>(Allocator.Temp))
+        //{
+        //    EntityManager.GetAllArchetypes(allArchetypes);
+        //    for (int i = 0; i < allArchetypes.Length; i++)
+        //    {
+        //        archetypesList.Add(allArchetypes[i]);
+        //    }
+        //}
+        //Debug.Log($"{archetypesList.Count} archetypes");
         var brakingAcceleration = -15f; //-20f było w miarę, ale chyba trochę szybko hamują
         var brakingDistanceOffset = 3.4f;
         for (int carIndex = 0; carIndex < NotBrakingCars.Length; carIndex++)
@@ -59,12 +78,14 @@ public class BreakOnObstacleSystem : ComponentSystem
                 if (shouldBrake(v, a, brakingAcceleration, brakingDistanceOffset, obstacleIndex, carEntity,
                 NotBrakingCars.SplineIds[carIndex], NotBrakingCars.PositionsAlongSpline[carIndex], NotBrakingCars.Positions[carIndex]))
                 {
-                    PostUpdateCommands.RemoveComponent<Accelerating>(carEntity);
-                    PostUpdateCommands.AddComponent(carEntity, new Decelerating());
+                    CarsToStartBraking.Add(carEntity);
+                    //PostUpdateCommands.RemoveComponent<Accelerating>(carEntity);
+                    //PostUpdateCommands.AddComponent(carEntity, new Decelerating());
                     break;
                 }
             }
         }
+
         for (int carIndex = 0; carIndex < BrakingCars.Length; carIndex++)
         {
             var carEntity = BrakingCars.Entities[carIndex];
@@ -82,11 +103,26 @@ public class BreakOnObstacleSystem : ComponentSystem
             if (!shouldKeepBraking) // jeśli żadna przeszkoda nie jest blisko
             {
                 //Debug.Log($"Car {BrakingCars.Entities[carIndex].Index}: Road clear, accelerating");
-                PostUpdateCommands.RemoveComponent<Decelerating>(carEntity);
-                PostUpdateCommands.AddComponent(carEntity, new Accelerating());
+                CarsToStartAccelerating.Add(carEntity);
+                //PostUpdateCommands.RemoveComponent<Decelerating>(carEntity);
+                //PostUpdateCommands.AddComponent(carEntity, new Accelerating());
                 break;
             }
         }
+        for (int i = 0; i < CarsToStartBraking.Length; i++)
+        {
+            var carEntity = CarsToStartBraking[i];
+            EntityManager.RemoveComponent<Accelerating>(carEntity);
+            EntityManager.AddComponent(carEntity, typeof(Decelerating));
+        }
+        CarsToStartBraking.Clear();
+        for (int i = 0; i < CarsToStartAccelerating.Length; i++)
+        {
+            var carEntity = CarsToStartAccelerating[i];
+            EntityManager.RemoveComponent<Decelerating>(carEntity);
+            EntityManager.AddComponent(carEntity, typeof(Accelerating));
+        }
+        CarsToStartAccelerating.Clear();
     }
 
     private bool shouldBrake(float v, float a, float brakingAcceleration, float brakingDistanceOffset, int obstacleIndex, Entity carEntity,
@@ -103,5 +139,11 @@ public class BreakOnObstacleSystem : ComponentSystem
         var distanceToObstacle = distance(Obstacles.Obstacles[obstacleIndex].Position, carPosition);
         bool shouldBrake = distanceToObstacle <= brakingDistance + brakingDistanceOffset;
         return shouldBrake;
+    }
+    protected override void OnDestroyManager()
+    {
+        base.OnDestroyManager();
+        CarsToStartBraking.Dispose();
+        CarsToStartAccelerating.Dispose();
     }
 }
