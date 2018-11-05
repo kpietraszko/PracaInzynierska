@@ -2,41 +2,9 @@
 -target:library
 -nowarn:0169
 -langversion:7
--out:D:/UnityRozne/PracaInzynierska/Temp/Assembly-CSharp.dll
+-out:D:/UnityRozne/PracaInzynierska/Temp/Unity.InternalAPIEditorBridge.003.dll
 -nostdlib
 -unsafe
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Entities.Properties.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Properties.Codegen.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Jobs.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Jobs.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Entities.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Properties.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Collections.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Burst.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Runtime.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Rendering.Hybrid.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Properties.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Entities.Hybrid.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Mathematics.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Entities.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Transforms.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Transforms.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Burst.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.TextMeshPro.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.RenderPipelines.Core.IncludePaths.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Transforms.Hybrid.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.VectorGraphics.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.003.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.VectorGraphics.Editor.dll
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.AIModule.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.ARModule.dll"
@@ -63,12 +31,14 @@
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.LocalizationModule.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.ParticlesLegacyModule.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.PhysicsModule.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.Physics2DModule.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.ProfilerModule.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll"
+-r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.SpatialTrackingModule.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.SpriteShapeModule.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.StreamingModule.dll"
@@ -99,12 +69,29 @@
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEditor.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/Unity.Locator.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll"
 -r:C:/Users/Krzysiek/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.collections@0.0.9-preview.9/System.Runtime.CompilerServices.Unsafe.dll
+-r:C:/Users/Krzysiek/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.properties@0.2.11-preview/Editor/Serialization/External/Cecil/Mono.Cecil.dll
+-r:C:/Users/Krzysiek/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.properties@0.2.11-preview/Editor/Serialization/External/Cecil/Mono.Cecil.Mdb.dll
+-r:C:/Users/Krzysiek/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.properties@0.2.11-preview/Editor/Serialization/External/Cecil/Mono.Cecil.Pdb.dll
+-r:C:/Users/Krzysiek/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.properties@0.2.11-preview/Editor/Serialization/External/Cecil/Mono.Cecil.Rocks.dll
+-r:C:/Users/Krzysiek/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.render-pipelines.core@3.0.0-preview/CoreRP/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll
+-r:"C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.Core.dll"
@@ -318,30 +305,6 @@
 -d:UNITY_TEAM_LICENSE
 -d:ENABLE_VSTU
 -d:UNITY_POST_PROCESSING_STACK_V2
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/Accelerating.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/AccelerationWrapper.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/CarSpawn.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/CarWrapper.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/ControlPointId.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/Decelerating.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/FirstCarFrame.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/MaxVelocityWrapper.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/ObstacleWrapper.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/Position2DWrapper.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/PositionAlongSplineWrapper.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/SplineFollowWrapper.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/SplineIdWrapper.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/SplineStartOccupied.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/Start.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/VelocityWrapper.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Systems/AccelerationChangeSystem.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Systems/BrakeOnObstacleSystem.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Systems/CarSpawnSystem.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Systems/IsSplineStartOccupiedSystem.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Systems/SplineFollowSystem.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Systems/StartSystem.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Systems/VelocityChangeSystem.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/ScriptableObjects/Classes/Spline.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/Scripts/EcsBootstrap.cs
--i:D:/UnityRozne/PracaInzynierska/Assets/TutorialInfo/Scripts/Readme.cs
+-i:C:/Users/Krzysiek/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.vectorgraphics@1.0.0-preview.21/Editor/InternalBridge/AssemblyInfo.cs
+-i:C:/Users/Krzysiek/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.vectorgraphics@1.0.0-preview.21/Editor/InternalBridge/VectorGraphicsBridge.cs
 -v:0

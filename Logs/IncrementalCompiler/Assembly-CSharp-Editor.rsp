@@ -35,6 +35,9 @@
 -r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.TextMeshPro.dll
 -r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.RenderPipelines.Core.IncludePaths.dll
 -r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Transforms.Hybrid.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.VectorGraphics.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.003.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.VectorGraphics.Editor.dll
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.AIModule.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.ARModule.dll"
