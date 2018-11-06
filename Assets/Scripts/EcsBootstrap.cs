@@ -16,6 +16,8 @@ public class EcsBootstrap : MonoBehaviour
 	GameObject TrafficLightPrefab;
 	[SerializeField]
 	int CarsToSpawnTemp;
+    [SerializeField]
+    Scenario[] Scenarios;
 
 	void Awake()
 	{
@@ -79,7 +81,7 @@ public class EcsBootstrap : MonoBehaviour
 		}
 	}
     void CreateArchetypes(EntityManager em) // tworzenie archetypów zmienia układ komponentów w pamięci, zmniejszając liczbe przesunięć i alokacji
-    { // poprawka, jednak to nic nie daje, trzeba AddMatchingArchetypes?
+    { // poprawka, jednak to nic nie daje, może iteracja po chunkach to naprawia?
         // samochody nieużywane
         //em.CreateArchetype(typeof(Car), typeof(Position2D), typeof(MaxVelocity), typeof(Transform), typeof(MeshFilter), typeof(MeshRenderer));
         //em.CreateArchetype(typeof(CarSpawn));

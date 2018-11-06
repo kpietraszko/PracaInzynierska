@@ -11,6 +11,7 @@ using System.IO;
 using System.Threading;
 using System.Globalization;
 
+[UpdateAfter(typeof(UnityEngine.Experimental.PlayerLoop.FixedUpdate))]
 public class SplineFollowSystem : ComponentSystem
 {
 
@@ -58,7 +59,7 @@ public class SplineFollowSystem : ComponentSystem
             var curveId = Cars.SplineIds[carIndex];
             GetSplineControlPoints(curveId, _controlPointsIndices);
             var numOfCurves = _controlPointsIndices.Length / 2; //krzywych w tym splinie
-            float v = Cars.Velocities[carIndex] * Time.deltaTime;
+            float v = Cars.Velocities[carIndex] * Time.fixedDeltaTime;
             var obstacle = Cars.Obstacles[carIndex];
             float2 currentPosition = Cars.Positions[carIndex];
             if (EntityManager.HasComponent<FirstCarFrame>(Cars.Entities[carIndex]))

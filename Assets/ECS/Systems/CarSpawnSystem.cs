@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Entities;
 using UnityEngine;
 
+[UpdateAfter(typeof(UnityEngine.Experimental.PlayerLoop.FixedUpdate))]
 [UpdateBefore(typeof(SplineFollowSystem))]
 public class CarSpawnSystem : ComponentSystem
 {

@@ -4,6 +4,7 @@ using Unity.Entities;
 using UnityEngine;
 using static Unity.Mathematics.math;
 
+[UpdateAfter(typeof(UnityEngine.Experimental.PlayerLoop.FixedUpdate))]
 [UpdateBefore(typeof(SplineFollowSystem))]
 public class VelocityChangeSystem : ComponentSystem
 {
@@ -19,7 +20,7 @@ public class VelocityChangeSystem : ComponentSystem
 	{
 		for (int i = 0; i < Moveables.Length; i++)
 		{
-			float newVelocity = Moveables.Velocities[i] + Moveables.Accelerations[i] * Time.deltaTime; // TODO: sprawdzić czy ma być tu dt
+			float newVelocity = Moveables.Velocities[i] + Moveables.Accelerations[i] * Time.fixedDeltaTime; // TODO: sprawdzić czy ma być tu dt
             newVelocity = max(newVelocity, 0f);
 			PostUpdateCommands.SetComponent(Moveables.Entities[i], new Velocity(newVelocity));
 		}

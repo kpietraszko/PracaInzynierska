@@ -6,8 +6,8 @@ using Unity.Mathematics;
 using UnityEngine;
 using static Unity.Mathematics.math;
 
+[UpdateAfter(typeof(UnityEngine.Experimental.PlayerLoop.FixedUpdate))]
 [UpdateBefore(typeof(AccelerationChangeSystem))]
-
 public class BreakOnObstacleSystem : ComponentSystem
 {
     struct ObstacleData

@@ -4,7 +4,7 @@ using Unity.Entities;
 using UnityEngine;
 using static Unity.Mathematics.math;
 
-//grupa Accelerating i Decelerating - ustawić acceleration zależnie od prędkości, przy Accelerating przyspieszenie najwyzsze dla v=0 i rowne 0 dla v=vmax
+[UpdateAfter(typeof(UnityEngine.Experimental.PlayerLoop.FixedUpdate))]
 [UpdateBefore(typeof(VelocityChangeSystem))]
 public class AccelerationChangeSystem : ComponentSystem
 {

@@ -6,38 +6,6 @@
 -nostdlib
 -unsafe
 -r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Assembly-CSharp.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Entities.Properties.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Properties.Codegen.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Jobs.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Jobs.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Entities.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Properties.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Collections.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Burst.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Runtime.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Rendering.Hybrid.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Properties.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Entities.Hybrid.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Mathematics.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Entities.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Transforms.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Transforms.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Burst.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.TextMeshPro.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.RenderPipelines.Core.IncludePaths.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Transforms.Hybrid.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.VectorGraphics.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.003.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.VectorGraphics.Editor.dll
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.AIModule.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.ARModule.dll"
@@ -101,6 +69,41 @@
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEngine/UnityEngine.XRModule.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/UnityEditor.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\Managed/Unity.Locator.dll"
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Entities.Properties.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Properties.Codegen.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Jobs.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Jobs.Editor.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Entities.Editor.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Properties.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.VectorGraphics.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Collections.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.003.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Burst.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Runtime.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Editor.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Rendering.Hybrid.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Properties.Editor.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.VectorGraphics.Editor.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Entities.Hybrid.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Mathematics.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Entities.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Transforms.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Transforms.Editor.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Burst.Editor.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.RenderPipelines.Core.IncludePaths.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Transforms.Hybrid.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll
 -r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll"
@@ -128,6 +131,9 @@
 -r:C:/Users/Krzysiek/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.properties@0.2.11-preview/Editor/Serialization/External/Cecil/Mono.Cecil.Rocks.dll
 -r:C:/Users/Krzysiek/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.render-pipelines.core@3.0.0-preview/CoreRP/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll
 -r:"C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll"
+-r:C:/Users/Krzysiek/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll
+-r:C:/Users/Krzysiek/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll
+-r:C:/Users/Krzysiek/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/Editor/UnityEditor.Analytics.dll
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.Core.dll"

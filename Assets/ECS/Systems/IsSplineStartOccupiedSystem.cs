@@ -7,6 +7,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using static Unity.Mathematics.math;
 
+[UpdateAfter(typeof(UnityEngine.Experimental.PlayerLoop.FixedUpdate))]
 [UpdateAfter(typeof(SplineFollowSystem))]
 public class IsSplineStartOccupiedSystem : ComponentSystem
 {
