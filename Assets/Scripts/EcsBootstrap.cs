@@ -7,15 +7,20 @@ using Unity.Mathematics;
 public class EcsBootstrap : MonoBehaviour
 {
 	[SerializeField]
-	Spline[] Splines;
-	[SerializeField]
 	GameObject CarPrefab;
+
 	[SerializeField]
 	int CarPoolSize;
+
 	[SerializeField]
 	GameObject TrafficLightPrefab;
+
 	[SerializeField]
 	int CarsToSpawnTemp;
+
+	[SerializeField]
+	Spline[] Splines;
+
     [SerializeField]
     Scenario[] Scenarios;
 
@@ -26,18 +31,22 @@ public class EcsBootstrap : MonoBehaviour
 		InstantiateTrafficLights();
 		InstantiateCars(em);
         CreateArchetypes(em);
+        //CreateScenario(em, 0); // TODO: to będzie w handlerze eventu UI
 		var startEntity = em.CreateEntity();
 		em.AddComponent(startEntity, typeof(Start));
 		for (int i = 0; i < CarsToSpawnTemp; i++) //temp
 		{
 			var carToSpawnEntity = em.CreateEntity();
 			em.AddComponentData(carToSpawnEntity, new CarSpawn { SplineId = 0 });
+            var carToSpawnOn2ndEntity = em.CreateEntity();
+            em.AddComponentData(carToSpawnOn2ndEntity, new CarSpawn { SplineId = 1 });
 		}
 	}
 	void CreateSplineEntities(EntityManager em)
 	{
-		var numberOfCurves = Splines.Length;
-		for (int splineIndex = 0; splineIndex < numberOfCurves; splineIndex++)
+		var numberOfSplines = Splines.Length;
+        var lightCounter = 0;
+		for (int splineIndex = 0; splineIndex < numberOfSplines; splineIndex++)
 		{
 			for (int pointIndex = 0; pointIndex < Splines[splineIndex].ControlPointCount; pointIndex++)
 			{
@@ -53,9 +62,10 @@ public class EcsBootstrap : MonoBehaviour
 			}
 			foreach (var light in Splines[splineIndex].TrafficLights)
 			{
-				var lightEntity = em.CreateEntity(typeof(Obstacle));
+				var lightEntity = em.CreateEntity(typeof(Obstacle), typeof(TrafficLightId));
 				var worldPos = Splines[splineIndex].GetPointOnSpline(light/* - 0.035f*/);
 				em.SetComponentData(lightEntity, new Obstacle { SplineId = splineIndex, PositionAlongSpline = light/*-0.035f*/, Position = new float2(worldPos.x, worldPos.z) });
+                em.SetComponentData(lightEntity, new TrafficLightId(lightCounter++));
 			}
 		}
 	}
@@ -76,10 +86,26 @@ public class EcsBootstrap : MonoBehaviour
 			var newCar = GameObject.Instantiate(CarPrefab, new Vector3(1000f,0f,0f), Quaternion.identity);
 			var meshRenderer = newCar.GetComponent<MeshRenderer>();
 			var hue = UnityEngine.Random.Range(0f, 1f);
-            var randomColor = GetRandomColor();
+            var randomColor = GetRandomHSVColor();
             meshRenderer.material.color = randomColor;
 		}
 	}
+    void CreateScenario(EntityManager em, int scenarioIndex)
+    {
+        var scenarioSteps = Scenarios[scenarioIndex].ScenarioSteps;
+        for (int stepIndex = 0; stepIndex < scenarioSteps.Length; stepIndex++)
+        {
+            var stepEntity = em.CreateEntity();
+            em.AddComponentData(stepEntity, new ScenarioStepId(stepIndex));
+            em.AddBuffer<GreenLightInScenarioStep>(stepEntity);
+            em.AddComponentData(stepEntity, new ScenarioStepStartTime(stepIndex * 4000L));
+            var buffer = em.GetBuffer<GreenLightInScenarioStep>(stepEntity);
+            for (int lightIndex = 0; lightIndex < scenarioSteps[stepIndex].GreenLights.Length; lightIndex++)
+            {
+                buffer.Add(new GreenLightInScenarioStep(scenarioSteps[stepIndex].GreenLights[lightIndex]));
+            }
+        }
+    }
     void CreateArchetypes(EntityManager em) // tworzenie archetypów zmienia układ komponentów w pamięci, zmniejszając liczbe przesunięć i alokacji
     { // poprawka, jednak to nic nie daje, może iteracja po chunkach to naprawia?
         // samochody nieużywane
@@ -96,7 +122,7 @@ public class EcsBootstrap : MonoBehaviour
         
 
     }
-    Color GetRandomColor()
+    Color GetRandomHSVColor()
     {
         var hue = UnityEngine.Random.Range(0f, 1f);
         var saturation = 0.50f + UnityEngine.Random.Range(-0.05f, 0.05f);

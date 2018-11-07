@@ -6,6 +6,10 @@ using UnityEngine;
 [InternalBufferCapacity(8)]
 public struct GreenLightInScenarioStep : IBufferElementData
 {
+    public GreenLightInScenarioStep(int lightIndex)
+    {
+        LightIndex = lightIndex;
+    }
     public static implicit operator int(GreenLightInScenarioStep l) => l.LightIndex;
     public static implicit operator GreenLightInScenarioStep(int l) => new GreenLightInScenarioStep { LightIndex = l};
     public int LightIndex;

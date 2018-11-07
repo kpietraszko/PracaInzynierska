@@ -78,6 +78,7 @@
 -r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Collections.dll
 -r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll
 -r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.003.dll
+-r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll
 -r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
 -r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Burst.dll
 -r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Runtime.dll
@@ -99,15 +100,14 @@
 -r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.TextMeshPro.dll
 -r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.RenderPipelines.Core.IncludePaths.dll
 -r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/Unity.Transforms.Hybrid.dll
--r:D:/UnityRozne/PracaInzynierska/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll
 -r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2018.2.2f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll"
--r:C:/Users/Krzysiek/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.collections@0.0.9-preview.9/System.Runtime.CompilerServices.Unsafe.dll
 -r:C:/Users/Krzysiek/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll
+-r:C:/Users/Krzysiek/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.collections@0.0.9-preview.9/System.Runtime.CompilerServices.Unsafe.dll
 -r:C:/Users/Krzysiek/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll"
 -r:"C:\Program Files\Unity\Hub\Editor\2018.2.2f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.dll"
@@ -334,10 +334,13 @@
 -i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/ObstacleWrapper.cs
 -i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/Position2DWrapper.cs
 -i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/PositionAlongSplineWrapper.cs
+-i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/ScenarioStepId.cs
+-i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/ScenarioStepStartTime.cs
 -i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/SplineFollowWrapper.cs
 -i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/SplineIdWrapper.cs
 -i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/SplineStartOccupied.cs
 -i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/Start.cs
+-i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/TrafficLightId.cs
 -i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Components/VelocityWrapper.cs
 -i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Systems/AccelerationChangeSystem.cs
 -i:D:/UnityRozne/PracaInzynierska/Assets/ECS/Systems/BrakeOnObstacleSystem.cs

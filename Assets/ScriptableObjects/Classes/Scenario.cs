@@ -9,7 +9,7 @@ public class Scenario : ScriptableObject
 {
     [InfoBox(LightIndexInfo)]
     [SerializeField]
-    ScenarioStep[] ScenarioSteps;
+    public ScenarioStep[] ScenarioSteps;
 
     const string LightIndexInfo = 
 @"0 - Bottom right
@@ -17,8 +17,8 @@ public class Scenario : ScriptableObject
 }
 
 [Serializable]
-class ScenarioStep
+public class ScenarioStep
 {
     [SerializeField]
-    int[] GreenLights;
+    public int[] GreenLights;
 }

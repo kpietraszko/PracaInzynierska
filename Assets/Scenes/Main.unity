@@ -194,7 +194,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 266064194}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.6, y: 359.17, z: -25.3}
+  m_LocalPosition: {x: 0, y: 538.4, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -482,15 +482,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ead77a2f925cb4e8c2fd0af544e23b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Splines:
-  - {fileID: 11400000, guid: 9e313ac8a7e6d5343a69f447ce262249, type: 2}
   CarPrefab: {fileID: 1934698960348948, guid: ec70a0fabd8bae740b9f9c5a08511ce8, type: 2}
-  CarPoolSize: 20
+  CarPoolSize: 40
   TrafficLightPrefab: {fileID: 1621101216866946, guid: 65331e4262d93e542b0d6dc83bd3f0dd,
     type: 2}
   CarsToSpawnTemp: 20
-  Scenarios:
-  - {fileID: 11400000, guid: 80d049de9fc7c32409e649d7560f223e, type: 2}
+  Splines:
+  - {fileID: 11400000, guid: 9e313ac8a7e6d5343a69f447ce262249, type: 2}
+  - {fileID: 11400000, guid: b125940b52808ed48a7a5c06a8fc19f4, type: 2}
+  Scenarios: []
 --- !u!4 &1774726366
 Transform:
   m_ObjectHideFlags: 0

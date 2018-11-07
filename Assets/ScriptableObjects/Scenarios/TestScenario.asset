@@ -13,3 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScenarioSteps:
   - GreenLights: 00000000
+  - GreenLights: 
