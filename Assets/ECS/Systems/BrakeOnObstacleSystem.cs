@@ -123,7 +123,8 @@ public class BreakOnObstacleSystem : ComponentSystem
         var obstacle = Obstacles.Obstacles[obstacleIndex];
         var obstacleEntity = Obstacles.Entities[obstacleIndex];
         if (Obstacles.Entities[obstacleIndex] == carEntity || //ignoruje samego siebie
-            obstacle.SplineId != carSpline || //i przeszkody z innych spline'ów
+            obstacle.SplineId != carSpline || //i przeszkody z innych spline'ów // TODO: UWAGA BŁĄD! na jednym pasie będą 2 spliny,
+            // czyli chyba musze dodać samochodom float3 heading, i porownywać dotem czy jest przed czy za
             obstacle.PositionAlongSpline < carPositionAlongSpline) //i przeszkody za samochodem 
         {
             return false;

@@ -724,3 +724,4 @@
  (0,0): [11.08.2018 05:19:54.522 PM] Assembly-CSharp-Editor.dll compilation finished in 70ms  source files re-parsed: 0 metadata reloaded: 2
  (0,0): [11.08.2018 05:19:54.534 PM] Assembly-CSharp-Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
  (0,0): [11.08.2018 05:19:54.545 PM] Assembly-CSharp-Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 07:08:49.314 PM] watchdog triggered an exit

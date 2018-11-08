@@ -5,7 +5,7 @@ using Unity.Mathematics;
 using static Unity.Mathematics.math;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptableObject/Curve")]
+[CreateAssetMenu(menuName = "ScriptableObject/Spline")]
 public class Spline : ScriptableObject
 {
 	[SerializeField]
@@ -15,7 +15,7 @@ public class Spline : ScriptableObject
 	public float[] TrafficLights { get { return _TrafficLights; } }
 	public Vector3 this[int index]
 	{
-		get => new Vector3(ControlPoints[index].x, 0f, ControlPoints[index].y);
+        get { return new Vector3(ControlPoints[index].x, 0f, ControlPoints[index].y); }
 		set { ControlPoints[index] = new Vector2(value.x, value.z); }
 	}
 	public int ControlPointCount => ControlPoints.Length;

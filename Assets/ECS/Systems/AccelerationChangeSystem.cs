@@ -30,12 +30,11 @@ public class AccelerationChangeSystem : ComponentSystem
 	[Inject] DeceleratingData Decelerating;
 	protected override void OnUpdate()
 	{
-		const float peakAcceleration = 30f; //TODO: przenieść do komponentu
-		float maxVelocity = 20f; //TODO: jw.
-		float breakingAcceleration = -15f; //TODO: jw.
+		float breakingAcceleration = -15f; // przenieść do komponentu?
 		for (int i = 0; i < Accelerating.Length; i++)
 		{
-			float velocityToMaxVelocityRatio = Accelerating.Velocities[i] / maxVelocity;//Accelerating.MaxVelocities[i];
+            var peakAcceleration = 30 * Random.Range(0.9f, 1.1f);
+			float velocityToMaxVelocityRatio = Accelerating.Velocities[i] / Accelerating.MaxVelocities[i];
 			float acceleration = (1 - velocityToMaxVelocityRatio) * peakAcceleration; //max jeśli stoi, 0 jeśli jedzie z maksymalną v
 			PostUpdateCommands.SetComponent(Accelerating.Entities[i], new Acceleration(acceleration));
             //if (abs(acceleration) < 0.00001)
