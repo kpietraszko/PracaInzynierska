@@ -1,10 +1,8 @@
 {
   "dependencies": {
-    "com.unity.analytics": "2.0.16",
     "com.unity.burst": "0.2.4-preview.34",
     "com.unity.collections": "0.0.9-preview.9",
     "com.unity.entities": "0.0.12-preview.19",
-    "com.unity.incrementalcompiler": "0.0.42-preview.24",
     "com.unity.mathematics": "0.0.12-preview.19",
     "com.unity.package-manager-ui": "1.9.11",
     "com.unity.postprocessing": "2.0.17-preview",

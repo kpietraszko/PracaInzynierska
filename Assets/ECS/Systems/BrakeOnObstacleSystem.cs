@@ -55,16 +55,6 @@ public class BreakOnObstacleSystem : ComponentSystem
     }
     protected override void OnUpdate()
     {
-        //var archetypesList = new List<EntityArchetype>();
-        //using (NativeList<EntityArchetype> allArchetypes = new NativeList<EntityArchetype>(Allocator.Temp))
-        //{
-        //    EntityManager.GetAllArchetypes(allArchetypes);
-        //    for (int i = 0; i < allArchetypes.Length; i++)
-        //    {
-        //        archetypesList.Add(allArchetypes[i]);
-        //    }
-        //}
-        //Debug.Log($"{archetypesList.Count} archetypes");
         var brakingAcceleration = -15f; //-20f było w miarę, ale chyba trochę szybko hamują
         var brakingDistanceOffset = 3.4f;
         for (int carIndex = 0; carIndex < NotBrakingCars.Length; carIndex++)
@@ -128,8 +118,10 @@ public class BreakOnObstacleSystem : ComponentSystem
     private bool shouldBrake(float v, float a, float brakingAcceleration, float brakingDistanceOffset, int obstacleIndex, Entity carEntity,
         int carSpline, float carPositionAlongSpline, float2 carPosition)
     {
-        var brakingDistance = v * v / -brakingAcceleration / 2;
+        var brakingTime = v / -brakingAcceleration;
+        var brakingDistance = v * v / -brakingAcceleration / 2; // pole trójkąta
         var obstacle = Obstacles.Obstacles[obstacleIndex];
+        var obstacleEntity = Obstacles.Entities[obstacleIndex];
         if (Obstacles.Entities[obstacleIndex] == carEntity || //ignoruje samego siebie
             obstacle.SplineId != carSpline || //i przeszkody z innych spline'ów
             obstacle.PositionAlongSpline < carPositionAlongSpline) //i przeszkody za samochodem 
@@ -137,7 +129,17 @@ public class BreakOnObstacleSystem : ComponentSystem
             return false;
         }
         var distanceToObstacle = distance(Obstacles.Obstacles[obstacleIndex].Position, carPosition);
-        bool shouldBrake = distanceToObstacle <= brakingDistance + brakingDistanceOffset;
+
+        var distanceObstacleWillTravel = 0f;
+        if (EntityManager.HasComponent<Velocity>(obstacleEntity) && EntityManager.HasComponent<Acceleration>(obstacleEntity))
+        {
+            float obstacleVelocity = EntityManager.GetComponentData<Velocity>(obstacleEntity);
+            float obstacleAcceleration = EntityManager.GetComponentData<Acceleration>(obstacleEntity);
+            distanceObstacleWillTravel = ((2 * obstacleVelocity + obstacleAcceleration * brakingTime) * brakingTime) / 2f; // pole trapezu
+            //Debug.Log("brakingTime = " + brakingTime);
+            //Debug.Log("distanceObstacleWillTravel = " + distanceObstacleWillTravel);
+        }
+        bool shouldBrake = distanceToObstacle + distanceObstacleWillTravel <= brakingDistance + brakingDistanceOffset;
         return shouldBrake;
     }
     protected override void OnDestroyManager()

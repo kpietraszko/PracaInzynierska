@@ -36,3 +36,691 @@
  (0,0): [11.08.2018 04:30:21.439 PM] Assembly-CSharp-Editor.dll compilation finished in 68ms  source files re-parsed: 0 metadata reloaded: 1
  (0,0): [11.08.2018 04:30:21.450 PM] Assembly-CSharp-Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
  (0,0): [11.08.2018 04:30:21.461 PM] Assembly-CSharp-Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:34:30.172 PM] Unity.Postprocessing.Runtime.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:34:30.201 PM] Unity.Postprocessing.Runtime.dll compiling...
+ (0,0): [11.08.2018 04:34:30.335 PM] Unity.TextMeshPro.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:34:30.338 PM] Unity.Mathematics.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:34:30.361 PM] Unity.Mathematics.dll compiling...
+ (0,0): [11.08.2018 04:34:30.347 PM] Unity.TextMeshPro.dll compiling...
+ (0,0): [11.08.2018 04:34:30.750 PM] Unity.RenderPipelines.Core.Runtime.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:34:30.761 PM] Unity.RenderPipelines.Core.Runtime.dll compiling...
+ (0,0): [11.08.2018 04:34:32.448 PM] Unity.Postprocessing.Runtime.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Postprocessing.Runtime.dll
+ (0,0): [11.08.2018 04:34:32.451 PM] Unity.RenderPipelines.Core.Runtime.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.RenderPipelines.Core.Runtime.dll
+ (0,0): [11.08.2018 04:34:32.510 PM] Unity.RenderPipelines.Core.Runtime.dll compilation finished in 1749ms  source files re-parsed: 72 metadata reloaded: 31
+ (0,0): [11.08.2018 04:34:32.522 PM] Unity.RenderPipelines.Core.Runtime.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:34:32.532 PM] Unity.Postprocessing.Runtime.dll compilation finished in 2332ms  source files re-parsed: 56 metadata reloaded: 53
+ (0,0): [11.08.2018 04:34:32.552 PM] Unity.Postprocessing.Runtime.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:34:33.274 PM] Unity.TextMeshPro.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.TextMeshPro.dll
+ (0,0): [11.08.2018 04:34:33.415 PM] Unity.VectorGraphics.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:34:33.421 PM] Unity.TextMeshPro.dll compilation finished in 3075ms  source files re-parsed: 45 metadata reloaded: 49
+ (0,0): [11.08.2018 04:34:33.427 PM] Unity.VectorGraphics.dll compiling...
+ (0,0): [11.08.2018 04:34:33.433 PM] Unity.TextMeshPro.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:34:33.553 PM] Unity.RenderPipelines.Lightweight.Runtime.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:34:33.749 PM] Unity.RenderPipelines.Lightweight.Runtime.dll compiling...
+ (0,0): [11.08.2018 04:34:33.995 PM] Unity.RenderPipelines.Lightweight.Runtime.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.RenderPipelines.Lightweight.Runtime.dll
+ (0,0): [11.08.2018 04:34:34.051 PM] Unity.RenderPipelines.Lightweight.Runtime.dll compilation finished in 302ms  source files re-parsed: 38 metadata reloaded: 2
+ (0,0): [11.08.2018 04:34:34.062 PM] Unity.RenderPipelines.Lightweight.Runtime.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:34:34.073 PM] Unity.Properties.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:34:34.084 PM] Unity.Properties.dll compiling...
+ (0,0): [11.08.2018 04:34:34.319 PM] Unity.VectorGraphics.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.VectorGraphics.dll
+ (0,0): [11.08.2018 04:34:34.409 PM] Unity.Burst.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:34:34.411 PM] Unity.Properties.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Properties.dll
+ (0,0): [11.08.2018 04:34:34.421 PM] Unity.Burst.dll compiling...
+ (0,0): [11.08.2018 04:34:34.430 PM] Unity.VectorGraphics.dll compilation finished in 1003ms  source files re-parsed: 23 metadata reloaded: 0
+ (0,0): [11.08.2018 04:34:34.442 PM] Unity.VectorGraphics.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:34:34.472 PM] Unity.Mathematics.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Mathematics.dll
+ (0,0): [11.08.2018 04:34:34.475 PM] Unity.Burst.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Burst.dll
+ (0,0): [11.08.2018 04:34:34.479 PM] Unity.Properties.dll compilation finished in 394ms  source files re-parsed: 34 metadata reloaded: 0
+ (0,0): [11.08.2018 04:34:34.490 PM] Unity.Properties.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:34:34.508 PM] Unity.Burst.dll compilation finished in 86ms  source files re-parsed: 3 metadata reloaded: 0
+ (0,0): [11.08.2018 04:34:34.520 PM] Unity.Burst.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:34:34.536 PM] Unity.Mathematics.dll compilation finished in 4175ms  source files re-parsed: 82 metadata reloaded: 49
+ (0,0): [11.08.2018 04:34:34.547 PM] Unity.Mathematics.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:34:34.921 PM] Unity.Collections.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:34:34.933 PM] Unity.Collections.dll compiling...
+ (0,0): [11.08.2018 04:34:35.018 PM] Unity.Collections.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Collections.dll
+ (0,0): [11.08.2018 04:34:35.056 PM] Unity.Collections.dll compilation finished in 123ms  source files re-parsed: 12 metadata reloaded: 1
+ (0,0): [11.08.2018 04:34:35.068 PM] Unity.Collections.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:34:35.295 PM] Unity.Entities.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:34:35.307 PM] Unity.Entities.dll compiling...
+ (0,0): [11.08.2018 04:34:35.411 PM] Unity.Jobs.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:34:35.433 PM] Unity.Jobs.dll compiling...
+ (0,0): [11.08.2018 04:34:35.472 PM] Unity.Jobs.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Jobs.dll
+ (0,0): [11.08.2018 04:34:35.532 PM] Unity.Jobs.dll compilation finished in 99ms  source files re-parsed: 3 metadata reloaded: 0
+ (0,0): [11.08.2018 04:34:35.545 PM] Unity.Jobs.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:34:35.705 PM] Unity.Entities.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Entities.dll
+ (0,0): [11.08.2018 04:34:35.762 PM] Unity.Entities.dll compilation finished in 454ms  source files re-parsed: 58 metadata reloaded: 2
+ (0,0): [11.08.2018 04:34:35.773 PM] Unity.Entities.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:34:35.989 PM] Unity.Entities.Hybrid.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:34:36.001 PM] Unity.Entities.Hybrid.dll compiling...
+ (0,0): [11.08.2018 04:34:36.043 PM] Unity.Entities.Hybrid.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Entities.Hybrid.dll
+ (0,0): [11.08.2018 04:34:36.113 PM] Unity.Entities.Hybrid.dll compilation finished in 111ms  source files re-parsed: 12 metadata reloaded: 2
+ (0,0): [11.08.2018 04:34:36.124 PM] Unity.Entities.Hybrid.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:34:36.354 PM] Unity.Transforms.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:34:36.365 PM] Unity.Transforms.dll compiling...
+ (0,0): [11.08.2018 04:34:36.463 PM] Unity.Transforms.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Transforms.dll
+ (0,0): [11.08.2018 04:34:36.500 PM] Unity.Transforms.dll compilation finished in 135ms  source files re-parsed: 9 metadata reloaded: 1
+ (0,0): [11.08.2018 04:34:36.512 PM] Unity.Transforms.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:34:36.857 PM] Unity.Rendering.Hybrid.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:34:36.869 PM] Unity.Rendering.Hybrid.dll compiling...
+ (0,0): [11.08.2018 04:34:36.932 PM] Unity.Rendering.Hybrid.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Rendering.Hybrid.dll
+ (0,0): [11.08.2018 04:34:36.967 PM] Unity.Rendering.Hybrid.dll compilation finished in 98ms  source files re-parsed: 9 metadata reloaded: 1
+ (0,0): [11.08.2018 04:34:36.968 PM] Unity.Entities.Properties.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:34:36.978 PM] Unity.Rendering.Hybrid.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:34:36.979 PM] Unity.Entities.Properties.dll compiling...
+ (0,0): [11.08.2018 04:34:37.023 PM] Unity.Entities.Properties.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Entities.Properties.dll
+ (0,0): [11.08.2018 04:34:37.066 PM] Unity.Entities.Properties.dll compilation finished in 87ms  source files re-parsed: 14 metadata reloaded: 1
+ (0,0): [11.08.2018 04:34:37.078 PM] Unity.Entities.Properties.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:34:37.078 PM] Unity.Transforms.Hybrid.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:34:37.100 PM] Unity.Transforms.Hybrid.dll compiling...
+ (0,0): [11.08.2018 04:34:37.144 PM] Unity.Transforms.Hybrid.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Transforms.Hybrid.dll
+ (0,0): [11.08.2018 04:34:37.242 PM] Unity.Transforms.Hybrid.dll compilation finished in 142ms  source files re-parsed: 6 metadata reloaded: 0
+ (0,0): [11.08.2018 04:34:37.255 PM] Unity.Transforms.Hybrid.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:34:37.573 PM] Assembly-CSharp-firstpass.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:34:37.586 PM] Assembly-CSharp-firstpass.dll compiling...
+ (0,0): [11.08.2018 04:34:37.629 PM] Assembly-CSharp-firstpass.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp-firstpass.dll
+ (0,0): [11.08.2018 04:34:37.668 PM] Assembly-CSharp-firstpass.dll compilation finished in 82ms  source files re-parsed: 28 metadata reloaded: 6
+ (0,0): [11.08.2018 04:34:37.680 PM] Assembly-CSharp-firstpass.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:34:37.879 PM] Assembly-CSharp.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:34:37.891 PM] Assembly-CSharp.dll compiling...
+ (0,0): [11.08.2018 04:34:37.945 PM] Assembly-CSharp.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp.dll
+ (0,0): [11.08.2018 04:34:37.984 PM] Assembly-CSharp.dll compilation finished in 93ms  source files re-parsed: 31 metadata reloaded: 1
+ (0,0): [11.08.2018 04:34:37.996 PM] Assembly-CSharp.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:06.828 PM] Compiler cache size is now 21.79 MB
+ (0,0): [11.08.2018 04:35:08.289 PM] Unity.Postprocessing.Runtime.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:08.333 PM] Unity.Postprocessing.Runtime.dll compiling...
+ (0,0): [11.08.2018 04:35:08.422 PM] Unity.TextMeshPro.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:08.461 PM] Unity.TextMeshPro.dll compiling...
+ (0,0): [11.08.2018 04:35:08.627 PM] Unity.Mathematics.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:08.684 PM] Unity.Mathematics.dll compiling...
+ (0,0): [11.08.2018 04:35:08.936 PM] Unity.RenderPipelines.Core.Runtime.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:08.966 PM] Unity.RenderPipelines.Core.Runtime.dll compiling...
+ (0,0): [11.08.2018 04:35:09.617 PM] Unity.Postprocessing.Runtime.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Postprocessing.Runtime.dll
+ (0,0): [11.08.2018 04:35:09.736 PM] Unity.Postprocessing.Runtime.dll compilation finished in 1403ms  source files re-parsed: 56 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:09.740 PM] Unity.TextMeshPro.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.TextMeshPro.dll
+ (0,0): [11.08.2018 04:35:09.748 PM] Unity.Postprocessing.Runtime.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:09.828 PM] Unity.TextMeshPro.dll compilation finished in 1366ms  source files re-parsed: 45 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:09.840 PM] Unity.TextMeshPro.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:10.207 PM] Unity.RenderPipelines.Core.Runtime.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.RenderPipelines.Core.Runtime.dll
+ (0,0): [11.08.2018 04:35:10.396 PM] Unity.RenderPipelines.Core.Runtime.dll compilation finished in 1429ms  source files re-parsed: 72 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:10.414 PM] Unity.RenderPipelines.Core.Runtime.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:10.463 PM] Unity.VectorGraphics.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:10.491 PM] Unity.VectorGraphics.dll compiling...
+ (0,0): [11.08.2018 04:35:10.829 PM] Unity.Properties.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:11.207 PM] Unity.Properties.dll compiling...
+ (0,0): [11.08.2018 04:35:11.292 PM] Unity.RenderPipelines.Lightweight.Runtime.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:11.337 PM] Unity.RenderPipelines.Lightweight.Runtime.dll compiling...
+ (0,0): [11.08.2018 04:35:11.410 PM] Unity.VectorGraphics.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.VectorGraphics.dll
+ (0,0): [11.08.2018 04:35:11.526 PM] Unity.VectorGraphics.dll compilation finished in 1035ms  source files re-parsed: 23 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:11.538 PM] Unity.VectorGraphics.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:11.572 PM] Unity.RenderPipelines.Lightweight.Runtime.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.RenderPipelines.Lightweight.Runtime.dll
+ (0,0): [11.08.2018 04:35:11.635 PM] Unity.RenderPipelines.Lightweight.Runtime.dll compilation finished in 298ms  source files re-parsed: 38 metadata reloaded: 2
+ (0,0): [11.08.2018 04:35:11.647 PM] Unity.RenderPipelines.Lightweight.Runtime.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:11.823 PM] Unity.Properties.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Properties.dll
+ (0,0): [11.08.2018 04:35:11.885 PM] Unity.Properties.dll compilation finished in 677ms  source files re-parsed: 34 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:11.897 PM] Unity.Properties.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:11.914 PM] Unity.Mathematics.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Mathematics.dll
+ (0,0): [11.08.2018 04:35:11.976 PM] Unity.Mathematics.dll compilation finished in 3292ms  source files re-parsed: 82 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:11.983 PM] Unity.Burst.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:11.987 PM] Unity.Mathematics.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:11.995 PM] Unity.Burst.dll compiling...
+ (0,0): [11.08.2018 04:35:12.025 PM] Unity.Burst.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Burst.dll
+ (0,0): [11.08.2018 04:35:12.058 PM] Unity.Burst.dll compilation finished in 63ms  source files re-parsed: 3 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:12.070 PM] Unity.Burst.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:12.396 PM] Unity.ShaderGraph.Editor.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:12.407 PM] Unity.ShaderGraph.Editor.dll compiling...
+ (0,0): [11.08.2018 04:35:12.555 PM] Unity.PackageManagerUI.Editor.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:12.569 PM] Unity.PackageManagerUI.Editor.dll compiling...
+ (0,0): [11.08.2018 04:35:12.650 PM] Unity.Collections.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:12.823 PM] Unity.Collections.dll compiling...
+ (0,0): [11.08.2018 04:35:12.855 PM] Unity.RenderPipelines.Core.Editor.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:12.877 PM] Unity.RenderPipelines.Core.Editor.dll compiling...
+ (0,0): [11.08.2018 04:35:12.888 PM] Unity.PackageManagerUI.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.PackageManagerUI.Editor.dll
+ (0,0): [11.08.2018 04:35:13.029 PM] Unity.PackageManagerUI.Editor.dll compilation finished in 460ms  source files re-parsed: 44 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:13.053 PM] Unity.PackageManagerUI.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:13.137 PM] Unity.Collections.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Collections.dll
+ (0,0): [11.08.2018 04:35:13.181 PM] Unity.Collections.dll compilation finished in 357ms  source files re-parsed: 12 metadata reloaded: 1
+ (0,0): [11.08.2018 04:35:13.228 PM] Unity.Collections.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:13.484 PM] Unity.Properties.Editor.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:13.497 PM] Unity.Properties.Editor.dll compiling...
+ (0,0): [11.08.2018 04:35:13.538 PM] Unity.RenderPipelines.Core.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.RenderPipelines.Core.Editor.dll
+ (0,0): [11.08.2018 04:35:13.784 PM] Unity.RenderPipelines.Core.Editor.dll compilation finished in 907ms  source files re-parsed: 33 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:13.804 PM] Unity.RenderPipelines.Core.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:13.830 PM] Unity.Properties.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Properties.Editor.dll
+ (0,0): [11.08.2018 04:35:13.892 PM] Unity.Properties.Editor.dll compilation finished in 394ms  source files re-parsed: 23 metadata reloaded: 1
+ (0,0): [11.08.2018 04:35:13.903 PM] Unity.Properties.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:13.906 PM] Unity.ShaderGraph.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.ShaderGraph.Editor.dll
+ (0,0): [11.08.2018 04:35:13.975 PM] Unity.Entities.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:13.987 PM] Unity.Entities.dll compiling...
+ (0,0): [11.08.2018 04:35:14.025 PM] Unity.ShaderGraph.Editor.dll compilation finished in 1618ms  source files re-parsed: 378 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:14.060 PM] Unity.ShaderGraph.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:14.079 PM] Unity.Jobs.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:14.205 PM] Unity.Jobs.dll compiling...
+ (0,0): [11.08.2018 04:35:14.260 PM] Unity.Jobs.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Jobs.dll
+ (0,0): [11.08.2018 04:35:14.299 PM] Unity.Jobs.dll compilation finished in 93ms  source files re-parsed: 3 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:14.314 PM] Unity.Jobs.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:14.318 PM] Unity.Postprocessing.Editor.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:14.330 PM] Unity.Postprocessing.Editor.dll compiling...
+ (0,0): [11.08.2018 04:35:14.331 PM] Unity.Entities.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Entities.dll
+ (0,0): [11.08.2018 04:35:14.416 PM] Unity.Entities.dll compilation finished in 429ms  source files re-parsed: 58 metadata reloaded: 2
+ (0,0): [11.08.2018 04:35:14.431 PM] Unity.Entities.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:14.546 PM] Unity.Postprocessing.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Postprocessing.Editor.dll
+ (0,0): [11.08.2018 04:35:14.611 PM] Unity.Postprocessing.Editor.dll compilation finished in 281ms  source files re-parsed: 35 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:14.622 PM] Unity.Postprocessing.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:14.623 PM] Unity.TextMeshPro.Editor.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:14.635 PM] Unity.TextMeshPro.Editor.dll compiling...
+ (0,0): [11.08.2018 04:35:14.841 PM] Unity.InternalAPIEditorBridge.003.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:14.867 PM] Unity.InternalAPIEditorBridge.003.dll compiling...
+ (0,0): [11.08.2018 04:35:14.876 PM] Unity.Entities.Hybrid.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:14.924 PM] Unity.Entities.Hybrid.dll compiling...
+ (0,0): [11.08.2018 04:35:14.926 PM] Unity.TextMeshPro.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.TextMeshPro.Editor.dll
+ (0,0): [11.08.2018 04:35:14.953 PM] Unity.InternalAPIEditorBridge.003.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.InternalAPIEditorBridge.003.dll
+ (0,0): [11.08.2018 04:35:15.008 PM] Unity.Entities.Hybrid.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Entities.Hybrid.dll
+ (0,0): [11.08.2018 04:35:15.013 PM] Unity.InternalAPIEditorBridge.003.dll compilation finished in 146ms  source files re-parsed: 2 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:15.008 PM] Unity.RenderPipelines.Lightweight.Editor.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:15.028 PM] Unity.InternalAPIEditorBridge.003.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:15.032 PM] Unity.RenderPipelines.Lightweight.Editor.dll compiling...
+ (0,0): [11.08.2018 04:35:15.085 PM] Unity.TextMeshPro.Editor.dll compilation finished in 450ms  source files re-parsed: 39 metadata reloaded: 1
+ (0,0): [11.08.2018 04:35:15.087 PM] Unity.Entities.Hybrid.dll compilation finished in 162ms  source files re-parsed: 12 metadata reloaded: 2
+ (0,0): [11.08.2018 04:35:15.097 PM] Unity.TextMeshPro.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:15.109 PM] Unity.Entities.Hybrid.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:15.203 PM] Unity.RenderPipelines.Lightweight.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.RenderPipelines.Lightweight.Editor.dll
+ (0,0): [11.08.2018 04:35:15.278 PM] Unity.RenderPipelines.Lightweight.Editor.dll compilation finished in 246ms  source files re-parsed: 14 metadata reloaded: 4
+ (0,0): [11.08.2018 04:35:15.292 PM] Unity.RenderPipelines.Lightweight.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:15.529 PM] Unity.Transforms.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:15.542 PM] Unity.Transforms.dll compiling...
+ (0,0): [11.08.2018 04:35:15.632 PM] Unity.VectorGraphics.Editor.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:15.644 PM] Unity.Transforms.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Transforms.dll
+ (0,0): [11.08.2018 04:35:15.646 PM] Unity.VectorGraphics.Editor.dll compiling...
+ (0,0): [11.08.2018 04:35:15.729 PM] Unity.Transforms.dll compilation finished in 188ms  source files re-parsed: 9 metadata reloaded: 1
+ (0,0): [11.08.2018 04:35:15.731 PM] Unity.Burst.Editor.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:15.742 PM] Unity.Transforms.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:15.732 PM] Unity.VectorGraphics.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.VectorGraphics.Editor.dll
+ (0,0): [11.08.2018 04:35:15.744 PM] Unity.Burst.Editor.dll compiling...
+ (0,0): [11.08.2018 04:35:15.821 PM] Unity.Properties.Codegen.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:15.844 PM] Unity.Properties.Codegen.dll compiling...
+ (0,0): [11.08.2018 04:35:15.923 PM] Unity.VectorGraphics.Editor.dll compilation finished in 276ms  source files re-parsed: 5 metadata reloaded: 2
+ (0,0): [11.08.2018 04:35:15.938 PM] Unity.VectorGraphics.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:15.924 PM] Unity.Burst.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Burst.Editor.dll
+ (0,0): [11.08.2018 04:35:15.972 PM] Unity.Properties.Codegen.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Properties.Codegen.dll
+ (0,0): [11.08.2018 04:35:16.008 PM] Unity.Burst.Editor.dll compilation finished in 264ms  source files re-parsed: 10 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:16.017 PM] Unity.Properties.Codegen.dll compilation finished in 173ms  source files re-parsed: 7 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:16.020 PM] Unity.Burst.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:16.029 PM] Unity.Properties.Codegen.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:16.190 PM] Unity.Rendering.Hybrid.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:16.202 PM] Unity.Rendering.Hybrid.dll compiling...
+ (0,0): [11.08.2018 04:35:16.299 PM] Unity.Rendering.Hybrid.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Rendering.Hybrid.dll
+ (0,0): [11.08.2018 04:35:16.390 PM] Unity.Entities.Properties.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:16.403 PM] Unity.Entities.Properties.dll compiling...
+ (0,0): [11.08.2018 04:35:16.474 PM] Unity.Rendering.Hybrid.dll compilation finished in 272ms  source files re-parsed: 9 metadata reloaded: 1
+ (0,0): [11.08.2018 04:35:16.491 PM] Unity.Rendering.Hybrid.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:16.495 PM] Unity.Entities.Properties.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Entities.Properties.dll
+ (0,0): [11.08.2018 04:35:16.506 PM] Unity.Transforms.Hybrid.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:16.519 PM] Unity.Transforms.Hybrid.dll compiling...
+ (0,0): [11.08.2018 04:35:16.533 PM] Unity.Entities.Properties.dll compilation finished in 129ms  source files re-parsed: 14 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:16.545 PM] Unity.Entities.Properties.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:16.550 PM] Unity.Transforms.Hybrid.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Transforms.Hybrid.dll
+ (0,0): [11.08.2018 04:35:16.582 PM] Unity.Transforms.Hybrid.dll compilation finished in 63ms  source files re-parsed: 6 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:16.587 PM] UnityEditor.StandardEvents.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:16.593 PM] Unity.Transforms.Hybrid.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:16.600 PM] UnityEditor.StandardEvents.dll compiling...
+ (0,0): [11.08.2018 04:35:16.624 PM] UnityEditor.StandardEvents.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\UnityEditor.StandardEvents.dll
+ (0,0): [11.08.2018 04:35:16.664 PM] UnityEditor.StandardEvents.dll compilation finished in 64ms  source files re-parsed: 1 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:16.676 PM] UnityEditor.StandardEvents.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:17.107 PM] Unity.Entities.Editor.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:17.121 PM] Unity.Entities.Editor.dll compiling...
+ (0,0): [11.08.2018 04:35:17.224 PM] Unity.Mathematics.Editor.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:17.232 PM] Unity.Entities.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Entities.Editor.dll
+ (0,0): [11.08.2018 04:35:17.236 PM] Unity.Mathematics.Editor.dll compiling...
+ (0,0): [11.08.2018 04:35:17.300 PM] Unity.Mathematics.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Mathematics.Editor.dll
+ (0,0): [11.08.2018 04:35:17.300 PM] Unity.Entities.Editor.dll compilation finished in 179ms  source files re-parsed: 25 metadata reloaded: 1
+ (0,0): [11.08.2018 04:35:17.310 PM] Unity.RenderPipelines.Core.IncludePaths.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:17.312 PM] Unity.Entities.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:17.322 PM] Unity.RenderPipelines.Core.IncludePaths.dll compiling...
+ (0,0): [11.08.2018 04:35:17.334 PM] Unity.Mathematics.Editor.dll compilation finished in 98ms  source files re-parsed: 4 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:17.346 PM] Unity.Mathematics.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:17.346 PM] Unity.RenderPipelines.Core.IncludePaths.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.RenderPipelines.Core.IncludePaths.dll
+ (0,0): [11.08.2018 04:35:17.391 PM] Unity.RenderPipelines.Core.IncludePaths.dll compilation finished in 69ms  source files re-parsed: 1 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:17.402 PM] Unity.RenderPipelines.Core.IncludePaths.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:17.414 PM] Unity.Jobs.Editor.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:17.427 PM] Unity.Jobs.Editor.dll compiling...
+ (0,0): [11.08.2018 04:35:17.452 PM] Unity.Jobs.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Jobs.Editor.dll
+ (0,0): [11.08.2018 04:35:17.482 PM] Unity.Jobs.Editor.dll compilation finished in 55ms  source files re-parsed: 1 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:17.493 PM] Unity.Jobs.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:17.725 PM] Unity.Transforms.Editor.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:17.737 PM] Unity.Transforms.Editor.dll compiling...
+ (0,0): [11.08.2018 04:35:17.774 PM] Unity.Transforms.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Transforms.Editor.dll
+ (0,0): [11.08.2018 04:35:17.811 PM] Unity.Transforms.Editor.dll compilation finished in 74ms  source files re-parsed: 1 metadata reloaded: 2
+ (0,0): [11.08.2018 04:35:17.823 PM] Unity.Transforms.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:18.043 PM] Assembly-CSharp-firstpass.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:18.055 PM] Assembly-CSharp-firstpass.dll compiling...
+ (0,0): [11.08.2018 04:35:18.091 PM] Assembly-CSharp-firstpass.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp-firstpass.dll
+ (0,0): [11.08.2018 04:35:18.127 PM] Assembly-CSharp-firstpass.dll compilation finished in 72ms  source files re-parsed: 28 metadata reloaded: 13
+ (0,0): [11.08.2018 04:35:18.138 PM] Assembly-CSharp-firstpass.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:18.558 PM] Assembly-CSharp.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:18.570 PM] Assembly-CSharp.dll compiling...
+ (0,0): [11.08.2018 04:35:18.619 PM] Assembly-CSharp.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp.dll
+ (0,0): [11.08.2018 04:35:18.658 PM] Assembly-CSharp-Editor-firstpass.dll: no prior compilation found in cache. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:18.659 PM] Assembly-CSharp.dll compilation finished in 90ms  source files re-parsed: 31 metadata reloaded: 1
+ (0,0): [11.08.2018 04:35:18.670 PM] Assembly-CSharp-Editor-firstpass.dll compiling...
+ (0,0): [11.08.2018 04:35:18.671 PM] Assembly-CSharp.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:18.876 PM] Assembly-CSharp-Editor-firstpass.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp-Editor-firstpass.dll
+ (0,0): [11.08.2018 04:35:18.925 PM] Assembly-CSharp-Editor-firstpass.dll compilation finished in 255ms  source files re-parsed: 54 metadata reloaded: 0
+ (0,0): [11.08.2018 04:35:18.937 PM] Assembly-CSharp-Editor-firstpass.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:35:19.155 PM] Assembly-CSharp-Editor.dll compiling...
+ (0,0): [11.08.2018 04:35:19.190 PM] Assembly-CSharp-Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp-Editor.dll
+ (0,0): [11.08.2018 04:35:19.225 PM] Assembly-CSharp-Editor.dll compilation finished in 70ms  source files re-parsed: 0 metadata reloaded: 2
+ (0,0): [11.08.2018 04:35:19.237 PM] Assembly-CSharp-Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:35:19.249 PM] Assembly-CSharp-Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:40:09.822 PM] Compiler cache size is now 21.86 MB
+ (0,0): [11.08.2018 04:51:32.401 PM] Unity.Postprocessing.Runtime.dll compiling...
+ (0,0): [11.08.2018 04:51:32.502 PM] Unity.TextMeshPro.dll compiling...
+ (0,0): [11.08.2018 04:51:32.618 PM] Unity.Mathematics.dll compiling...
+ (0,0): [11.08.2018 04:51:32.641 PM] Unity.Postprocessing.Runtime.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Postprocessing.Runtime.dll
+ (0,0): [11.08.2018 04:51:33.005 PM] Unity.RenderPipelines.Core.Runtime.dll compiling...
+ (0,0): [11.08.2018 04:51:33.100 PM] Unity.Postprocessing.Runtime.dll compilation finished in 699ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:33.122 PM] Unity.Postprocessing.Runtime.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:33.134 PM] Unity.Postprocessing.Runtime.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:33.170 PM] Unity.TextMeshPro.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.TextMeshPro.dll
+ (0,0): [11.08.2018 04:51:33.713 PM] Unity.TextMeshPro.dll compilation finished in 1211ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:33.748 PM] Unity.TextMeshPro.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:33.811 PM] Unity.TextMeshPro.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:33.909 PM] Unity.VectorGraphics.dll compiling...
+ (0,0): [11.08.2018 04:51:33.948 PM] Unity.RenderPipelines.Core.Runtime.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.RenderPipelines.Core.Runtime.dll
+ (0,0): [11.08.2018 04:51:34.002 PM] Unity.RenderPipelines.Core.Runtime.dll compilation finished in 997ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:34.016 PM] Unity.RenderPipelines.Core.Runtime.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:34.028 PM] Unity.RenderPipelines.Core.Runtime.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:34.254 PM] Unity.Properties.dll compiling...
+ (0,0): [11.08.2018 04:51:34.397 PM] Unity.VectorGraphics.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.VectorGraphics.dll
+ (0,0): [11.08.2018 04:51:34.435 PM] Unity.Properties.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Properties.dll
+ (0,0): [11.08.2018 04:51:34.507 PM] Unity.Properties.dll compilation finished in 253ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:34.515 PM] Unity.VectorGraphics.dll compilation finished in 606ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:34.523 PM] Unity.Properties.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:34.527 PM] Unity.VectorGraphics.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:34.535 PM] Unity.Properties.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:34.539 PM] Unity.VectorGraphics.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:34.563 PM] Unity.RenderPipelines.Lightweight.Runtime.dll compiling...
+ (0,0): [11.08.2018 04:51:34.676 PM] Unity.RenderPipelines.Lightweight.Runtime.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.RenderPipelines.Lightweight.Runtime.dll
+ (0,0): [11.08.2018 04:51:34.725 PM] Unity.RenderPipelines.Lightweight.Runtime.dll compilation finished in 160ms  source files re-parsed: 0 metadata reloaded: 2
+ (0,0): [11.08.2018 04:51:34.736 PM] Unity.RenderPipelines.Lightweight.Runtime.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:34.747 PM] Unity.RenderPipelines.Lightweight.Runtime.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:34.750 PM] Unity.Mathematics.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Mathematics.dll
+ (0,0): [11.08.2018 04:51:34.799 PM] Unity.Mathematics.dll compilation finished in 2180ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:34.811 PM] Unity.Mathematics.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:34.821 PM] Unity.Mathematics.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:34.943 PM] Unity.Burst.dll compiling...
+ (0,0): [11.08.2018 04:51:34.974 PM] Unity.Burst.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Burst.dll
+ (0,0): [11.08.2018 04:51:35.006 PM] Unity.Burst.dll compilation finished in 62ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:35.018 PM] Unity.Burst.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:35.029 PM] Unity.Burst.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:35.085 PM] Unity.ShaderGraph.Editor.dll compiling...
+ (0,0): [11.08.2018 04:51:35.359 PM] Unity.Collections.dll compiling...
+ (0,0): [11.08.2018 04:51:35.605 PM] Unity.PackageManagerUI.Editor.dll compiling...
+ (0,0): [11.08.2018 04:51:35.609 PM] Unity.Collections.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Collections.dll
+ (0,0): [11.08.2018 04:51:35.653 PM] Unity.Collections.dll compilation finished in 293ms  source files re-parsed: 0 metadata reloaded: 1
+ (0,0): [11.08.2018 04:51:35.670 PM] Unity.Collections.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:35.680 PM] Unity.ShaderGraph.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.ShaderGraph.Editor.dll
+ (0,0): [11.08.2018 04:51:35.682 PM] Unity.Collections.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:35.696 PM] Unity.RenderPipelines.Core.Editor.dll compiling...
+ (0,0): [11.08.2018 04:51:35.756 PM] Unity.ShaderGraph.Editor.dll compilation finished in 670ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:35.769 PM] Unity.ShaderGraph.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:35.780 PM] Unity.PackageManagerUI.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.PackageManagerUI.Editor.dll
+ (0,0): [11.08.2018 04:51:35.789 PM] Unity.ShaderGraph.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:35.837 PM] Unity.PackageManagerUI.Editor.dll compilation finished in 232ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:35.849 PM] Unity.PackageManagerUI.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:35.860 PM] Unity.PackageManagerUI.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:35.912 PM] Unity.RenderPipelines.Core.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.RenderPipelines.Core.Editor.dll
+ (0,0): [11.08.2018 04:51:35.980 PM] Unity.RenderPipelines.Core.Editor.dll compilation finished in 284ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:35.992 PM] Unity.RenderPipelines.Core.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:36.003 PM] Unity.RenderPipelines.Core.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:36.070 PM] Unity.Entities.dll compiling...
+ (0,0): [11.08.2018 04:51:36.266 PM] Unity.Jobs.dll compiling...
+ (0,0): [11.08.2018 04:51:36.309 PM] Unity.Jobs.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Jobs.dll
+ (0,0): [11.08.2018 04:51:36.328 PM] Unity.Entities.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Entities.dll
+ (0,0): [11.08.2018 04:51:36.346 PM] Unity.Jobs.dll compilation finished in 79ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:36.349 PM] Unity.Properties.Editor.dll compiling...
+ (0,0): [11.08.2018 04:51:36.357 PM] Unity.Jobs.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:36.368 PM] Unity.Jobs.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:36.391 PM] Unity.Entities.dll compilation finished in 322ms  source files re-parsed: 0 metadata reloaded: 2
+ (0,0): [11.08.2018 04:51:36.411 PM] Unity.Entities.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:36.428 PM] Unity.Entities.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:36.454 PM] Unity.Properties.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Properties.Editor.dll
+ (0,0): [11.08.2018 04:51:36.461 PM] Unity.Postprocessing.Editor.dll compiling...
+ (0,0): [11.08.2018 04:51:36.606 PM] Unity.Properties.Editor.dll compilation finished in 256ms  source files re-parsed: 0 metadata reloaded: 1
+ (0,0): [11.08.2018 04:51:36.623 PM] Unity.Properties.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:36.623 PM] Unity.Postprocessing.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Postprocessing.Editor.dll
+ (0,0): [11.08.2018 04:51:36.635 PM] Unity.Properties.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:36.748 PM] Unity.Postprocessing.Editor.dll compilation finished in 286ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:36.760 PM] Unity.Postprocessing.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:36.771 PM] Unity.Postprocessing.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:36.824 PM] Unity.Entities.Hybrid.dll compiling...
+ (0,0): [11.08.2018 04:51:36.869 PM] Unity.Entities.Hybrid.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Entities.Hybrid.dll
+ (0,0): [11.08.2018 04:51:36.903 PM] Unity.Entities.Hybrid.dll compilation finished in 78ms  source files re-parsed: 0 metadata reloaded: 2
+ (0,0): [11.08.2018 04:51:36.915 PM] Unity.Entities.Hybrid.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:36.923 PM] Unity.TextMeshPro.Editor.dll compiling...
+ (0,0): [11.08.2018 04:51:36.926 PM] Unity.Entities.Hybrid.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:37.042 PM] Unity.InternalAPIEditorBridge.003.dll compiling...
+ (0,0): [11.08.2018 04:51:37.082 PM] Unity.InternalAPIEditorBridge.003.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.InternalAPIEditorBridge.003.dll
+ (0,0): [11.08.2018 04:51:37.114 PM] Unity.TextMeshPro.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.TextMeshPro.Editor.dll
+ (0,0): [11.08.2018 04:51:37.118 PM] Unity.InternalAPIEditorBridge.003.dll compilation finished in 75ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:37.128 PM] Unity.InternalAPIEditorBridge.003.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:37.139 PM] Unity.InternalAPIEditorBridge.003.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:37.211 PM] Unity.TextMeshPro.Editor.dll compilation finished in 288ms  source files re-parsed: 0 metadata reloaded: 1
+ (0,0): [11.08.2018 04:51:37.222 PM] Unity.TextMeshPro.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:37.233 PM] Unity.TextMeshPro.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:37.352 PM] Unity.Transforms.dll compiling...
+ (0,0): [11.08.2018 04:51:37.446 PM] Unity.Transforms.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Transforms.dll
+ (0,0): [11.08.2018 04:51:37.473 PM] Unity.RenderPipelines.Lightweight.Editor.dll compiling...
+ (0,0): [11.08.2018 04:51:37.481 PM] Unity.Transforms.dll compilation finished in 128ms  source files re-parsed: 0 metadata reloaded: 1
+ (0,0): [11.08.2018 04:51:37.492 PM] Unity.Transforms.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:37.503 PM] Unity.Transforms.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:37.548 PM] Unity.RenderPipelines.Lightweight.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.RenderPipelines.Lightweight.Editor.dll
+ (0,0): [11.08.2018 04:51:37.565 PM] Unity.VectorGraphics.Editor.dll compiling...
+ (0,0): [11.08.2018 04:51:37.616 PM] Unity.RenderPipelines.Lightweight.Editor.dll compilation finished in 143ms  source files re-parsed: 0 metadata reloaded: 4
+ (0,0): [11.08.2018 04:51:37.622 PM] Unity.VectorGraphics.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.VectorGraphics.Editor.dll
+ (0,0): [11.08.2018 04:51:37.628 PM] Unity.RenderPipelines.Lightweight.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:37.639 PM] Unity.RenderPipelines.Lightweight.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:37.664 PM] Unity.VectorGraphics.Editor.dll compilation finished in 99ms  source files re-parsed: 0 metadata reloaded: 2
+ (0,0): [11.08.2018 04:51:37.667 PM] Unity.Burst.Editor.dll compiling...
+ (0,0): [11.08.2018 04:51:37.676 PM] Unity.VectorGraphics.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:37.687 PM] Unity.VectorGraphics.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:37.731 PM] Unity.Burst.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Burst.Editor.dll
+ (0,0): [11.08.2018 04:51:37.772 PM] Unity.Burst.Editor.dll compilation finished in 104ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:37.783 PM] Unity.Burst.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:37.794 PM] Unity.Burst.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:37.971 PM] Unity.Rendering.Hybrid.dll compiling...
+ (0,0): [11.08.2018 04:51:38.030 PM] Unity.Rendering.Hybrid.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Rendering.Hybrid.dll
+ (0,0): [11.08.2018 04:51:38.073 PM] Unity.Entities.Properties.dll compiling...
+ (0,0): [11.08.2018 04:51:38.077 PM] Unity.Rendering.Hybrid.dll compilation finished in 105ms  source files re-parsed: 0 metadata reloaded: 1
+ (0,0): [11.08.2018 04:51:38.089 PM] Unity.Rendering.Hybrid.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:38.100 PM] Unity.Rendering.Hybrid.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:38.131 PM] Unity.Entities.Properties.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Entities.Properties.dll
+ (0,0): [11.08.2018 04:51:38.176 PM] Unity.Transforms.Hybrid.dll compiling...
+ (0,0): [11.08.2018 04:51:38.183 PM] Unity.Entities.Properties.dll compilation finished in 109ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:38.194 PM] Unity.Entities.Properties.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:38.205 PM] Unity.Entities.Properties.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:38.206 PM] Unity.Transforms.Hybrid.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Transforms.Hybrid.dll
+ (0,0): [11.08.2018 04:51:38.239 PM] Unity.Transforms.Hybrid.dll compilation finished in 62ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:38.250 PM] Unity.Transforms.Hybrid.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:38.261 PM] Unity.Transforms.Hybrid.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:38.271 PM] Unity.Properties.Codegen.dll compiling...
+ (0,0): [11.08.2018 04:51:38.324 PM] Unity.Properties.Codegen.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Properties.Codegen.dll
+ (0,0): [11.08.2018 04:51:38.364 PM] Unity.Properties.Codegen.dll compilation finished in 93ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:38.375 PM] Unity.Properties.Codegen.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:38.386 PM] Unity.Properties.Codegen.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:38.402 PM] UnityEditor.StandardEvents.dll compiling...
+ (0,0): [11.08.2018 04:51:38.427 PM] UnityEditor.StandardEvents.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\UnityEditor.StandardEvents.dll
+ (0,0): [11.08.2018 04:51:38.461 PM] UnityEditor.StandardEvents.dll compilation finished in 58ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:38.473 PM] UnityEditor.StandardEvents.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:38.484 PM] UnityEditor.StandardEvents.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:38.918 PM] Unity.Entities.Editor.dll compiling...
+ (0,0): [11.08.2018 04:51:39.039 PM] Unity.Entities.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Entities.Editor.dll
+ (0,0): [11.08.2018 04:51:39.045 PM] Unity.Mathematics.Editor.dll compiling...
+ (0,0): [11.08.2018 04:51:39.079 PM] Unity.Mathematics.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Mathematics.Editor.dll
+ (0,0): [11.08.2018 04:51:39.083 PM] Unity.Entities.Editor.dll compilation finished in 165ms  source files re-parsed: 0 metadata reloaded: 1
+ (0,0): [11.08.2018 04:51:39.095 PM] Unity.Entities.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:39.106 PM] Unity.Entities.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:39.149 PM] Unity.Mathematics.Editor.dll compilation finished in 104ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:39.151 PM] Unity.RenderPipelines.Core.IncludePaths.dll compiling...
+ (0,0): [11.08.2018 04:51:39.161 PM] Unity.Mathematics.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:39.172 PM] Unity.Mathematics.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:39.175 PM] Unity.RenderPipelines.Core.IncludePaths.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.RenderPipelines.Core.IncludePaths.dll
+ (0,0): [11.08.2018 04:51:39.206 PM] Unity.RenderPipelines.Core.IncludePaths.dll compilation finished in 55ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:39.218 PM] Unity.RenderPipelines.Core.IncludePaths.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:39.230 PM] Unity.RenderPipelines.Core.IncludePaths.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:39.232 PM] Unity.Jobs.Editor.dll compiling...
+ (0,0): [11.08.2018 04:51:39.288 PM] Unity.Jobs.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Jobs.Editor.dll
+ (0,0): [11.08.2018 04:51:39.326 PM] Unity.Jobs.Editor.dll compilation finished in 94ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:39.338 PM] Unity.Jobs.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:39.350 PM] Unity.Jobs.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:39.556 PM] Unity.Transforms.Editor.dll compiling...
+ (0,0): [11.08.2018 04:51:39.585 PM] Unity.Transforms.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Transforms.Editor.dll
+ (0,0): [11.08.2018 04:51:39.617 PM] Unity.Transforms.Editor.dll compilation finished in 61ms  source files re-parsed: 0 metadata reloaded: 2
+ (0,0): [11.08.2018 04:51:39.629 PM] Unity.Transforms.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:39.640 PM] Unity.Transforms.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:39.850 PM] Assembly-CSharp-firstpass.dll compiling...
+ (0,0): [11.08.2018 04:51:39.911 PM] Assembly-CSharp-firstpass.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp-firstpass.dll
+ (0,0): [11.08.2018 04:51:39.947 PM] Assembly-CSharp-firstpass.dll compilation finished in 97ms  source files re-parsed: 0 metadata reloaded: 13
+ (0,0): [11.08.2018 04:51:39.959 PM] Assembly-CSharp-firstpass.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:39.970 PM] Assembly-CSharp-firstpass.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:40.366 PM] Assembly-CSharp.dll compiling...
+ (0,0): [11.08.2018 04:51:40.441 PM] Assembly-CSharp.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp.dll
+ (0,0): [11.08.2018 04:51:40.467 PM] Assembly-CSharp-Editor-firstpass.dll compiling...
+ (0,0): [11.08.2018 04:51:40.496 PM] Assembly-CSharp.dll compilation finished in 130ms  source files re-parsed: 0 metadata reloaded: 1
+ (0,0): [11.08.2018 04:51:40.525 PM] Assembly-CSharp.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:40.536 PM] Assembly-CSharp.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:40.543 PM] Assembly-CSharp-Editor-firstpass.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp-Editor-firstpass.dll
+ (0,0): [11.08.2018 04:51:40.587 PM] Assembly-CSharp-Editor-firstpass.dll compilation finished in 119ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 04:51:40.598 PM] Assembly-CSharp-Editor-firstpass.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:40.609 PM] Assembly-CSharp-Editor-firstpass.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 04:51:40.967 PM] Assembly-CSharp-Editor.dll compiling...
+ (0,0): [11.08.2018 04:51:41.001 PM] Assembly-CSharp-Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp-Editor.dll
+ (0,0): [11.08.2018 04:51:41.036 PM] Assembly-CSharp-Editor.dll compilation finished in 69ms  source files re-parsed: 0 metadata reloaded: 2
+ (0,0): [11.08.2018 04:51:41.048 PM] Assembly-CSharp-Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 04:51:41.059 PM] Assembly-CSharp-Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:04:11.710 PM] Assembly-CSharp.dll compiling...
+ (0,0): [11.08.2018 05:04:11.755 PM] Assembly-CSharp.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp.dll
+ (0,0): [11.08.2018 05:04:11.812 PM] Assembly-CSharp.dll compilation finished in 101ms  source files re-parsed: 2 metadata reloaded: 0
+ (0,0): [11.08.2018 05:04:11.824 PM] Assembly-CSharp.dll: compilation was cached, 2 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:04:11.836 PM] Assembly-CSharp.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:04:12.406 PM] Assembly-CSharp-Editor.dll compiling...
+ (0,0): [11.08.2018 05:04:12.442 PM] Assembly-CSharp-Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp-Editor.dll
+ (0,0): [11.08.2018 05:04:12.479 PM] Assembly-CSharp-Editor.dll compilation finished in 72ms  source files re-parsed: 0 metadata reloaded: 1
+ (0,0): [11.08.2018 05:04:12.491 PM] Assembly-CSharp-Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:04:12.502 PM] Assembly-CSharp-Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:05:19.747 PM] Compiler cache size is now 21.86 MB
+ (0,0): [11.08.2018 05:15:44.879 PM] Assembly-CSharp.dll compiling...
+ (0,0): [11.08.2018 05:15:44.931 PM] Assembly-CSharp.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp.dll
+ (0,0): [11.08.2018 05:15:44.968 PM] Assembly-CSharp.dll compilation finished in 89ms  source files re-parsed: 1 metadata reloaded: 0
+ (0,0): [11.08.2018 05:15:44.980 PM] Assembly-CSharp.dll: compilation was cached, 1 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:15:44.991 PM] Assembly-CSharp.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:15:45.398 PM] Assembly-CSharp-Editor.dll compiling...
+ (0,0): [11.08.2018 05:15:45.434 PM] Assembly-CSharp-Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp-Editor.dll
+ (0,0): [11.08.2018 05:15:45.473 PM] Assembly-CSharp-Editor.dll compilation finished in 75ms  source files re-parsed: 0 metadata reloaded: 1
+ (0,0): [11.08.2018 05:15:45.484 PM] Assembly-CSharp-Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:15:45.495 PM] Assembly-CSharp-Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:20.550 PM] Assembly-CSharp.dll compiling...
+ (0,0): [11.08.2018 05:19:20.605 PM] Assembly-CSharp.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp.dll
+ (0,0): [11.08.2018 05:19:20.654 PM] Assembly-CSharp.dll compilation finished in 103ms  source files re-parsed: 1 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:20.666 PM] Assembly-CSharp.dll: compilation was cached, 1 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:20.676 PM] Assembly-CSharp.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:21.175 PM] Assembly-CSharp-Editor.dll compiling...
+ (0,0): [11.08.2018 05:19:21.216 PM] Assembly-CSharp-Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp-Editor.dll
+ (0,0): [11.08.2018 05:19:21.252 PM] Assembly-CSharp-Editor.dll compilation finished in 77ms  source files re-parsed: 0 metadata reloaded: 1
+ (0,0): [11.08.2018 05:19:21.264 PM] Assembly-CSharp-Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:21.275 PM] Assembly-CSharp-Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:28.543 PM] Assembly-CSharp.dll compiling...
+ (0,0): [11.08.2018 05:19:28.588 PM] Assembly-CSharp.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp.dll
+ (0,0): [11.08.2018 05:19:28.626 PM] Assembly-CSharp.dll compilation finished in 82ms  source files re-parsed: 1 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:28.637 PM] Assembly-CSharp.dll: compilation was cached, 1 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:28.648 PM] Assembly-CSharp.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:29.273 PM] Assembly-CSharp-Editor.dll compiling...
+ (0,0): [11.08.2018 05:19:29.318 PM] Assembly-CSharp-Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp-Editor.dll
+ (0,0): [11.08.2018 05:19:29.364 PM] Assembly-CSharp-Editor.dll compilation finished in 91ms  source files re-parsed: 0 metadata reloaded: 1
+ (0,0): [11.08.2018 05:19:29.376 PM] Assembly-CSharp-Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:29.387 PM] Assembly-CSharp-Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:46.619 PM] Unity.Postprocessing.Runtime.dll compiling...
+ (0,0): [11.08.2018 05:19:46.691 PM] Unity.TextMeshPro.dll compiling...
+ (0,0): [11.08.2018 05:19:46.807 PM] Unity.Mathematics.dll compiling...
+ (0,0): [11.08.2018 05:19:46.917 PM] Unity.Postprocessing.Runtime.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Postprocessing.Runtime.dll
+ (0,0): [11.08.2018 05:19:46.964 PM] Unity.RenderPipelines.Core.Runtime.dll compiling...
+ (0,0): [11.08.2018 05:19:47.406 PM] Unity.TextMeshPro.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.TextMeshPro.dll
+ (0,0): [11.08.2018 05:19:47.461 PM] Unity.Postprocessing.Runtime.dll compilation finished in 842ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:47.660 PM] Unity.Postprocessing.Runtime.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:47.841 PM] Unity.Postprocessing.Runtime.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:47.842 PM] Unity.RenderPipelines.Core.Runtime.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.RenderPipelines.Core.Runtime.dll
+ (0,0): [11.08.2018 05:19:48.027 PM] Unity.TextMeshPro.dll compilation finished in 1336ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:48.148 PM] Unity.TextMeshPro.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:48.177 PM] Unity.TextMeshPro.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:48.199 PM] Unity.RenderPipelines.Core.Runtime.dll compilation finished in 1234ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:48.210 PM] Unity.RenderPipelines.Core.Runtime.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:48.221 PM] Unity.RenderPipelines.Core.Runtime.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:48.341 PM] Unity.VectorGraphics.dll compiling...
+ (0,0): [11.08.2018 05:19:48.629 PM] Unity.VectorGraphics.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.VectorGraphics.dll
+ (0,0): [11.08.2018 05:19:48.773 PM] Unity.VectorGraphics.dll compilation finished in 432ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:48.786 PM] Unity.VectorGraphics.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:48.789 PM] Unity.RenderPipelines.Lightweight.Runtime.dll compiling...
+ (0,0): [11.08.2018 05:19:48.798 PM] Unity.VectorGraphics.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:48.855 PM] Unity.RenderPipelines.Lightweight.Runtime.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.RenderPipelines.Lightweight.Runtime.dll
+ (0,0): [11.08.2018 05:19:48.882 PM] Unity.Properties.dll compiling...
+ (0,0): [11.08.2018 05:19:49.030 PM] Unity.RenderPipelines.Lightweight.Runtime.dll compilation finished in 241ms  source files re-parsed: 0 metadata reloaded: 2
+ (0,0): [11.08.2018 05:19:49.046 PM] Unity.RenderPipelines.Lightweight.Runtime.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:49.056 PM] Unity.Properties.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Properties.dll
+ (0,0): [11.08.2018 05:19:49.068 PM] Unity.RenderPipelines.Lightweight.Runtime.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:49.110 PM] Unity.Burst.dll compiling...
+ (0,0): [11.08.2018 05:19:49.122 PM] Unity.Properties.dll compilation finished in 239ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:49.133 PM] Unity.Properties.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:49.145 PM] Unity.Properties.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:49.146 PM] Unity.Burst.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Burst.dll
+ (0,0): [11.08.2018 05:19:49.154 PM] Unity.Mathematics.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Mathematics.dll
+ (0,0): [11.08.2018 05:19:49.185 PM] Unity.Burst.dll compilation finished in 75ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:49.197 PM] Unity.Burst.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:49.208 PM] Unity.Burst.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:49.215 PM] Unity.Mathematics.dll compilation finished in 2407ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:49.227 PM] Unity.Mathematics.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:49.239 PM] Unity.Mathematics.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:49.441 PM] Unity.ShaderGraph.Editor.dll compiling...
+ (0,0): [11.08.2018 05:19:50.016 PM] Unity.Collections.dll compiling...
+ (0,0): [11.08.2018 05:19:50.018 PM] Unity.PackageManagerUI.Editor.dll compiling...
+ (0,0): [11.08.2018 05:19:50.131 PM] Unity.RenderPipelines.Core.Editor.dll compiling...
+ (0,0): [11.08.2018 05:19:50.221 PM] Unity.ShaderGraph.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.ShaderGraph.Editor.dll
+ (0,0): [11.08.2018 05:19:50.250 PM] Unity.PackageManagerUI.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.PackageManagerUI.Editor.dll
+ (0,0): [11.08.2018 05:19:50.258 PM] Unity.Collections.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Collections.dll
+ (0,0): [11.08.2018 05:19:50.367 PM] Unity.Collections.dll compilation finished in 350ms  source files re-parsed: 0 metadata reloaded: 1
+ (0,0): [11.08.2018 05:19:50.371 PM] Unity.PackageManagerUI.Editor.dll compilation finished in 352ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:50.374 PM] Unity.ShaderGraph.Editor.dll compilation finished in 932ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:50.381 PM] Unity.Collections.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:50.383 PM] Unity.PackageManagerUI.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:50.386 PM] Unity.ShaderGraph.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:50.394 PM] Unity.Collections.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:50.397 PM] Unity.ShaderGraph.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:50.397 PM] Unity.RenderPipelines.Core.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.RenderPipelines.Core.Editor.dll
+ (0,0): [11.08.2018 05:19:50.395 PM] Unity.PackageManagerUI.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:50.465 PM] Unity.RenderPipelines.Core.Editor.dll compilation finished in 334ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:50.477 PM] Unity.RenderPipelines.Core.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:50.488 PM] Unity.RenderPipelines.Core.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:50.662 PM] Unity.Entities.dll compiling...
+ (0,0): [11.08.2018 05:19:50.907 PM] Unity.Jobs.dll compiling...
+ (0,0): [11.08.2018 05:19:50.937 PM] Unity.Entities.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Entities.dll
+ (0,0): [11.08.2018 05:19:50.937 PM] Unity.Jobs.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Jobs.dll
+ (0,0): [11.08.2018 05:19:50.992 PM] Unity.Jobs.dll compilation finished in 84ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:50.995 PM] Unity.Entities.dll compilation finished in 333ms  source files re-parsed: 0 metadata reloaded: 2
+ (0,0): [11.08.2018 05:19:51.003 PM] Unity.Jobs.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:51.007 PM] Unity.Entities.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:51.003 PM] Unity.Postprocessing.Editor.dll compiling...
+ (0,0): [11.08.2018 05:19:51.015 PM] Unity.Jobs.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:51.018 PM] Unity.Entities.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:51.163 PM] Unity.Properties.Editor.dll compiling...
+ (0,0): [11.08.2018 05:19:51.182 PM] Unity.Postprocessing.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Postprocessing.Editor.dll
+ (0,0): [11.08.2018 05:19:51.303 PM] Unity.Properties.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Properties.Editor.dll
+ (0,0): [11.08.2018 05:19:51.316 PM] Unity.Postprocessing.Editor.dll compilation finished in 313ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:51.329 PM] Unity.Postprocessing.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:51.340 PM] Unity.Postprocessing.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:51.355 PM] Unity.Properties.Editor.dll compilation finished in 192ms  source files re-parsed: 0 metadata reloaded: 1
+ (0,0): [11.08.2018 05:19:51.367 PM] Unity.Properties.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:51.378 PM] Unity.Properties.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:51.410 PM] Unity.Entities.Hybrid.dll compiling...
+ (0,0): [11.08.2018 05:19:51.471 PM] Unity.Entities.Hybrid.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Entities.Hybrid.dll
+ (0,0): [11.08.2018 05:19:51.517 PM] Unity.TextMeshPro.Editor.dll compiling...
+ (0,0): [11.08.2018 05:19:51.522 PM] Unity.Entities.Hybrid.dll compilation finished in 112ms  source files re-parsed: 0 metadata reloaded: 2
+ (0,0): [11.08.2018 05:19:51.533 PM] Unity.Entities.Hybrid.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:51.549 PM] Unity.Entities.Hybrid.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:51.694 PM] Unity.RenderPipelines.Lightweight.Editor.dll compiling...
+ (0,0): [11.08.2018 05:19:51.781 PM] Unity.TextMeshPro.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.TextMeshPro.Editor.dll
+ (0,0): [11.08.2018 05:19:51.789 PM] Unity.RenderPipelines.Lightweight.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.RenderPipelines.Lightweight.Editor.dll
+ (0,0): [11.08.2018 05:19:51.805 PM] Unity.InternalAPIEditorBridge.003.dll compiling...
+ (0,0): [11.08.2018 05:19:51.837 PM] Unity.InternalAPIEditorBridge.003.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.InternalAPIEditorBridge.003.dll
+ (0,0): [11.08.2018 05:19:51.856 PM] Unity.RenderPipelines.Lightweight.Editor.dll compilation finished in 161ms  source files re-parsed: 0 metadata reloaded: 4
+ (0,0): [11.08.2018 05:19:51.867 PM] Unity.RenderPipelines.Lightweight.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:51.873 PM] Unity.InternalAPIEditorBridge.003.dll compilation finished in 68ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:51.878 PM] Unity.RenderPipelines.Lightweight.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:51.884 PM] Unity.InternalAPIEditorBridge.003.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:51.896 PM] Unity.InternalAPIEditorBridge.003.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:51.902 PM] Unity.TextMeshPro.Editor.dll compilation finished in 385ms  source files re-parsed: 0 metadata reloaded: 1
+ (0,0): [11.08.2018 05:19:51.904 PM] Unity.Transforms.dll compiling...
+ (0,0): [11.08.2018 05:19:51.914 PM] Unity.TextMeshPro.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:51.925 PM] Unity.TextMeshPro.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:52.014 PM] Unity.Transforms.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Transforms.dll
+ (0,0): [11.08.2018 05:19:52.058 PM] Unity.Burst.Editor.dll compiling...
+ (0,0): [11.08.2018 05:19:52.134 PM] Unity.Transforms.dll compilation finished in 229ms  source files re-parsed: 0 metadata reloaded: 1
+ (0,0): [11.08.2018 05:19:52.152 PM] Unity.Burst.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Burst.Editor.dll
+ (0,0): [11.08.2018 05:19:52.154 PM] Unity.Transforms.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:52.161 PM] Unity.VectorGraphics.Editor.dll compiling...
+ (0,0): [11.08.2018 05:19:52.165 PM] Unity.Transforms.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:52.216 PM] Unity.Burst.Editor.dll compilation finished in 158ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:52.220 PM] Unity.VectorGraphics.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.VectorGraphics.Editor.dll
+ (0,0): [11.08.2018 05:19:52.229 PM] Unity.Burst.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:52.240 PM] Unity.Burst.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:52.259 PM] Unity.Properties.Codegen.dll compiling...
+ (0,0): [11.08.2018 05:19:52.264 PM] Unity.VectorGraphics.Editor.dll compilation finished in 102ms  source files re-parsed: 0 metadata reloaded: 2
+ (0,0): [11.08.2018 05:19:52.276 PM] Unity.VectorGraphics.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:52.293 PM] Unity.VectorGraphics.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:52.308 PM] Unity.Properties.Codegen.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Properties.Codegen.dll
+ (0,0): [11.08.2018 05:19:52.349 PM] Unity.Properties.Codegen.dll compilation finished in 89ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:52.361 PM] Unity.Properties.Codegen.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:52.372 PM] Unity.Properties.Codegen.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:52.410 PM] Unity.Rendering.Hybrid.dll compiling...
+ (0,0): [11.08.2018 05:19:52.474 PM] Unity.Rendering.Hybrid.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Rendering.Hybrid.dll
+ (0,0): [11.08.2018 05:19:52.512 PM] Unity.Entities.Properties.dll compiling...
+ (0,0): [11.08.2018 05:19:52.537 PM] Unity.Rendering.Hybrid.dll compilation finished in 127ms  source files re-parsed: 0 metadata reloaded: 1
+ (0,0): [11.08.2018 05:19:52.548 PM] Unity.Rendering.Hybrid.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:52.558 PM] Unity.Entities.Properties.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Entities.Properties.dll
+ (0,0): [11.08.2018 05:19:52.559 PM] Unity.Rendering.Hybrid.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:52.595 PM] Unity.Entities.Properties.dll compilation finished in 82ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:52.607 PM] Unity.Entities.Properties.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:52.612 PM] Unity.Transforms.Hybrid.dll compiling...
+ (0,0): [11.08.2018 05:19:52.618 PM] Unity.Entities.Properties.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:52.642 PM] Unity.Transforms.Hybrid.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Transforms.Hybrid.dll
+ (0,0): [11.08.2018 05:19:52.673 PM] Unity.Transforms.Hybrid.dll compilation finished in 61ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:52.685 PM] Unity.Transforms.Hybrid.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:52.696 PM] Unity.Transforms.Hybrid.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:52.711 PM] UnityEditor.StandardEvents.dll compiling...
+ (0,0): [11.08.2018 05:19:52.736 PM] UnityEditor.StandardEvents.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\UnityEditor.StandardEvents.dll
+ (0,0): [11.08.2018 05:19:52.771 PM] UnityEditor.StandardEvents.dll compilation finished in 60ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:52.783 PM] UnityEditor.StandardEvents.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:52.794 PM] UnityEditor.StandardEvents.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:52.820 PM] Unity.Mathematics.Editor.dll compiling...
+ (0,0): [11.08.2018 05:19:52.854 PM] Unity.Mathematics.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Mathematics.Editor.dll
+ (0,0): [11.08.2018 05:19:52.889 PM] Unity.Mathematics.Editor.dll compilation finished in 69ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:52.901 PM] Unity.Mathematics.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:52.912 PM] Unity.Mathematics.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:53.133 PM] Unity.Entities.Editor.dll compiling...
+ (0,0): [11.08.2018 05:19:53.217 PM] Unity.Entities.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Entities.Editor.dll
+ (0,0): [11.08.2018 05:19:53.223 PM] Unity.RenderPipelines.Core.IncludePaths.dll compiling...
+ (0,0): [11.08.2018 05:19:53.249 PM] Unity.RenderPipelines.Core.IncludePaths.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.RenderPipelines.Core.IncludePaths.dll
+ (0,0): [11.08.2018 05:19:53.265 PM] Unity.Entities.Editor.dll compilation finished in 132ms  source files re-parsed: 0 metadata reloaded: 1
+ (0,0): [11.08.2018 05:19:53.276 PM] Unity.Entities.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:53.282 PM] Unity.RenderPipelines.Core.IncludePaths.dll compilation finished in 58ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:53.287 PM] Unity.Entities.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:53.293 PM] Unity.RenderPipelines.Core.IncludePaths.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:53.304 PM] Unity.RenderPipelines.Core.IncludePaths.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:53.325 PM] Unity.Jobs.Editor.dll compiling...
+ (0,0): [11.08.2018 05:19:53.354 PM] Unity.Jobs.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Jobs.Editor.dll
+ (0,0): [11.08.2018 05:19:53.387 PM] Unity.Jobs.Editor.dll compilation finished in 62ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:53.401 PM] Unity.Jobs.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:53.413 PM] Unity.Jobs.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:53.432 PM] Unity.Transforms.Editor.dll compiling...
+ (0,0): [11.08.2018 05:19:53.463 PM] Unity.Transforms.Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Unity.Transforms.Editor.dll
+ (0,0): [11.08.2018 05:19:53.495 PM] Unity.Transforms.Editor.dll compilation finished in 62ms  source files re-parsed: 0 metadata reloaded: 2
+ (0,0): [11.08.2018 05:19:53.507 PM] Unity.Transforms.Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:53.518 PM] Unity.Transforms.Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:53.741 PM] Assembly-CSharp-firstpass.dll compiling...
+ (0,0): [11.08.2018 05:19:53.783 PM] Assembly-CSharp-firstpass.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp-firstpass.dll
+ (0,0): [11.08.2018 05:19:53.822 PM] Assembly-CSharp-firstpass.dll compilation finished in 82ms  source files re-parsed: 0 metadata reloaded: 13
+ (0,0): [11.08.2018 05:19:53.834 PM] Assembly-CSharp-firstpass.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:53.845 PM] Assembly-CSharp-firstpass.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:54.056 PM] Assembly-CSharp.dll compiling...
+ (0,0): [11.08.2018 05:19:54.101 PM] Assembly-CSharp.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp.dll
+ (0,0): [11.08.2018 05:19:54.137 PM] Assembly-CSharp.dll compilation finished in 82ms  source files re-parsed: 0 metadata reloaded: 1
+ (0,0): [11.08.2018 05:19:54.149 PM] Assembly-CSharp.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:54.155 PM] Assembly-CSharp-Editor-firstpass.dll compiling...
+ (0,0): [11.08.2018 05:19:54.160 PM] Assembly-CSharp.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:54.219 PM] Assembly-CSharp-Editor-firstpass.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp-Editor-firstpass.dll
+ (0,0): [11.08.2018 05:19:54.288 PM] Assembly-CSharp-Editor-firstpass.dll compilation finished in 132ms  source files re-parsed: 0 metadata reloaded: 0
+ (0,0): [11.08.2018 05:19:54.300 PM] Assembly-CSharp-Editor-firstpass.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:54.312 PM] Assembly-CSharp-Editor-firstpass.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
+ (0,0): [11.08.2018 05:19:54.451 PM] Assembly-CSharp-Editor.dll compiling...
+ (0,0): [11.08.2018 05:19:54.489 PM] Assembly-CSharp-Editor.dll: emitting IL to : D:\UnityRozne\PracaInzynierska\Temp\Assembly-CSharp-Editor.dll
+ (0,0): [11.08.2018 05:19:54.522 PM] Assembly-CSharp-Editor.dll compilation finished in 70ms  source files re-parsed: 0 metadata reloaded: 2
+ (0,0): [11.08.2018 05:19:54.534 PM] Assembly-CSharp-Editor.dll: compilation was cached, 0 file(s) were found to have changed. Caller PID: 3496
+ (0,0): [11.08.2018 05:19:54.545 PM] Assembly-CSharp-Editor.dll: session status updated to IncrementalCompilationStatus.Finished for Caller PID: 3496
