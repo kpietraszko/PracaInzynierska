@@ -38,27 +38,25 @@ public class SplineFollowSystem : ComponentSystem
     }
     [Inject] ControlPointsData ControlPoints;
     [Inject] CarsData Cars;
-    NativeList<int> _controlPointsIndices;
 
     protected override void OnCreateManager()
     {
         base.OnCreateManager();
         Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-GB");
-        _controlPointsIndices = new NativeList<int>(40, Allocator.Persistent);
     }
 
     protected override void OnUpdate()
     {
         const float carLength = 4.5f;
         var maxMovementError = 0.001f; //chyba wystarczy 1mm na klatke // TODO: dostosować
-        _controlPointsIndices.Clear();
-        var controlPointsCached = ControlPoints.Positions.GetChunkArray(0, ControlPoints.Length); // TEST
+        //var allControlPoints = ControlPoints.Positions.GetChunkArray(0, ControlPoints.Length);
+        var controlPoints = new NativeList<Position2D>(10, Allocator.Temp);
 
         for (int carIndex = 0; carIndex < Cars.Length; carIndex++)
         {
-            var curveId = Cars.SplineIds[carIndex];
-            GetSplineControlPoints(curveId, _controlPointsIndices);
-            var numOfCurves = _controlPointsIndices.Length / 2; //krzywych w tym splinie
+            var splineId = Cars.SplineIds[carIndex];
+            GetSplineControlPoints(splineId, ref controlPoints);
+            var numOfCurves = controlPoints.Length / 2; //krzywych w tym splinie
             float v = Cars.Velocities[carIndex] * Time.fixedDeltaTime;
             var obstacle = Cars.Obstacles[carIndex];
             float2 currentPosition = Cars.Positions[carIndex];
@@ -87,8 +85,8 @@ public class SplineFollowSystem : ComponentSystem
             float error = float.MaxValue;
             if (positionAlongSpline + maxMovementError >= 0.99f)
             {
-                PostUpdateCommands.RemoveComponent<Velocity>(Cars.Entities[carIndex]); //raczej usunąć
-                PostUpdateCommands.RemoveComponent<Obstacle>(Cars.Entities[carIndex]); //jw.
+                PostUpdateCommands.RemoveComponent<Velocity>(Cars.Entities[carIndex]);
+                PostUpdateCommands.RemoveComponent<Obstacle>(Cars.Entities[carIndex]);
                 PostUpdateCommands.SetComponent(Cars.Entities[carIndex], new Position2D(1000f, 0f)); // może niepotrzebne
                 Cars.Transforms[carIndex].position = new Vector3(1000f, 0f, 0f); // wyrzuca samochód gdzieś daleko żeby schować
                 // TODO: powinien trafić do unused cars, sprawdzić
@@ -115,8 +113,8 @@ public class SplineFollowSystem : ComponentSystem
                 // chyba jednak nie ma tu istotnego wpływu na wydajność
                 //position = lerp(lerp(ControlPoints.Positions[currentCurveStartIndex], ControlPoints.Positions[currentCurveStartIndex + 1], curveT),
                 //                        lerp(ControlPoints.Positions[currentCurveStartIndex + 1], ControlPoints.Positions[currentCurveStartIndex + 2], curveT), curveT); //sampling odpowiedniej krzywej beziera
-                position = lerp(lerp(controlPointsCached[currentCurveStartIndex], controlPointsCached[currentCurveStartIndex + 1], curveT),
-                                       lerp(controlPointsCached[currentCurveStartIndex + 1], controlPointsCached[currentCurveStartIndex + 2], curveT), curveT); //sampling odpowiedniej krzywej beziera
+                position = lerp(lerp(controlPoints[currentCurveStartIndex], controlPoints[currentCurveStartIndex + 1], curveT),
+                                       lerp(controlPoints[currentCurveStartIndex + 1], controlPoints[currentCurveStartIndex + 2], curveT), curveT); //sampling odpowiedniej krzywej beziera
 
                 if (!isFirstFrame)
                     currentPosition = Cars.Positions[carIndex];
@@ -151,15 +149,18 @@ public class SplineFollowSystem : ComponentSystem
                 Cars.Obstacles[carIndex] = obstacle;
             }
         }
+        controlPoints.Dispose();
     }
-    private void GetSplineControlPoints(int splineId, NativeList<int> pointsIndices)
+    private void GetSplineControlPoints(int splineId, ref NativeList<Position2D> resultPoints)
     {
-        pointsIndices.Clear();
-        for (int pointIndex = 0; pointIndex < ControlPoints.Length; pointIndex++)
+        resultPoints.Clear();
+        var positions = ControlPoints.Positions;
+        var splineIds = ControlPoints.SplineIds;
+        for (int pointIndex = 0; pointIndex < positions.Length; pointIndex++)
         {
-            if (ControlPoints.SplineIds[pointIndex] == splineId)
+            if (splineIds[pointIndex] == splineId)
             {
-                pointsIndices.Add(pointIndex);
+                resultPoints.Add(positions[pointIndex]);
             }
         }
     }
@@ -181,10 +182,5 @@ public class SplineFollowSystem : ComponentSystem
         var obstaclePosition = newPosition - normalize(newPosition - currentPosition) * (carLength / 2); // pozycja przesunięta do tyłu o pół długości samochodu
         //System.Diagnostics.Debug.WriteLine(obstaclePosition);
         return obstaclePosition;
-    }
-    protected override void OnDestroyManager()
-    {
-        base.OnDestroyManager();
-        _controlPointsIndices.Dispose();
     }
 }
