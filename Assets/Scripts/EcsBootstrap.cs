@@ -34,13 +34,14 @@ public class EcsBootstrap : MonoBehaviour
         //CreateScenario(em, 0); // TODO: to będzie w handlerze eventu UI
 		var startEntity = em.CreateEntity();
 		em.AddComponent(startEntity, typeof(Start));
-		for (int i = 0; i < CarsToSpawnTemp; i++) //temp
+		for (int i = 0; i < CarsToSpawnTemp; i++) // TEMP
 		{
-			var carToSpawnEntity = em.CreateEntity();
-			em.AddComponentData(carToSpawnEntity, new CarSpawn { SplineId = 0 });
-            var carToSpawnOn2ndEntity = em.CreateEntity();
-            em.AddComponentData(carToSpawnOn2ndEntity, new CarSpawn { SplineId = 1 });
-		}
+            for (int splineIndex = 0; splineIndex < Splines.Length; splineIndex++) // TEMP
+            {
+                var carToSpawnEntity = em.CreateEntity();
+                em.AddComponentData(carToSpawnEntity, new CarSpawn { SplineId = splineIndex });
+            }
+        }
 	}
 	void CreateSplineEntities(EntityManager em)
 	{
@@ -87,7 +88,7 @@ public class EcsBootstrap : MonoBehaviour
 			var meshRenderer = newCar.GetComponent<MeshRenderer>();
 			var hue = UnityEngine.Random.Range(0f, 1f);
             var randomColor = GetRandomHSVColor();
-            meshRenderer.material.color = randomColor;
+            meshRenderer.material.color = randomColor; //zmienić na per instance properties
 		}
 	}
     void CreateScenario(EntityManager em, int scenarioIndex)
@@ -125,8 +126,8 @@ public class EcsBootstrap : MonoBehaviour
     Color GetRandomHSVColor()
     {
         var hue = UnityEngine.Random.Range(0f, 1f);
-        var saturation = 0.50f + UnityEngine.Random.Range(-0.05f, 0.05f);
-        var value = 0.5f + UnityEngine.Random.Range(-0.1f, 0.1f);
+        var saturation = 0.5f + UnityEngine.Random.Range(-0.05f, 0.05f);
+        var value = 0.4f + UnityEngine.Random.Range(-0.1f, 0.1f);
         return Color.HSVToRGB(hue, saturation, value);
     }
 }

@@ -27,6 +27,7 @@ public class BreakOnObstacleSystem : ComponentSystem
         public ComponentDataArray<Acceleration> Accelerations;
         public ComponentDataArray<Velocity> Velocities;
         public ComponentDataArray<PositionAlongSpline> PositionsAlongSpline;
+        public ComponentDataArray<Heading> Headings;
         public EntityArray Entities;
     }
     struct BrakingCarsData
@@ -39,6 +40,7 @@ public class BreakOnObstacleSystem : ComponentSystem
         public ComponentDataArray<Acceleration> Accelerations;
         public ComponentDataArray<Velocity> Velocities;
         public ComponentDataArray<PositionAlongSpline> PositionsAlongSpline;
+        public ComponentDataArray<Heading> Headings;
         public EntityArray Entities;
     }
     [Inject] ObstacleData Obstacles;
@@ -56,17 +58,20 @@ public class BreakOnObstacleSystem : ComponentSystem
     protected override void OnUpdate()
     {
         var brakingAcceleration = -15f; //-20f było w miarę, ale chyba trochę szybko hamują
-        var brakingDistanceOffset = 3.4f;
+        var brakingDistanceOffset = 3.6f;
         for (int carIndex = 0; carIndex < NotBrakingCars.Length; carIndex++)
         {
             var carEntity = NotBrakingCars.Entities[carIndex];
             var v = NotBrakingCars.Velocities[carIndex];
             var a = NotBrakingCars.Accelerations[carIndex];
+            var headingRad = NotBrakingCars.Headings[carIndex] * (float)PI/180f;
+            var headingVector = new float2(cos((float)PI/2f - headingRad), sin((float)PI/2f - headingRad));
             for (int obstacleIndex = 0; obstacleIndex < Obstacles.Length; obstacleIndex++)
             {
                 // jeśli choć jedna przeszkoda jest w pobliżu
                 if (shouldBrake(v, a, brakingAcceleration, brakingDistanceOffset, obstacleIndex, carEntity,
-                NotBrakingCars.SplineIds[carIndex], NotBrakingCars.PositionsAlongSpline[carIndex], NotBrakingCars.Positions[carIndex]))
+                NotBrakingCars.SplineIds[carIndex], NotBrakingCars.PositionsAlongSpline[carIndex], NotBrakingCars.Positions[carIndex],
+                headingVector))
                 {
                     CarsToStartBraking.Add(carEntity);
                     //PostUpdateCommands.RemoveComponent<Accelerating>(carEntity);
@@ -82,10 +87,13 @@ public class BreakOnObstacleSystem : ComponentSystem
             var v = BrakingCars.Velocities[carIndex];
             var a = BrakingCars.Accelerations[carIndex];
             var shouldKeepBraking = false;
+            var headingRad = BrakingCars.Headings[carIndex] * (float)PI/180f;
+            var headingVector = new float2(cos((float)PI/2f - headingRad), sin((float)PI/2f - headingRad));
             for (int obstacleIndex = 0; obstacleIndex < Obstacles.Length; obstacleIndex++)
             {
                 if (shouldBrake(v, a, brakingAcceleration, brakingDistanceOffset, obstacleIndex, carEntity,
-                BrakingCars.SplineIds[carIndex], BrakingCars.PositionsAlongSpline[carIndex], BrakingCars.Positions[carIndex]))
+                BrakingCars.SplineIds[carIndex], BrakingCars.PositionsAlongSpline[carIndex], BrakingCars.Positions[carIndex],
+                headingVector))
                 {
                     shouldKeepBraking = true;
                 }
@@ -116,29 +124,38 @@ public class BreakOnObstacleSystem : ComponentSystem
     }
 
     private bool shouldBrake(float v, float a, float brakingAcceleration, float brakingDistanceOffset, int obstacleIndex, Entity carEntity,
-        int carSpline, float carPositionAlongSpline, float2 carPosition)
+        int carSpline, float carPositionAlongSpline, float2 carPosition, float2 headingVector)
     {
         var brakingTime = v / -brakingAcceleration;
         var brakingDistance = v * v / -brakingAcceleration / 2; // pole trójkąta
         var obstacle = Obstacles.Obstacles[obstacleIndex];
         var obstacleEntity = Obstacles.Entities[obstacleIndex];
-        if (Obstacles.Entities[obstacleIndex] == carEntity || //ignoruje samego siebie
-            obstacle.SplineId != carSpline || //i przeszkody z innych spline'ów // TODO: UWAGA BŁĄD! na jednym pasie będą 2 spliny,
-            // czyli chyba musze dodać samochodom float3 heading, i porownywać dotem czy jest przed czy za
-            obstacle.PositionAlongSpline < carPositionAlongSpline) //i przeszkody za samochodem 
+        if (Obstacles.Entities[obstacleIndex] == carEntity //ignoruje samego siebie
+        //i przeszkody z innych spline'ów // TODO: UWAGA BŁĄD! na jednym pasie będą 2 spliny,
+        // czyli chyba musze dodać samochodom float3 heading, i porownywać dotem czy jest przed czy za
+            )
         {
             return false;
         }
         var distanceToObstacle = distance(Obstacles.Obstacles[obstacleIndex].Position, carPosition);
 
         var distanceObstacleWillTravel = 0f;
-        if (EntityManager.HasComponent<Velocity>(obstacleEntity) && EntityManager.HasComponent<Acceleration>(obstacleEntity))
+        var obstacleRelativePos = obstacle.Position - carPosition;
+        var isObstacleInFront = dot(normalize(obstacleRelativePos), headingVector) > 0.97;
+        if (EntityManager.HasComponent<Velocity>(obstacleEntity) && EntityManager.HasComponent<Acceleration>(obstacleEntity)
+            && EntityManager.HasComponent<Heading>(obstacleEntity))
         {
+            if (obstacle.SplineId != carSpline && !isObstacleInFront)
+                return false;
+
             float obstacleVelocity = EntityManager.GetComponentData<Velocity>(obstacleEntity);
             float obstacleAcceleration = EntityManager.GetComponentData<Acceleration>(obstacleEntity);
             distanceObstacleWillTravel = ((2 * obstacleVelocity + obstacleAcceleration * brakingTime) * brakingTime) / 2f; // pole trapezu
-            //Debug.Log("brakingTime = " + brakingTime);
-            //Debug.Log("distanceObstacleWillTravel = " + distanceObstacleWillTravel);
+        }
+        else
+        {
+            if (!isObstacleInFront)
+                return false;
         }
         bool shouldBrake = distanceToObstacle + distanceObstacleWillTravel <= brakingDistance + brakingDistanceOffset;
         return shouldBrake;

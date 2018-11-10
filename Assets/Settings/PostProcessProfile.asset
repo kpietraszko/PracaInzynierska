@@ -34,10 +34,10 @@ MonoBehaviour:
     value: 10
   threshold:
     overrideState: 1
-    value: 1.07
+    value: 1.05
   softKnee:
     overrideState: 1
-    value: 0
+    value: 0.037
   clamp:
     overrideState: 0
     value: 65472

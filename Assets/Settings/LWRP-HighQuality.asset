@@ -24,8 +24,8 @@ MonoBehaviour:
   m_SupportsDynamicBatching: 1
   m_DirectionalShadowsSupported: 1
   m_ShadowAtlasResolution: 4096
-  m_ShadowDistance: 422.2
-  m_ShadowCascades: 2
+  m_ShadowDistance: 486.3
+  m_ShadowCascades: 0
   m_Cascade2Split: 0.7162044
   m_Cascade4Split: {x: 0.07990322, y: 0.21075267, z: 0.8733812}
   m_LocalShadowsSupported: 0

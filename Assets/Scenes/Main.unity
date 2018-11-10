@@ -285,7 +285,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.91028184, b: 0.6462264, a: 1}
-  m_Intensity: 7.5
+  m_Intensity: 8
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -293,7 +293,7 @@ Light:
     m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.8
+    m_Strength: 0.6
     m_Bias: 0.255
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -483,12 +483,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CarPrefab: {fileID: 1934698960348948, guid: ec70a0fabd8bae740b9f9c5a08511ce8, type: 2}
-  CarPoolSize: 40
+  CarPoolSize: 60
   TrafficLightPrefab: {fileID: 1621101216866946, guid: 65331e4262d93e542b0d6dc83bd3f0dd,
     type: 2}
   CarsToSpawnTemp: 20
   Splines:
   - {fileID: 11400000, guid: 9e313ac8a7e6d5343a69f447ce262249, type: 2}
+  - {fileID: 11400000, guid: 0516f3f45c23d33438e0376fd6f5064c, type: 2}
   - {fileID: 11400000, guid: b125940b52808ed48a7a5c06a8fc19f4, type: 2}
   Scenarios: []
 --- !u!4 &1774726366

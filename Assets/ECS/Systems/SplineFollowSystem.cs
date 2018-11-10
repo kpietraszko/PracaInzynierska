@@ -34,6 +34,7 @@ public class SplineFollowSystem : ComponentSystem
         public ComponentDataArray<Velocity> Velocities;
         public ComponentDataArray<Position2D> Positions;
         public ComponentDataArray<Obstacle> Obstacles;
+        public ComponentDataArray<Heading> Headings;
         public EntityArray Entities;
     }
     [Inject] ControlPointsData ControlPoints;
@@ -87,6 +88,9 @@ public class SplineFollowSystem : ComponentSystem
             {
                 PostUpdateCommands.RemoveComponent<Velocity>(Cars.Entities[carIndex]);
                 PostUpdateCommands.RemoveComponent<Obstacle>(Cars.Entities[carIndex]);
+                PostUpdateCommands.RemoveComponent<PositionAlongSpline>(Cars.Entities[carIndex]);
+                PostUpdateCommands.RemoveComponent<SplineId>(Cars.Entities[carIndex]);
+                PostUpdateCommands.RemoveComponent<Accelerating>(Cars.Entities[carIndex]);
                 PostUpdateCommands.SetComponent(Cars.Entities[carIndex], new Position2D(1000f, 0f)); // może niepotrzebne
                 Cars.Transforms[carIndex].position = new Vector3(1000f, 0f, 0f); // wyrzuca samochód gdzieś daleko żeby schować
                 // TODO: powinien trafić do unused cars, sprawdzić
@@ -140,6 +144,7 @@ public class SplineFollowSystem : ComponentSystem
             var newPosVector = new Vector3(newPosition.x, 0f, newPosition.y);
             var newRotation = Quaternion.LookRotation(newPosVector - Cars.Transforms[carIndex].position, Vector3.up); //* Quaternion.Euler(-90,0,0); //obrocone o -90 bo blender - działa
             Cars.Transforms[carIndex].SetPositionAndRotation(newPosVector, newRotation);
+            Cars.Headings[carIndex] = new Heading { Value = newRotation.eulerAngles.y };
 
             obstacle.PositionAlongSpline = splineT;
             // BUG: obstacle jest przed splinem, nie jestem pewien czy to problem

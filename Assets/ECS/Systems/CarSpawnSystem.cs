@@ -37,6 +37,10 @@ public class CarSpawnSystem : ComponentSystem
         {
             return;
         }
+        if (UnusedCars.Length == 0)
+        {
+            Debug.LogError("Attempting to spawn car, but no unused cars found!");
+        }
         const float carLength = 4.5f;
         var unusedCarIndex = 0;
         List<int> occupiedSplines = new List<int>(10);
@@ -45,24 +49,24 @@ public class CarSpawnSystem : ComponentSystem
             occupiedSplines.Add(OccupiedSplines.OccupiedSplines[occupiedIndex].SplineId);
         }
 
-        for (int i = 0; i < CarSpawns.Length; i++)
+        // teraz spawnuje tylko 1 samochód (łącznie) na klatke
+        if (!occupiedSplines.Contains(CarSpawns.CarSpawns[0].SplineId))
         {
-            if (!occupiedSplines.Contains(CarSpawns.CarSpawns[i].SplineId))
-            {
-                //Debug.Log($"[Frame {Time.frameCount}]Spline free, spawning");
-                var splineId = CarSpawns.CarSpawns[i].SplineId;
-                var spawningCar = UnusedCars.Entities[unusedCarIndex++];
-                PostUpdateCommands.AddSharedComponent(spawningCar, new SplineId(CarSpawns.CarSpawns[i].SplineId));
-                PostUpdateCommands.AddComponent(spawningCar, new PositionAlongSpline(0f));
-                PostUpdateCommands.AddComponent(spawningCar, new Accelerating());
-                // OD RAZU POTRZEBNE OBSTACLE.POSITION 
-                PostUpdateCommands.AddComponent(spawningCar, new Obstacle { SplineId = splineId, PositionAlongSpline = 0 }); 
-                PostUpdateCommands.AddComponent(spawningCar, new Velocity(UnusedCars.MaxVelocities[i] / 2f));
-                PostUpdateCommands.AddComponent(spawningCar, new Acceleration());
-                PostUpdateCommands.AddComponent(spawningCar, new FirstCarFrame());
-                PostUpdateCommands.DestroyEntity(CarSpawns.Entities[i]);
-                occupiedSplines.Add(splineId);
-            }
+            //Debug.Log($"[Frame {Time.frameCount}]Spline free, spawning");
+            var splineId = CarSpawns.CarSpawns[0].SplineId;
+            var spawningCar = UnusedCars.Entities[unusedCarIndex];
+            PostUpdateCommands.AddSharedComponent(spawningCar, new SplineId(CarSpawns.CarSpawns[0].SplineId));
+            PostUpdateCommands.AddComponent(spawningCar, new PositionAlongSpline(0f));
+            PostUpdateCommands.AddComponent(spawningCar, new Accelerating());
+            // OD RAZU POTRZEBNE OBSTACLE.POSITION 
+            PostUpdateCommands.AddComponent(spawningCar, new Obstacle { SplineId = splineId, PositionAlongSpline = 0 });
+            PostUpdateCommands.AddComponent(spawningCar, new Velocity(UnusedCars.MaxVelocities[unusedCarIndex] / 2f));
+            PostUpdateCommands.AddComponent(spawningCar, new Acceleration());
+            PostUpdateCommands.AddComponent(spawningCar, new Heading());
+            PostUpdateCommands.AddComponent(spawningCar, new FirstCarFrame());
+            PostUpdateCommands.DestroyEntity(CarSpawns.Entities[0]);
+            occupiedSplines.Add(splineId);
+            unusedCarIndex++;
         }
     }
 }
