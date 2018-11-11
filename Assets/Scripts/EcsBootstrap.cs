@@ -82,14 +82,18 @@ public class EcsBootstrap : MonoBehaviour
 	}
 	void InstantiateCars(EntityManager em)
 	{
+        var propBlock = new MaterialPropertyBlock();
 		for (int i = 0; i < CarPoolSize; i++)
 		{
 			var newCar = GameObject.Instantiate(CarPrefab, new Vector3(1000f,0f,0f), Quaternion.identity);
-			var meshRenderer = newCar.GetComponent<MeshRenderer>();
-			var hue = UnityEngine.Random.Range(0f, 1f);
             var randomColor = GetRandomHSVColor();
-            meshRenderer.material.color = randomColor; //zmienić na per instance properties
-		}
+
+            var meshRenderer = newCar.GetComponent<MeshRenderer>();
+            meshRenderer.GetPropertyBlock(propBlock);
+            propBlock.SetColor("_Color", randomColor);
+            meshRenderer.SetPropertyBlock(propBlock);
+            //meshRenderer.material.color = randomColor; //zmienić na per instance properties
+        }
 	}
     void CreateScenario(EntityManager em, int scenarioIndex)
     {
@@ -129,5 +133,12 @@ public class EcsBootstrap : MonoBehaviour
         var saturation = 0.5f + UnityEngine.Random.Range(-0.05f, 0.05f);
         var value = 0.4f + UnityEngine.Random.Range(-0.1f, 0.1f);
         return Color.HSVToRGB(hue, saturation, value);
+    }
+    private void OnApplicationQuit()
+    {
+        if (!Application.isEditor)
+        {
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+        }
     }
 }

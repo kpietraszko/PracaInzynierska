@@ -58,7 +58,7 @@ public class SplineFollowSystem : ComponentSystem
             var splineId = Cars.SplineIds[carIndex];
             GetSplineControlPoints(splineId, ref controlPoints);
             var numOfCurves = controlPoints.Length / 2; //krzywych w tym splinie
-            float v = Cars.Velocities[carIndex] * Time.fixedDeltaTime;
+            float v = Cars.Velocities[carIndex] * (1/60f)/*Time.fixedDeltaTime*/;
             var obstacle = Cars.Obstacles[carIndex];
             float2 currentPosition = Cars.Positions[carIndex];
             if (EntityManager.HasComponent<FirstCarFrame>(Cars.Entities[carIndex]))
@@ -84,16 +84,9 @@ public class SplineFollowSystem : ComponentSystem
             float2 newPosition;
             float splineT;
             float error = float.MaxValue;
-            if (positionAlongSpline + maxMovementError >= 0.99f)
+            if (positionAlongSpline + maxMovementError >= 0.998f)
             {
-                PostUpdateCommands.RemoveComponent<Velocity>(Cars.Entities[carIndex]);
-                PostUpdateCommands.RemoveComponent<Obstacle>(Cars.Entities[carIndex]);
-                PostUpdateCommands.RemoveComponent<PositionAlongSpline>(Cars.Entities[carIndex]);
-                PostUpdateCommands.RemoveComponent<SplineId>(Cars.Entities[carIndex]);
-                PostUpdateCommands.RemoveComponent<Accelerating>(Cars.Entities[carIndex]);
-                PostUpdateCommands.SetComponent(Cars.Entities[carIndex], new Position2D(1000f, 0f)); // może niepotrzebne
-                Cars.Transforms[carIndex].position = new Vector3(1000f, 0f, 0f); // wyrzuca samochód gdzieś daleko żeby schować
-                // TODO: powinien trafić do unused cars, sprawdzić
+                DeSpawnCar(carIndex);
                 continue;
             }
 
@@ -187,5 +180,19 @@ public class SplineFollowSystem : ComponentSystem
         var obstaclePosition = newPosition - normalize(newPosition - currentPosition) * (carLength / 2); // pozycja przesunięta do tyłu o pół długości samochodu
         //System.Diagnostics.Debug.WriteLine(obstaclePosition);
         return obstaclePosition;
+    }
+    private void DeSpawnCar(int carIndex)
+    {
+        var carEntity = Cars.Entities[carIndex];
+        PostUpdateCommands.RemoveComponent<Velocity>(carEntity);
+        PostUpdateCommands.RemoveComponent<Obstacle>(carEntity);
+        PostUpdateCommands.RemoveComponent<PositionAlongSpline>(carEntity);
+        PostUpdateCommands.RemoveComponent<SplineId>(carEntity);
+        PostUpdateCommands.RemoveComponent<Accelerating>(carEntity);
+        PostUpdateCommands.RemoveComponent<Acceleration>(carEntity);
+        PostUpdateCommands.RemoveComponent<Heading>(carEntity);
+        PostUpdateCommands.SetComponent(carEntity, new Position2D(1000f, 0f)); // może niepotrzebne
+        Cars.Transforms[carIndex].position = new Vector3(1000f, 0f, 0f); // wyrzuca samochód gdzieś daleko żeby schować
+        // TODO: powinien trafić do unused cars, sprawdzić
     }
 }
