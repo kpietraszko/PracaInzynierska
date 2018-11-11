@@ -70,6 +70,7 @@ public class BreakOnObstacleSystem : ComponentSystem
     }
     protected override void OnUpdate()
     {
+        // indeksery ComponentDataArray są wolne, dlatego zapisuję wartości przed wewnętrznymi pętlami
         var brakingAcceleration = -15f; //-20f było w miarę, ale chyba trochę szybko hamują
         var brakingDistanceOffset = 3.6f;
         for (int carIndex = 0; carIndex < NotBrakingCars.Length; carIndex++)
@@ -77,6 +78,9 @@ public class BreakOnObstacleSystem : ComponentSystem
             var carEntity = NotBrakingCars.Entities[carIndex];
             var v = NotBrakingCars.Velocities[carIndex];
             var a = NotBrakingCars.Accelerations[carIndex];
+            var splineId = NotBrakingCars.SplineIds[carIndex];
+            var positionAlongSpline = NotBrakingCars.PositionsAlongSpline[carIndex];
+            var position = NotBrakingCars.Positions[carIndex];
             var headingRad = NotBrakingCars.Headings[carIndex] * (float)PI/180f;
             var headingVector = new float2(cos((float)PI/2f - headingRad), sin((float)PI/2f - headingRad));
             var alreadyAddedToBraking = false;
@@ -84,8 +88,7 @@ public class BreakOnObstacleSystem : ComponentSystem
             {
                 // jeśli choć jedna statyczna przeszkoda jest w pobliżu
                 if (shouldBrake(v, a, brakingAcceleration, brakingDistanceOffset, obstacleIndex, carEntity,
-                NotBrakingCars.SplineIds[carIndex], NotBrakingCars.PositionsAlongSpline[carIndex], NotBrakingCars.Positions[carIndex],
-                headingVector, true))
+                splineId, positionAlongSpline, position,headingVector, true))
                 {
                     CarsToStartBraking.Add(carEntity);
                     alreadyAddedToBraking = true;
@@ -98,7 +101,7 @@ public class BreakOnObstacleSystem : ComponentSystem
                 {
                     // jeśli choć jedna dynamiczna przeszkoda jest w pobliżu
                     if (shouldBrake(v, a, brakingAcceleration, brakingDistanceOffset, obstacleIndex, carEntity,
-                    NotBrakingCars.SplineIds[carIndex], NotBrakingCars.PositionsAlongSpline[carIndex], NotBrakingCars.Positions[carIndex],
+                    splineId, positionAlongSpline, position,
                     headingVector, false))
                     {
                         CarsToStartBraking.Add(carEntity);
@@ -113,14 +116,16 @@ public class BreakOnObstacleSystem : ComponentSystem
             var carEntity = BrakingCars.Entities[carIndex];
             var v = BrakingCars.Velocities[carIndex];
             var a = BrakingCars.Accelerations[carIndex];
+            var splineId = BrakingCars.SplineIds[carIndex];
+            var positionAlongSpline = BrakingCars.PositionsAlongSpline[carIndex];
+            var position = BrakingCars.Positions[carIndex];
             var shouldKeepBraking = false;
             var headingRad = BrakingCars.Headings[carIndex] * (float)PI/180f;
             var headingVector = new float2(cos((float)PI/2f - headingRad), sin((float)PI/2f - headingRad));
             for (int obstacleIndex = 0; obstacleIndex < StaticObstacles.Length; obstacleIndex++)
             {
                 if (shouldBrake(v, a, brakingAcceleration, brakingDistanceOffset, obstacleIndex, carEntity,
-                BrakingCars.SplineIds[carIndex], BrakingCars.PositionsAlongSpline[carIndex], BrakingCars.Positions[carIndex],
-                headingVector, true))
+                splineId, positionAlongSpline, position, headingVector, true))
                 {
                     shouldKeepBraking = true;
                 }
@@ -128,18 +133,14 @@ public class BreakOnObstacleSystem : ComponentSystem
             for (int obstacleIndex = 0; obstacleIndex < DynamicObstacles.Length; obstacleIndex++)
             {
                 if (shouldBrake(v, a, brakingAcceleration, brakingDistanceOffset, obstacleIndex, carEntity,
-                BrakingCars.SplineIds[carIndex], BrakingCars.PositionsAlongSpline[carIndex], BrakingCars.Positions[carIndex],
-                headingVector, false))
+                splineId, positionAlongSpline, position, headingVector, false))
                 {
                     shouldKeepBraking = true;
                 }
             }
             if (!shouldKeepBraking) // jeśli żadna przeszkoda nie jest blisko
             {
-                //Debug.Log($"Car {BrakingCars.Entities[carIndex].Index}: Road clear, accelerating");
                 CarsToStartAccelerating.Add(carEntity);
-                //PostUpdateCommands.RemoveComponent<Decelerating>(carEntity);
-                //PostUpdateCommands.AddComponent(carEntity, new Accelerating());
                 break;
             }
         }
@@ -162,19 +163,19 @@ public class BreakOnObstacleSystem : ComponentSystem
     private bool shouldBrake(float v, float a, float brakingAcceleration, float brakingDistanceOffset, int obstacleIndex, Entity carEntity,
         int carSpline, float carPositionAlongSpline, float2 carPosition, float2 headingVector, bool isObstacleStatic)
     {
-        var brakingTime = v / -brakingAcceleration;
-        var brakingDistance = v * v / -brakingAcceleration / 2; // pole trójkąta
-        var obstacle = isObstacleStatic ? StaticObstacles.Obstacles[obstacleIndex] : DynamicObstacles.Obstacles[obstacleIndex];
-        var distanceToObstacle = distance(obstacle.Position, carPosition);
-        if (distanceToObstacle > 20f)
-        {
-            return false;
-        }
         var obstacleEntity = isObstacleStatic ? StaticObstacles.Entities[obstacleIndex] : DynamicObstacles.Entities[obstacleIndex];
         if (obstacleEntity == carEntity) //ignoruje samego siebie
         {
             return false;
         }
+        // TODO: native array staticObstacles i dynamicObstacles na początku klatki? indekser tutaj spowalnia
+        var obstacle = isObstacleStatic ? StaticObstacles.Obstacles[obstacleIndex] : DynamicObstacles.Obstacles[obstacleIndex];
+        if (lengthsq(obstacle.Position - carPosition) > 20f * 20f)
+        {
+            return false;
+        }
+        var brakingTime = v / -brakingAcceleration;
+        var brakingDistance = v * v / -brakingAcceleration / 2; // pole trójkąta
 
         var distanceObstacleWillTravel = 0f;
         var obstacleRelativePos = obstacle.Position - carPosition;
@@ -193,6 +194,7 @@ public class BreakOnObstacleSystem : ComponentSystem
             if (!isObstacleInFront)
                 return false;
         }
+        var distanceToObstacle = distance(obstacle.Position, carPosition);
         bool shouldBrake = distanceToObstacle + distanceObstacleWillTravel <= brakingDistance + brakingDistanceOffset;
         return shouldBrake;
     }
