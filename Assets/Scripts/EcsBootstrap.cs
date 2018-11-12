@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Entities;
 using Unity.Mathematics;
+using System;
 
 public class EcsBootstrap : MonoBehaviour
 {

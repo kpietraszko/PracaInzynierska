@@ -58,7 +58,7 @@ public class SplineFollowSystem : ComponentSystem
             var splineId = Cars.SplineIds[carIndex];
             GetSplineControlPoints(splineId, ref controlPoints);
             var numOfCurves = controlPoints.Length / 2; //krzywych w tym splinie
-            float v = Cars.Velocities[carIndex] * (1/60f)/*Time.fixedDeltaTime*/;
+            float v = Cars.Velocities[carIndex] * (1/30f)/*Time.fixedDeltaTime*/;
             var obstacle = Cars.Obstacles[carIndex];
             float2 currentPosition = Cars.Positions[carIndex];
             if (EntityManager.HasComponent<FirstCarFrame>(Cars.Entities[carIndex]))
