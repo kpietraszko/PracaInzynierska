@@ -1,18 +1,24 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Entities;
 using UnityEngine;
 
-public struct ScenarioStepStartTime : IComponentData
+public struct ScenarioStepDuration : IComponentData, IComparable<ScenarioStepDuration>
 {
-    /// <param name="startTimeInMs">Time (in ms) at which scenario step will start</param>
-    public ScenarioStepStartTime(long startTimeInMs)
+    /// <param name="durationInS">Time (in s) scenario step will take</param>
+    public ScenarioStepDuration(float durationInS)
     {
-        StartTimeInMs = startTimeInMs;
+        DurationInS = durationInS;
     }
-	public long StartTimeInMs;
-	public static implicit operator long(ScenarioStepStartTime startTime)
+	public float DurationInS;
+	public static implicit operator float(ScenarioStepDuration duration)
 	{
-		return startTime.StartTimeInMs;
+		return duration.DurationInS;
 	}
+
+    public int CompareTo(ScenarioStepDuration that)
+    {
+        return this.DurationInS.CompareTo(that.DurationInS);
+    }
 }

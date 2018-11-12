@@ -4,98 +4,107 @@ using UnityEngine;
 using Unity.Entities;
 using Unity.Mathematics;
 using System;
+using Unity.Rendering;
+using Unity.Transforms;
 
 public class EcsBootstrap : MonoBehaviour
 {
-	[SerializeField]
-	GameObject CarPrefab;
+    [SerializeField]
+    GameObject CarPrefab;
 
-	[SerializeField]
-	int CarPoolSize;
+    [SerializeField]
+    int CarPoolSize;
 
-	[SerializeField]
-	GameObject TrafficLightPrefab;
+    [SerializeField]
+    Mesh TrafficLightMesh;
 
-	[SerializeField]
-	int CarsToSpawnTemp;
+    [SerializeField]
+    Material TrafficLightMaterial;
 
-	[SerializeField]
-	Spline[] Splines;
+    [SerializeField]
+    int CarsToSpawnTemp;
+
+    [SerializeField]
+    Spline[] Splines;
 
     [SerializeField]
     Scenario[] Scenarios;
 
-	void Awake()
-	{
-		var em = World.Active.GetOrCreateManager<EntityManager>();
-		CreateSplineEntities(em);
-		InstantiateTrafficLights();
-		InstantiateCars(em);
+    void Awake()
+    {
+        var em = World.Active.GetOrCreateManager<EntityManager>();
+        CreateScenario(em, 0); // TODO: to będzie w handlerze eventu UI
+        CreateSplinesAndLightsEntities(em);
+        InstantiateCars(em);
         CreateArchetypes(em);
-        //CreateScenario(em, 0); // TODO: to będzie w handlerze eventu UI
-		var startEntity = em.CreateEntity();
-		em.AddComponent(startEntity, typeof(Start));
-		for (int i = 0; i < CarsToSpawnTemp; i++) // TEMP
-		{
+        var startEntity = em.CreateEntity();
+        em.AddComponent(startEntity, typeof(Start));
+        for (int i = 0; i < CarsToSpawnTemp; i++) // TEMP
+        {
             for (int splineIndex = 0; splineIndex < Splines.Length; splineIndex++) // TEMP
             {
                 var carToSpawnEntity = em.CreateEntity();
                 em.AddComponentData(carToSpawnEntity, new CarSpawn { SplineId = splineIndex });
             }
         }
-	}
-	void CreateSplineEntities(EntityManager em)
-	{
-		var numberOfSplines = Splines.Length;
+    }
+    void CreateSplinesAndLightsEntities(EntityManager em)
+    {
+        var numberOfSplines = Splines.Length;
         var lightCounter = 0;
-		for (int splineIndex = 0; splineIndex < numberOfSplines; splineIndex++)
-		{
-			for (int pointIndex = 0; pointIndex < Splines[splineIndex].ControlPointCount; pointIndex++)
-			{
-				var entity = em.CreateEntity(typeof(SplineId), typeof(ControlPointId), typeof(Position2D));
-				em.SetSharedComponentData(entity, new SplineId { Value = splineIndex });
-				em.SetComponentData(entity, new ControlPointId { Value = pointIndex });
-				em.SetComponentData(entity, new Position2D
-				{
-					Value =
-						  new float2(Splines[splineIndex][pointIndex].x,
-						  Splines[splineIndex][pointIndex].z)
-				});
-			}
-			foreach (var light in Splines[splineIndex].TrafficLights)
-			{
-				var lightEntity = em.CreateEntity(typeof(Obstacle), typeof(TrafficLightId));
-				var worldPos = Splines[splineIndex].GetPointOnSpline(light/* - 0.035f*/);
-				em.SetComponentData(lightEntity, new Obstacle { SplineId = splineIndex, PositionAlongSpline = light/*-0.035f*/, Position = new float2(worldPos.x, worldPos.z) });
+        for (int splineIndex = 0; splineIndex < numberOfSplines; splineIndex++)
+        {
+            for (int pointIndex = 0; pointIndex < Splines[splineIndex].ControlPointCount; pointIndex++)
+            {
+                var entity = em.CreateEntity(typeof(SplineId), typeof(ControlPointId), typeof(Position2D));
+                em.SetSharedComponentData(entity, new SplineId { Value = splineIndex });
+                em.SetComponentData(entity, new ControlPointId { Value = pointIndex });
+                em.SetComponentData(entity, new Position2D
+                {
+                    Value =
+                          new float2(Splines[splineIndex][pointIndex].x,
+                          Splines[splineIndex][pointIndex].z)
+                });
+            }
+            foreach (var light in Splines[splineIndex].TrafficLights)
+            {
+                var lightRenderer = GetTrafficLightMeshInstanceRenderer(TrafficLightMaterial);
+                var lightEntity = em.CreateEntity(typeof(Obstacle), typeof(TrafficLightId), typeof(MeshInstanceRenderer),
+                    typeof(Position), typeof(LocalToWorld), typeof(Scale));
+                var worldPos = Splines[splineIndex].GetPointOnSpline(light) + Vector3.up * 1f;
+                em.SetComponentData(lightEntity, new Obstacle { SplineId = splineIndex, PositionAlongSpline = light, Position = new float2(worldPos.x, worldPos.z) });
                 em.SetComponentData(lightEntity, new TrafficLightId(lightCounter++));
-			}
-		}
-	}
-	void InstantiateTrafficLights()
-	{
-		foreach (var spline in Splines)
-		{
-			foreach (var lightPos in spline.TrafficLights)
-			{
-				GameObject.Instantiate(TrafficLightPrefab, spline.GetPointOnSpline(lightPos), Quaternion.identity, transform);
-			}
-		}
-	}
-	void InstantiateCars(EntityManager em)
-	{
+                em.SetComponentData(lightEntity, new Position { Value = worldPos });
+                em.SetComponentData(lightEntity, new Scale { Value = new float3(1.5f, 1.5f, 1.5f) });
+                em.SetSharedComponentData(lightEntity, lightRenderer);
+            }
+        }
+    }
+    MeshInstanceRenderer GetTrafficLightMeshInstanceRenderer(Material baseMaterial)
+    {
+        return new MeshInstanceRenderer
+        {
+            mesh = TrafficLightMesh,
+            material = new Material(baseMaterial), // żeby zmiana koloru jednego światła nie zmieniała wszystkich
+            subMesh = 0,
+            castShadows = UnityEngine.Rendering.ShadowCastingMode.Off,
+            receiveShadows = false
+        };
+    }
+    void InstantiateCars(EntityManager em)
+    {
         var propBlock = new MaterialPropertyBlock();
-		for (int i = 0; i < CarPoolSize; i++)
-		{
-			var newCar = GameObject.Instantiate(CarPrefab, new Vector3(1000f,0f,0f), Quaternion.identity);
+        for (int i = 0; i < CarPoolSize; i++)
+        {
+            var newCar = GameObject.Instantiate(CarPrefab, new Vector3(1000f,0f,0f), Quaternion.identity);
             var randomColor = GetRandomHSVColor();
 
             var meshRenderer = newCar.GetComponent<MeshRenderer>();
             meshRenderer.GetPropertyBlock(propBlock);
             propBlock.SetColor("_Color", randomColor);
             meshRenderer.SetPropertyBlock(propBlock);
-            //meshRenderer.material.color = randomColor; //zmienić na per instance properties
         }
-	}
+    }
     void CreateScenario(EntityManager em, int scenarioIndex)
     {
         var scenarioSteps = Scenarios[scenarioIndex].ScenarioSteps;
@@ -104,7 +113,7 @@ public class EcsBootstrap : MonoBehaviour
             var stepEntity = em.CreateEntity();
             em.AddComponentData(stepEntity, new ScenarioStepId(stepIndex));
             em.AddBuffer<GreenLightInScenarioStep>(stepEntity);
-            em.AddComponentData(stepEntity, new ScenarioStepStartTime(stepIndex * 4000L));
+            em.AddComponentData(stepEntity, new ScenarioStepDuration(4f));
             var buffer = em.GetBuffer<GreenLightInScenarioStep>(stepEntity);
             for (int lightIndex = 0; lightIndex < scenarioSteps[stepIndex].GreenLights.Length; lightIndex++)
             {
@@ -114,18 +123,18 @@ public class EcsBootstrap : MonoBehaviour
     }
     void CreateArchetypes(EntityManager em) // tworzenie archetypów zmienia układ komponentów w pamięci, zmniejszając liczbe przesunięć i alokacji
     { // poprawka, jednak to nic nie daje, może iteracja po chunkach to naprawia?
-        // samochody nieużywane
-        //em.CreateArchetype(typeof(Car), typeof(Position2D), typeof(MaxVelocity), typeof(Transform), typeof(MeshFilter), typeof(MeshRenderer));
-        //em.CreateArchetype(typeof(CarSpawn));
-        //// samochody przyspieszające
-        //em.CreateArchetype(typeof(Car), typeof(Position2D), typeof(MaxVelocity), typeof(Transform), typeof(MeshFilter), typeof(MeshRenderer), typeof(SplineId), typeof(PositionAlongSpline), typeof(Acceleration), typeof(Velocity), typeof(Obstacle), typeof(Accelerating));
-        //// samochody w stanie pośrednim 
-        //em.CreateArchetype(typeof(Car), typeof(Position2D), typeof(MaxVelocity), typeof(Transform), typeof(MeshFilter), typeof(MeshRenderer), typeof(SplineId), typeof(PositionAlongSpline), typeof(Acceleration), typeof(Velocity), typeof(Obstacle));
-        //// samochody hamujące
-        //em.CreateArchetype(typeof(Car), typeof(Position2D), typeof(MaxVelocity), typeof(Transform), typeof(MeshFilter), typeof(MeshRenderer), typeof(SplineId), typeof(PositionAlongSpline), typeof(Acceleration), typeof(Velocity), typeof(Obstacle), typeof(Decelerating));
-        //// punkty kontrolne
-        //em.CreateArchetype(typeof(SplineId), typeof(ControlPointId), typeof(Position2D));
-        
+      // samochody nieużywane
+      //em.CreateArchetype(typeof(Car), typeof(Position2D), typeof(MaxVelocity), typeof(Transform), typeof(MeshFilter), typeof(MeshRenderer));
+      //em.CreateArchetype(typeof(CarSpawn));
+      //// samochody przyspieszające
+      //em.CreateArchetype(typeof(Car), typeof(Position2D), typeof(MaxVelocity), typeof(Transform), typeof(MeshFilter), typeof(MeshRenderer), typeof(SplineId), typeof(PositionAlongSpline), typeof(Acceleration), typeof(Velocity), typeof(Obstacle), typeof(Accelerating));
+      //// samochody w stanie pośrednim 
+      //em.CreateArchetype(typeof(Car), typeof(Position2D), typeof(MaxVelocity), typeof(Transform), typeof(MeshFilter), typeof(MeshRenderer), typeof(SplineId), typeof(PositionAlongSpline), typeof(Acceleration), typeof(Velocity), typeof(Obstacle));
+      //// samochody hamujące
+      //em.CreateArchetype(typeof(Car), typeof(Position2D), typeof(MaxVelocity), typeof(Transform), typeof(MeshFilter), typeof(MeshRenderer), typeof(SplineId), typeof(PositionAlongSpline), typeof(Acceleration), typeof(Velocity), typeof(Obstacle), typeof(Decelerating));
+      //// punkty kontrolne
+      //em.CreateArchetype(typeof(SplineId), typeof(ControlPointId), typeof(Position2D));
+
 
     }
     Color GetRandomHSVColor()

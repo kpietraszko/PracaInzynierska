@@ -15,3 +15,4 @@ public struct TrafficLightId : IComponentData
 		return id.Value;
 	}
 }
+public class TraficLightIdWrapper : ComponentDataWrapper<TrafficLightId> { }

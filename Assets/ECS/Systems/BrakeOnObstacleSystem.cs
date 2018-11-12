@@ -9,7 +9,7 @@ using static Unity.Mathematics.math;
 
 [UpdateAfter(typeof(UnityEngine.Experimental.PlayerLoop.FixedUpdate))]
 [UpdateBefore(typeof(AccelerationChangeSystem))]
-public class BreakOnObstacleSystem : ComponentSystem
+public class BrakeOnObstacleSystem : ComponentSystem
 {
     struct StaticObstacleData
     {
@@ -77,16 +77,20 @@ public class BreakOnObstacleSystem : ComponentSystem
         var staticObstaclesLength = StaticObstacles.Length; // jako że to nie jest tak naprawdę tablica to nawet Length jest wolne
         var dynamicObstaclesLength = DynamicObstacles.Length;
         var staticObstacles = new NativeArray<Obstacle>(staticObstaclesLength, Allocator.Temp, NativeArrayOptions.UninitializedMemory);
+        var staticObstaclesEntities = new NativeArray<Entity>(staticObstaclesLength, Allocator.Temp, NativeArrayOptions.UninitializedMemory);
         var dynamicObstacles = new NativeArray<Obstacle>(dynamicObstaclesLength, Allocator.Temp, NativeArrayOptions.UninitializedMemory);
+        var dynamicObstaclesEntities = new NativeArray<Entity>(dynamicObstaclesLength, Allocator.Temp, NativeArrayOptions.UninitializedMemory);
         var dynamicObstaclesVelocitites = new NativeArray<Velocity>(dynamicObstaclesLength, Allocator.Temp, NativeArrayOptions.UninitializedMemory);
         var dynamicObstaclesAccelerations = new NativeArray<Acceleration>(dynamicObstaclesLength, Allocator.Temp, NativeArrayOptions.UninitializedMemory);
         for (int i = 0; i < staticObstaclesLength; i++)
         {
             staticObstacles[i] = StaticObstacles.Obstacles[i];
+            staticObstaclesEntities[i] = StaticObstacles.Entities[i];
         }
         for (int i = 0; i < dynamicObstaclesLength; i++)
         {
             dynamicObstacles[i] = DynamicObstacles.Obstacles[i];
+            dynamicObstaclesEntities[i] = DynamicObstacles.Entities[i];
             dynamicObstaclesVelocitites[i] = DynamicObstacles.Velocities[i];
             dynamicObstaclesAccelerations[i] = DynamicObstacles.Accelerations[i];
         }
@@ -112,8 +116,8 @@ public class BreakOnObstacleSystem : ComponentSystem
             {
                 // jeśli choć jedna statyczna przeszkoda jest w pobliżu
                 if (ShouldBrake(v, a, brakingAcceleration, brakingDistanceOffset, obstacleIndex, carEntity,
-                splineId, positionAlongSpline, position,headingVector, true,
-                staticObstacles[obstacleIndex], default(Velocity), default(Acceleration)))
+                splineId, position,headingVector, true,
+                staticObstacles[obstacleIndex], staticObstaclesEntities[obstacleIndex], default(Velocity), default(Acceleration)))
                 {
                     CarsToStartBraking.Add(carEntity);
                     alreadyAddedToBraking = true;
@@ -126,8 +130,9 @@ public class BreakOnObstacleSystem : ComponentSystem
                 {
                     // jeśli choć jedna dynamiczna przeszkoda jest w pobliżu
                     if (ShouldBrake(v, a, brakingAcceleration, brakingDistanceOffset, obstacleIndex, carEntity,
-                    splineId, positionAlongSpline, position, headingVector, false,
-                    dynamicObstacles[obstacleIndex], dynamicObstaclesVelocitites[obstacleIndex], dynamicObstaclesAccelerations[obstacleIndex]))
+                    splineId, position, headingVector, false,
+                    dynamicObstacles[obstacleIndex], dynamicObstaclesEntities[obstacleIndex],
+                    dynamicObstaclesVelocitites[obstacleIndex], dynamicObstaclesAccelerations[obstacleIndex]))
                     {
                         CarsToStartBraking.Add(carEntity);
                         break;
@@ -152,8 +157,8 @@ public class BreakOnObstacleSystem : ComponentSystem
             for (int obstacleIndex = 0; obstacleIndex < staticObstaclesLength; obstacleIndex++)
             {
                 if (ShouldBrake(v, a, brakingAcceleration, brakingDistanceOffset, obstacleIndex, carEntity,
-                splineId, positionAlongSpline, position, headingVector, true,
-                staticObstacles[obstacleIndex], default(Velocity), default(Acceleration)))
+                splineId, position, headingVector, true,
+                staticObstacles[obstacleIndex], staticObstaclesEntities[obstacleIndex], default(Velocity), default(Acceleration)))
                 {
                     shouldKeepBraking = true;
                 }
@@ -161,8 +166,9 @@ public class BreakOnObstacleSystem : ComponentSystem
             for (int obstacleIndex = 0; obstacleIndex < dynamicObstaclesLength; obstacleIndex++)
             {
                 if (ShouldBrake(v, a, brakingAcceleration, brakingDistanceOffset, obstacleIndex, carEntity,
-                splineId, positionAlongSpline, position, headingVector, false,
-                dynamicObstacles[obstacleIndex], dynamicObstaclesVelocitites[obstacleIndex], dynamicObstaclesAccelerations[obstacleIndex]))
+                splineId, position, headingVector, false,
+                dynamicObstacles[obstacleIndex], dynamicObstaclesEntities[obstacleIndex], 
+                dynamicObstaclesVelocitites[obstacleIndex], dynamicObstaclesAccelerations[obstacleIndex]))
                 {
                     shouldKeepBraking = true;
                 }
@@ -190,22 +196,24 @@ public class BreakOnObstacleSystem : ComponentSystem
         }
         CarsToStartAccelerating.Clear();
         staticObstacles.Dispose();
+        staticObstaclesEntities.Dispose();
         dynamicObstacles.Dispose();
+        dynamicObstaclesEntities.Dispose();
         dynamicObstaclesVelocitites.Dispose();
         dynamicObstaclesAccelerations.Dispose();
         Profiler.EndSample();
     }
 
     private bool ShouldBrake(float v, float a, float brakingAcceleration, float brakingDistanceOffset, int obstacleIndex, Entity carEntity,
-        int carSpline, float carPositionAlongSpline, float2 carPosition, float2 headingVector, bool isObstacleStatic,
-        Obstacle obstacle, Velocity obstacleVelocity, Acceleration obstacleAcceleration)
+        int carSpline, float2 carPosition, float2 headingVector, bool isObstacleStatic,
+        Obstacle obstacle, Entity obstacleEntity, Velocity obstacleVelocity, Acceleration obstacleAcceleration)
     {
-        if (all(carPosition == obstacle.Position)) //ignoruje samego siebie
+        if (carEntity == obstacleEntity) //ignoruje samego siebie
         {
             return false;
         }
 
-        if (lengthsq(obstacle.Position - carPosition) > 20f * 20f) //odrzuca dalkie przeszkody
+        if (lengthsq(obstacle.Position - carPosition) > 25f * 25f) //odrzuca dalkie przeszkody
         {
             return false;
         }
@@ -213,7 +221,7 @@ public class BreakOnObstacleSystem : ComponentSystem
 
         var distanceObstacleWillTravel = 0f;
         var obstacleRelativePos = obstacle.Position - carPosition;
-        var isObstacleInFront = dot(normalize(obstacleRelativePos), headingVector) > 0.97; // mniej niz 14 stopni
+        var isObstacleInFront = dot(normalize(obstacleRelativePos), headingVector) > 0.985; // 0.97 to 14 stopni, 0.985 to 10 stopni
         if (!isObstacleStatic)
         {
             if (obstacle.SplineId != carSpline && !isObstacleInFront)
