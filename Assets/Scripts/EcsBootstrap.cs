@@ -16,6 +16,9 @@ public class EcsBootstrap : MonoBehaviour
     int CarPoolSize;
 
     [SerializeField]
+    Transform CarPoolContainer;
+
+    [SerializeField]
     Mesh TrafficLightMesh;
 
     [SerializeField]
@@ -96,7 +99,7 @@ public class EcsBootstrap : MonoBehaviour
         var propBlock = new MaterialPropertyBlock();
         for (int i = 0; i < CarPoolSize; i++)
         {
-            var newCar = GameObject.Instantiate(CarPrefab, new Vector3(1000f,0f,0f), Quaternion.identity);
+            var newCar = GameObject.Instantiate(CarPrefab, new Vector3(1000f,0f,0f), Quaternion.identity, CarPoolContainer);
             var randomColor = GetRandomHSVColor();
 
             var meshRenderer = newCar.GetComponent<MeshRenderer>();
@@ -113,7 +116,7 @@ public class EcsBootstrap : MonoBehaviour
             var stepEntity = em.CreateEntity();
             em.AddComponentData(stepEntity, new ScenarioStepId(stepIndex));
             em.AddBuffer<GreenLightInScenarioStep>(stepEntity);
-            em.AddComponentData(stepEntity, new ScenarioStepDuration(4f));
+            em.AddComponentData(stepEntity, new ScenarioStepDuration(2f));
             var buffer = em.GetBuffer<GreenLightInScenarioStep>(stepEntity);
             for (int lightIndex = 0; lightIndex < scenarioSteps[stepIndex].GreenLights.Length; lightIndex++)
             {

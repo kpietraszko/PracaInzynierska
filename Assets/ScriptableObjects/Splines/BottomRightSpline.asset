@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Name: BottomRightSpline
   m_EditorClassIdentifier: 
   ControlPoints:
-  - {x: 8.251507, y: -199.43901}
+  - {x: 8.25, y: -199.43901}
   - {x: 8.25, y: -31.994654}
   - {x: 8.25, y: -14.85042}
   - {x: 8.25, y: -8.43}
   - {x: 14.304385, y: -8.43}
   - {x: 60.62851, y: -8.43}
-  - {x: 199.41031, y: -8.435663}
+  - {x: 199.41031, y: -8.43}
   _TrafficLights: []

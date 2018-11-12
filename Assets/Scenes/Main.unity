@@ -325,6 +325,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 38.438004, y: -54.718002, z: -11.067}
+--- !u!1 &830239551
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 830239552}
+  m_Layer: 0
+  m_Name: Cars
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &830239552
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 830239551}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1388102834
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,7 +409,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1608840030
 GameObject:
@@ -453,7 +481,7 @@ Transform:
   m_LocalScale: {x: 40, y: 40, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1774726364
 GameObject:
@@ -483,7 +511,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CarPrefab: {fileID: 1934698960348948, guid: ec70a0fabd8bae740b9f9c5a08511ce8, type: 2}
-  CarPoolSize: 60
+  CarPoolSize: 240
+  CarPoolContainer: {fileID: 830239552}
   TrafficLightMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   TrafficLightMaterial: {fileID: 2100000, guid: f66f3de5c0cb2754f918f54d7736981b,
     type: 2}
@@ -492,6 +521,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9e313ac8a7e6d5343a69f447ce262249, type: 2}
   - {fileID: 11400000, guid: 0516f3f45c23d33438e0376fd6f5064c, type: 2}
   - {fileID: 11400000, guid: b125940b52808ed48a7a5c06a8fc19f4, type: 2}
+  - {fileID: 11400000, guid: a0e962b915e38134abf68da38c7d12ce, type: 2}
+  - {fileID: 11400000, guid: 8c62312d04a052344857709d46462fe7, type: 2}
+  - {fileID: 11400000, guid: 665bcc4249c99d04f8b087878c85ad06, type: 2}
+  - {fileID: 11400000, guid: 7fe0a2831b17e664ca1fbed073d62d3b, type: 2}
+  - {fileID: 11400000, guid: a58fcaeae0a848444bfb8cdd3de1eb70, type: 2}
+  - {fileID: 11400000, guid: 9f877b4a0a2261644a6feba88be917bb, type: 2}
+  - {fileID: 11400000, guid: ef5f05c0f134e514d8ca04f4f74f36a8, type: 2}
+  - {fileID: 11400000, guid: 4c2e34cdd99054243a799687eb528e3e, type: 2}
+  - {fileID: 11400000, guid: 2a22cf9305bb6d743983871e7630e2a8, type: 2}
   Scenarios:
   - {fileID: 11400000, guid: 80d049de9fc7c32409e649d7560f223e, type: 2}
 --- !u!4 &1774726366
@@ -505,5 +543,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

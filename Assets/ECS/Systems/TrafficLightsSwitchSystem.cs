@@ -89,7 +89,6 @@ public class TrafficLightsSwitchSystem : ComponentSystem
                     // turn it green and remove obstacle
                     RedLights.Renderers[lightIndex].material.color = Color.green;
                     RedLights.Renderers[lightIndex].material.SetColor("_EmissionColor", new Vector4(0f, 1.2f, 0f, 1f));
-                    Debug.Log("Removing light's obstacle");
                     PostUpdateCommands.RemoveComponent<Obstacle>(RedLights.Entitites[lightIndex]);
                 }
             }
@@ -110,7 +109,6 @@ public class TrafficLightsSwitchSystem : ComponentSystem
                 GreenLights.Renderers[lightIndex].material.color = Color.red;
                 GreenLights.Renderers[lightIndex].material.SetColor("_EmissionColor", new Vector4(1.5f, 0f, 0f, 1f));
                 var lightPosition = GreenLights.Positions[lightIndex];
-                Debug.Log(lightPosition);
                 PostUpdateCommands.AddComponent(GreenLights.Entitites[lightIndex],
                     new Obstacle { Position = new float2(lightPosition.Value.x, lightPosition.Value.z) });
             }

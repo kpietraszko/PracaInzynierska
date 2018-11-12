@@ -9,15 +9,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4266b93d692a244ba872790ebeafb03, type: 3}
-  m_Name: BottomForwardSpline
+  m_Name: LeftRightSpline
   m_EditorClassIdentifier: 
   ControlPoints:
-  - {x: 8.25, y: -199.43901}
-  - {x: 8.25, y: -31.994654}
-  - {x: 8.25, y: -14.85042}
-  - {x: 8.25, y: -8.43}
-  - {x: 8.25, y: 42.04}
-  - {x: 8.25, y: 100.57}
-  - {x: 8.25, y: 199.97383}
+  - {x: -200, y: -8.43}
+  - {x: -100, y: -8.43}
+  - {x: -14.221737, y: -8.43}
+  - {x: -8.25, y: -8.32061}
+  - {x: -8.25, y: -14.830908}
+  - {x: -8.25, y: -100}
+  - {x: -8.25, y: -200}
   _TrafficLights:
-  - 0.384
+  - 0.405
