@@ -10,10 +10,15 @@ public class Spline : ScriptableObject
 {
 	[SerializeField]
 	Vector2[] ControlPoints;
+
 	[SerializeField]
 	float[] _TrafficLights;
 	public float[] TrafficLights { get { return _TrafficLights; } }
-	public Vector3 this[int index]
+
+    [SerializeField]
+    bool _TrafficLightHidden = false;
+    public bool IsTrafficLightHidden => _TrafficLightHidden;
+    public Vector3 this[int index]
 	{
         get { return new Vector3(ControlPoints[index].x, 0f, ControlPoints[index].y); }
 		set { ControlPoints[index] = new Vector2(value.x, value.z); }

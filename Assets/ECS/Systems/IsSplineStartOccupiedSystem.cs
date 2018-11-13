@@ -68,7 +68,8 @@ public class IsSplineStartOccupiedSystem : ComponentSystem
         for (int obstacleIndex = 0; obstacleIndex < Obstacles.Length; obstacleIndex++)
         {
             var obstacle = Obstacles.Obstacles[obstacleIndex];
-            if (lengthsq(obstacle.Position - _splineStartPositions[obstacle.SplineId]) < carLength * carLength/*distance(obstacle.Position, _splineStartPositions[obstacle.SplineId]) < carLength*/ /*możliwe że 1.5*carLength plus distanceBetweenCars*/)
+            var spaceRequiredToSpawn = 23.3f;
+            if (lengthsq(obstacle.Position - _splineStartPositions[obstacle.SplineId]) < spaceRequiredToSpawn * spaceRequiredToSpawn/*distance(obstacle.Position, _splineStartPositions[obstacle.SplineId]) < spaceRequiredToSpawn*/ /*możliwe że 1.5*carLength plus distanceBetweenCars*/)
             {
                 int splineId = obstacle.SplineId;
                 if (!_occupiedSplines.Contains(splineId))

@@ -14,9 +14,11 @@ MonoBehaviour:
   ControlPoints:
   - {x: -200, y: -3.35}
   - {x: -100, y: -3.35}
-  - {x: -14.864984, y: -3.35}
+  - {x: -15.419397, y: -3.35}
   - {x: 2.65, y: -3.35}
-  - {x: 2.65, y: 15.389885}
+  - {x: 2.65, y: 17.2182}
   - {x: 2.65, y: 100}
   - {x: 2.65, y: 200}
-  _TrafficLights: []
+  _TrafficLights:
+  - 0.3655
+  _TrafficLightHidden: 0

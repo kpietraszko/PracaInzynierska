@@ -12,19 +12,7 @@ MonoBehaviour:
   m_Name: TestScenario
   m_EditorClassIdentifier: 
   ScenarioSteps:
-  - GreenLights: 000000000100000006000000
-  - GreenLights: 
-  - GreenLights: 010000000300000006000000
-  - GreenLights: 
-  - GreenLights: 02000000
-  - GreenLights: 
-  - GreenLights: 03000000
-  - GreenLights: 
-  - GreenLights: 040000000500000000000000
-  - GreenLights: 
-  - GreenLights: 05000000
-  - GreenLights: 
-  - GreenLights: 06000000
-  - GreenLights: 
-  - GreenLights: 07000000
-  - GreenLights: 
+  - GreenLights: 0100000007000000
+  - GreenLights: 0200000008000000
+  - GreenLights: 0b00000005000000
+  - GreenLights: 0a00000004000000

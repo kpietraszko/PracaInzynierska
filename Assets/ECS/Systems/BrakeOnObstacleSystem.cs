@@ -56,10 +56,20 @@ public class BrakeOnObstacleSystem : ComponentSystem
         public ComponentDataArray<Heading> Headings;
         public EntityArray Entities;
     }
+    struct TrafficLightsData
+    {
+        public readonly int Length;
+        public ComponentDataArray<TrafficLightId> TrafficLightsIds;
+        [ReadOnly]
+        public SharedComponentDataArray<SplineId> SplineIds;
+        public ComponentDataArray<PositionAlongSpline> PositionsAlongSpline;
+        public EntityArray Entities;
+    }
     [Inject] StaticObstacleData StaticObstacles;
     [Inject] DynamicObstacleData DynamicObstacles;
     [Inject] NotBrakingCarsData NotBrakingCars;
     [Inject] BrakingCarsData BrakingCars;
+    [Inject] TrafficLightsData TrafficLights;
     NativeList<Entity> CarsToStartBraking;
     NativeList<Entity> CarsToStartAccelerating;
 
@@ -98,7 +108,7 @@ public class BrakeOnObstacleSystem : ComponentSystem
 
         Profiler.EndSample();
         var brakingAcceleration = -15f; //-20f było w miarę, ale chyba trochę szybko hamują
-        var brakingDistanceOffset = 3.6f;
+        var brakingDistanceOffset = 4f;
 
         Profiler.BeginSample("BrakeOnObstacleSystem NotBrakingCars");
         for (int carIndex = 0; carIndex < NotBrakingCars.Length; carIndex++)
@@ -109,22 +119,29 @@ public class BrakeOnObstacleSystem : ComponentSystem
             var splineId = NotBrakingCars.SplineIds[carIndex];
             var positionAlongSpline = NotBrakingCars.PositionsAlongSpline[carIndex];
             var position = NotBrakingCars.Positions[carIndex];
-            var headingRad = NotBrakingCars.Headings[carIndex] * (float)PI/180f;
+            var headingRad = radians(NotBrakingCars.Headings[carIndex]);
             var headingVector = new float2(cos((float)PI/2f - headingRad), sin((float)PI/2f - headingRad));
-            var alreadyAddedToBraking = false;
+            var skipDynamicObstacles = false;
             for (int obstacleIndex = 0; obstacleIndex < staticObstaclesLength; obstacleIndex++)
             {
+                if (GetPositionAlongSplineOfTrafficLight(splineId) <= positionAlongSpline)
+                {   //po przekroczeniu światła wyłączam wszystkie kolizje, źle bo sharedSpliny nie mają swiatła
+                    // może przy wykryciu statycznej przeszkody zapisać jej PositionAlongSpline jako 
+                    // pozycję po przekroczeniu której wyłączyc kolizje
+                    skipDynamicObstacles = true;
+                    break;
+                }
                 // jeśli choć jedna statyczna przeszkoda jest w pobliżu
                 if (ShouldBrake(v, a, brakingAcceleration, brakingDistanceOffset, obstacleIndex, carEntity,
-                splineId, position,headingVector, true,
+                splineId, position, headingVector, true,
                 staticObstacles[obstacleIndex], staticObstaclesEntities[obstacleIndex], default(Velocity), default(Acceleration)))
                 {
                     CarsToStartBraking.Add(carEntity);
-                    alreadyAddedToBraking = true;
+                    skipDynamicObstacles = true;
                     break;
                 }
             }
-            if (!alreadyAddedToBraking)
+            if (!skipDynamicObstacles)
             {
                 for (int obstacleIndex = 0; obstacleIndex < dynamicObstaclesLength; obstacleIndex++)
                 {
@@ -154,6 +171,7 @@ public class BrakeOnObstacleSystem : ComponentSystem
             var shouldKeepBraking = false;
             var headingRad = BrakingCars.Headings[carIndex] * (float)PI/180f;
             var headingVector = new float2(cos((float)PI/2f - headingRad), sin((float)PI/2f - headingRad));
+            var skipDynamicObstacles = false;
             for (int obstacleIndex = 0; obstacleIndex < staticObstaclesLength; obstacleIndex++)
             {
                 if (ShouldBrake(v, a, brakingAcceleration, brakingDistanceOffset, obstacleIndex, carEntity,
@@ -161,16 +179,21 @@ public class BrakeOnObstacleSystem : ComponentSystem
                 staticObstacles[obstacleIndex], staticObstaclesEntities[obstacleIndex], default(Velocity), default(Acceleration)))
                 {
                     shouldKeepBraking = true;
+                    skipDynamicObstacles = true;
+                    break;
                 }
             }
-            for (int obstacleIndex = 0; obstacleIndex < dynamicObstaclesLength; obstacleIndex++)
+            if (!skipDynamicObstacles)
             {
-                if (ShouldBrake(v, a, brakingAcceleration, brakingDistanceOffset, obstacleIndex, carEntity,
-                splineId, position, headingVector, false,
-                dynamicObstacles[obstacleIndex], dynamicObstaclesEntities[obstacleIndex], 
-                dynamicObstaclesVelocitites[obstacleIndex], dynamicObstaclesAccelerations[obstacleIndex]))
+                for (int obstacleIndex = 0; obstacleIndex < dynamicObstaclesLength; obstacleIndex++)
                 {
-                    shouldKeepBraking = true;
+                    if (ShouldBrake(v, a, brakingAcceleration, brakingDistanceOffset, obstacleIndex, carEntity,
+                    splineId, position, headingVector, false,
+                    dynamicObstacles[obstacleIndex], dynamicObstaclesEntities[obstacleIndex],
+                    dynamicObstaclesVelocitites[obstacleIndex], dynamicObstaclesAccelerations[obstacleIndex]))
+                    {
+                        shouldKeepBraking = true;
+                    }
                 }
             }
             if (!shouldKeepBraking) // jeśli żadna przeszkoda nie jest blisko
@@ -208,36 +231,41 @@ public class BrakeOnObstacleSystem : ComponentSystem
         int carSpline, float2 carPosition, float2 headingVector, bool isObstacleStatic,
         Obstacle obstacle, Entity obstacleEntity, Velocity obstacleVelocity, Acceleration obstacleAcceleration)
     {
-        if (carEntity == obstacleEntity) //ignoruje samego siebie
+        if (carEntity == obstacleEntity //ignoruje samego siebie
+            || lengthsq(obstacle.Position - carPosition) > 25f * 25f) //i dalkie przeszkody
         {
             return false;
         }
 
-        if (lengthsq(obstacle.Position - carPosition) > 25f * 25f) //odrzuca dalkie przeszkody
-        {
-            return false;
-        }
         var brakingDistance = v * v / -brakingAcceleration / 2; // pole trójkąta
 
         var distanceObstacleWillTravel = 0f;
         var obstacleRelativePos = obstacle.Position - carPosition;
         var isObstacleInFront = dot(normalize(obstacleRelativePos), headingVector) > 0.985; // 0.97 to 14 stopni, 0.985 to 10 stopni
+        if (!isObstacleInFront)
+        {
+            return false;
+        }
         if (!isObstacleStatic)
         {
-            if (obstacle.SplineId != carSpline && !isObstacleInFront)
-                return false;
-
             var brakingTime = v / -brakingAcceleration;
             distanceObstacleWillTravel = ((2 * obstacleVelocity + obstacleAcceleration * brakingTime) * brakingTime) / 2f; // pole trapezu
-        }
-        else
-        {
-            if (!isObstacleInFront)
-                return false;
         }
         var distanceToObstacle = distance(obstacle.Position, carPosition);
         bool shouldBrake = distanceToObstacle + distanceObstacleWillTravel <= brakingDistance + brakingDistanceOffset;
         return shouldBrake;
+    }
+    private float GetPositionAlongSplineOfTrafficLight(int splineId)
+    {
+        var length = TrafficLights.Length;
+        for (int i = 0; i < length; i++)
+        {
+            if (TrafficLights.SplineIds[i] == splineId)
+            {
+                return TrafficLights.PositionsAlongSpline[i];
+            }
+        }
+        throw new System.Exception("Spline has no traffic light!");
     }
     protected override void OnDestroyManager()
     {

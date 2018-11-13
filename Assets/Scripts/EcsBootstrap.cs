@@ -72,14 +72,19 @@ public class EcsBootstrap : MonoBehaviour
             foreach (var light in Splines[splineIndex].TrafficLights)
             {
                 var lightRenderer = GetTrafficLightMeshInstanceRenderer(TrafficLightMaterial);
-                var lightEntity = em.CreateEntity(typeof(Obstacle), typeof(TrafficLightId), typeof(MeshInstanceRenderer),
-                    typeof(Position), typeof(LocalToWorld), typeof(Scale));
+                var lightEntity = em.CreateEntity(typeof(TrafficLightId),
+                    typeof(Position), typeof(LocalToWorld), typeof(Scale), typeof(PositionAlongSpline), typeof(SplineId));
                 var worldPos = Splines[splineIndex].GetPointOnSpline(light) + Vector3.up * 1f;
-                em.SetComponentData(lightEntity, new Obstacle { SplineId = splineIndex, PositionAlongSpline = light, Position = new float2(worldPos.x, worldPos.z) });
+                if (!Splines[splineIndex].IsTrafficLightHidden)
+                {
+                    em.AddComponentData(lightEntity, new Obstacle { SplineId = splineIndex, PositionAlongSpline = light, Position = new float2(worldPos.x, worldPos.z) });
+                    em.AddSharedComponentData(lightEntity, lightRenderer);
+                }
                 em.SetComponentData(lightEntity, new TrafficLightId(lightCounter++));
                 em.SetComponentData(lightEntity, new Position { Value = worldPos });
                 em.SetComponentData(lightEntity, new Scale { Value = new float3(1.5f, 1.5f, 1.5f) });
-                em.SetSharedComponentData(lightEntity, lightRenderer);
+                em.SetComponentData(lightEntity, new PositionAlongSpline(light));
+                em.SetSharedComponentData(lightEntity, new SplineId(splineIndex));
             }
         }
     }
@@ -114,14 +119,20 @@ public class EcsBootstrap : MonoBehaviour
         for (int stepIndex = 0; stepIndex < scenarioSteps.Length; stepIndex++)
         {
             var stepEntity = em.CreateEntity();
-            em.AddComponentData(stepEntity, new ScenarioStepId(stepIndex));
+            var scenarioStepId = stepIndex * 2; // bo dodaję pomiędzy odstępowe kroki
+            em.AddComponentData(stepEntity, new ScenarioStepId(scenarioStepId));
             em.AddBuffer<GreenLightInScenarioStep>(stepEntity);
-            em.AddComponentData(stepEntity, new ScenarioStepDuration(2f));
+            em.AddComponentData(stepEntity, new ScenarioStepDuration(10f));
             var buffer = em.GetBuffer<GreenLightInScenarioStep>(stepEntity);
             for (int lightIndex = 0; lightIndex < scenarioSteps[stepIndex].GreenLights.Length; lightIndex++)
             {
-                buffer.Add(new GreenLightInScenarioStep(scenarioSteps[stepIndex].GreenLights[lightIndex]));
+                buffer.Add(new GreenLightInScenarioStep((int)scenarioSteps[stepIndex].GreenLights[lightIndex]));
             }
+
+            var delayStepEntity = em.CreateEntity();
+            em.AddComponentData(delayStepEntity, new ScenarioStepId(scenarioStepId + 1));
+            em.AddBuffer<GreenLightInScenarioStep>(delayStepEntity);
+            em.AddComponentData(delayStepEntity, new ScenarioStepDuration(2f));
         }
     }
     void CreateArchetypes(EntityManager em) // tworzenie archetypów zmienia układ komponentów w pamięci, zmniejszając liczbe przesunięć i alokacji
