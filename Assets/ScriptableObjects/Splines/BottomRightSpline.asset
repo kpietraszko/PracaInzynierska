@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: BottomRightSpline
   m_EditorClassIdentifier: 
   ControlPoints:
-  - {x: 8.25, y: -199.43901}
+  - {x: 8.25, y: -199.4}
   - {x: 8.25, y: -31.994654}
   - {x: 8.25, y: -14.85042}
   - {x: 8.25, y: -8.43}
