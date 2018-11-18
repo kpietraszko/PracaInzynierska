@@ -78,7 +78,7 @@ public class TrafficLightsSwitchSystem : ComponentSystem
                 break;
             }
         }
-        Debug.Log($"Current scenario step: {currentStepId}");
+        //Debug.Log($"Current scenario step: {currentStepId}");
         var greenLightBuffer = ScenarioSteps.GreenLightsBuffers[currentStepId];
         for (int lightIndex = 0; lightIndex < RedLights.Length; lightIndex++)
         {

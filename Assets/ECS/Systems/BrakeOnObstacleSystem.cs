@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
@@ -227,12 +228,14 @@ public class BrakeOnObstacleSystem : ComponentSystem
         Profiler.EndSample();
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private bool ShouldBrake(float v, float a, float brakingAcceleration, float brakingDistanceOffset, int obstacleIndex, Entity carEntity,
         int carSpline, float2 carPosition, float2 headingVector, bool isObstacleStatic,
         Obstacle obstacle, Entity obstacleEntity, Velocity obstacleVelocity, Acceleration obstacleAcceleration)
     {
+        var distanceToObstacleSquared = lengthsq(obstacle.Position - carPosition);
         if (carEntity == obstacleEntity //ignoruje samego siebie
-            || lengthsq(obstacle.Position - carPosition) > 25f * 25f) //i dalkie przeszkody
+            || distanceToObstacleSquared > 25f * 25f) //i dalkie przeszkody
         {
             return false;
         }
@@ -249,6 +252,12 @@ public class BrakeOnObstacleSystem : ComponentSystem
         if (!isObstacleStatic)
         {
             var brakingTime = v / -brakingAcceleration;
+            if (distanceToObstacleSquared < brakingDistanceOffset * brakingDistanceOffset)
+            {
+                // zabezpieczenie w przypadkach złego wyliczenia distanceObstacleWillTravel
+                return true;
+            }
+            // ten dystans jest źle liczony jeśli przyspieszenie się zmienia (szczególnie jeśli samochód przed właśnie startuje)
             distanceObstacleWillTravel = ((2 * obstacleVelocity + obstacleAcceleration * brakingTime) * brakingTime) / 2f; // pole trapezu
         }
         var distanceToObstacle = distance(obstacle.Position, carPosition);
@@ -267,6 +276,7 @@ public class BrakeOnObstacleSystem : ComponentSystem
         }
         throw new System.Exception("Spline has no traffic light!");
     }
+
     protected override void OnDestroyManager()
     {
         base.OnDestroyManager();
