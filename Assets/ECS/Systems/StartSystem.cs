@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using Unity.Entities;
 using UnityEngine;
 
@@ -17,6 +18,7 @@ public class StartSystem : ComponentSystem
     {
         if (Start.Length == 0)
             return;
+        NativeLeakDetection.Mode = NativeLeakDetectionMode.Disabled;
         PostUpdateCommands.RemoveComponent(Start.Entities[0], typeof(Start));
         //tu rzeczy wykonywane raz przy uruchomieniu
         PostUpdateCommands.CreateEntity(EntityManager.CreateArchetype(typeof(TimeSinceSimulationStart)));
