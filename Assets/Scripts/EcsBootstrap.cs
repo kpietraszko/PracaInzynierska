@@ -40,16 +40,17 @@ public class EcsBootstrap : MonoBehaviour
         CreateSplinesAndLightsEntities(em);
         InstantiateCars(em);
         CreateArchetypes(em);
+        SetConfig(em);
         var startEntity = em.CreateEntity();
         em.AddComponent(startEntity, typeof(Start));
-        for (int i = 0; i < CarsToSpawnTemp; i++) // TEMP
-        {
-            for (int splineIndex = 0; splineIndex < Splines.Length; splineIndex++) // TEMP
-            {
-                var carToSpawnEntity = em.CreateEntity();
-                em.AddComponentData(carToSpawnEntity, new CarSpawn { SplineId = splineIndex });
-            }
-        }
+        //for (int i = 0; i < CarsToSpawnTemp; i++) // TEMP
+        //{
+        //    for (int splineIndex = 0; splineIndex < Splines.Length; splineIndex++) // TEMP
+        //    {
+        //        var carToSpawnEntity = em.CreateEntity();
+        //        em.AddComponentData(carToSpawnEntity, new CarSpawn { SplineId = splineIndex });
+        //    }
+        //}
     }
     void CreateSplinesAndLightsEntities(EntityManager em)
     {
@@ -158,7 +159,16 @@ public class EcsBootstrap : MonoBehaviour
         var value = 0.4f + UnityEngine.Random.Range(-0.1f, 0.1f);
         return Color.HSVToRGB(hue, saturation, value);
     }
-    private void OnApplicationQuit()
+    void SetConfig(EntityManager em)
+    {
+        var configEntity = em.CreateEntity();
+        em.AddComponentData(configEntity, new Config
+        {
+            GenerationPopulation = 10,
+            CarsToSpawnPerSpline = 20
+        });
+    }
+    void OnApplicationQuit()
     {
         if (!Application.isEditor)
         {
