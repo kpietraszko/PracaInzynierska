@@ -46,7 +46,7 @@ public class CreateGenerationSystem : ComponentSystem
                 PostUpdateCommands.AddComponent(new ScenarioStepId(j));
                 PostUpdateCommands.AddComponent(new ScenarioStepDuration(randomStepDuration));
                 PostUpdateCommands.AddComponent(new GenotypeId(i));
-                if (j == 0)
+                if (i == 0 && j == 0)
                 {
                     PostUpdateCommands.AddComponent(new CurrentlySimulated());
                 }

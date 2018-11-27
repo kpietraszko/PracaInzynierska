@@ -165,7 +165,9 @@ public class EcsBootstrap : MonoBehaviour
         em.AddComponentData(configEntity, new Config
         {
             GenerationPopulation = 10,
-            CarsToSpawnPerSpline = 20
+            CarsToSpawnPerSpline = 20,
+            NumberOfScenarioSteps = 4,
+            NumberOfSplines = Splines.Length
         });
     }
     void OnApplicationQuit()
