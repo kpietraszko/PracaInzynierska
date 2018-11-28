@@ -21,12 +21,12 @@ public class TimeSinceSimulationStartSystem : ComponentSystem
 
     protected override void OnUpdate()
     {
-        Assert.IsFalse(TimeSinceSimulationStart.Length == 0);
+        Assert.IsTrue(TimeSinceSimulationStart.Length == 1);
         float timeSinceSimStart = TimeSinceSimulationStart.TimeSinceSimulationStart[0];
-        if (Start.Length > 0)
-        {
-            timeSinceSimStart = 0f;
-        }
+        //if (Start.Length > 0)
+        //{
+        //    timeSinceSimStart = 0f;
+        //}
         timeSinceSimStart += Time.fixedDeltaTime;
         TimeSinceSimulationStart.TimeSinceSimulationStart[0] = new TimeSinceSimulationStart { Value = timeSinceSimStart };
     }

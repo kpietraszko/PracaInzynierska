@@ -6,7 +6,7 @@ using UnityEngine.Assertions;
 
 public class InitGenotypeSimSystem : ComponentSystem
 {
-    struct CurrentGenotypeData
+    struct NewGenotypeData
     {
         public readonly int Length;
         public ComponentDataArray<CurrentlySimulated> CurrentlySimulated;
@@ -14,26 +14,49 @@ public class InitGenotypeSimSystem : ComponentSystem
         public SubtractiveComponent<CurrentlySimulatedSystemState> NotYetProcessed;
         public EntityArray Entities;
     }
+    struct FinishedGenotypeData
+    {
+        public readonly int Length;
+        public ComponentDataArray<CurrentlySimulatedSystemState> NotYetRemoved;
+        public ComponentDataArray<GenotypeId> GenotypeIds;
+        public SubtractiveComponent<CurrentlySimulated> CurrentlySimulated;
+        public EntityArray Entities;
+    }
     struct ConfigData
     {
         public readonly int Length;
         public ComponentDataArray<Config> Configs;
     }
+    struct TimeSinceSimulationStartData
+    {
+        public readonly int Length;
+        public ComponentDataArray<TimeSinceSimulationStart> TimeSinceSimulationStart;
+    }
+
     struct CurrentlySimulatedSystemState : ISystemStateComponentData { }
 
-    [Inject] CurrentGenotypeData CurrentGenotype;
+    [Inject] NewGenotypeData NewGenotype;
+    [Inject] FinishedGenotypeData FinishedGenotype;
     [Inject] ConfigData Config;
+    [Inject] TimeSinceSimulationStartData TimeSinceSimulationStart;
 
-    protected override void OnUpdate()
+    protected override void OnUpdate() // executed once when CurrentlySimulated appears
     {
-        if (CurrentGenotype.Length == 0)
+        Assert.IsTrue(TimeSinceSimulationStart.Length == 1);
+
+        for (int i = 0; i < FinishedGenotype.Length; i++)
+        {
+
+        }
+
+        if (NewGenotype.Length == 0)
             return;
-        PostUpdateCommands.AddComponent(CurrentGenotype.Entities[0], new CurrentlySimulatedSystemState());
+        PostUpdateCommands.AddComponent(NewGenotype.Entities[0], new CurrentlySimulatedSystemState());
         Assert.IsFalse(Config.Length == 0);
         var config = Config.Configs[0];
         var carsPerSpline = config.CarsToSpawnPerSpline;
         var numOfSplines = config.NumberOfSplines;
-        Debug.Log($"Starting sim of genotype {CurrentGenotype.GenotypeIds[0].Value}");
+        Debug.Log($"Starting sim of genotype {NewGenotype.GenotypeIds[0].Value}");
         for (int splineIndex = 0; splineIndex < numOfSplines; splineIndex++)
         {
             for (int carIndex = 0; carIndex < carsPerSpline; carIndex++)
@@ -42,6 +65,6 @@ public class InitGenotypeSimSystem : ComponentSystem
                 PostUpdateCommands.AddComponent(new CarSpawn { SplineId = splineIndex });
             }
         }
-        // on CurrentlySimulated added create car spawns and reset TimeSinceSimulationStart
+        TimeSinceSimulationStart.TimeSinceSimulationStart[0] = new TimeSinceSimulationStart(0);
     }
 }

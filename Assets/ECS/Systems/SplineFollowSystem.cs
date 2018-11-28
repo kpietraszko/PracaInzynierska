@@ -48,9 +48,13 @@ public class SplineFollowSystem : ComponentSystem
 
     protected override void OnUpdate()
     {
+        if (Cars.Length == 0) // wszystkie samochody opuściły skrzyżowanie
+        {
+
+        }
+
         const float carLength = 4.5f;
         var maxMovementError = 0.001f; //chyba wystarczy 1mm na klatke // TODO: dostosować
-        //var allControlPoints = ControlPoints.Positions.GetChunkArray(0, ControlPoints.Length);
         var controlPoints = new NativeList<Position2D>(10, Allocator.Temp);
 
         for (int carIndex = 0; carIndex < Cars.Length; carIndex++)
