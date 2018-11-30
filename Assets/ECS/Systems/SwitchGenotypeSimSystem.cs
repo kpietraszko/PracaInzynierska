@@ -4,7 +4,7 @@ using Unity.Entities;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class InitGenotypeSimSystem : ComponentSystem
+public class SwitchGenotypeSimSystem : ComponentSystem
 {
     struct NewGenotypeData
     {
@@ -20,6 +20,12 @@ public class InitGenotypeSimSystem : ComponentSystem
         public ComponentDataArray<CurrentlySimulatedSystemState> NotYetRemoved;
         public ComponentDataArray<GenotypeId> GenotypeIds;
         public SubtractiveComponent<CurrentlySimulated> CurrentlySimulated;
+        public EntityArray Entities;
+    }
+    struct EveryGenotypeData
+    {
+        public readonly int Length;
+        public ComponentDataArray<GenotypeId> GenotypeIds;
         public EntityArray Entities;
     }
     struct ConfigData
@@ -39,16 +45,31 @@ public class InitGenotypeSimSystem : ComponentSystem
     [Inject] FinishedGenotypeData FinishedGenotype;
     [Inject] ConfigData Config;
     [Inject] TimeSinceSimulationStartData TimeSinceSimulationStart;
+    [Inject] EveryGenotypeData AllGenotypes;
 
     protected override void OnUpdate() // executed once when CurrentlySimulated appears
     {
         Assert.IsTrue(TimeSinceSimulationStart.Length == 1);
 
+        #region proceed to simulating next genotype
         for (int i = 0; i < FinishedGenotype.Length; i++)
         {
+            float finishedGenotypeId = FinishedGenotype.GenotypeIds[i];
+            // przełączyć na nastepny genotyp: dodać komponent CurrentlySimulated i CurrentlySimulatedSystemState
+            // jeśli nie ma następnego, to skończyć pokolenie
+            for (int genotypeId = 0; genotypeId < AllGenotypes.Length; genotypeId++)
+            {
+                if (AllGenotypes.GenotypeIds[genotypeId] == finishedGenotypeId + 1)
+                {
+                    var nextGenotypeEntity = AllGenotypes.Entities[genotypeId];
+                    PostUpdateCommands.AddComponent(nextGenotypeEntity, new CurrentlySimulated());
+                }
+            }
 
         }
+        #endregion
 
+        #region initialize new genotype simulation
         if (NewGenotype.Length == 0)
             return;
         PostUpdateCommands.AddComponent(NewGenotype.Entities[0], new CurrentlySimulatedSystemState());
@@ -66,5 +87,6 @@ public class InitGenotypeSimSystem : ComponentSystem
             }
         }
         TimeSinceSimulationStart.TimeSinceSimulationStart[0] = new TimeSinceSimulationStart(0);
+        #endregion
     }
 }
