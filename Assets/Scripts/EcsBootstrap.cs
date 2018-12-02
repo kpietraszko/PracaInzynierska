@@ -130,10 +130,10 @@ public class EcsBootstrap : MonoBehaviour
                 buffer.Add(new GreenLightInScenarioStep((int)scenarioSteps[stepIndex].GreenLights[lightIndex]));
             }
 
-            var delayStepEntity = em.CreateEntity();
-            em.AddComponentData(delayStepEntity, new ScenarioStepId(scenarioStepId + 1));
-            em.AddBuffer<GreenLightInScenarioStep>(delayStepEntity);
-            em.AddComponentData(delayStepEntity, new ScenarioStepDuration(2f));
+            //var delayStepEntity = em.CreateEntity();
+            //em.AddComponentData(delayStepEntity, new ScenarioStepId(scenarioStepId + 1));
+            //em.AddBuffer<GreenLightInScenarioStep>(delayStepEntity);
+            //em.AddComponentData(delayStepEntity, new ScenarioStepDuration(2f));
         }
     }
     void CreateArchetypes(EntityManager em) // tworzenie archetypów zmienia układ komponentów w pamięci, zmniejszając liczbe przesunięć i alokacji
