@@ -10,6 +10,7 @@ using Unity.Transforms;
 using UnityEngine;
 using UnityEngine.Assertions;
 
+[UpdateAfter(typeof(UnityEngine.Experimental.PlayerLoop.FixedUpdate))]
 public class TrafficLightsSwitchSystem : ComponentSystem
 {
     struct ScenarioStepsData

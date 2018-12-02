@@ -59,13 +59,14 @@ public class SplineFollowSystem : ComponentSystem
     {
         if (Cars.Length == 0) // wszystkie samochody opuściły skrzyżowanie?
         {
+            Debug.Log(CurrentGenotype.Length);
             Assert.IsTrue(CurrentGenotype.Length == 1);
             var currentGenotypeEntity = CurrentGenotype.Entities[0];
             PostUpdateCommands.RemoveComponent<CurrentlySimulated>(currentGenotypeEntity); // TODO: TEST
         }
 
         const float carLength = 4.5f;
-        var maxMovementError = 0.001f; //chyba wystarczy 1mm na klatke // TODO: dostosować
+        var maxMovementError = 0.002f; // TODO: dostosować
         var controlPoints = new NativeList<Position2D>(10, Allocator.Temp);
 
         for (int carIndex = 0; carIndex < Cars.Length; carIndex++)

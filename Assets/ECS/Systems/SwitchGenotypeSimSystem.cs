@@ -4,6 +4,7 @@ using Unity.Entities;
 using UnityEngine;
 using UnityEngine.Assertions;
 
+[UpdateAfter(typeof(UnityEngine.Experimental.PlayerLoop.FixedUpdate))]
 public class SwitchGenotypeSimSystem : ComponentSystem
 {
     struct NewGenotypeData
@@ -47,37 +48,47 @@ public class SwitchGenotypeSimSystem : ComponentSystem
     [Inject] TimeSinceSimulationStartData TimeSinceSimulationStart;
     [Inject] EveryGenotypeData AllGenotypes;
 
-    protected override void OnUpdate() // executed once when CurrentlySimulated appears
+    protected override void OnUpdate()
     {
         Assert.IsTrue(TimeSinceSimulationStart.Length == 1);
+        var justFinished = false;
+        Entity? newGenotypeEntity = null;
+        int? newGenotypeId = null;
 
         #region proceed to simulating next genotype
         for (int i = 0; i < FinishedGenotype.Length; i++)
         {
             float finishedGenotypeId = FinishedGenotype.GenotypeIds[i];
+            justFinished = true;
+            Debug.Log($"Finished genotype #{finishedGenotypeId}");
             // przełączyć na nastepny genotyp: dodać komponent CurrentlySimulated i CurrentlySimulatedSystemState
             // jeśli nie ma następnego, to skończyć pokolenie
             for (int genotypeId = 0; genotypeId < AllGenotypes.Length; genotypeId++)
             {
                 if (AllGenotypes.GenotypeIds[genotypeId] == finishedGenotypeId + 1)
                 {
-                    var nextGenotypeEntity = AllGenotypes.Entities[genotypeId];
-                    PostUpdateCommands.AddComponent(nextGenotypeEntity, new CurrentlySimulated());
+                    newGenotypeEntity = AllGenotypes.Entities[genotypeId];
+                    newGenotypeId = genotypeId;
+                    PostUpdateCommands.AddComponent(newGenotypeEntity.Value, new CurrentlySimulated());
+                    Debug.Log("Switching to next genotype");
+                    break;
                 }
             }
-
+            PostUpdateCommands.RemoveComponent<CurrentlySimulatedSystemState>(FinishedGenotype.Entities[i]);
         }
         #endregion
 
         #region initialize new genotype simulation
-        if (NewGenotype.Length == 0)
+        if (NewGenotype.Length == 0 && !justFinished)
             return;
-        PostUpdateCommands.AddComponent(NewGenotype.Entities[0], new CurrentlySimulatedSystemState());
+        newGenotypeEntity = newGenotypeEntity ?? NewGenotype.Entities[0];
+        newGenotypeId = newGenotypeId ?? NewGenotype.GenotypeIds[0];
+        PostUpdateCommands.AddComponent(newGenotypeEntity.Value, new CurrentlySimulatedSystemState());
         Assert.IsFalse(Config.Length == 0);
         var config = Config.Configs[0];
         var carsPerSpline = config.CarsToSpawnPerSpline;
         var numOfSplines = config.NumberOfSplines;
-        Debug.Log($"Starting sim of genotype {NewGenotype.GenotypeIds[0].Value}");
+        Debug.Log($"Starting sim of genotype {newGenotypeId}");
         for (int splineIndex = 0; splineIndex < numOfSplines; splineIndex++)
         {
             for (int carIndex = 0; carIndex < carsPerSpline; carIndex++)
@@ -86,7 +97,7 @@ public class SwitchGenotypeSimSystem : ComponentSystem
                 PostUpdateCommands.AddComponent(new CarSpawn { SplineId = splineIndex });
             }
         }
-        TimeSinceSimulationStart.TimeSinceSimulationStart[0] = new TimeSinceSimulationStart(0);
+        TimeSinceSimulationStart.TimeSinceSimulationStart[0] = new TimeSinceSimulationStart(0f, 0);
         #endregion
     }
 }

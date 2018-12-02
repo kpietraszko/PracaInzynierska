@@ -6,6 +6,7 @@ using UnityEngine;
 
 [UpdateAfter(typeof(UnityEngine.Experimental.PlayerLoop.FixedUpdate))]
 [UpdateBefore(typeof(SplineFollowSystem))]
+[UpdateAfter(typeof(CreateGenerationSystem))]
 public class CarSpawnSystem : ComponentSystem
 {
     struct UnusedCarsData

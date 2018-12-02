@@ -6,9 +6,11 @@ using UnityEngine;
 public struct TimeSinceSimulationStart : IComponentData
 {
 	public float Value;
-    public TimeSinceSimulationStart(float value)
+    public long StepNumber;
+    public TimeSinceSimulationStart(float value, long stepNumber)
     {
         Value = value;
+        StepNumber = stepNumber;
     }
 	public static implicit operator float(TimeSinceSimulationStart id)
 	{

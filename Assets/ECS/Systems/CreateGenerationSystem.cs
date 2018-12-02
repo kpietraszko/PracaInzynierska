@@ -29,7 +29,7 @@ public class CreateGenerationSystem : ComponentSystem
         if (Start.Length == 0)
             return;
         PostUpdateCommands.AddComponent(Start.Entities[0], new StartSystemState());
-        Debug.Log("Should log once");
+        Debug.Log("Should log once"); // Log in several more times.
         Assert.IsFalse(Config.Length == 0);
         var config = Config.Configs[0];
         var generationPopulation = config.GenerationPopulation;
@@ -42,14 +42,16 @@ public class CreateGenerationSystem : ComponentSystem
             for (int j = 0; j < stepsInScenario; j++)
             {
                 var randomStepDuration = Random.Range(minStepDuration, maxStepDuration);
-                PostUpdateCommands.CreateEntity();
+                Debug.Log("randomStepDuration = " + randomStepDuration);
+                PostUpdateCommands.CreateEntity(); // encja kroku scenariusza
                 PostUpdateCommands.AddComponent(new ScenarioStepId(j));
                 PostUpdateCommands.AddComponent(new ScenarioStepDuration(randomStepDuration));
-                PostUpdateCommands.AddComponent(new GenotypeId(i));
-                if (i == 0 && j == 0) // odpalenie pierwszego genotypu pierwszego pokolenia
-                {
-                    PostUpdateCommands.AddComponent(new CurrentlySimulated());
-                }
+            }
+            PostUpdateCommands.CreateEntity(); // encja genotypu
+            PostUpdateCommands.AddComponent(new GenotypeId(i));
+            if (i == 0) // odpalenie pierwszego genotypu pierwszego pokolenia
+            {
+                PostUpdateCommands.AddComponent(new CurrentlySimulated());
             }
         }
     }

@@ -167,7 +167,9 @@ public class EcsBootstrap : MonoBehaviour
             GenerationPopulation = 10,
             CarsToSpawnPerSpline = 20,
             NumberOfScenarioSteps = 4,
-            NumberOfSplines = Splines.Length
+            NumberOfSplines = Splines.Length,
+            MinimumStepDuration = 2f,
+            MaximumStepDuration = 20f
         });
     }
     void OnApplicationQuit()
