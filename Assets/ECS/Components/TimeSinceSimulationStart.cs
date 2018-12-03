@@ -5,15 +5,11 @@ using UnityEngine;
 
 public struct TimeSinceSimulationStart : IComponentData
 {
-	public float Value;
+	public float Seconds;
     public long StepNumber;
     public TimeSinceSimulationStart(float value, long stepNumber)
     {
-        Value = value;
+        Seconds = value;
         StepNumber = stepNumber;
     }
-	public static implicit operator float(TimeSinceSimulationStart id)
-	{
-		return id.Value;
-	}
 }

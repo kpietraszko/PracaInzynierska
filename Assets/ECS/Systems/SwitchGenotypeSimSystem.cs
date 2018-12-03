@@ -58,11 +58,12 @@ public class SwitchGenotypeSimSystem : ComponentSystem
         #region proceed to simulating next genotype
         for (int i = 0; i < FinishedGenotype.Length; i++)
         {
-            float finishedGenotypeId = FinishedGenotype.GenotypeIds[i];
+            int finishedGenotypeId = FinishedGenotype.GenotypeIds[i];
             justFinished = true;
             Debug.Log($"Finished genotype #{finishedGenotypeId}");
-            // przełączyć na nastepny genotyp: dodać komponent CurrentlySimulated i CurrentlySimulatedSystemState
-            // jeśli nie ma następnego, to skończyć pokolenie
+            var simulationDuration = TimeSinceSimulationStart.TimeSinceSimulationStart[0].Seconds;
+            PostUpdateCommands.AddComponent(FinishedGenotype.Entities[finishedGenotypeId], new GenotypeSimulationDuration(simulationDuration));
+
             for (int genotypeId = 0; genotypeId < AllGenotypes.Length; genotypeId++)
             {
                 if (AllGenotypes.GenotypeIds[genotypeId] == finishedGenotypeId + 1)
@@ -75,6 +76,7 @@ public class SwitchGenotypeSimSystem : ComponentSystem
                 }
             }
             PostUpdateCommands.RemoveComponent<CurrentlySimulatedSystemState>(FinishedGenotype.Entities[i]);
+            // jeśli nie ma następnego, to skończyć pokolenie
         }
         #endregion
 

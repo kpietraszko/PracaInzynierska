@@ -67,7 +67,7 @@ public class TrafficLightsSwitchSystem : ComponentSystem
 
         var timeSinceSimulationStart = TimeSinceSimulationStart.Time[0];
         var scenarioDuration = scenarioStepsDurations.Sum(x => x.DurationInS + pauseBetweenSteps);
-        var scenarioTimeToSample = timeSinceSimulationStart % scenarioDuration;
+        var scenarioTimeToSample = timeSinceSimulationStart.Seconds % scenarioDuration;
 
         var sumOfStepsDurations = 0f;
         int? currentStepId = null;

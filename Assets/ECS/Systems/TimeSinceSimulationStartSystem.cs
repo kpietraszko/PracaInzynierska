@@ -30,7 +30,7 @@ public class TimeSinceSimulationStartSystem : ComponentSystem
         //    timeSinceSimStart = 0f;
         //}
         var timeToAdd = 1/30f;//min(Time.fixedUnscaledDeltaTime, Time.maximumDeltaTime);
-        float timeSinceSimStartSec = timeSinceSimStart.Value + timeToAdd; // chyba ok
+        float timeSinceSimStartSec = timeSinceSimStart.Seconds + timeToAdd; // chyba ok
         var stepNumber = timeSinceSimStart.StepNumber + 1;
         TimeSinceSimulationStart.TimeSinceSimulationStart[0] = new TimeSinceSimulationStart(timeSinceSimStartSec, stepNumber);
         //Debug.Log(1/30f / Time.fixedUnscaledDeltaTime + "x");
