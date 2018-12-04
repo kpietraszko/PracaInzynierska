@@ -42,7 +42,6 @@ public class CreateGenerationSystem : ComponentSystem
             for (int j = 0; j < stepsInScenario; j++)
             {
                 var randomStepDuration = Random.Range(minStepDuration, maxStepDuration);
-                Debug.Log("randomStepDuration = " + randomStepDuration);
                 PostUpdateCommands.CreateEntity(); // encja kroku scenariusza
                 PostUpdateCommands.AddComponent(new ScenarioStepId(j));
                 PostUpdateCommands.AddComponent(new ScenarioStepDuration(randomStepDuration));

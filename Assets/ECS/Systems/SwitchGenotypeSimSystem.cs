@@ -60,16 +60,16 @@ public class SwitchGenotypeSimSystem : ComponentSystem
         {
             int finishedGenotypeId = FinishedGenotype.GenotypeIds[i];
             justFinished = true;
-            Debug.Log($"Finished genotype #{finishedGenotypeId}");
             var simulationDuration = TimeSinceSimulationStart.TimeSinceSimulationStart[0].Seconds;
-            PostUpdateCommands.AddComponent(FinishedGenotype.Entities[finishedGenotypeId], new GenotypeSimulationDuration(simulationDuration));
+            Debug.Log($"Finished genotype #{finishedGenotypeId} in {simulationDuration} s");
+            PostUpdateCommands.AddComponent(FinishedGenotype.Entities[i], new GenotypeSimulationDuration(simulationDuration));
 
             for (int genotypeId = 0; genotypeId < AllGenotypes.Length; genotypeId++)
             {
                 if (AllGenotypes.GenotypeIds[genotypeId] == finishedGenotypeId + 1)
                 {
                     newGenotypeEntity = AllGenotypes.Entities[genotypeId];
-                    newGenotypeId = genotypeId;
+                    newGenotypeId = AllGenotypes.GenotypeIds[genotypeId];
                     PostUpdateCommands.AddComponent(newGenotypeEntity.Value, new CurrentlySimulated());
                     Debug.Log("Switching to next genotype");
                     break;
