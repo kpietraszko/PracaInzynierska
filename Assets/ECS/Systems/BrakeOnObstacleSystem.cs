@@ -5,6 +5,7 @@ using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.Profiling;
 using static Unity.Mathematics.math;
 
@@ -89,8 +90,8 @@ public class BrakeOnObstacleSystem : ComponentSystem
     }
     protected override void OnUpdate()
     {
-        if (TimeSinceSimulationStart.TimeSinceSimulationStart.Length == 1 && 
-                TimeSinceSimulationStart.TimeSinceSimulationStart[0].StepNumber % 2 == 0)
+        Assert.IsTrue(TimeSinceSimulationStart.TimeSinceSimulationStart.Length == 1);
+        if (TimeSinceSimulationStart.TimeSinceSimulationStart[0].StepNumber % 2 == 0)
             return;
         Profiler.BeginSample("BrakeOnObstacleSystem Caching");
         // indeksery ComponentDataArray są wolne, dlatego zapisuję wartości przed wewnętrznymi pętlami
@@ -118,97 +119,100 @@ public class BrakeOnObstacleSystem : ComponentSystem
         #endregion
 
         Profiler.EndSample();
-        var brakingAcceleration = -15f; //-20f było w miarę, ale chyba trochę szybko hamują
-        var brakingDistanceOffset = 4f;
+        var brakingAcceleration = -15f;
+        var brakingDistanceOffset = 4.5f;
 
         Profiler.BeginSample("BrakeOnObstacleSystem NotBrakingCars");
-        for (int carIndex = 0; carIndex < NotBrakingCars.Length; carIndex++)
+        if (TimeSinceSimulationStart.TimeSinceSimulationStart[0].StepNumber % 2 == 0) // co drugą klatkę animacji
         {
-            var carEntity = NotBrakingCars.Entities[carIndex];
-            var v = NotBrakingCars.Velocities[carIndex];
-            var splineId = NotBrakingCars.SplineIds[carIndex];
-            var positionAlongSpline = NotBrakingCars.PositionsAlongSpline[carIndex];
-            var position = NotBrakingCars.Positions[carIndex];
-            var headingRad = radians(NotBrakingCars.Headings[carIndex]);
-            var headingVector = new float2(cos((float)PI/2f - headingRad), sin((float)PI/2f - headingRad));
-            var skipDynamicObstacles = false;
-            for (int obstacleIndex = 0; obstacleIndex < staticObstaclesLength; obstacleIndex++)
+            for (int carIndex = 0; carIndex < NotBrakingCars.Length; carIndex++)
             {
-                if (GetPositionAlongSplineOfTrafficLight(splineId) <= positionAlongSpline)
-                {   //po przekroczeniu światła wyłączam wszystkie kolizje, źle bo sharedSpliny nie mają swiatła
-                    // może przy wykryciu statycznej przeszkody zapisać jej PositionAlongSpline jako 
-                    // pozycję po przekroczeniu której wyłączyc kolizje
-                    skipDynamicObstacles = true;
-                    break;
-                }
-                // jeśli choć jedna statyczna przeszkoda jest w pobliżu
-                if (ShouldBrake(v, brakingAcceleration, brakingDistanceOffset, carEntity,
-                position, headingVector, true,
-                staticObstacles[obstacleIndex], staticObstaclesEntities[obstacleIndex], default(Velocity), default(Acceleration)))
+                var carEntity = NotBrakingCars.Entities[carIndex];
+                var v = NotBrakingCars.Velocities[carIndex];
+                var splineId = NotBrakingCars.SplineIds[carIndex];
+                var positionAlongSpline = NotBrakingCars.PositionsAlongSpline[carIndex];
+                var position = NotBrakingCars.Positions[carIndex];
+                var headingRad = radians(NotBrakingCars.Headings[carIndex]);
+                var headingVector = new float2(cos((float)PI/2f - headingRad), sin((float)PI/2f - headingRad));
+                var skipDynamicObstacles = false;
+                for (int obstacleIndex = 0; obstacleIndex < staticObstaclesLength; obstacleIndex++)
                 {
-                    CarsToStartBraking.Add(carEntity);
-                    skipDynamicObstacles = true;
-                    break;
-                }
-            }
-            if (!skipDynamicObstacles)
-            {
-                for (int obstacleIndex = 0; obstacleIndex < dynamicObstaclesLength; obstacleIndex++)
-                {
-                    // jeśli choć jedna dynamiczna przeszkoda jest w pobliżu
+                    if (GetPositionAlongSplineOfTrafficLight(splineId) <= positionAlongSpline)
+                    {   //po przekroczeniu światła wyłączam wszystkie kolizje
+                        skipDynamicObstacles = true;
+                        break;
+                    }
+                    // jeśli choć jedna statyczna przeszkoda jest w pobliżu
                     if (ShouldBrake(v, brakingAcceleration, brakingDistanceOffset, carEntity,
-                    position, headingVector, false,
-                    dynamicObstacles[obstacleIndex], dynamicObstaclesEntities[obstacleIndex],
-                    dynamicObstaclesVelocitites[obstacleIndex], dynamicObstaclesAccelerations[obstacleIndex]))
+                    position, headingVector, true,
+                    staticObstacles[obstacleIndex], staticObstaclesEntities[obstacleIndex], default(Velocity), default(Acceleration)))
                     {
                         CarsToStartBraking.Add(carEntity);
+                        skipDynamicObstacles = true;
                         break;
+                    }
+                }
+                if (!skipDynamicObstacles)
+                {
+                    for (int obstacleIndex = 0; obstacleIndex < dynamicObstaclesLength; obstacleIndex++)
+                    {
+                        // jeśli choć jedna dynamiczna przeszkoda jest w pobliżu
+                        if (ShouldBrake(v, brakingAcceleration, brakingDistanceOffset, carEntity,
+                        position, headingVector, false,
+                        dynamicObstacles[obstacleIndex], dynamicObstaclesEntities[obstacleIndex],
+                        dynamicObstaclesVelocitites[obstacleIndex], dynamicObstaclesAccelerations[obstacleIndex]))
+                        {
+                            CarsToStartBraking.Add(carEntity);
+                            break;
+                        }
                     }
                 }
             }
         }
         Profiler.EndSample();
         Profiler.BeginSample("BrakeOnObstacleSystem BrakingCars");
-
-        for (int carIndex = 0; carIndex < BrakingCars.Length; carIndex++)
+        if (!(TimeSinceSimulationStart.TimeSinceSimulationStart[0].StepNumber % 3 == 0)) // co trzecią klatkę symulacji
         {
-            var carEntity = BrakingCars.Entities[carIndex];
-            var v = BrakingCars.Velocities[carIndex];
-            var splineId = BrakingCars.SplineIds[carIndex];
-            var positionAlongSpline = BrakingCars.PositionsAlongSpline[carIndex];
-            var position = BrakingCars.Positions[carIndex];
-            var shouldKeepBraking = false;
-            var headingRad = BrakingCars.Headings[carIndex] * (float)PI/180f;
-            var headingVector = new float2(cos((float)PI/2f - headingRad), sin((float)PI/2f - headingRad));
-            var skipDynamicObstacles = false;
-            for (int obstacleIndex = 0; obstacleIndex < staticObstaclesLength; obstacleIndex++)
+            for (int carIndex = 0; carIndex < BrakingCars.Length; carIndex++)
             {
-                if (ShouldBrake(v, brakingAcceleration, brakingDistanceOffset, carEntity,
-                position, headingVector, true,
-                staticObstacles[obstacleIndex], staticObstaclesEntities[obstacleIndex], default(Velocity), default(Acceleration)))
-                {
-                    shouldKeepBraking = true;
-                    skipDynamicObstacles = true;
-                    break;
-                }
-            }
-            if (!skipDynamicObstacles)
-            {
-                for (int obstacleIndex = 0; obstacleIndex < dynamicObstaclesLength; obstacleIndex++)
+                var carEntity = BrakingCars.Entities[carIndex];
+                var v = BrakingCars.Velocities[carIndex];
+                var splineId = BrakingCars.SplineIds[carIndex];
+                var positionAlongSpline = BrakingCars.PositionsAlongSpline[carIndex];
+                var position = BrakingCars.Positions[carIndex];
+                var shouldKeepBraking = false;
+                var headingRad = BrakingCars.Headings[carIndex] * (float)PI/180f;
+                var headingVector = new float2(cos((float)PI/2f - headingRad), sin((float)PI/2f - headingRad));
+                var skipDynamicObstacles = false;
+                for (int obstacleIndex = 0; obstacleIndex < staticObstaclesLength; obstacleIndex++)
                 {
                     if (ShouldBrake(v, brakingAcceleration, brakingDistanceOffset, carEntity,
-                    position, headingVector, false,
-                    dynamicObstacles[obstacleIndex], dynamicObstaclesEntities[obstacleIndex],
-                    dynamicObstaclesVelocitites[obstacleIndex], dynamicObstaclesAccelerations[obstacleIndex]))
+                    position, headingVector, true,
+                    staticObstacles[obstacleIndex], staticObstaclesEntities[obstacleIndex], default(Velocity), default(Acceleration)))
                     {
                         shouldKeepBraking = true;
+                        skipDynamicObstacles = true;
+                        break;
                     }
                 }
-            }
-            if (!shouldKeepBraking) // jeśli żadna przeszkoda nie jest blisko
-            {
-                CarsToStartAccelerating.Add(carEntity);
-                break;
+                if (!skipDynamicObstacles)
+                {
+                    for (int obstacleIndex = 0; obstacleIndex < dynamicObstaclesLength; obstacleIndex++)
+                    {
+                        if (ShouldBrake(v, brakingAcceleration, brakingDistanceOffset, carEntity,
+                        position, headingVector, false,
+                        dynamicObstacles[obstacleIndex], dynamicObstaclesEntities[obstacleIndex],
+                        dynamicObstaclesVelocitites[obstacleIndex], dynamicObstaclesAccelerations[obstacleIndex]))
+                        {
+                            shouldKeepBraking = true;
+                        }
+                    }
+                }
+                if (!shouldKeepBraking) // jeśli żadna przeszkoda nie jest blisko
+                {
+                    CarsToStartAccelerating.Add(carEntity);
+                    break;
+                }
             }
         }
         Profiler.EndSample();

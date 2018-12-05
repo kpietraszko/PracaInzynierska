@@ -57,16 +57,16 @@ public class SplineFollowSystem : ComponentSystem
 
     protected override void OnUpdate()
     {
-        if (Cars.Length == 0) // wszystkie samochody opuściły skrzyżowanie?
+        if (Cars.Length == 0) // wszystkie samochody opuściły skrzyżowanie
         {
             Debug.Log(CurrentGenotype.Length);
             Assert.IsTrue(CurrentGenotype.Length == 1);
             var currentGenotypeEntity = CurrentGenotype.Entities[0];
-            PostUpdateCommands.RemoveComponent<CurrentlySimulated>(currentGenotypeEntity); // TODO: TEST
+            PostUpdateCommands.RemoveComponent<CurrentlySimulated>(currentGenotypeEntity);
         }
 
         const float carLength = 4.5f;
-        var maxMovementError = 0.002f; // TODO: dostosować
+        var maxMovementError = 0.004f; // TODO: dostosować
         var controlPoints = new NativeList<Position2D>(10, Allocator.Temp);
 
         for (int carIndex = 0; carIndex < Cars.Length; carIndex++)
@@ -75,6 +75,7 @@ public class SplineFollowSystem : ComponentSystem
             GetSplineControlPoints(splineId, ref controlPoints);
             var numOfCurves = controlPoints.Length / 2; //krzywych w tym splinie
             float v = Cars.Velocities[carIndex] * (1/30f)/*Time.fixedDeltaTime*/;
+            float vSquared = v * v;
             var obstacle = Cars.Obstacles[carIndex];
             float2 currentPosition = Cars.Positions[carIndex];
             if (EntityManager.HasComponent<FirstCarFrame>(Cars.Entities[carIndex]))
@@ -122,12 +123,9 @@ public class SplineFollowSystem : ComponentSystem
                 }
                 else currentCurveStartIndex = (int)(splineT * numOfCurves) * 2;
                 var curveT = frac(splineT * numOfCurves);
-                // TODO: wolne, bo używa indeksora ComponentDataArray, który nie jest tablicą i robi różne dodatkowe operacje
-                // chyba jednak nie ma tu istotnego wpływu na wydajność
-                //position = lerp(lerp(ControlPoints.Positions[currentCurveStartIndex], ControlPoints.Positions[currentCurveStartIndex + 1], curveT),
-                //                        lerp(ControlPoints.Positions[currentCurveStartIndex + 1], ControlPoints.Positions[currentCurveStartIndex + 2], curveT), curveT); //sampling odpowiedniej krzywej beziera
-                position = lerp(lerp(controlPoints[currentCurveStartIndex], controlPoints[currentCurveStartIndex + 1], curveT),
-                                       lerp(controlPoints[currentCurveStartIndex + 1], controlPoints[currentCurveStartIndex + 2], curveT), curveT); //sampling odpowiedniej krzywej beziera
+                var secondPoint = controlPoints[currentCurveStartIndex + 1];
+                position = lerp(lerp(controlPoints[currentCurveStartIndex], secondPoint, curveT),
+                                       lerp(secondPoint, controlPoints[currentCurveStartIndex + 2], curveT), curveT); //sampling odpowiedniej krzywej beziera
 
                 if (!isFirstFrame)
                     currentPosition = Cars.Positions[carIndex];
