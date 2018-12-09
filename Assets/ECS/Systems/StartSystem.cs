@@ -5,6 +5,7 @@ using Unity.Entities;
 using UnityEngine;
 
 [UpdateAfter(typeof(UnityEngine.Experimental.PlayerLoop.FixedUpdate))]
+[UpdateBefore(typeof(BrakeOnObstacleSystem))]
 public class StartSystem : ComponentSystem
 {
     struct StartData

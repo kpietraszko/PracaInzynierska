@@ -19,17 +19,18 @@ public class CreateGenerationSystem : ComponentSystem
         public readonly int Length;
         public ComponentDataArray<Config> Configs;
     }
+
     struct StartSystemState : ISystemStateComponentData { }
 
     [Inject] StartData Start;
     [Inject] ConfigData Config;
 
     protected override void OnUpdate()
-    {
+    { // póki co tworzy tylko pierwsze pokolenie
         if (Start.Length == 0)
             return;
         PostUpdateCommands.AddComponent(Start.Entities[0], new StartSystemState());
-        Debug.Log("Should log once"); // Log in several more times.
+        Debug.Log("Should log once");
         Assert.IsFalse(Config.Length == 0);
         var config = Config.Configs[0];
         var generationPopulation = config.GenerationPopulation;
@@ -43,16 +44,17 @@ public class CreateGenerationSystem : ComponentSystem
             {
                 var randomStepDuration = Random.Range(minStepDuration, maxStepDuration);
                 PostUpdateCommands.CreateEntity(); // encja kroku scenariusza
-                PostUpdateCommands.AddComponent(new ScenarioStepId(j));
-                PostUpdateCommands.AddComponent(new ScenarioStepDuration(randomStepDuration));
+                PostUpdateCommands.AddComponent(new ScenarioStep { StepId = j, GenotypeId = i, DurationInS = randomStepDuration} );
             }
             PostUpdateCommands.CreateEntity(); // encja genotypu
             PostUpdateCommands.AddComponent(new GenotypeId(i));
-            if (i == 0) // odpalenie pierwszego genotypu pierwszego pokolenia
+            if (i == 0) // odpalenie pierwszego genotypu pokolenia
             {
                 PostUpdateCommands.AddComponent(new CurrentlySimulated());
             }
         }
+        PostUpdateCommands.CreateEntity();
+        PostUpdateCommands.AddComponent(new CurrentGeneration(0));
     }
 
 }

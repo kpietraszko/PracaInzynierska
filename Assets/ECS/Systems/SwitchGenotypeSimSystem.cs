@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Entities;
 using UnityEngine;
@@ -15,6 +16,7 @@ public class SwitchGenotypeSimSystem : ComponentSystem
         public SubtractiveComponent<CurrentlySimulatedSystemState> NotYetProcessed;
         public EntityArray Entities;
     }
+
     struct FinishedGenotypeData
     {
         public readonly int Length;
@@ -23,21 +25,46 @@ public class SwitchGenotypeSimSystem : ComponentSystem
         public SubtractiveComponent<CurrentlySimulated> CurrentlySimulated;
         public EntityArray Entities;
     }
+
     struct EveryGenotypeData
     {
         public readonly int Length;
         public ComponentDataArray<GenotypeId> GenotypeIds;
         public EntityArray Entities;
     }
+
     struct ConfigData
     {
         public readonly int Length;
         public ComponentDataArray<Config> Configs;
     }
+
     struct TimeSinceSimulationStartData
     {
         public readonly int Length;
         public ComponentDataArray<TimeSinceSimulationStart> TimeSinceSimulationStart;
+    }
+
+    struct CurrentGenerationData
+    {
+        public ComponentDataArray<CurrentGeneration> CurrentGenerations;
+        public EntityArray Entities;
+    }
+
+    struct DisplayedStepData
+    {
+        public readonly int Length;
+        public ComponentDataArray<ScenarioStepForDisplay> ScenarioStepsForDisplay;
+        public ComponentDataArray<ScenarioStep> ScenarioSteps;
+        public EntityArray Entities;
+    }
+
+    struct ScenarioStepData
+    {
+        public readonly int Length;
+        public SubtractiveComponent<ScenarioStepForDisplay> NotDisplaySteps;
+        public ComponentDataArray<ScenarioStep> ScenarioSteps;
+        public EntityArray Entities;
     }
 
     struct CurrentlySimulatedSystemState : ISystemStateComponentData { }
@@ -47,6 +74,9 @@ public class SwitchGenotypeSimSystem : ComponentSystem
     [Inject] ConfigData Config;
     [Inject] TimeSinceSimulationStartData TimeSinceSimulationStart;
     [Inject] EveryGenotypeData AllGenotypes;
+    [Inject] CurrentGenerationData CurrentGenerations;
+    [Inject] DisplayedStepData DisplayedSteps;
+    [Inject] ScenarioStepData ScenarioSteps;
 
     protected override void OnUpdate()
     {
@@ -60,6 +90,7 @@ public class SwitchGenotypeSimSystem : ComponentSystem
         {
             int finishedGenotypeId = FinishedGenotype.GenotypeIds[i];
             justFinished = true;
+            var foundNextGenotype = false;
             var simulationDuration = TimeSinceSimulationStart.TimeSinceSimulationStart[0].Seconds;
             Debug.Log($"Finished genotype #{finishedGenotypeId} in {simulationDuration} s");
             PostUpdateCommands.AddComponent(FinishedGenotype.Entities[i], new GenotypeSimulationDuration(simulationDuration));
@@ -71,12 +102,17 @@ public class SwitchGenotypeSimSystem : ComponentSystem
                     newGenotypeEntity = AllGenotypes.Entities[genotypeId];
                     newGenotypeId = AllGenotypes.GenotypeIds[genotypeId];
                     PostUpdateCommands.AddComponent(newGenotypeEntity.Value, new CurrentlySimulated());
+                    foundNextGenotype = true;
                     Debug.Log("Switching to next genotype");
                     break;
                 }
             }
             PostUpdateCommands.RemoveComponent<CurrentlySimulatedSystemState>(FinishedGenotype.Entities[i]);
-            // jeśli nie ma następnego, to skończyć pokolenie
+
+            if (!foundNextGenotype)
+            {
+                PostUpdateCommands.RemoveComponent<CurrentGeneration>(CurrentGenerations.Entities[0]);
+            }
         }
         #endregion
 
@@ -99,7 +135,31 @@ public class SwitchGenotypeSimSystem : ComponentSystem
                 PostUpdateCommands.AddComponent(new CarSpawn { SplineId = splineIndex });
             }
         }
+        // ustawić encjom które mają ScenarioStepForDisplay ScenarioStep.Duration na duration z ScenarioStep nowego genotypu
+        for (int displayStepIndex = 0; displayStepIndex < DisplayedSteps.Length; displayStepIndex++)
+        {
+            var stepId = DisplayedSteps.ScenarioSteps[displayStepIndex].StepId;
+            var stepFromGenotypeIndex = GetStepIndexWithGenotypeId(newGenotypeId.Value, stepId);
+            var durationFromCurrentGenotype = ScenarioSteps.ScenarioSteps[stepFromGenotypeIndex];
+            PostUpdateCommands.SetComponent(DisplayedSteps.Entities[displayStepIndex],
+                new ScenarioStep {
+                    DurationInS = durationFromCurrentGenotype,
+                    GenotypeId = newGenotypeId.Value,
+                    StepId = stepId });
+        }
         TimeSinceSimulationStart.TimeSinceSimulationStart[0] = new TimeSinceSimulationStart(0f, 0);
         #endregion
+    }
+    int GetStepIndexWithGenotypeId(int genotypeId, int stepId)
+    {
+        for (int i = 0; i < ScenarioSteps.Length; i++)
+        {
+            if (ScenarioSteps.ScenarioSteps[i].GenotypeId == genotypeId &&
+                ScenarioSteps.ScenarioSteps[i].StepId == stepId)
+            {
+                return i;
+            }
+        }
+        throw new ArgumentException("Step with given id not found");
     }
 }

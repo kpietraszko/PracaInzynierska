@@ -91,8 +91,8 @@ public class BrakeOnObstacleSystem : ComponentSystem
     protected override void OnUpdate()
     {
         Assert.IsTrue(TimeSinceSimulationStart.TimeSinceSimulationStart.Length == 1);
-        if (TimeSinceSimulationStart.TimeSinceSimulationStart[0].StepNumber % 2 == 0)
-            return;
+        //if (TimeSinceSimulationStart.TimeSinceSimulationStart[0].StepNumber % 2 == 0)
+            //return;
         Profiler.BeginSample("BrakeOnObstacleSystem Caching");
         // indeksery ComponentDataArray są wolne, dlatego zapisuję wartości przed wewnętrznymi pętlami
         #region caching

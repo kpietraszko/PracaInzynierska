@@ -39,18 +39,9 @@ public class EcsBootstrap : MonoBehaviour
         CreateScenario(em, 0); // TODO: to będzie w handlerze eventu UI
         CreateSplinesAndLightsEntities(em);
         InstantiateCars(em);
-        CreateArchetypes(em);
         SetConfig(em);
         var startEntity = em.CreateEntity();
         em.AddComponent(startEntity, typeof(Start));
-        //for (int i = 0; i < CarsToSpawnTemp; i++) // TEMP
-        //{
-        //    for (int splineIndex = 0; splineIndex < Splines.Length; splineIndex++) // TEMP
-        //    {
-        //        var carToSpawnEntity = em.CreateEntity();
-        //        em.AddComponentData(carToSpawnEntity, new CarSpawn { SplineId = splineIndex });
-        //    }
-        //}
     }
     void CreateSplinesAndLightsEntities(EntityManager em)
     {
@@ -120,37 +111,15 @@ public class EcsBootstrap : MonoBehaviour
         for (int stepIndex = 0; stepIndex < scenarioSteps.Length; stepIndex++)
         {
             var stepEntity = em.CreateEntity();
-            var scenarioStepId = stepIndex * 2; // bo dodaję pomiędzy odstępowe kroki
-            em.AddComponentData(stepEntity, new ScenarioStepId(scenarioStepId));
+            em.AddComponentData(stepEntity, new ScenarioStepForDisplay());
             em.AddBuffer<GreenLightInScenarioStep>(stepEntity);
-            em.AddComponentData(stepEntity, new ScenarioStepDuration(10f));
+            em.AddComponentData(stepEntity, new ScenarioStep { StepId = stepIndex }); // w tej encji to będzie faktyczna długość obecnie symulowanego
             var buffer = em.GetBuffer<GreenLightInScenarioStep>(stepEntity);
             for (int lightIndex = 0; lightIndex < scenarioSteps[stepIndex].GreenLights.Length; lightIndex++)
             {
                 buffer.Add(new GreenLightInScenarioStep((int)scenarioSteps[stepIndex].GreenLights[lightIndex]));
             }
-
-            //var delayStepEntity = em.CreateEntity();
-            //em.AddComponentData(delayStepEntity, new ScenarioStepId(scenarioStepId + 1));
-            //em.AddBuffer<GreenLightInScenarioStep>(delayStepEntity);
-            //em.AddComponentData(delayStepEntity, new ScenarioStepDuration(2f));
         }
-    }
-    void CreateArchetypes(EntityManager em) // tworzenie archetypów zmienia układ komponentów w pamięci, zmniejszając liczbe przesunięć i alokacji
-    { // poprawka, jednak to nic nie daje, może iteracja po chunkach to naprawia?
-      // samochody nieużywane
-      //em.CreateArchetype(typeof(Car), typeof(Position2D), typeof(MaxVelocity), typeof(Transform), typeof(MeshFilter), typeof(MeshRenderer));
-      //em.CreateArchetype(typeof(CarSpawn));
-      //// samochody przyspieszające
-      //em.CreateArchetype(typeof(Car), typeof(Position2D), typeof(MaxVelocity), typeof(Transform), typeof(MeshFilter), typeof(MeshRenderer), typeof(SplineId), typeof(PositionAlongSpline), typeof(Acceleration), typeof(Velocity), typeof(Obstacle), typeof(Accelerating));
-      //// samochody w stanie pośrednim 
-      //em.CreateArchetype(typeof(Car), typeof(Position2D), typeof(MaxVelocity), typeof(Transform), typeof(MeshFilter), typeof(MeshRenderer), typeof(SplineId), typeof(PositionAlongSpline), typeof(Acceleration), typeof(Velocity), typeof(Obstacle));
-      //// samochody hamujące
-      //em.CreateArchetype(typeof(Car), typeof(Position2D), typeof(MaxVelocity), typeof(Transform), typeof(MeshFilter), typeof(MeshRenderer), typeof(SplineId), typeof(PositionAlongSpline), typeof(Acceleration), typeof(Velocity), typeof(Obstacle), typeof(Decelerating));
-      //// punkty kontrolne
-      //em.CreateArchetype(typeof(SplineId), typeof(ControlPointId), typeof(Position2D));
-
-
     }
     Color GetRandomHSVColor()
     {
@@ -169,7 +138,9 @@ public class EcsBootstrap : MonoBehaviour
             NumberOfScenarioSteps = 4,
             NumberOfSplines = Splines.Length,
             MinimumStepDuration = 2f,
-            MaximumStepDuration = 20f
+            MaximumStepDuration = 20f,
+            MatingPoolSize = 4,
+            MutationRate = 0.05f
         });
     }
     void OnApplicationQuit()

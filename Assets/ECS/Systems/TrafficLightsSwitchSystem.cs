@@ -16,8 +16,8 @@ public class TrafficLightsSwitchSystem : ComponentSystem
     struct ScenarioStepsData
     {
         public readonly int Length;
-        public ComponentDataArray<ScenarioStepId> StepsIds;
-        public ComponentDataArray<ScenarioStepDuration> Durations;
+        public ComponentDataArray<ScenarioStepForDisplay> ScenarioStepsForDisplay;
+        public ComponentDataArray<ScenarioStep> ScenarioSteps;
         public BufferArray<GreenLightInScenarioStep> GreenLightsBuffers;
         public EntityArray Entities;
     }
@@ -56,17 +56,17 @@ public class TrafficLightsSwitchSystem : ComponentSystem
         const float pauseBetweenSteps = 2f;
         Assert.IsFalse(TimeSinceSimulationStart.Length == 0);
 
-        var scenarioStepsDurations = new ScenarioStepDuration[ScenarioSteps.Length];
-        var scenarioStepsIds = new ScenarioStepId[ScenarioSteps.Length];
+        var scenarioStepsDurations = new float[ScenarioSteps.Length];
+        var scenarioStepsIds = new int[ScenarioSteps.Length];
         for (int i = 0; i < scenarioStepsDurations.Length; i++)
         {
-            scenarioStepsDurations[i] = ScenarioSteps.Durations[i];
-            scenarioStepsIds[i] = ScenarioSteps.StepsIds[i];
+            scenarioStepsDurations[i] = ScenarioSteps.ScenarioSteps[i].DurationInS;
+            scenarioStepsIds[i] = ScenarioSteps.ScenarioSteps[i].StepId;
         }
         Array.Sort(scenarioStepsIds, scenarioStepsDurations);
 
         var timeSinceSimulationStart = TimeSinceSimulationStart.Time[0];
-        var scenarioDuration = scenarioStepsDurations.Sum(x => x.DurationInS + pauseBetweenSteps);
+        var scenarioDuration = scenarioStepsDurations.Sum(x => x + pauseBetweenSteps);
         var scenarioTimeToSample = timeSinceSimulationStart.Seconds % scenarioDuration;
 
         var sumOfStepsDurations = 0f;

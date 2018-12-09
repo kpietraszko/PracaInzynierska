@@ -11,4 +11,6 @@ public struct Config : IComponentData
     public int NumberOfScenarioSteps;
     public float MinimumStepDuration;
     public float MaximumStepDuration;
+    public int MatingPoolSize;
+    public float MutationRate;
 }

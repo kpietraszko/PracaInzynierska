@@ -7,11 +7,11 @@ using UnityEngine;
 public class Scenario : ScriptableObject
 {
     [SerializeField]
-    public ScenarioStep[] ScenarioSteps;
+    public ScenarioStepDescription[] ScenarioSteps;
 }
 
 [Serializable]
-public class ScenarioStep
+public class ScenarioStepDescription
 {
     [SerializeField]
     public TrafficLightDir[] GreenLights;
