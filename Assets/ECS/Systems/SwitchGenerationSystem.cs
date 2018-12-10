@@ -78,25 +78,47 @@ public class SwitchGenerationSystem : ComponentSystem
             // dla każdego kroku scenariusza potomka wylosować (ważone mutation ratem) czy ma być losowy duration
             // krzyżowanie
             // stworzyć genotypy nowego pokolenia
-            var durationsSum = 0f;
+            var fitnessesSum = 0f;
+            float maxDuration = Genotypes.GenotypesSimulationDurations[0];
             for (int genotypeIndex = 0; genotypeIndex < Genotypes.Length; genotypeIndex++)
             {
-                durationsSum += Genotypes.GenotypesSimulationDurations[genotypeIndex];
+                var duration = Genotypes.GenotypesSimulationDurations[genotypeIndex];
+                if (duration > maxDuration)
+                    maxDuration = duration;
             }
-            var normalizedFitnesses =  new float[Genotypes.Length];
+            var fitnesses = new float[Genotypes.Length];
             for (int genotypeIndex = 0; genotypeIndex < Genotypes.Length; genotypeIndex++)
             {
-                normalizedFitnesses[genotypeIndex] = Genotypes.GenotypesSimulationDurations[genotypeIndex] / durationsSum;
+                // dostosowanie to odwrotnosc czasu trwania symulacji, jako efekt uboczny najdlużej trwający genotyp nie ma szans na potomostwo
+                var fitness = maxDuration - Genotypes.GenotypesSimulationDurations[genotypeIndex]; 
+                fitnesses[genotypeIndex] = fitness;
+                fitnessesSum += fitness;
+            }
+            var normalizedFitnesses = new float[Genotypes.Length];
+            for (int genotypeIndex = 0; genotypeIndex < Genotypes.Length; genotypeIndex++)
+            {
+                normalizedFitnesses[genotypeIndex] = fitnesses[genotypeIndex] / fitnessesSum;
                 PostUpdateCommands.DestroyEntity(Genotypes.Entities[genotypeIndex]);
             }
+
+            // wyglada na to że działa ok
             var matingPoolIndices = Enumerable.Range(0, Genotypes.Length)
                 .OrderByDescending(i => normalizedFitnesses[i])
                 .Take(config.MatingPoolSize)
                 .Select(i => new GenotypeNormalizedFitness { Index = i, NormalizedFitness = normalizedFitnesses[i]});
 
-            for (int genotypeIndex = 0; genotypeIndex < config.GenerationPopulation; genotypeIndex++)
+            var debugNormalizedFitnessesSum = normalizedFitnesses.Sum();
+
+            var debugMatingPool = matingPoolIndices.ToArray();
+
+            // nietestowane
+            var debugFirstNewGenotype = new List<float>();
+            var mutatedCount = 0;
+            var fromMother = 0;
+            var fromFather = 0;
+            for (int genotypeIndex = 0; genotypeIndex < 1/*config.GenerationPopulation*/; genotypeIndex++)
             {
-                var motherIndex = ChooseOneRandomlyWithWeights(matingPoolIndices); // TODO: rename to parent1, parent2 for PC
+                var motherIndex = ChooseOneRandomlyWithWeights(matingPoolIndices);
                 var fatherIndex = ChooseOneRandomlyWithWeights(matingPoolIndices, motherIndex);
                 for (int stepIndex = 0; stepIndex < config.NumberOfScenarioSteps; stepIndex++)
                 {
@@ -105,15 +127,20 @@ public class SwitchGenerationSystem : ComponentSystem
                     if (shouldMutate)
                     {
                         stepDuration = Random.Range(config.MinimumStepDuration, config.MaximumStepDuration);
+                        mutatedCount++;
                     }
                     else
                     {
                         int genotypeId;
                         var inheritFromMother = Random.Range(0, 2) == 0;
                         var parentIndex = inheritFromMother ? motherIndex : fatherIndex;
+                        var _ = inheritFromMother ? fromMother++ : fromFather++;
                         var parentGenotypeId = genotypeId = Genotypes.GenotypeIds[parentIndex];
-                        // skąd wziąć długości kroków rodziców?
                         stepDuration = GetStepDuration(parentGenotypeId, stepIndex); //stepIndex?
+                        if (genotypeIndex == 0)
+                        {
+                            debugFirstNewGenotype.Add(stepDuration);
+                        }
                     }
                 }
             }

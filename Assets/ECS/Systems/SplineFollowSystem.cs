@@ -59,7 +59,6 @@ public class SplineFollowSystem : ComponentSystem
     {
         if (Cars.Length == 0) // wszystkie samochody opuściły skrzyżowanie
         {
-            Debug.Log(CurrentGenotype.Length);
             Assert.IsTrue(CurrentGenotype.Length == 1);
             var currentGenotypeEntity = CurrentGenotype.Entities[0];
             PostUpdateCommands.RemoveComponent<CurrentlySimulated>(currentGenotypeEntity);

@@ -103,7 +103,7 @@ public class SwitchGenotypeSimSystem : ComponentSystem
                     newGenotypeId = AllGenotypes.GenotypeIds[genotypeId];
                     PostUpdateCommands.AddComponent(newGenotypeEntity.Value, new CurrentlySimulated());
                     foundNextGenotype = true;
-                    Debug.Log("Switching to next genotype");
+                    //Debug.Log("Switching to next genotype");
                     break;
                 }
             }
@@ -112,6 +112,7 @@ public class SwitchGenotypeSimSystem : ComponentSystem
             if (!foundNextGenotype)
             {
                 PostUpdateCommands.RemoveComponent<CurrentGeneration>(CurrentGenerations.Entities[0]);
+                return;
             }
         }
         #endregion
@@ -126,7 +127,7 @@ public class SwitchGenotypeSimSystem : ComponentSystem
         var config = Config.Configs[0];
         var carsPerSpline = config.CarsToSpawnPerSpline;
         var numOfSplines = config.NumberOfSplines;
-        Debug.Log($"Starting sim of genotype {newGenotypeId}");
+        //Debug.Log($"Starting sim of genotype {newGenotypeId}");
         for (int splineIndex = 0; splineIndex < numOfSplines; splineIndex++)
         {
             for (int carIndex = 0; carIndex < carsPerSpline; carIndex++)
