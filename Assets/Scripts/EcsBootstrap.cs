@@ -139,7 +139,6 @@ public class EcsBootstrap : MonoBehaviour
             NumberOfSplines = Splines.Length,
             MinimumStepDuration = 2f,
             MaximumStepDuration = 20f,
-            MatingPoolSize = 4,
             MutationRate = 0.05f
         });
     }

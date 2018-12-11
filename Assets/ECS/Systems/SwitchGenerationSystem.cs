@@ -104,11 +104,9 @@ public class SwitchGenerationSystem : ComponentSystem
             // wyglada na to że działa ok
             var matingPoolIndices = Enumerable.Range(0, Genotypes.Length)
                 .OrderByDescending(i => normalizedFitnesses[i])
-                .Take(config.MatingPoolSize)
                 .Select(i => new GenotypeNormalizedFitness { Index = i, NormalizedFitness = normalizedFitnesses[i]});
 
             var debugNormalizedFitnessesSum = normalizedFitnesses.Sum();
-
             var debugMatingPool = matingPoolIndices.ToArray();
 
             // nietestowane
