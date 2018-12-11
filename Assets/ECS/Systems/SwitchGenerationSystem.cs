@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 [UpdateAfter(typeof(UnityEngine.Experimental.PlayerLoop.FixedUpdate))]
+[UpdateAfter(typeof(SwitchGenotypeSimSystem))]
 public class SwitchGenerationSystem : ComponentSystem
 {
     struct NewGenerationData
@@ -71,6 +72,8 @@ public class SwitchGenerationSystem : ComponentSystem
         if (EndedGeneration.Length > 0)
         {
             Assert.AreEqual(Genotypes.Length, config.GenerationPopulation);
+
+            var previousGenerationId = EndedGeneration.SystemStates[0].GenerationId;
             PostUpdateCommands.RemoveComponent<CurrentGenerationSystemState>(EndedGeneration.Entities[0]);
             // znormalizować fitness 
             // wybrac top (mating pool)
@@ -109,12 +112,12 @@ public class SwitchGenerationSystem : ComponentSystem
             var debugNormalizedFitnessesSum = normalizedFitnesses.Sum();
             var debugMatingPool = matingPoolIndices.ToArray();
 
-            // nietestowane
+            // wygląda na to że działa ok
             var debugFirstNewGenotype = new List<float>();
             var mutatedCount = 0;
             var fromMother = 0;
             var fromFather = 0;
-            for (int genotypeIndex = 0; genotypeIndex < 1/*config.GenerationPopulation*/; genotypeIndex++)
+            for (int genotypeIndex = 0; genotypeIndex < config.GenerationPopulation; genotypeIndex++)
             {
                 var motherIndex = ChooseOneRandomlyWithWeights(matingPoolIndices);
                 var fatherIndex = ChooseOneRandomlyWithWeights(matingPoolIndices, motherIndex);
@@ -126,6 +129,7 @@ public class SwitchGenerationSystem : ComponentSystem
                     {
                         stepDuration = Random.Range(config.MinimumStepDuration, config.MaximumStepDuration);
                         mutatedCount++;
+                        debugFirstNewGenotype.Add(stepDuration);
                     }
                     else
                     {
@@ -134,14 +138,25 @@ public class SwitchGenerationSystem : ComponentSystem
                         var parentIndex = inheritFromMother ? motherIndex : fatherIndex;
                         var _ = inheritFromMother ? fromMother++ : fromFather++;
                         var parentGenotypeId = genotypeId = Genotypes.GenotypeIds[parentIndex];
-                        stepDuration = GetStepDuration(parentGenotypeId, stepIndex); //stepIndex?
+                        stepDuration = GetStepDuration(parentGenotypeId, stepIndex);
                         if (genotypeIndex == 0)
                         {
                             debugFirstNewGenotype.Add(stepDuration);
                         }
                     }
+                    PostUpdateCommands.CreateEntity(); // encja kroku scenariusza
+                    PostUpdateCommands.AddComponent(new ScenarioStep { StepId = stepIndex, GenotypeId = genotypeIndex, DurationInS = stepDuration });
+                }
+                PostUpdateCommands.CreateEntity(); // encja genotypu
+                PostUpdateCommands.AddComponent(new GenotypeId(genotypeIndex));
+                if (genotypeIndex == 0) // odpalenie pierwszego genotypu pokolenia
+                {
+                    PostUpdateCommands.AddComponent(new CurrentlySimulated());
                 }
             }
+            PostUpdateCommands.CreateEntity(); // encja pokolenia
+            PostUpdateCommands.AddComponent(new CurrentGeneration(previousGenerationId + 1));
+            Debug.Log($"Starting generation {previousGenerationId + 1}");
         }
     }
 
