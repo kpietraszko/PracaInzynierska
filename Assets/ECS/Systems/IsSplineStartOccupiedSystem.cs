@@ -40,7 +40,6 @@ public class IsSplineStartOccupiedSystem : ComponentSystem
 
     protected override void OnUpdate() //TODO: sprawdzić czy działa
     {
-        const float carLength = 4.5f;
         //usunac wszystkie occupiedSplinesStarts (entities) i dodać dla tych co mają obstacle
         for (int i = 0; i < OccupiedSplinesStarts.Length; i++)
         {

@@ -89,9 +89,11 @@ public class SwitchGenerationSystem : ComponentSystem
                 if (duration > maxDuration)
                     maxDuration = duration;
             }
+            var durations = new float[Genotypes.Length];
             var fitnesses = new float[Genotypes.Length];
             for (int genotypeIndex = 0; genotypeIndex < Genotypes.Length; genotypeIndex++)
             {
+                durations[genotypeIndex] = Genotypes.GenotypesSimulationDurations[genotypeIndex];
                 // dostosowanie to odwrotnosc czasu trwania symulacji, jako efekt uboczny najdlużej trwający genotyp nie ma szans na potomostwo
                 var fitness = maxDuration - Genotypes.GenotypesSimulationDurations[genotypeIndex]; 
                 fitnesses[genotypeIndex] = fitness;
@@ -111,6 +113,12 @@ public class SwitchGenerationSystem : ComponentSystem
 
             var debugNormalizedFitnessesSum = normalizedFitnesses.Sum();
             var debugMatingPool = matingPoolIndices.ToArray();
+            var avg = durations.Average();
+            var orderedDurations = durations.OrderBy(x => x);
+            var median = orderedDurations.ElementAt(durations.Length / 2 - 1) 
+                + orderedDurations.ElementAt(durations.Length / 2) / 2;
+            var best = orderedDurations.First();
+            Debug.Log($"Avg: {avg} s, Median: {median} s, Best: {best} s"); // brak postępu po 10 pokoleniach
 
             // wygląda na to że działa ok
             var debugFirstNewGenotype = new List<float>();
