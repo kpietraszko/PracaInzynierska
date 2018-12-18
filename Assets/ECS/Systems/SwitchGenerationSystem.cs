@@ -43,6 +43,11 @@ public class SwitchGenerationSystem : ComponentSystem
         public readonly int Length;
         public ComponentDataArray<Config> Configs;
     }
+    struct GeneticConfigData
+    {
+        public readonly int Length;
+        public ComponentDataArray<GeneticConfig> GeneticConfigs;
+    }
 
     struct CurrentGenerationSystemState : ISystemStateComponentData
     {
@@ -54,6 +59,7 @@ public class SwitchGenerationSystem : ComponentSystem
     [Inject] GenotypeData Genotypes;
     [Inject] ScenarioStepData ScenarioSteps;
     [Inject] ConfigData Config;
+    [Inject] GeneticConfigData GeneticConfig;
 
     protected override void OnUpdate()
     {
@@ -62,6 +68,7 @@ public class SwitchGenerationSystem : ComponentSystem
         Assert.AreEqual(Config.Length, 1);
 
         var config = Config.Configs[0];
+        var geneticConfig = GeneticConfig.GeneticConfigs[0];
 
         if (NewGeneration.Length > 0)
         {
@@ -71,7 +78,7 @@ public class SwitchGenerationSystem : ComponentSystem
 
         if (EndedGeneration.Length > 0)
         {
-            Assert.AreEqual(Genotypes.Length, config.GenerationPopulation);
+            Assert.AreEqual(Genotypes.Length, geneticConfig.GenerationPopulation);
 
             var previousGenerationId = EndedGeneration.SystemStates[0].GenerationId;
             PostUpdateCommands.RemoveComponent<CurrentGenerationSystemState>(EndedGeneration.Entities[0]);
@@ -118,24 +125,24 @@ public class SwitchGenerationSystem : ComponentSystem
             var median = orderedDurations.ElementAt(durations.Length / 2 - 1) 
                 + orderedDurations.ElementAt(durations.Length / 2) / 2;
             var best = orderedDurations.First();
-            Debug.Log($"Avg: {avg} s, Median: {median} s, Best: {best} s"); // brak postępu po 10 pokoleniach
+            Debug.Log($"Avg: {avg} s, Median: {median} s, Best: {best} s"); // brak postępu po 10 pokoleniach, coś nie tak
 
             // wygląda na to że działa ok
             var debugFirstNewGenotype = new List<float>();
             var mutatedCount = 0;
             var fromMother = 0;
             var fromFather = 0;
-            for (int genotypeIndex = 0; genotypeIndex < config.GenerationPopulation; genotypeIndex++)
+            for (int genotypeIndex = 0; genotypeIndex < geneticConfig.GenerationPopulation; genotypeIndex++)
             {
                 var motherIndex = ChooseOneRandomlyWithWeights(matingPoolIndices);
                 var fatherIndex = ChooseOneRandomlyWithWeights(matingPoolIndices, motherIndex);
                 for (int stepIndex = 0; stepIndex < config.NumberOfScenarioSteps; stepIndex++)
                 {
-                    var shouldMutate = Random.Range(0f, 1f) < config.MutationRate;
+                    var shouldMutate = Random.Range(0f, 1f) < geneticConfig.MutationRate;
                     float stepDuration;
                     if (shouldMutate)
                     {
-                        stepDuration = Random.Range(config.MinimumStepDuration, config.MaximumStepDuration);
+                        stepDuration = Random.Range(geneticConfig.MinimumStepDuration, geneticConfig.MaximumStepDuration);
                         mutatedCount++;
                         debugFirstNewGenotype.Add(stepDuration);
                     }

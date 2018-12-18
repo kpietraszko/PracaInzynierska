@@ -133,10 +133,13 @@ public class EcsBootstrap : MonoBehaviour
         var configEntity = em.CreateEntity();
         em.AddComponentData(configEntity, new Config
         {
-            GenerationPopulation = 10,
             CarsToSpawnPerSpline = 20,
             NumberOfScenarioSteps = 4,
-            NumberOfSplines = Splines.Length,
+            NumberOfSplines = Splines.Length
+        });
+        em.AddComponentData(configEntity, new GeneticConfig
+        {
+            GenerationPopulation = 10,
             MinimumStepDuration = 2f,
             MaximumStepDuration = 20f,
             MutationRate = 0.05f
