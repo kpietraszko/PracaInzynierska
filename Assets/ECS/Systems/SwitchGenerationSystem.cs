@@ -64,7 +64,7 @@ public class SwitchGenerationSystem : ComponentSystem
 
     protected override void OnCreateManager()
     {
-        File.AppendAllText(Path.Combine(Application.dataPath, "logs", "evolutionLog.txt"), System.DateTime.Now.ToString("MM-dd-yyyy_HH:mm") + System.Environment.NewLine);
+        File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.txt"), System.DateTime.Now.ToString("MM-dd-yyyy_HH:mm") + System.Environment.NewLine);
     }
 
     protected override void OnUpdate()
@@ -219,7 +219,7 @@ public class SwitchGenerationSystem : ComponentSystem
     }
     void LogToFile(string message)
     {
-        File.AppendAllText(Path.Combine(Application.dataPath, "logs", "evolutionLog.txt"), message + System.Environment.NewLine);
+        File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.txt"), message + System.Environment.NewLine);
     }
 
     struct GenotypeNormalizedFitness
