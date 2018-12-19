@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Unity.Collections;
 using Unity.Entities;
@@ -60,6 +61,11 @@ public class SwitchGenerationSystem : ComponentSystem
     [Inject] ScenarioStepData ScenarioSteps;
     [Inject] ConfigData Config;
     [Inject] GeneticConfigData GeneticConfig;
+
+    protected override void OnCreateManager()
+    {
+        File.AppendAllText(Path.Combine(Application.dataPath, "logs", "evolutionLog.txt"), System.DateTime.Now.ToString("MM-dd-yyyy_HH:mm") + System.Environment.NewLine);
+    }
 
     protected override void OnUpdate()
     {
@@ -125,7 +131,9 @@ public class SwitchGenerationSystem : ComponentSystem
             var median = orderedDurations.ElementAt(durations.Length / 2 - 1) 
                 + orderedDurations.ElementAt(durations.Length / 2) / 2;
             var best = orderedDurations.First();
-            Debug.Log($"Avg: {avg} s, Median: {median} s, Best: {best} s"); // brak postępu po 10 pokoleniach, coś nie tak
+            var logMessage = $"Avg: {avg} s, Median: {median} s, Best: {best} s";
+            Debug.Log(logMessage); // brak postępu po 10 pokoleniach, coś nie tak
+            LogToFile(logMessage);
 
             // wygląda na to że działa ok
             var debugFirstNewGenotype = new List<float>();
@@ -208,6 +216,10 @@ public class SwitchGenerationSystem : ComponentSystem
             }
         }
         throw new System.ArgumentException("Step not found");
+    }
+    void LogToFile(string message)
+    {
+        File.AppendAllText(Path.Combine(Application.dataPath, "logs", "evolutionLog.txt"), message + System.Environment.NewLine);
     }
 
     struct GenotypeNormalizedFitness

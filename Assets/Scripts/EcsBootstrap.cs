@@ -142,7 +142,7 @@ public class EcsBootstrap : MonoBehaviour
             GenerationPopulation = 10,
             MinimumStepDuration = 2f,
             MaximumStepDuration = 20f,
-            MutationRate = 0.05f
+            MutationRate = 0.20f // 0.05 to widocznie za mało bo zupełny brak poprawy z pokolenia na pokolenie
         });
     }
     void OnApplicationQuit()
