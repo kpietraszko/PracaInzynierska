@@ -19,11 +19,17 @@ public class CreateGenerationSystem : ComponentSystem
         public readonly int Length;
         public ComponentDataArray<Config> Configs;
     }
+    struct GeneticConfigData
+    {
+        public readonly int Length;
+        public ComponentDataArray<GeneticConfig> GeneticConfigs;
+    }
 
     struct StartSystemState : ISystemStateComponentData { }
 
     [Inject] StartData Start;
     [Inject] ConfigData Config;
+    [Inject] GeneticConfigData GeneticConfig;
 
     protected override void OnUpdate()
     { // póki co tworzy tylko pierwsze pokolenie
@@ -33,10 +39,11 @@ public class CreateGenerationSystem : ComponentSystem
         Debug.Log("Should log once");
         Assert.IsFalse(Config.Length == 0);
         var config = Config.Configs[0];
-        var generationPopulation = config.GenerationPopulation;
+        var geneticConfig = GeneticConfig.GeneticConfigs[0];
+        var generationPopulation = geneticConfig.GenerationPopulation;
         var stepsInScenario = config.NumberOfScenarioSteps;
-        var minStepDuration = config.MinimumStepDuration;
-        var maxStepDuration = config.MaximumStepDuration;
+        var minStepDuration = geneticConfig.MinimumStepDuration;
+        var maxStepDuration = geneticConfig.MaximumStepDuration;
 
         for (int i = 0; i < generationPopulation; i++)
         {

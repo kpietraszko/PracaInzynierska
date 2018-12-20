@@ -43,7 +43,6 @@ public class CarSpawnSystem : ComponentSystem
         {
             Debug.LogError("Attempting to spawn car, but no unused cars found!");
         }
-        const float carLength = 4.5f;
         NativeList<int> occupiedSplines = new NativeList<int>(10, Allocator.Temp);
         for (int occupiedIndex = 0; occupiedIndex < OccupiedSplines.Length; occupiedIndex++)
         {

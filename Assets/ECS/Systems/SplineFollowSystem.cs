@@ -45,9 +45,19 @@ public class SplineFollowSystem : ComponentSystem
         public ComponentDataArray<CurrentlySimulated> CurrentlySimulated;
         public EntityArray Entities;
     }
+    struct NewCurrentGenerationData
+    {
+        public readonly int Length;
+        public ComponentDataArray<CurrentGeneration> CurrentGenerations;
+        public SubtractiveComponent<CurrentGenerationSystemState> NotProcessed;
+        public EntityArray Entities;
+    }
+    struct CurrentGenerationSystemState : ISystemStateComponentData { }
+
     [Inject] ControlPointsData ControlPoints;
     [Inject] CarsData Cars;
     [Inject] CurrentGenotypeData CurrentGenotype;
+    [Inject] NewCurrentGenerationData NewGeneration;
 
     protected override void OnCreateManager()
     {
@@ -57,11 +67,18 @@ public class SplineFollowSystem : ComponentSystem
 
     protected override void OnUpdate()
     {
-        if (Cars.Length == 0) // wszystkie samochody opuściły skrzyżowanie
+        var newGeneration = false;
+        if (NewGeneration.Length == 1)
         {
-            Assert.IsTrue(CurrentGenotype.Length == 1);
+            PostUpdateCommands.AddComponent(NewGeneration.Entities[0], new CurrentGenerationSystemState());
+            newGeneration = true;
+        }
+        if (Cars.Length == 0 && CurrentGenotype.Length == 1 && !newGeneration) // wszystkie samochody opuściły skrzyżowanie
+        {
+            //Assert.IsTrue(CurrentGenotype.Length == 1);
             var currentGenotypeEntity = CurrentGenotype.Entities[0];
             PostUpdateCommands.RemoveComponent<CurrentlySimulated>(currentGenotypeEntity);
+            Debug.Log($"Removing {nameof(CurrentlySimulated)}");
         }
 
         const float carLength = 4.5f;
