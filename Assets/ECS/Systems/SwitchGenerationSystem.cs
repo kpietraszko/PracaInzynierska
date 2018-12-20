@@ -184,7 +184,10 @@ public class SwitchGenerationSystem : ComponentSystem
             Debug.Log($"Starting generation {previousGenerationId + 1}");
         }
     }
-
+    // strategia ewolucyjna mu,lambda
+    // metoda ruletki z normalizacją
+    // opisać mutację
+    // krzyżowanie opisać
     int ChooseOneRandomlyWithWeights(IEnumerable<GenotypeNormalizedFitness> genotypesFitnesses, int? except = null) // nieprzetestowane
     {
         while (true)
