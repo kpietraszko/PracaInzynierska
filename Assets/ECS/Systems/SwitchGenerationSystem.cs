@@ -64,7 +64,8 @@ public class SwitchGenerationSystem : ComponentSystem
 
     protected override void OnCreateManager()
     {
-        File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.txt"), System.DateTime.Now.ToString("MM-dd-yyyy_HH:mm") + System.Environment.NewLine);
+        File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.txt"), 
+            $"{System.Environment.NewLine}{System.DateTime.Now.ToString("yyyy-MM-dd HH: mm")}{System.Environment.NewLine}");
     }
 
     protected override void OnUpdate()
@@ -133,7 +134,7 @@ public class SwitchGenerationSystem : ComponentSystem
             var median = orderedDurations.ElementAt(durations.Length / 2 - 1) 
                 + orderedDurations.ElementAt(durations.Length / 2) / 2;
             var best = orderedDurations.First();
-            var logMessage = $"Avg: {avg} s, Median: {median} s, Best: {best} s";
+            var logMessage = $"Generation #{previousGenerationId + 1}: Avg: {avg:f0} s, Median: {median:f0} s, Best: {best:f0} s";
             Debug.Log(logMessage); // brak postępu po 10 pokoleniach, coś nie tak
             LogToFile(logMessage);
 
