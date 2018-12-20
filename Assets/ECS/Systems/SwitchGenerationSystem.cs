@@ -86,6 +86,8 @@ public class SwitchGenerationSystem : ComponentSystem
         {
             Assert.AreEqual(Genotypes.Length, geneticConfig.GenerationPopulation);
 
+            DeleteAllScenarioSteps();
+
             var previousGenerationId = EndedGeneration.SystemStates[0].GenerationId;
             PostUpdateCommands.RemoveComponent<CurrentGenerationSystemState>(EndedGeneration.Entities[0]);
             // znormalizować fitness 
@@ -217,6 +219,15 @@ public class SwitchGenerationSystem : ComponentSystem
         }
         throw new System.ArgumentException("Step not found");
     }
+
+    void DeleteAllScenarioSteps()
+    {
+        for (int i = 0; i < ScenarioSteps.Length; i++)
+        {
+            PostUpdateCommands.DestroyEntity(ScenarioSteps.Entities[i]);
+        }
+    }
+
     void LogToFile(string message)
     {
         File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.txt"), message + System.Environment.NewLine);
