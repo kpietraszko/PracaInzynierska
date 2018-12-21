@@ -64,8 +64,10 @@ public class SwitchGenerationSystem : ComponentSystem
 
     protected override void OnCreateManager()
     {
-        File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.txt"), 
-            $"{System.Environment.NewLine}{System.DateTime.Now.ToString("yyyy-MM-dd HH:mm")}{System.Environment.NewLine}");
+        File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.csv"), 
+            $"{System.Environment.NewLine}{System.DateTime.Now.ToString("yyyy-MM-dd HH:mm")}{System.Environment.NewLine}" +
+            $"Generation,Average,Median,Best{System.Environment.NewLine}");
+
     }
 
     protected override void OnUpdate()
@@ -134,7 +136,8 @@ public class SwitchGenerationSystem : ComponentSystem
             var median = orderedDurations.ElementAt(durations.Length / 2 - 1) 
                 + orderedDurations.ElementAt(durations.Length / 2) / 2;
             var best = orderedDurations.First();
-            var logMessage = $"Generation #{previousGenerationId + 1}: Avg: {avg:f0} s, Median: {median:f0} s, Best: {best:f0} s";
+            //var logMessage = $"Generation #{previousGenerationId + 1}: Avg: {avg:f0} s, Median: {median:f0} s, Best: {best:f0} s";
+            var logMessage = $"{previousGenerationId},{avg:f0},{median:f0},{best:f0}";
             Debug.Log(logMessage); // brak postępu po 10 pokoleniach, coś nie tak
             LogToFile(logMessage);
 
@@ -191,7 +194,7 @@ public class SwitchGenerationSystem : ComponentSystem
     // krzyżowanie opisać
     protected override void OnDestroyManager()
     {
-        File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.txt"),
+        File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.csv"),
             $"Finished at {System.DateTime.Now.ToString("yyyy-MM-dd HH:mm")}{System.Environment.NewLine}");
     }
     int ChooseOneRandomlyWithWeights(IEnumerable<GenotypeNormalizedFitness> genotypesFitnesses, int? except = null) // nieprzetestowane
@@ -239,7 +242,7 @@ public class SwitchGenerationSystem : ComponentSystem
 
     void LogToFile(string message)
     {
-        File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.txt"), message + System.Environment.NewLine);
+        File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.csv"), message + System.Environment.NewLine);
     }
 
     struct GenotypeNormalizedFitness

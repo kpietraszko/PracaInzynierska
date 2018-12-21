@@ -139,10 +139,10 @@ public class EcsBootstrap : MonoBehaviour
         });
         em.AddComponentData(configEntity, new GeneticConfig
         {
-            GenerationPopulation = 20,
+            GenerationPopulation = 40,
             MinimumStepDuration = 2f,
             MaximumStepDuration = 20f,
-            MutationRate = 0.02f
+            MutationRate = 0.07f
         });
     }
     void OnApplicationQuit()
