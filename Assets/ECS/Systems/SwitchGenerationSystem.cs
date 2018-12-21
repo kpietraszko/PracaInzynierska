@@ -65,7 +65,7 @@ public class SwitchGenerationSystem : ComponentSystem
     protected override void OnCreateManager()
     {
         File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.txt"), 
-            $"{System.Environment.NewLine}{System.DateTime.Now.ToString("yyyy-MM-dd HH: mm")}{System.Environment.NewLine}");
+            $"{System.Environment.NewLine}{System.DateTime.Now.ToString("yyyy-MM-dd HH:mm")}{System.Environment.NewLine}");
     }
 
     protected override void OnUpdate()
@@ -189,6 +189,11 @@ public class SwitchGenerationSystem : ComponentSystem
     // metoda ruletki z normalizacją
     // opisać mutację
     // krzyżowanie opisać
+    protected override void OnDestroyManager()
+    {
+        File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.txt"),
+            $"Finished at {System.DateTime.Now.ToString("yyyy-MM-dd HH:mm")}{System.Environment.NewLine}");
+    }
     int ChooseOneRandomlyWithWeights(IEnumerable<GenotypeNormalizedFitness> genotypesFitnesses, int? except = null) // nieprzetestowane
     {
         while (true)
