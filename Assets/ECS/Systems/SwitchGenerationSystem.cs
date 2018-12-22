@@ -6,6 +6,7 @@ using Unity.Collections;
 using Unity.Entities;
 using UnityEngine;
 using UnityEngine.Assertions;
+using static Unity.Mathematics.math;
 
 [UpdateAfter(typeof(UnityEngine.Experimental.PlayerLoop.FixedUpdate))]
 [UpdateAfter(typeof(SwitchGenotypeSimSystem))]
@@ -62,12 +63,13 @@ public class SwitchGenerationSystem : ComponentSystem
     [Inject] ConfigData Config;
     [Inject] GeneticConfigData GeneticConfig;
 
+    StreamWriter _performanceStream;
+
     protected override void OnCreateManager()
     {
-        File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.csv"), 
+        File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.csv"),
             $"{System.Environment.NewLine}{System.DateTime.Now.ToString("yyyy-MM-dd HH:mm")}{System.Environment.NewLine}" +
             $"Generation,Average,Median,Best{System.Environment.NewLine}");
-
     }
 
     protected override void OnUpdate()
@@ -113,7 +115,7 @@ public class SwitchGenerationSystem : ComponentSystem
             {
                 durations[genotypeIndex] = Genotypes.GenotypesSimulationDurations[genotypeIndex];
                 // dostosowanie to odwrotnosc czasu trwania symulacji, jako efekt uboczny najdlużej trwający genotyp nie ma szans na potomostwo
-                var fitness = maxDuration - Genotypes.GenotypesSimulationDurations[genotypeIndex]; 
+                var fitness = maxDuration - Genotypes.GenotypesSimulationDurations[genotypeIndex];
                 fitnesses[genotypeIndex] = fitness;
                 fitnessesSum += fitness;
             }
@@ -133,7 +135,7 @@ public class SwitchGenerationSystem : ComponentSystem
             var debugMatingPool = matingPoolIndices.ToArray();
             var avg = durations.Average();
             var orderedDurations = durations.OrderBy(x => x);
-            var median = orderedDurations.ElementAt(durations.Length / 2 - 1) 
+            var median = orderedDurations.ElementAt(durations.Length / 2 - 1)
                 + orderedDurations.ElementAt(durations.Length / 2) / 2;
             var best = orderedDurations.First();
             //var logMessage = $"Generation #{previousGenerationId + 1}: Avg: {avg:f0} s, Median: {median:f0} s, Best: {best:f0} s";
@@ -154,25 +156,22 @@ public class SwitchGenerationSystem : ComponentSystem
                 {
                     var shouldMutate = Random.Range(0f, 1f) < geneticConfig.MutationRate;
                     float stepDuration;
+                    int genotypeId;
+                    var inheritFromMother = Random.Range(0, 2) == 0;
+                    var parentIndex = inheritFromMother ? motherIndex : fatherIndex;
+                    var _ = inheritFromMother ? fromMother++ : fromFather++;
+                    var parentGenotypeId = genotypeId = Genotypes.GenotypeIds[parentIndex];
+                    stepDuration = GetStepDuration(parentGenotypeId, stepIndex);
                     if (shouldMutate)
                     {
-                        stepDuration = Random.Range(geneticConfig.MinimumStepDuration, geneticConfig.MaximumStepDuration);
-                        mutatedCount++;
+                        stepDuration += 10f * (Random.Range(0, 2) * 2 - 1f); //razy losowy znak -1 lub 1
+                        stepDuration = clamp(stepDuration, geneticConfig.MinimumStepDuration, geneticConfig.MaximumStepDuration);
+                    }
+                    if (genotypeIndex == 0)
+                    {
                         debugFirstNewGenotype.Add(stepDuration);
                     }
-                    else
-                    {
-                        int genotypeId;
-                        var inheritFromMother = Random.Range(0, 2) == 0;
-                        var parentIndex = inheritFromMother ? motherIndex : fatherIndex;
-                        var _ = inheritFromMother ? fromMother++ : fromFather++;
-                        var parentGenotypeId = genotypeId = Genotypes.GenotypeIds[parentIndex];
-                        stepDuration = GetStepDuration(parentGenotypeId, stepIndex);
-                        if (genotypeIndex == 0)
-                        {
-                            debugFirstNewGenotype.Add(stepDuration);
-                        }
-                    }
+
                     PostUpdateCommands.CreateEntity(); // encja kroku scenariusza
                     PostUpdateCommands.AddComponent(new ScenarioStep { StepId = stepIndex, GenotypeId = genotypeIndex, DurationInS = stepDuration });
                 }

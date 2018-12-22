@@ -36,3 +36,4 @@ sysinfo.txt
 *.unitypackage
 Logs/IncrementalCompiler/unity_incremental_compiler_server.log
 Logs/evolutionLog.txt
+~$progressCharts.xlsx
