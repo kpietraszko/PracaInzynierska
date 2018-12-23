@@ -64,6 +64,7 @@ public class SwitchGenerationSystem : ComponentSystem
     [Inject] GeneticConfigData GeneticConfig;
 
     StreamWriter _performanceStream;
+    float _previousBest;
 
     protected override void OnCreateManager()
     {
@@ -135,15 +136,20 @@ public class SwitchGenerationSystem : ComponentSystem
             var debugMatingPool = matingPoolIndices.ToArray();
             var avg = durations.Average();
             var orderedDurations = durations.OrderBy(x => x);
-            var median = orderedDurations.ElementAt(durations.Length / 2 - 1)
-                + orderedDurations.ElementAt(durations.Length / 2) / 2;
+            var median = (orderedDurations.ElementAt(durations.Length / 2 - 1)
+                + orderedDurations.ElementAt(durations.Length / 2)) / 2;
             var best = orderedDurations.First();
+            var mutationRate = geneticConfig.MutationRate;
+            if (abs(best - _previousBest) < 2f)
+            {
+                mutationRate *= 20;
+            }
+            _previousBest = best;
             //var logMessage = $"Generation #{previousGenerationId + 1}: Avg: {avg:f0} s, Median: {median:f0} s, Best: {best:f0} s";
             var logMessage = $"{previousGenerationId},{avg:f0},{median:f0},{best:f0}";
             Debug.Log(logMessage); // brak postępu po 10 pokoleniach, coś nie tak
             LogToFile(logMessage);
 
-            // wygląda na to że działa ok
             var debugFirstNewGenotype = new List<float>();
             var mutatedCount = 0;
             var fromMother = 0;
@@ -154,17 +160,19 @@ public class SwitchGenerationSystem : ComponentSystem
                 var fatherIndex = ChooseOneRandomlyWithWeights(matingPoolIndices, motherIndex);
                 for (int stepIndex = 0; stepIndex < config.NumberOfScenarioSteps; stepIndex++)
                 {
-                    var shouldMutate = Random.Range(0f, 1f) < geneticConfig.MutationRate;
+                    var shouldMutate = Random.Range(0f, 1f) < mutationRate;
                     float stepDuration;
                     int genotypeId;
-                    var inheritFromMother = Random.Range(0, 2) == 0;
-                    var parentIndex = inheritFromMother ? motherIndex : fatherIndex;
-                    var _ = inheritFromMother ? fromMother++ : fromFather++;
-                    var parentGenotypeId = genotypeId = Genotypes.GenotypeIds[parentIndex];
-                    stepDuration = GetStepDuration(parentGenotypeId, stepIndex);
+                    //var inheritFromMother = Random.Range(0, 2) == 0;
+                    //var parentIndex = inheritFromMother ? motherIndex : fatherIndex;
+                    //var _ = inheritFromMother ? fromMother++ : fromFather++;
+                    //var parentGenotypeId = genotypeId = Genotypes.GenotypeIds[parentIndex];
+                    //stepDuration = GetStepDuration(parentGenotypeId, stepIndex);
+                    stepDuration = (GetStepDuration(motherIndex, stepIndex) + GetStepDuration(fatherIndex, stepIndex)) / 2f; // próba innego crossovera: średnia czasu matki i ojca
+                    // spróbować jeszcze potem co drugi krok brać od matki a co drugi od ojca (przełączać flagę co krok)
                     if (shouldMutate)
                     {
-                        stepDuration += 10f * (Random.Range(0, 2) * 2 - 1f); //razy losowy znak -1 lub 1
+                        stepDuration += 25f * (Random.Range(0, 2) * 2 - 1f); //razy losowy znak -1 lub 1 // zmienić stałą na random
                         stepDuration = clamp(stepDuration, geneticConfig.MinimumStepDuration, geneticConfig.MaximumStepDuration);
                     }
                     if (genotypeIndex == 0)
