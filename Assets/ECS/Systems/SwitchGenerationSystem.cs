@@ -65,6 +65,7 @@ public class SwitchGenerationSystem : ComponentSystem
 
     StreamWriter _performanceStream;
     float _previousBest;
+    int stalledCount;
 
     protected override void OnCreateManager()
     {
@@ -112,13 +113,18 @@ public class SwitchGenerationSystem : ComponentSystem
             }
             var durations = new float[Genotypes.Length];
             var fitnesses = new float[Genotypes.Length];
+            var bestIndex = 0;
             for (int genotypeIndex = 0; genotypeIndex < Genotypes.Length; genotypeIndex++)
             {
                 durations[genotypeIndex] = Genotypes.GenotypesSimulationDurations[genotypeIndex];
                 // dostosowanie to odwrotnosc czasu trwania symulacji, jako efekt uboczny najdlużej trwający genotyp nie ma szans na potomostwo
-                var fitness = maxDuration - Genotypes.GenotypesSimulationDurations[genotypeIndex];
+                var fitness = pow(maxDuration - Genotypes.GenotypesSimulationDurations[genotypeIndex], 10);
                 fitnesses[genotypeIndex] = fitness;
                 fitnessesSum += fitness;
+                if (fitness > fitnesses[bestIndex])
+                {
+                    bestIndex = genotypeIndex;
+                }
             }
             var normalizedFitnesses = new float[Genotypes.Length];
             for (int genotypeIndex = 0; genotypeIndex < Genotypes.Length; genotypeIndex++)
@@ -140,15 +146,25 @@ public class SwitchGenerationSystem : ComponentSystem
                 + orderedDurations.ElementAt(durations.Length / 2)) / 2;
             var best = orderedDurations.First();
             var mutationRate = geneticConfig.MutationRate;
-            if (abs(best - _previousBest) < 2f)
+
+            var logMessage = $"{previousGenerationId},{avg},{median},{best}";
+            Debug.Log(logMessage);
+            LogToFile(logMessage);
+            // TODO: DODAĆ LOG OPISUJĄCY DŁUGOŚCI KROKÓW NAJLEPSZEGO
+
+            var bestDifference = abs(best - _previousBest);
+            if (bestDifference < 0.5f)
             {
-                mutationRate *= 20;
+                stalledCount++;
+                mutationRate *= 100 * stalledCount;
+                File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.csv"),
+                    $"[DEBUG] Intensifying mutation rate, because difference is {bestDifference}, new mutRate is {mutationRate}{System.Environment.NewLine}");
+            }
+            else
+            {
+                stalledCount = 0;
             }
             _previousBest = best;
-            //var logMessage = $"Generation #{previousGenerationId + 1}: Avg: {avg:f0} s, Median: {median:f0} s, Best: {best:f0} s";
-            var logMessage = $"{previousGenerationId},{avg:f0},{median:f0},{best:f0}";
-            Debug.Log(logMessage); // brak postępu po 10 pokoleniach, coś nie tak
-            LogToFile(logMessage);
 
             var debugFirstNewGenotype = new List<float>();
             var mutatedCount = 0;
@@ -162,17 +178,22 @@ public class SwitchGenerationSystem : ComponentSystem
                 {
                     var shouldMutate = Random.Range(0f, 1f) < mutationRate;
                     float stepDuration;
-                    int genotypeId;
+                    //int genotypeId;
                     //var inheritFromMother = Random.Range(0, 2) == 0;
                     //var parentIndex = inheritFromMother ? motherIndex : fatherIndex;
                     //var _ = inheritFromMother ? fromMother++ : fromFather++;
                     //var parentGenotypeId = genotypeId = Genotypes.GenotypeIds[parentIndex];
-                    //stepDuration = GetStepDuration(parentGenotypeId, stepIndex);
-                    stepDuration = (GetStepDuration(motherIndex, stepIndex) + GetStepDuration(fatherIndex, stepIndex)) / 2f; // próba innego crossovera: średnia czasu matki i ojca
-                    // spróbować jeszcze potem co drugi krok brać od matki a co drugi od ojca (przełączać flagę co krok)
-                    if (shouldMutate)
+                    var parentIndex = stepIndex % 2 == 0 ? motherIndex : fatherIndex;
+                    if (genotypeIndex == 0) // zachowuje najlepszego z poprzedniego pokolenia, usunąć jeśli nic nie daje, bo skomplikuje to opis
                     {
-                        stepDuration += 25f * (Random.Range(0, 2) * 2 - 1f); //razy losowy znak -1 lub 1 // zmienić stałą na random
+                        parentIndex = bestIndex;
+                    }
+                    stepDuration = GetStepDuration(Genotypes.GenotypeIds[parentIndex], stepIndex);
+                    //stepDuration = (GetStepDuration(Genotypes.GenotypeIds[motherIndex], stepIndex) +
+                    //    GetStepDuration(Genotypes.GenotypeIds[fatherIndex], stepIndex)) / 2f; // próba innego crossovera: średnia czasu matki i ojca
+                    if (shouldMutate && !(genotypeIndex == 0))
+                    {
+                        stepDuration += Random.Range(2f,30f) * (Random.Range(0, 2) * 2 - 1f); //razy losowy znak -1 lub 1
                         stepDuration = clamp(stepDuration, geneticConfig.MinimumStepDuration, geneticConfig.MaximumStepDuration);
                     }
                     if (genotypeIndex == 0)
@@ -257,4 +278,5 @@ public class SwitchGenerationSystem : ComponentSystem
         public int Index;
         public float NormalizedFitness;
     }
+    float squared(float a) => a * a;
 }
