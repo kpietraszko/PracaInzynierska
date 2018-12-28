@@ -8,5 +8,4 @@ public struct GeneticConfig : IComponentData
     public int GenerationPopulation;
     public float MinimumStepDuration;
     public float MaximumStepDuration;
-    public float MutationRate;
 }

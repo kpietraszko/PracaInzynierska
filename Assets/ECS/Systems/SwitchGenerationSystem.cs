@@ -72,6 +72,10 @@ public class SwitchGenerationSystem : ComponentSystem
         File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.csv"),
             $"{System.Environment.NewLine}{System.DateTime.Now.ToString("yyyy-MM-dd HH:mm")}{System.Environment.NewLine}" +
             $"Generation,Average,Median,Best{System.Environment.NewLine}");
+
+        File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "bestDurationsLog.csv"),
+            $"{System.Environment.NewLine}{System.DateTime.Now.ToString("yyyy-MM-dd HH:mm")}{System.Environment.NewLine}" +
+            $"Generation,Step 1,Step 2,Step 3,Step 4{System.Environment.NewLine}");
     }
 
     protected override void OnUpdate()
@@ -114,6 +118,7 @@ public class SwitchGenerationSystem : ComponentSystem
             var durations = new float[Genotypes.Length];
             var fitnesses = new float[Genotypes.Length];
             var bestIndex = 0;
+            var secondBestIndex = 0;
             for (int genotypeIndex = 0; genotypeIndex < Genotypes.Length; genotypeIndex++)
             {
                 durations[genotypeIndex] = Genotypes.GenotypesSimulationDurations[genotypeIndex];
@@ -124,6 +129,10 @@ public class SwitchGenerationSystem : ComponentSystem
                 if (fitness > fitnesses[bestIndex])
                 {
                     bestIndex = genotypeIndex;
+                } 
+                else if (fitness > fitnesses[secondBestIndex])
+                {
+                    secondBestIndex = genotypeIndex;
                 }
             }
             var normalizedFitnesses = new float[Genotypes.Length];
@@ -145,26 +154,21 @@ public class SwitchGenerationSystem : ComponentSystem
             var median = (orderedDurations.ElementAt(durations.Length / 2 - 1)
                 + orderedDurations.ElementAt(durations.Length / 2)) / 2;
             var best = orderedDurations.First();
-            var mutationRate = geneticConfig.MutationRate;
+            var targetNumberOfGenerations = 200;
+            var mutationRate = (sin(previousGenerationId * (1 / ((targetNumberOfGenerations/1000f) + (previousGenerationId / 100)))) + 1) / 2f; // magiczny tapered oscillator, połączenie sinusoidy z sigmoid
+            // obiecujące, sprobówać na mu,lambda (czyli bez zachowania najlepszych dwóch)
 
             var logMessage = $"{previousGenerationId},{avg},{median},{best}";
             Debug.Log(logMessage);
-            LogToFile(logMessage);
-            // TODO: DODAĆ LOG OPISUJĄCY DŁUGOŚCI KROKÓW NAJLEPSZEGO
+            LogToFile(logMessage, "evolutionLog.csv");
 
-            var bestDifference = abs(best - _previousBest);
-            if (bestDifference < 0.5f)
+            var bestGenotypeStepsDurations = $"{previousGenerationId},";
+            for (int stepIndex = 0; stepIndex < config.NumberOfScenarioSteps; stepIndex++)
             {
-                stalledCount++;
-                mutationRate *= 100 * stalledCount;
-                File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.csv"),
-                    $"[DEBUG] Intensifying mutation rate, because difference is {bestDifference}, new mutRate is {mutationRate}{System.Environment.NewLine}");
+                bestGenotypeStepsDurations += GetStepDuration(Genotypes.GenotypeIds[bestIndex], stepIndex) + ",";
             }
-            else
-            {
-                stalledCount = 0;
-            }
-            _previousBest = best;
+            LogToFile(bestGenotypeStepsDurations, "bestDurationsLog.csv");
+
 
             var debugFirstNewGenotype = new List<float>();
             var mutatedCount = 0;
@@ -188,12 +192,16 @@ public class SwitchGenerationSystem : ComponentSystem
                     {
                         parentIndex = bestIndex;
                     }
+                    if (genotypeIndex == 1)
+                    {
+                        parentIndex = secondBestIndex;
+                    }
                     stepDuration = GetStepDuration(Genotypes.GenotypeIds[parentIndex], stepIndex);
                     //stepDuration = (GetStepDuration(Genotypes.GenotypeIds[motherIndex], stepIndex) +
                     //    GetStepDuration(Genotypes.GenotypeIds[fatherIndex], stepIndex)) / 2f; // próba innego crossovera: średnia czasu matki i ojca
                     if (shouldMutate && !(genotypeIndex == 0))
                     {
-                        stepDuration += Random.Range(2f,30f) * (Random.Range(0, 2) * 2 - 1f); //razy losowy znak -1 lub 1
+                        stepDuration += Random.Range(2f, 30f) * (Random.Range(0, 2) * 2 - 1f); //razy losowy znak -1 lub 1
                         stepDuration = clamp(stepDuration, geneticConfig.MinimumStepDuration, geneticConfig.MaximumStepDuration);
                     }
                     if (genotypeIndex == 0)
@@ -268,9 +276,9 @@ public class SwitchGenerationSystem : ComponentSystem
         }
     }
 
-    void LogToFile(string message)
+    void LogToFile(string message, string fileName)
     {
-        File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.csv"), message + System.Environment.NewLine);
+        File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", fileName), message + System.Environment.NewLine);
     }
 
     struct GenotypeNormalizedFitness
