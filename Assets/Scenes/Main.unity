@@ -266,6 +266,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224880075963958068, guid: 82c117203e5b44f45be99556a655827f,
     type: 2}
   m_PrefabInternal: {fileID: 69956014}
+--- !u!114 &69956016 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114359991008229366, guid: 82c117203e5b44f45be99556a655827f,
+    type: 2}
+  m_PrefabInternal: {fileID: 69956014}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 --- !u!1 &210357843
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,6 +685,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224880075963958068, guid: 82c117203e5b44f45be99556a655827f,
     type: 2}
   m_PrefabInternal: {fileID: 248779174}
+--- !u!114 &248779176 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114359991008229366, guid: 82c117203e5b44f45be99556a655827f,
+    type: 2}
+  m_PrefabInternal: {fileID: 248779174}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 --- !u!1 &263154586
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,9 +718,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 746214459}
   - {fileID: 1713091282}
   - {fileID: 677325710}
+  - {fileID: 746214459}
   m_Father: {fileID: 788452750}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1041,6 +1053,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224880075963958068, guid: 82c117203e5b44f45be99556a655827f,
     type: 2}
   m_PrefabInternal: {fileID: 409867938}
+--- !u!114 &409867940 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114359991008229366, guid: 82c117203e5b44f45be99556a655827f,
+    type: 2}
+  m_PrefabInternal: {fileID: 409867938}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 --- !u!1 &551235030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,7 +1319,7 @@ RectTransform:
   - {fileID: 248779175}
   - {fileID: 1738655879}
   m_Father: {fileID: 263154587}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -1373,11 +1391,11 @@ RectTransform:
   m_Children:
   - {fileID: 245920695}
   m_Father: {fileID: 263154587}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 40.6}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 200, y: 55}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &746214460
@@ -1418,7 +1436,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 746214461}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1774726365}
+        m_MethodName: StartApp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &746214461
@@ -1875,6 +1904,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224880075963958068, guid: 82c117203e5b44f45be99556a655827f,
     type: 2}
   m_PrefabInternal: {fileID: 779882193}
+--- !u!114 &779882195 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114359991008229366, guid: 82c117203e5b44f45be99556a655827f,
+    type: 2}
+  m_PrefabInternal: {fileID: 779882193}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 --- !u!1 &788452746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1887,7 +1922,7 @@ GameObject:
   - component: {fileID: 788452748}
   - component: {fileID: 788452747}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: MenuCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1948,7 +1983,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &788452750
 RectTransform:
@@ -2957,7 +2992,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 3
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -3010,7 +3045,7 @@ RectTransform:
   - {fileID: 409867939}
   - {fileID: 662748704}
   m_Father: {fileID: 263154587}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -3270,6 +3305,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224880075963958068, guid: 82c117203e5b44f45be99556a655827f,
     type: 2}
   m_PrefabInternal: {fileID: 1738655878}
+--- !u!114 &1738655880 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114359991008229366, guid: 82c117203e5b44f45be99556a655827f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1738655878}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 --- !u!1 &1774726364
 GameObject:
   m_ObjectHideFlags: 0
@@ -3298,12 +3339,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CarPrefab: {fileID: 1934698960348948, guid: ec70a0fabd8bae740b9f9c5a08511ce8, type: 2}
-  CarPoolSize: 240
   CarPoolContainer: {fileID: 830239552}
   TrafficLightMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   TrafficLightMaterial: {fileID: 2100000, guid: f66f3de5c0cb2754f918f54d7736981b,
     type: 2}
-  CarsToSpawnTemp: 20
   Splines:
   - {fileID: 11400000, guid: 9e313ac8a7e6d5343a69f447ce262249, type: 2}
   - {fileID: 11400000, guid: 0516f3f45c23d33438e0376fd6f5064c, type: 2}
@@ -3319,6 +3358,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2a22cf9305bb6d743983871e7630e2a8, type: 2}
   Scenarios:
   - {fileID: 11400000, guid: 80d049de9fc7c32409e649d7560f223e, type: 2}
+  Settings:
+    SimSpeed: {fileID: 779882195}
+    CarsPerSpline: {fileID: 409867940}
+    GenerationPopulation: {fileID: 69956016}
+    NumberOfGenerations: {fileID: 248779176}
+    MinGenerationStepLength: {fileID: 1738655880}
+    MaxGenerationStepLength: {fileID: 1665264661}
+  MainMenuCanvas: {fileID: 788452746}
 --- !u!4 &1774726366
 Transform:
   m_ObjectHideFlags: 0
@@ -3413,7 +3460,7 @@ GameObject:
   - component: {fileID: 2045369291}
   - component: {fileID: 2045369290}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: SideCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

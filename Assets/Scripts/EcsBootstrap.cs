@@ -6,14 +6,14 @@ using Unity.Mathematics;
 using System;
 using Unity.Rendering;
 using Unity.Transforms;
+using TMPro;
 
 public class EcsBootstrap : MonoBehaviour
 {
-    [SerializeField]
-    GameObject CarPrefab;
+    EntityManager Em;
 
     [SerializeField]
-    int CarPoolSize;
+    GameObject CarPrefab;
 
     [SerializeField]
     Transform CarPoolContainer;
@@ -25,23 +25,31 @@ public class EcsBootstrap : MonoBehaviour
     Material TrafficLightMaterial;
 
     [SerializeField]
-    int CarsToSpawnTemp;
-
-    [SerializeField]
     Spline[] Splines;
 
     [SerializeField]
     Scenario[] Scenarios;
 
+    [SerializeField]
+    MenuSettings Settings;
+
+    [SerializeField]
+    GameObject MainMenuCanvas;
+
+    [Serializable]
+    class MenuSettings
+    {
+        public TextMeshProUGUI SimSpeed;
+        public TextMeshProUGUI CarsPerSpline;
+        public TextMeshProUGUI GenerationPopulation;
+        public TextMeshProUGUI NumberOfGenerations;
+        public TextMeshProUGUI MinGenerationStepLength;
+        public TextMeshProUGUI MaxGenerationStepLength;
+    }
+
     void Awake()
     {
-        var em = World.Active.GetOrCreateManager<EntityManager>();
-        CreateScenario(em, 0); // TODO: to będzie w handlerze eventu UI
-        CreateSplinesAndLightsEntities(em);
-        InstantiateCars(em);
-        SetConfig(em);
-        var startEntity = em.CreateEntity();
-        em.AddComponent(startEntity, typeof(Start));
+        Em = World.Active.GetOrCreateManager<EntityManager>();
     }
     void CreateSplinesAndLightsEntities(EntityManager em)
     {
@@ -91,10 +99,10 @@ public class EcsBootstrap : MonoBehaviour
             receiveShadows = false
         };
     }
-    void InstantiateCars(EntityManager em)
+    void InstantiateCars(EntityManager em, int carPoolSize)
     {
         var propBlock = new MaterialPropertyBlock();
-        for (int i = 0; i < CarPoolSize; i++)
+        for (int i = 0; i < carPoolSize; i++)
         {
             var newCar = GameObject.Instantiate(CarPrefab, new Vector3(1000f,0f,0f), Quaternion.identity, CarPoolContainer);
             var randomColor = GetRandomHSVColor();
@@ -128,21 +136,40 @@ public class EcsBootstrap : MonoBehaviour
         var value = 0.4f + UnityEngine.Random.Range(-0.1f, 0.1f);
         return Color.HSVToRGB(hue, saturation, value);
     }
-    void SetConfig(EntityManager em)
+    void SetConfig(EntityManager em, int carsPerSpline, int numberOfScenarioSteps, int generationPopulation,
+        float minScenarioStepDuration, float maxScenarioStepDuration)
     {
         var configEntity = em.CreateEntity();
         em.AddComponentData(configEntity, new Config
         {
-            CarsToSpawnPerSpline = 20,
-            NumberOfScenarioSteps = 4,
+            CarsToSpawnPerSpline = carsPerSpline, //20,
+            NumberOfScenarioSteps = numberOfScenarioSteps, //4,
             NumberOfSplines = Splines.Length
         });
         em.AddComponentData(configEntity, new GeneticConfig
         {
-            GenerationPopulation = 20,
-            MinimumStepDuration = 5f,
-            MaximumStepDuration = 50f
+            GenerationPopulation = generationPopulation, //20,
+            MinimumStepDuration = minScenarioStepDuration, //5f,
+            MaximumStepDuration = maxScenarioStepDuration //50f
         });
+    }
+    public void StartApp(int scenarioIndex)
+    {
+        MainMenuCanvas.SetActive(false);
+        CreateScenario(Em, 0);
+        CreateSplinesAndLightsEntities(Em);
+        var carPoolSize = int.Parse(Settings.CarsPerSpline.text) * Splines.Length;
+        InstantiateCars(Em, carPoolSize);
+        SetConfig(
+            Em,
+            int.Parse(Settings.CarsPerSpline.text),
+            Scenarios[scenarioIndex].ScenarioSteps.Length,
+            int.Parse(Settings.GenerationPopulation.text),
+            int.Parse(Settings.MinGenerationStepLength.text),
+            int.Parse(Settings.MaxGenerationStepLength.text)
+            );
+        var startEntity = Em.CreateEntity();
+        Em.AddComponent(startEntity, typeof(Start));
     }
     void OnApplicationQuit()
     {
