@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using Unity.Entities;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -67,6 +68,12 @@ public class SwitchGenotypeSimSystem : ComponentSystem
         public EntityArray Entities;
     }
 
+    struct UiInfoData
+    {
+        [ReadOnly]
+        public SharedComponentDataArray<UiInfo> UiInfos;
+    }
+
     struct CurrentlySimulatedSystemState : ISystemStateComponentData { }
 
     [Inject] NewGenotypeData NewGenotype;
@@ -77,6 +84,7 @@ public class SwitchGenotypeSimSystem : ComponentSystem
     [Inject] CurrentGenerationData CurrentGenerations;
     [Inject] DisplayedStepData DisplayedSteps;
     [Inject] ScenarioStepData ScenarioSteps;
+    [Inject] UiInfoData UiInfo;
 
     protected override void OnUpdate()
     {
@@ -95,15 +103,16 @@ public class SwitchGenotypeSimSystem : ComponentSystem
             Debug.Log($"Finished genotype #{finishedGenotypeId} in {simulationDuration} s");
             PostUpdateCommands.AddComponent(FinishedGenotype.Entities[i], new GenotypeSimulationDuration(simulationDuration));
 
-            for (int genotypeId = 0; genotypeId < AllGenotypes.Length; genotypeId++)
+            for (int genotypeIndex = 0; genotypeIndex < AllGenotypes.Length; genotypeIndex++)
             {
-                if (AllGenotypes.GenotypeIds[genotypeId] == finishedGenotypeId + 1)
+                if (AllGenotypes.GenotypeIds[genotypeIndex] == finishedGenotypeId + 1)
                 {
-                    newGenotypeEntity = AllGenotypes.Entities[genotypeId];
-                    newGenotypeId = AllGenotypes.GenotypeIds[genotypeId];
+                    newGenotypeEntity = AllGenotypes.Entities[genotypeIndex];
+                    newGenotypeId = AllGenotypes.GenotypeIds[genotypeIndex];
                     PostUpdateCommands.AddComponent(newGenotypeEntity.Value, new CurrentlySimulated());
                     foundNextGenotype = true;
                     //Debug.Log("Switching to next genotype");
+                    SetCurrentGenotypeUiInfo(AllGenotypes.GenotypeIds[genotypeIndex] + 1);
                     break;
                 }
             }
@@ -112,6 +121,7 @@ public class SwitchGenotypeSimSystem : ComponentSystem
             if (!foundNextGenotype)
             {
                 PostUpdateCommands.RemoveComponent<CurrentGeneration>(CurrentGenerations.Entities[0]);
+                SetCurrentGenotypeUiInfo(1);
                 return;
             }
         }
@@ -162,5 +172,9 @@ public class SwitchGenotypeSimSystem : ComponentSystem
             }
         }
         throw new ArgumentException("Step with given id not found");
+    }
+    void SetCurrentGenotypeUiInfo(int genotypeNumber)
+    {
+        UiInfo.UiInfos[0].CurrentGenotypeInfo.text = $"Obecny genotyp: {genotypeNumber}";
     }
 }

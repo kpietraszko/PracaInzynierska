@@ -50,6 +50,11 @@ public class SwitchGenerationSystem : ComponentSystem
         public readonly int Length;
         public ComponentDataArray<GeneticConfig> GeneticConfigs;
     }
+    struct UiInfoData
+    {
+        [ReadOnly]
+        public SharedComponentDataArray<UiInfo> UiInfos;
+    }
 
     struct CurrentGenerationSystemState : ISystemStateComponentData
     {
@@ -62,6 +67,7 @@ public class SwitchGenerationSystem : ComponentSystem
     [Inject] ScenarioStepData ScenarioSteps;
     [Inject] ConfigData Config;
     [Inject] GeneticConfigData GeneticConfig;
+    [Inject] UiInfoData UiInfo;
 
     StreamWriter _performanceStream;
     float _previousBest;
@@ -220,8 +226,11 @@ public class SwitchGenerationSystem : ComponentSystem
                 }
             }
             PostUpdateCommands.CreateEntity(); // encja pokolenia
-            PostUpdateCommands.AddComponent(new CurrentGeneration(previousGenerationId + 1));
-            Debug.Log($"Starting generation {previousGenerationId + 1}");
+            var newGenerationId = previousGenerationId + 1;
+            PostUpdateCommands.AddComponent(new CurrentGeneration(newGenerationId));
+            SetCurrentGenerationUiInfo(newGenerationId + 1);
+            SetPreviousGenerationUiInfo(best);
+            Debug.Log($"Starting generation {newGenerationId}");
         }
     }
     // strategia ewolucyjna mu,lambda
@@ -281,10 +290,21 @@ public class SwitchGenerationSystem : ComponentSystem
         File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", fileName), message + System.Environment.NewLine);
     }
 
+    void SetCurrentGenerationUiInfo(float generationNumber)
+    {
+        UiInfo.UiInfos[0].CurrentGenerationInfo.text = $"<b>Obecne pokolenie: {generationNumber}</b>";
+    }
+
+    void SetPreviousGenerationUiInfo(float bestDuration)
+    {
+        UiInfo.UiInfos[0].PrevGenerationInfo.enabled = true;
+        UiInfo.UiInfos[0].PrevGenerationInfo.text = $"<b>Poprzednie pokolenie</b>\nCzas symulacji najlepszego genotypu: {bestDuration:F0} s";
+    }
+
     struct GenotypeNormalizedFitness
     {
         public int Index;
         public float NormalizedFitness;
     }
-    float squared(float a) => a * a;
+    float Squared(float a) => a * a;
 }

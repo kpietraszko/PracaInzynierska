@@ -36,20 +36,32 @@ public class EcsBootstrap : MonoBehaviour
     [SerializeField]
     GameObject MainMenuCanvas;
 
+    [SerializeField]
+    TextMeshProUGUI CurrentGenerationInfo;
+
+    [SerializeField]
+    TextMeshProUGUI CurrentGenotypeInfo;
+
+    [SerializeField]
+    TextMeshProUGUI PrevGenerationInfo;
+
     [Serializable]
     class MenuSettings
     {
-        public TextMeshProUGUI SimSpeed;
-        public TextMeshProUGUI CarsPerSpline;
-        public TextMeshProUGUI GenerationPopulation;
-        public TextMeshProUGUI NumberOfGenerations;
-        public TextMeshProUGUI MinGenerationStepLength;
-        public TextMeshProUGUI MaxGenerationStepLength;
+        public TMP_InputField SimSpeed;
+        public TMP_InputField CarsPerSpline;
+        public TMP_InputField GenerationPopulation;
+        public TMP_InputField NumberOfGenerations;
+        public TMP_InputField MinGenerationStepLength;
+        public TMP_InputField MaxGenerationStepLength;
     }
 
     void Awake()
     {
         Em = World.Active.GetOrCreateManager<EntityManager>();
+        CurrentGenerationInfo.enabled = false;
+        CurrentGenotypeInfo.enabled = false;
+        PrevGenerationInfo.enabled = false;
     }
     void CreateSplinesAndLightsEntities(EntityManager em)
     {
@@ -156,7 +168,8 @@ public class EcsBootstrap : MonoBehaviour
     public void StartApp(int scenarioIndex)
     {
         MainMenuCanvas.SetActive(false);
-        CreateScenario(Em, 0);
+        Time.fixedDeltaTime = (1 / 30f) / float.Parse(Settings.SimSpeed.text);
+        CreateScenario(Em, scenarioIndex);
         CreateSplinesAndLightsEntities(Em);
         var carPoolSize = int.Parse(Settings.CarsPerSpline.text) * Splines.Length;
         InstantiateCars(Em, carPoolSize);
@@ -168,8 +181,15 @@ public class EcsBootstrap : MonoBehaviour
             int.Parse(Settings.MinGenerationStepLength.text),
             int.Parse(Settings.MaxGenerationStepLength.text)
             );
+
+        var uiInfoEntity = Em.CreateEntity();
+        Em.AddSharedComponentData(uiInfoEntity, new UiInfo { CurrentGenerationInfo = CurrentGenerationInfo, CurrentGenotypeInfo = CurrentGenotypeInfo, PrevGenerationInfo = PrevGenerationInfo });
+        CurrentGenerationInfo.enabled = true;
+        CurrentGenotypeInfo.enabled = true;
+
         var startEntity = Em.CreateEntity();
         Em.AddComponent(startEntity, typeof(Start));
+
     }
     void OnApplicationQuit()
     {

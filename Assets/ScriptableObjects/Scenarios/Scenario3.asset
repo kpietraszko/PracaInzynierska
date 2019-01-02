@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 878b3836fe1b2e047bd90165c7eafeac, type: 3}
-  m_Name: TestScenario
+  m_Name: Scenario3
   m_EditorClassIdentifier: 
   ScenarioSteps:
-  - GreenLights: 0100000007000000
-  - GreenLights: 0200000008000000
-  - GreenLights: 0b00000005000000
-  - GreenLights: 0a00000004000000
+  - GreenLights: 0100000002000000
+  - GreenLights: 0400000005000000
+  - GreenLights: 0700000008000000
+  - GreenLights: 0a0000000b000000
