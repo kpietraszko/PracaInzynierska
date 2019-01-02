@@ -188,13 +188,8 @@ public class SwitchGenerationSystem : ComponentSystem
                 {
                     var shouldMutate = Random.Range(0f, 1f) < mutationRate;
                     float stepDuration;
-                    //int genotypeId;
-                    //var inheritFromMother = Random.Range(0, 2) == 0;
-                    //var parentIndex = inheritFromMother ? motherIndex : fatherIndex;
-                    //var _ = inheritFromMother ? fromMother++ : fromFather++;
-                    //var parentGenotypeId = genotypeId = Genotypes.GenotypeIds[parentIndex];
                     var parentIndex = stepIndex % 2 == 0 ? motherIndex : fatherIndex;
-                    if (genotypeIndex == 0) // zachowuje najlepszego z poprzedniego pokolenia, usunąć jeśli nic nie daje, bo skomplikuje to opis
+                    if (genotypeIndex == 0)
                     {
                         parentIndex = bestIndex;
                     }
@@ -203,8 +198,6 @@ public class SwitchGenerationSystem : ComponentSystem
                         parentIndex = secondBestIndex;
                     }
                     stepDuration = GetStepDuration(Genotypes.GenotypeIds[parentIndex], stepIndex);
-                    //stepDuration = (GetStepDuration(Genotypes.GenotypeIds[motherIndex], stepIndex) +
-                    //    GetStepDuration(Genotypes.GenotypeIds[fatherIndex], stepIndex)) / 2f; // próba innego crossovera: średnia czasu matki i ojca
                     if (shouldMutate && !(genotypeIndex == 0))
                     {
                         stepDuration += Random.Range(2f, 30f) * (Random.Range(0, 2) * 2 - 1f); //razy losowy znak -1 lub 1
@@ -233,15 +226,13 @@ public class SwitchGenerationSystem : ComponentSystem
             Debug.Log($"Starting generation {newGenerationId}");
         }
     }
-    // strategia ewolucyjna mu,lambda
-    // metoda ruletki z normalizacją
-    // opisać mutację
-    // krzyżowanie opisać
+
     protected override void OnDestroyManager()
     {
         File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.csv"),
             $"Finished at {System.DateTime.Now.ToString("yyyy-MM-dd HH:mm")}{System.Environment.NewLine}");
     }
+
     int ChooseOneRandomlyWithWeights(IEnumerable<GenotypeNormalizedFitness> genotypesFitnesses, int? except = null) // nieprzetestowane
     {
         while (true)
@@ -306,5 +297,6 @@ public class SwitchGenerationSystem : ComponentSystem
         public int Index;
         public float NormalizedFitness;
     }
+
     float Squared(float a) => a * a;
 }
