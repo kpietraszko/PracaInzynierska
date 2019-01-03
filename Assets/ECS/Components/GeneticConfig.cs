@@ -5,6 +5,7 @@ using UnityEngine;
 
 public struct GeneticConfig : IComponentData
 {
+    public int NumberOfGenerations;
     public int GenerationPopulation;
     public float MinimumStepDuration;
     public float MaximumStepDuration;

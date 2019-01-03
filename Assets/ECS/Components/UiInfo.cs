@@ -11,4 +11,8 @@ public struct UiInfo : ISharedComponentData
     public TextMeshProUGUI CurrentGenotypeInfo;
 
     public TextMeshProUGUI PrevGenerationInfo;
+
+    public TextMeshProUGUI FinishInfo;
+
+    public GameObject FinishScreen;
 }

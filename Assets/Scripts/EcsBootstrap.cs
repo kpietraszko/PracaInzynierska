@@ -45,6 +45,12 @@ public class EcsBootstrap : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI PrevGenerationInfo;
 
+    [SerializeField]
+    TextMeshProUGUI FinishInfo;
+
+    [SerializeField]
+    GameObject FinishScreen;
+
     [Serializable]
     class MenuSettings
     {
@@ -62,6 +68,9 @@ public class EcsBootstrap : MonoBehaviour
         CurrentGenerationInfo.enabled = false;
         CurrentGenotypeInfo.enabled = false;
         PrevGenerationInfo.enabled = false;
+        FinishScreen.SetActive(false);
+        FinishInfo.enabled = false;
+        MainMenuCanvas.SetActive(true);
     }
     void CreateSplinesAndLightsEntities(EntityManager em)
     {
@@ -149,7 +158,7 @@ public class EcsBootstrap : MonoBehaviour
         return Color.HSVToRGB(hue, saturation, value);
     }
     void SetConfig(EntityManager em, int carsPerSpline, int numberOfScenarioSteps, int generationPopulation,
-        float minScenarioStepDuration, float maxScenarioStepDuration)
+        float minScenarioStepDuration, float maxScenarioStepDuration, int numberOfGenerations)
     {
         var configEntity = em.CreateEntity();
         em.AddComponentData(configEntity, new Config
@@ -162,7 +171,8 @@ public class EcsBootstrap : MonoBehaviour
         {
             GenerationPopulation = generationPopulation, //20,
             MinimumStepDuration = minScenarioStepDuration, //5f,
-            MaximumStepDuration = maxScenarioStepDuration //50f
+            MaximumStepDuration = maxScenarioStepDuration, //50f
+            NumberOfGenerations = numberOfGenerations
         });
     }
     public void StartApp(int scenarioIndex)
@@ -179,17 +189,23 @@ public class EcsBootstrap : MonoBehaviour
             Scenarios[scenarioIndex].ScenarioSteps.Length,
             int.Parse(Settings.GenerationPopulation.text),
             int.Parse(Settings.MinGenerationStepLength.text),
-            int.Parse(Settings.MaxGenerationStepLength.text)
+            int.Parse(Settings.MaxGenerationStepLength.text),
+            int.Parse(Settings.NumberOfGenerations.text)
             );
 
         var uiInfoEntity = Em.CreateEntity();
-        Em.AddSharedComponentData(uiInfoEntity, new UiInfo { CurrentGenerationInfo = CurrentGenerationInfo, CurrentGenotypeInfo = CurrentGenotypeInfo, PrevGenerationInfo = PrevGenerationInfo });
+        Em.AddSharedComponentData(uiInfoEntity, new UiInfo { CurrentGenerationInfo = CurrentGenerationInfo, CurrentGenotypeInfo = CurrentGenotypeInfo,
+            PrevGenerationInfo = PrevGenerationInfo, FinishInfo = FinishInfo, FinishScreen = FinishScreen });
         CurrentGenerationInfo.enabled = true;
         CurrentGenotypeInfo.enabled = true;
 
         var startEntity = Em.CreateEntity();
         Em.AddComponent(startEntity, typeof(Start));
 
+    }
+    public void ExitApp()
+    {
+        Application.Quit();
     }
     void OnApplicationQuit()
     {

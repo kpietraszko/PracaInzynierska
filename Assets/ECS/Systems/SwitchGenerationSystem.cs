@@ -92,6 +92,7 @@ public class SwitchGenerationSystem : ComponentSystem
 
         var config = Config.Configs[0];
         var geneticConfig = GeneticConfig.GeneticConfigs[0];
+        var numberOfGenerations = GeneticConfig.GeneticConfigs[0].NumberOfGenerations;
 
         if (NewGeneration.Length > 0)
         {
@@ -160,9 +161,10 @@ public class SwitchGenerationSystem : ComponentSystem
             var median = (orderedDurations.ElementAt(durations.Length / 2 - 1)
                 + orderedDurations.ElementAt(durations.Length / 2)) / 2;
             var best = orderedDurations.First();
-            var targetNumberOfGenerations = 200;
-            var mutationRate = (sin(previousGenerationId * (1 / ((targetNumberOfGenerations/1000f) + (previousGenerationId / 100)))) + 1) / 2f; // magiczny tapered oscillator, połączenie sinusoidy z sigmoid
-            // obiecujące, sprobówać na mu,lambda (czyli bez zachowania najlepszych dwóch)
+            var targetNumberOfGenerations = numberOfGenerations;
+
+            // magiczny tapered oscillator, połączenie sinusoidy z sigmoid
+            var mutationRate = (sin(previousGenerationId * (1 / ((targetNumberOfGenerations/1000f) + (previousGenerationId / 100)))) + 1) / 2f; 
 
             var logMessage = $"{previousGenerationId},{avg},{median},{best}";
             Debug.Log(logMessage);
@@ -175,55 +177,65 @@ public class SwitchGenerationSystem : ComponentSystem
             }
             LogToFile(bestGenotypeStepsDurations, "bestDurationsLog.csv");
 
-
-            var debugFirstNewGenotype = new List<float>();
-            var mutatedCount = 0;
-            var fromMother = 0;
-            var fromFather = 0;
-            for (int genotypeIndex = 0; genotypeIndex < geneticConfig.GenerationPopulation; genotypeIndex++)
+            if (previousGenerationId + 1 == numberOfGenerations)
             {
-                var motherIndex = ChooseOneRandomlyWithWeights(matingPoolIndices);
-                var fatherIndex = ChooseOneRandomlyWithWeights(matingPoolIndices, motherIndex);
-                for (int stepIndex = 0; stepIndex < config.NumberOfScenarioSteps; stepIndex++)
-                {
-                    var shouldMutate = Random.Range(0f, 1f) < mutationRate;
-                    float stepDuration;
-                    var parentIndex = stepIndex % 2 == 0 ? motherIndex : fatherIndex;
-                    if (genotypeIndex == 0)
-                    {
-                        parentIndex = bestIndex;
-                    }
-                    if (genotypeIndex == 1)
-                    {
-                        parentIndex = secondBestIndex;
-                    }
-                    stepDuration = GetStepDuration(Genotypes.GenotypeIds[parentIndex], stepIndex);
-                    if (shouldMutate && !(genotypeIndex == 0))
-                    {
-                        stepDuration += Random.Range(2f, 30f) * (Random.Range(0, 2) * 2 - 1f); //razy losowy znak -1 lub 1
-                        stepDuration = clamp(stepDuration, geneticConfig.MinimumStepDuration, geneticConfig.MaximumStepDuration);
-                    }
-                    if (genotypeIndex == 0)
-                    {
-                        debugFirstNewGenotype.Add(stepDuration);
-                    }
+                float[] bestGenotypeScenarioStepsDuration = Enumerable.Range(0, config.NumberOfScenarioSteps)
+                    .Select(x => GetStepDuration(Genotypes.GenotypeIds[bestIndex], x))
+                    .ToArray();
 
-                    PostUpdateCommands.CreateEntity(); // encja kroku scenariusza
-                    PostUpdateCommands.AddComponent(new ScenarioStep { StepId = stepIndex, GenotypeId = genotypeIndex, DurationInS = stepDuration });
-                }
-                PostUpdateCommands.CreateEntity(); // encja genotypu
-                PostUpdateCommands.AddComponent(new GenotypeId(genotypeIndex));
-                if (genotypeIndex == 0) // odpalenie pierwszego genotypu pokolenia
-                {
-                    PostUpdateCommands.AddComponent(new CurrentlySimulated());
-                }
+                SetFinishUiInfo(best, numberOfGenerations, bestGenotypeScenarioStepsDuration);
             }
-            PostUpdateCommands.CreateEntity(); // encja pokolenia
-            var newGenerationId = previousGenerationId + 1;
-            PostUpdateCommands.AddComponent(new CurrentGeneration(newGenerationId));
-            SetCurrentGenerationUiInfo(newGenerationId + 1);
-            SetPreviousGenerationUiInfo(best);
-            Debug.Log($"Starting generation {newGenerationId}");
+            else
+            {
+                var debugFirstNewGenotype = new List<float>();
+                var mutatedCount = 0;
+                var fromMother = 0;
+                var fromFather = 0;
+                for (int genotypeIndex = 0; genotypeIndex < geneticConfig.GenerationPopulation; genotypeIndex++)
+                {
+                    var motherIndex = ChooseOneRandomlyWithWeights(matingPoolIndices);
+                    var fatherIndex = ChooseOneRandomlyWithWeights(matingPoolIndices, motherIndex);
+                    for (int stepIndex = 0; stepIndex < config.NumberOfScenarioSteps; stepIndex++)
+                    {
+                        var shouldMutate = Random.Range(0f, 1f) < mutationRate;
+                        float stepDuration;
+                        var parentIndex = stepIndex % 2 == 0 ? motherIndex : fatherIndex;
+                        if (genotypeIndex == 0)
+                        {
+                            parentIndex = bestIndex;
+                        }
+                        if (genotypeIndex == 1)
+                        {
+                            parentIndex = secondBestIndex;
+                        }
+                        stepDuration = GetStepDuration(Genotypes.GenotypeIds[parentIndex], stepIndex);
+                        if (shouldMutate && !(genotypeIndex == 0))
+                        {
+                            stepDuration += Random.Range(2f, 30f) * (Random.Range(0, 2) * 2 - 1f); //razy losowy znak -1 lub 1
+                            stepDuration = clamp(stepDuration, geneticConfig.MinimumStepDuration, geneticConfig.MaximumStepDuration);
+                        }
+                        if (genotypeIndex == 0)
+                        {
+                            debugFirstNewGenotype.Add(stepDuration);
+                        }
+
+                        PostUpdateCommands.CreateEntity(); // encja kroku scenariusza
+                        PostUpdateCommands.AddComponent(new ScenarioStep { StepId = stepIndex, GenotypeId = genotypeIndex, DurationInS = stepDuration });
+                    }
+                    PostUpdateCommands.CreateEntity(); // encja genotypu
+                    PostUpdateCommands.AddComponent(new GenotypeId(genotypeIndex));
+                    if (genotypeIndex == 0) // odpalenie pierwszego genotypu pokolenia
+                    {
+                        PostUpdateCommands.AddComponent(new CurrentlySimulated());
+                    }
+                }
+                PostUpdateCommands.CreateEntity(); // encja pokolenia
+                var newGenerationId = previousGenerationId + 1;
+                PostUpdateCommands.AddComponent(new CurrentGeneration(newGenerationId));
+                SetCurrentGenerationUiInfo(newGenerationId + 1);
+                SetPreviousGenerationUiInfo(best);
+                Debug.Log($"Starting generation {newGenerationId}");
+            }
         }
     }
 
@@ -290,6 +302,22 @@ public class SwitchGenerationSystem : ComponentSystem
     {
         UiInfo.UiInfos[0].PrevGenerationInfo.enabled = true;
         UiInfo.UiInfos[0].PrevGenerationInfo.text = $"<b>Poprzednie pokolenie</b>\nCzas symulacji najlepszego genotypu: {bestDuration:F0} s";
+    }
+
+    void SetFinishUiInfo(float bestDuration, int numberOfGenerations, float[] scenarioStepsDurations)
+    {
+        var uiInfo = UiInfo.UiInfos[0];
+        uiInfo.CurrentGenerationInfo.enabled = false;
+        uiInfo.PrevGenerationInfo.enabled = false;
+        uiInfo.FinishInfo.enabled = true;
+        uiInfo.FinishScreen.SetActive(true);
+        var text = $"Po <b>{numberOfGenerations}</b> pokoleniach czas symulacji najlepszego genotypu to {bestDuration:F0} s.\n\n\nCzasy trwania kroków scenariusza najlepszego genotypu:\n";
+
+        for (int i = 0; i < scenarioStepsDurations.Length; i++)
+        {
+            text += $"Krok {i+1}: {scenarioStepsDurations[i],6:F0} s\n";
+        }
+        uiInfo.FinishInfo.text = text;
     }
 
     struct GenotypeNormalizedFitness
