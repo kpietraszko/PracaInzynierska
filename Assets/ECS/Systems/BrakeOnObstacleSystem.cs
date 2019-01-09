@@ -247,7 +247,7 @@ public class BrakeOnObstacleSystem : ComponentSystem
     {
         var distanceToObstacleSquared = lengthsq(obstacle.Position - carPosition);
         if (carEntity == obstacleEntity //ignoruje samego siebie
-            || distanceToObstacleSquared > 25f * 25f) //i dalkie przeszkody
+            || distanceToObstacleSquared > 25f * 25f) //i dalekie przeszkody
         {
             return false;
         }
@@ -269,10 +269,9 @@ public class BrakeOnObstacleSystem : ComponentSystem
                 // zabezpieczenie w przypadkach złego wyliczenia distanceObstacleWillTravel
                 return true;
             }
-            // ten dystans jest źle liczony jeśli przyspieszenie się zmienia (szczególnie jeśli obstacle właśnie startuje)
             distanceObstacleWillTravel = ((2 * obstacleVelocity + obstacleAcceleration * brakingTime) * brakingTime) / 2f; // pole trapezu
         }
-        var distanceToObstacle = distance(obstacle.Position, carPosition); // raczej nie da się zoptymalizować
+        var distanceToObstacle = distance(obstacle.Position, carPosition);
         bool shouldBrake = distanceToObstacle + distanceObstacleWillTravel <= brakingDistance + brakingDistanceOffset;
         return shouldBrake;
     }

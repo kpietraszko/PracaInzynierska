@@ -20,7 +20,7 @@ public class VelocityChangeSystem : ComponentSystem
 	{
 		for (int i = 0; i < Moveables.Length; i++)
 		{
-			float newVelocity = Moveables.Velocities[i] + Moveables.Accelerations[i] * (1/30f)/*Time.fixedDeltaTime*/; // TODO: sprawdzić czy ma być tu dt
+			float newVelocity = Moveables.Velocities[i] + Moveables.Accelerations[i] * (1/30f);
             newVelocity = max(newVelocity, 0f);
 			PostUpdateCommands.SetComponent(Moveables.Entities[i], new Velocity(newVelocity));
 		}

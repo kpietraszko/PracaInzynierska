@@ -32,11 +32,10 @@ public class CreateGenerationSystem : ComponentSystem
     [Inject] GeneticConfigData GeneticConfig;
 
     protected override void OnUpdate()
-    { // póki co tworzy tylko pierwsze pokolenie
+    {
         if (Start.Length == 0)
             return;
         PostUpdateCommands.AddComponent(Start.Entities[0], new StartSystemState());
-        Debug.Log("Should log once");
         Assert.IsFalse(Config.Length == 0);
         var config = Config.Configs[0];
         var geneticConfig = GeneticConfig.GeneticConfigs[0];

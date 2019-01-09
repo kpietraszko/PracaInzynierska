@@ -21,7 +21,6 @@ public class StartSystem : ComponentSystem
             return;
         NativeLeakDetection.Mode = NativeLeakDetectionMode.Disabled;
         PostUpdateCommands.RemoveComponent(Start.Entities[0], typeof(Start));
-        //tu rzeczy wykonywane raz przy uruchomieniu
         PostUpdateCommands.CreateEntity(EntityManager.CreateArchetype(typeof(TimeSinceSimulationStart)));
     }
 }

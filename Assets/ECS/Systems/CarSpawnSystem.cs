@@ -49,12 +49,11 @@ public class CarSpawnSystem : ComponentSystem
             occupiedSplines.Add(OccupiedSplines.OccupiedSplines[occupiedIndex].SplineId);
         }
 
-        // teraz spawnuje tylko 1 samochód (łącznie) na klatke
+        // tworzy tylko 1 samochód (łącznie) na klatke
         for (int i = 0; i < CarSpawns.Length; i++)
         {
             if (!occupiedSplines.Contains(CarSpawns.CarSpawns[i].SplineId))
             {
-                //Debug.Log($"[Frame {Time.frameCount}]Spline free, spawning");
                 var splineId = CarSpawns.CarSpawns[i].SplineId;
                 var spawningCar = UnusedCars.Entities[0];
                 PostUpdateCommands.AddSharedComponent(spawningCar, new SplineId(CarSpawns.CarSpawns[i].SplineId));

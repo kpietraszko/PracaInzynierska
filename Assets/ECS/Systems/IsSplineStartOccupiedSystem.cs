@@ -38,9 +38,8 @@ public class IsSplineStartOccupiedSystem : ComponentSystem
     Dictionary<int, int> _sharedSplineStarts = new Dictionary<int, int>(10);
     List<int> _occupiedSplines = new List<int>(10);
 
-    protected override void OnUpdate() //TODO: sprawdzić czy działa
+    protected override void OnUpdate()
     {
-        //usunac wszystkie occupiedSplinesStarts (entities) i dodać dla tych co mają obstacle
         for (int i = 0; i < OccupiedSplinesStarts.Length; i++)
         {
             PostUpdateCommands.DestroyEntity(OccupiedSplinesStarts.Entities[i]);

@@ -100,7 +100,6 @@ public class SwitchGenotypeSimSystem : ComponentSystem
             justFinished = true;
             var foundNextGenotype = false;
             var simulationDuration = TimeSinceSimulationStart.TimeSinceSimulationStart[0].Seconds;
-            Debug.Log($"Finished genotype #{finishedGenotypeId} in {simulationDuration} s");
             PostUpdateCommands.AddComponent(FinishedGenotype.Entities[i], new GenotypeSimulationDuration(simulationDuration));
 
             for (int genotypeIndex = 0; genotypeIndex < AllGenotypes.Length; genotypeIndex++)
@@ -111,7 +110,6 @@ public class SwitchGenotypeSimSystem : ComponentSystem
                     newGenotypeId = AllGenotypes.GenotypeIds[genotypeIndex];
                     PostUpdateCommands.AddComponent(newGenotypeEntity.Value, new CurrentlySimulated());
                     foundNextGenotype = true;
-                    //Debug.Log("Switching to next genotype");
                     SetCurrentGenotypeUiInfo(AllGenotypes.GenotypeIds[genotypeIndex] + 1);
                     break;
                 }
@@ -137,7 +135,6 @@ public class SwitchGenotypeSimSystem : ComponentSystem
         var config = Config.Configs[0];
         var carsPerSpline = config.CarsToSpawnPerSpline;
         var numOfSplines = config.NumberOfSplines;
-        //Debug.Log($"Starting sim of genotype {newGenotypeId}");
         for (int splineIndex = 0; splineIndex < numOfSplines; splineIndex++)
         {
             for (int carIndex = 0; carIndex < carsPerSpline; carIndex++)
@@ -146,7 +143,6 @@ public class SwitchGenotypeSimSystem : ComponentSystem
                 PostUpdateCommands.AddComponent(new CarSpawn { SplineId = splineIndex });
             }
         }
-        // ustawić encjom które mają ScenarioStepForDisplay ScenarioStep.Duration na duration z ScenarioStep nowego genotypu
         for (int displayStepIndex = 0; displayStepIndex < DisplayedSteps.Length; displayStepIndex++)
         {
             var stepId = DisplayedSteps.ScenarioSteps[displayStepIndex].StepId;

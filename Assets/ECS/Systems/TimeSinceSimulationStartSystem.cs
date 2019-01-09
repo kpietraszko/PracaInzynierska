@@ -25,14 +25,9 @@ public class TimeSinceSimulationStartSystem : ComponentSystem
     {
         Assert.IsTrue(TimeSinceSimulationStart.Length == 1);
         var timeSinceSimStart = TimeSinceSimulationStart.TimeSinceSimulationStart[0];
-        //if (Start.Length > 0)
-        //{
-        //    timeSinceSimStart = 0f;
-        //}
-        var timeToAdd = 1/30f;//min(Time.fixedUnscaledDeltaTime, Time.maximumDeltaTime);
-        float timeSinceSimStartSec = timeSinceSimStart.Seconds + timeToAdd; // chyba ok
+        var timeToAdd = 1/30f;
+        float timeSinceSimStartSec = timeSinceSimStart.Seconds + timeToAdd;
         var stepNumber = timeSinceSimStart.StepNumber + 1;
         TimeSinceSimulationStart.TimeSinceSimulationStart[0] = new TimeSinceSimulationStart(timeSinceSimStartSec, stepNumber);
-        //Debug.Log(1/30f / Time.fixedUnscaledDeltaTime + "x");
     }
 }

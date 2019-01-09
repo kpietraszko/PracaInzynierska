@@ -75,14 +75,12 @@ public class SplineFollowSystem : ComponentSystem
         }
         if (Cars.Length == 0 && CurrentGenotype.Length == 1 && !newGeneration) // wszystkie samochody opuściły skrzyżowanie
         {
-            //Assert.IsTrue(CurrentGenotype.Length == 1);
             var currentGenotypeEntity = CurrentGenotype.Entities[0];
             PostUpdateCommands.RemoveComponent<CurrentlySimulated>(currentGenotypeEntity);
-            Debug.Log($"Removing {nameof(CurrentlySimulated)}");
         }
 
         const float carLength = 4.5f;
-        var maxMovementError = 0.004f; // TODO: dostosować
+        var maxMovementError = 0.004f;
         var controlPoints = new NativeList<Position2D>(10, Allocator.Temp);
 
         for (int carIndex = 0; carIndex < Cars.Length; carIndex++)
@@ -90,17 +88,16 @@ public class SplineFollowSystem : ComponentSystem
             var splineId = Cars.SplineIds[carIndex];
             GetSplineControlPoints(splineId, ref controlPoints);
             var numOfCurves = controlPoints.Length / 2; //krzywych w tym splinie
-            float v = Cars.Velocities[carIndex] * (1/30f)/*Time.fixedDeltaTime*/;
+            float v = Cars.Velocities[carIndex] * (1/30f);
             float vSquared = v * v;
             var obstacle = Cars.Obstacles[carIndex];
             float2 currentPosition = Cars.Positions[carIndex];
             if (EntityManager.HasComponent<FirstCarFrame>(Cars.Entities[carIndex]))
             {
                 obstacle.Position = GetSplineFirstControlPoint(Cars.SplineIds[carIndex]);
-                // uwaga, nowy samochód w ten sposób może mieć pozycję przed poprzednim samochodem (który ma pozycję przesuniętą do tyłu)
                 Cars.Obstacles[carIndex] = obstacle;
                 Cars.Positions[carIndex] = obstacle.Position;
-                currentPosition = obstacle.Position; //GetSplineFirstControlPoint(Cars.SplineIds[carIndex]);
+                currentPosition = obstacle.Position;;
                 PostUpdateCommands.RemoveComponent<FirstCarFrame>(Cars.Entities[carIndex]);
             }
             if (v <= maxMovementError)
@@ -108,7 +105,6 @@ public class SplineFollowSystem : ComponentSystem
                 
                 continue;
             }
-            //Debug.Log("v = " + v);
             float positionAlongSpline = Cars.PositionsAlongSpline[carIndex];
             float leftBound = 0f;
             float rightBound = 1f - positionAlongSpline;
@@ -122,8 +118,6 @@ public class SplineFollowSystem : ComponentSystem
                 DeSpawnCar(carIndex);
                 continue;
             }
-
-            int iterations = 0; //do debugowania TODO: usunąć
             float midPoint;
             var isFirstFrame = EntityManager.HasComponent<FirstCarFrame>(Cars.Entities[carIndex]);
 
@@ -156,21 +150,15 @@ public class SplineFollowSystem : ComponentSystem
                 {
                     leftBound = midPoint;
                 }
-                if (iterations++ == 100)  //TODO: usunąć
-                {
-                    Debug.LogError("Stuck in do while loop"); // czasem iteruje w nieskonczonosc
-                    Debug.Break();
-                }
             } while (abs(error) > maxMovementError);
             Cars.PositionsAlongSpline[carIndex] = new PositionAlongSpline { Value = splineT };
             Cars.Positions[carIndex] = newPosition;
             var newPosVector = new Vector3(newPosition.x, 0f, newPosition.y);
-            var newRotation = Quaternion.LookRotation(newPosVector - Cars.Transforms[carIndex].position, Vector3.up); //* Quaternion.Euler(-90,0,0); //obrocone o -90 bo blender - działa
+            var newRotation = Quaternion.LookRotation(newPosVector - Cars.Transforms[carIndex].position, Vector3.up);
             Cars.Transforms[carIndex].SetPositionAndRotation(newPosVector, newRotation);
             Cars.Headings[carIndex] = new Heading { Value = newRotation.eulerAngles.y };
 
             obstacle.PositionAlongSpline = splineT;
-            // BUG: obstacle jest przed splinem, nie jestem pewien czy to problem
             if (any(currentPosition != newPosition))
             {
                 obstacle.Position = GetOffsetObstaclePosition(currentPosition, newPosition, carLength);

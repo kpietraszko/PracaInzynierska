@@ -86,7 +86,6 @@ public class TrafficLightsSwitchSystem : ComponentSystem
                 break;
             }
         }
-        //Debug.Log($"Current scenario step: {currentStepId}");
         var isBetweenSteps = currentStepId == null;
         if (isBetweenSteps) // wszystkie zielone światła zmienia w czerwone
         {

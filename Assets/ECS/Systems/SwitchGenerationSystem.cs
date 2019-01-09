@@ -144,7 +144,7 @@ public class SwitchGenerationSystem : ComponentSystem
             float best = Genotypes.GenotypesSimulationDurations[bestIndex];
             var targetNumberOfGenerations = numberOfGenerations;
 
-            // magiczny tapered oscillator, połączenie sinusoidy z sigmoid
+            // połączenie sinusoidy z sigmoid
             var mutationRate = (sin(previousGenerationId * (1 / ((targetNumberOfGenerations/1000f) + (previousGenerationId / 100)))) + 1) / 2f / 1f;
 
             var logMessage = $"{previousGenerationId},{avg},{median},{best}";
@@ -158,7 +158,7 @@ public class SwitchGenerationSystem : ComponentSystem
             }
             LogToFile(bestGenotypeStepsDurations, "bestDurationsLog.csv");
 
-            if (previousGenerationId + 1 == numberOfGenerations + 5) //+ 5 is temp
+            if (previousGenerationId + 1 == numberOfGenerations)
             {
                 float[] bestGenotypeScenarioStepsDuration = Enumerable.Range(0, config.NumberOfScenarioSteps)
                     .Select(x => GetStepDuration(Genotypes.GenotypeIds[bestIndex], x))
@@ -209,7 +209,6 @@ public class SwitchGenerationSystem : ComponentSystem
                             shouldMutate = false;
                             parentIndex = bestIndex;
                         }
-                        //var shouldMutate = Random.Range(0f, 1f) < mutationRate;
                         float stepDuration;
                         stepDuration = GetStepDuration(Genotypes.GenotypeIds[parentIndex], stepIndex);
                         if (shouldMutate)
