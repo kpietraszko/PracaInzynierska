@@ -1,0 +1,44 @@
+\documentclass[wmii, inf, inz]{uwmthesis}
+\usepackage[polish]{babel} \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[MeX]{polski}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.16}
+\widowpenalty10000  
+\clubpenalty10000 
+\date{2019}
+\title{Symulacja ruchu drogowego na skrzyżowaniu z~sygnalizacją świetlną sterowaną algorytmem ewolucyjnym}
+\author{Krzysztof Pietraszko}
+\etitle{Traffic simulation on junction with traffic lights controlled by an evolutionary algorithm}
+\wykonanaw{Katedrze Metod Matematycznych Informatyki}
+\ewykonanaw{the Department of Mathematical Methods in Computer Science}
+
+\podkierunkiem{Dr Inż. Bartosza Nowaka}
+\epodkierunkiem{Dr Inż. Bartosz Nowak}
+
+\begin{document}
+	\pgfplotstableread[col sep = comma]{evolutionLog.csv}\loadedtable
+	\maketitle
+	Test
+	\begin{figure}
+	
+	\begin{tikzpicture}
+	\begin{axis}
+	[
+	grid=major,
+	width=\textwidth,
+	xlabel=Generation,
+	ylabel=Best,
+	xmin=0,
+	xmax=100,
+	ymin=0,
+	]
+		\addplot+[mark=none,thick] table {\loadedtable};
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+\end{document}
