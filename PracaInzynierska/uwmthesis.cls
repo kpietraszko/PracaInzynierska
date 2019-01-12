@@ -100,7 +100,7 @@
   \vskip 0pt plus 0.25 fill
   \begin{center}
   \large
-\textbf{Faculty: \ekierun@k}
+\textbf{\ekierun@k}
   \end{center}
   \vfill
   \begin{center}%
