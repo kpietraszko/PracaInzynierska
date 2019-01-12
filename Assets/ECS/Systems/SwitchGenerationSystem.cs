@@ -145,8 +145,8 @@ public class SwitchGenerationSystem : ComponentSystem
             var targetNumberOfGenerations = numberOfGenerations;
 
             // połączenie sinusoidy z sigmoid
-            var mutationRate = (sin(previousGenerationId * (1 / ((targetNumberOfGenerations/1000f) + (previousGenerationId / 100)))) + 1) / 2f / 1f;
-
+            var mutationRate = (sin(previousGenerationId * (1 / ((targetNumberOfGenerations/1000f) + (previousGenerationId / 100)))) + 1) / 2f;
+            mutationRate *= geneticConfig.MaximumMutationRate;
             var logMessage = $"{previousGenerationId},{avg},{median},{best}";
             Debug.Log(logMessage);
             LogToFile(logMessage, "evolutionLog.csv");

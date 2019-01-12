@@ -60,6 +60,7 @@ public class EcsBootstrap : MonoBehaviour
         public TMP_InputField NumberOfGenerations;
         public TMP_InputField MinGenerationStepLength;
         public TMP_InputField MaxGenerationStepLength;
+        public TMP_InputField MaxMutationRate;
     }
 
     void Awake()
@@ -158,7 +159,7 @@ public class EcsBootstrap : MonoBehaviour
         return Color.HSVToRGB(hue, saturation, value);
     }
     void SetConfig(EntityManager em, int carsPerSpline, int numberOfScenarioSteps, int generationPopulation,
-        float minScenarioStepDuration, float maxScenarioStepDuration, int numberOfGenerations)
+        float minScenarioStepDuration, float maxScenarioStepDuration, int numberOfGenerations, float maxMutationRate)
     {
         var configEntity = em.CreateEntity();
         em.AddComponentData(configEntity, new Config
@@ -172,7 +173,8 @@ public class EcsBootstrap : MonoBehaviour
             GenerationPopulation = generationPopulation, //20,
             MinimumStepDuration = minScenarioStepDuration, //5f,
             MaximumStepDuration = maxScenarioStepDuration, //50f
-            NumberOfGenerations = numberOfGenerations
+            NumberOfGenerations = numberOfGenerations, //100
+            MaximumMutationRate = maxMutationRate //1f
         });
     }
     public void StartApp(int scenarioIndex)
@@ -190,7 +192,8 @@ public class EcsBootstrap : MonoBehaviour
             int.Parse(Settings.GenerationPopulation.text),
             int.Parse(Settings.MinGenerationStepLength.text),
             int.Parse(Settings.MaxGenerationStepLength.text),
-            int.Parse(Settings.NumberOfGenerations.text)
+            int.Parse(Settings.NumberOfGenerations.text),
+            float.Parse(Settings.MaxMutationRate.text)
             );
 
         var uiInfoEntity = Em.CreateEntity();
