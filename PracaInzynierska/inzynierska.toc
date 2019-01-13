@@ -1,0 +1,5 @@
+\select@language {polish}
+\contentsline {chapter}{Streszczenie}{1}
+\contentsline {chapter}{Abstract}{2}
+\contentsline {chapter}{Wst\IeC {\k e}p}{4}
+\contentsline {chapter}{Bibliografia}{5}

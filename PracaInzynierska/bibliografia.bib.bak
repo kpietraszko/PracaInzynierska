@@ -1,0 +1,15 @@
+% Encoding: UTF-8
+
+@Book{Boyd2004,
+  title     = {Convex Optimization},
+  publisher = {Cambridge University Press},
+  year      = {2004},
+  author    = {Boyd, Stephen P;Vandenberghe, Lieven},
+  isbn      = {0521833787},
+  date      = {2004-03-08},
+  ean       = {9780521833783},
+  pagetotal = {727},
+  url       = {https://www.ebook.de/de/product/3677442/stephen_stanford_university_california_boyd_lieven_university_of_california_los_angeles_vandenberghe_convex_optimization.html},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
