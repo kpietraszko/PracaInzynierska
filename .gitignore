@@ -38,3 +38,10 @@ Logs/IncrementalCompiler/unity_incremental_compiler_server.log
 Logs/evolutionLog.txt
 ~$progressCharts.xlsx
 ~$progressChartsRec.xlsx
+
+#Latex
+*.aux
+*.ps
+*.log
+*.dvi
+*.tex~

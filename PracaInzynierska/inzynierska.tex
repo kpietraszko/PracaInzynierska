@@ -23,22 +23,9 @@
 \begin{document}
 	\pgfplotstableread[col sep = comma]{evolutionLog.csv}\loadedtable
 	\maketitle
-	Test
-	\begin{figure}
+	\input{streszczenie.tex}
+	\input{abstract.tex}
+	\tableofcontents
+	\input{wstep.tex}
 	
-	\begin{tikzpicture}
-	\begin{axis}
-	[
-	grid=major,
-	width=\textwidth,
-	xlabel=Generation,
-	ylabel=Best,
-	xmin=0,
-	xmax=100,
-	ymin=0,
-	]
-		\addplot+[mark=none,thick] table {\loadedtable};
-	\end{axis}
-	\end{tikzpicture}
-\end{figure}
 \end{document}
