@@ -12,4 +12,25 @@
   url       = {https://www.ebook.de/de/product/3677442/stephen_stanford_university_california_boyd_lieven_university_of_california_los_angeles_vandenberghe_convex_optimization.html},
 }
 
+@Book{9780471494638,
+  title     = {Practical Methods of Optimization},
+  publisher = {Wiley},
+  year      = {2000},
+  author    = {R. Fletcher},
+  isbn      = {978-0471494638},
+  url       = {https://www.amazon.com/Practical-Methods-Optimization-R-Fletcher/dp/0471494631?SubscriptionId=AKIAIOBINVZYXZQZ2U3A&tag=chimbori05-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=0471494631},
+}
+
+@Book{9780122839528,
+  title     = {Practical Optimization},
+  publisher = {Emerald Publishing Limited},
+  year      = {1982},
+  author    = {Murray, Walter and Wright, Margaret H. and Gill, Philip Edward},
+  isbn      = {0-12-283952-8},
+  date      = {1982-01-28},
+  ean       = {9780122839528},
+  pagetotal = {402},
+  url       = {https://www.ebook.de/de/product/3248745/walter_murray_margaret_h_wright_philip_edward_gill_practical_optimization.html},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
