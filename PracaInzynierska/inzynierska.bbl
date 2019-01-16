@@ -5,4 +5,53 @@ Murray, W., Wright, M.~H., Gill, P.~E.
 \newblock {\em Practical Optimization}.
 \newblock Emerald Publishing Limited, 1982.
 
+\bibitem{Badar2013StudyOA}
+Badar, A. Q.~H., Umre, D. B.~S., Junghare, D. A.~S.
+\newblock Study of artificial intelligence optimization techniques applied to
+  active power loss minimization.
+\newblock In {\em Study of Artificial Intelligence Optimization Techniques
+  applied to Active Power Loss Minimization\/} (2013).
+
+\bibitem{Cohoon:2003:EAP:903758.903786}
+Cohoon, J., Karro, J., Lienig, J.
+\newblock Advances in evolutionary computing.
+\newblock In {\em Advances in Evolutionary Computing}, A.~Ghosh and S.~Tsutsui,
+  Eds. Springer-Verlag, Berlin, Heidelberg, 2003, ch.~Evolutionary Algorithms
+  for the Physical Design of VLSI Circuits, pp.~683--711.
+
+\bibitem{10.1371/journal.pone.0095693}
+Berger-Tal, O., Nathan, J., Meron, E., Saltz, D.
+\newblock The exploration-exploitation dilemma: A multidisciplinary framework.
+\newblock {\em PLOS ONE 9}, 4 (04 2014), 1--8.
+
+\bibitem{Lohn2006AutomatedAD}
+Lohn, A. G. G. H. D. L.~J.
+\newblock Automated antenna design with evolutionary algorithms.
+\newblock In {\em Automated Antenna Design with Evolutionary Algorithms\/}
+  (2006).
+
+\bibitem{article}
+Leon, N., Uresti, E., Arcos, W.
+\newblock Fan-shape optimisation using cfd and genetic algorithms for
+  increasing the efficiency of electric motors.
+\newblock {\em IJCAT 30\/} (11 2007), 47--58.
+
+\bibitem{Wall:1996:GAR:925320}
+Wall, M.~B.
+\newblock {\em A Genetic Algorithm for Resource-constrained Scheduling}.
+\newblock PhD thesis, A Genetic Algorithm for Resource-constrained Scheduling,
+  Cambridge, MA, USA, 1996.
+\newblock AAI0598050.
+
+\bibitem{Stanislawska:2012:MGT:2400749.2401077}
+Stanislawska, K., Krawiec, K., Kundzewicz, Z.~W.
+\newblock Modeling global temperature changes with genetic programming.
+\newblock {\em Comput. Math. Appl. 64}, 12 (Dec. 2012), 3717--3728.
+
+\bibitem{Steinbuch2010}
+Steinbuch, R.
+\newblock Successful application of evolutionary algorithms in engineering
+  design.
+\newblock {\em Journal of Bionic Engineering 7}, 4 (Dec 2010), S199--S211.
+
 \end{thebibliography}

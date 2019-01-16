@@ -1,3 +1,12 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: inzynierska.aux
 The style file: moj.bst
 Database file #1: bibliografia.bib
+"#" can't start a style-file command---line 1091 of file moj.bst
+ : 
+ : #ITERATE {presort}
+(Error may have been on previous line)
+"#" can't start a style-file command---line 1093 of file moj.bst
+ : 
+ : #SORT
+(Error may have been on previous line)
+(There were 2 error messages)
