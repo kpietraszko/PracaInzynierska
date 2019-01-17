@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210) (preloaded format=pdflatex 2017.3.4)  16 JAN 2019 23:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210) (preloaded format=pdflatex 2017.3.4)  17 JAN 2019 22:39
 entering extended mode
 **./inzynierska.tex
 (inzynierska.tex
@@ -1051,28 +1051,46 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 ] [4
 
-]) (inzynierska.bbl [5]) [6
+]) (technologie.tex [5]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 13.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 13.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 13.
+) (inzynierska.bbl [6
+
+]) [7
+
+] (inzynierska.lof)
+\tf@lof=\write5
+\openout5 = `inzynierska.lof'.
+
+
+[8
 
 ] (inzynierska.aux) ) 
 Here is how much of TeX's memory you used:
- 23241 strings out of 493333
- 602146 string characters out of 3136600
+ 23272 strings out of 493333
+ 602522 string characters out of 3136600
  778594 words of memory out of 3000000
- 26328 multiletter control sequences out of 15000+200000
- 60957 words of font info for 43 fonts, out of 3000000 for 9000
+ 26345 multiletter control sequences out of 15000+200000
+ 83732 words of font info for 56 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,7n,127p,888b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 73i,7n,127p,909b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-e
 c.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/P
 rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program File
 s (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmcsc10.pfb><C:/Program Files (x86)/Mi
 KTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
 ts/type1/public/lm/lmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
-lic/lm/lmri10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri
-12.pfb>
-Output written on inzynierska.pdf (8 pages, 196023 bytes).
+lic/lm/lmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.
+pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Progr
+am Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files (x
+86)/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb>
+Output written on inzynierska.pdf (10 pages, 263375 bytes).
 PDF statistics:
- 61 PDF objects out of 1000 (max. 8388607)
+ 79 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

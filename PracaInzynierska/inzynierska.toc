@@ -4,5 +4,8 @@
 \contentsline {chapter}{Wst\IeC {\k e}p}{4}
 \contentsline {section}{Problemy optymalizacyjne}{4}
 \contentsline {section}{Algorytmy ewolucyjne}{4}
-\contentsline {section}{Zastosowania}{5}
-\contentsline {chapter}{Bibliografia}{6}
+\contentsline {section}{Przyk\IeC {\l }adowe zastosowania algorytm\IeC {\'o}w ewolucyjnych}{5}
+\contentsline {chapter}{U\IeC {\.z}yte technologie}{6}
+\contentsline {section}{Unity}{6}
+\contentsline {chapter}{Bibliografia}{7}
+\contentsline {chapter}{Spis rysunk\'ow}{8}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{9780122839528}
 Murray, W., Wright, M.~H., Gill, P.~E.
@@ -53,5 +53,10 @@ Steinbuch, R.
 \newblock Successful application of evolutionary algorithms in engineering
   design.
 \newblock {\em Journal of Bionic Engineering 7}, 4 (Dec 2010), S199--S211.
+
+\bibitem{UnityManualGraphicsApiSupport}
+{Unity Manual - Graphics API support}.
+\newblock https://docs.unity3d.com/Manual/GraphicsAPIs.html (dostęp
+  17.01.2019).
 
 \end{thebibliography}
