@@ -59,4 +59,13 @@ Steinbuch, R.
 \newblock https://docs.unity3d.com/Manual/GraphicsAPIs.html (dostęp
   17.01.2019).
 
+\bibitem{ProgramminginUnity}
+{Programming in Unity}.
+\newblock https://unity3d.com/programming-in-unity (dostęp 19.01.2019).
+
+\bibitem{Albahari2017}
+Albahari, J.
+\newblock {\em C\texttt{\#} 7.0 in a Nutshell}.
+\newblock O'Reilly UK Ltd., 2017.
+
 \end{thebibliography}

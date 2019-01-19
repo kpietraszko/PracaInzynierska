@@ -143,4 +143,21 @@
   url          = {https://docs.unity3d.com/Manual/GraphicsAPIs.html},
 }
 
+@Misc{ProgramminginUnity,
+  unknown      = {Programming in Unity},
+  title        = {{Programming in Unity}},
+  howpublished = {https://unity3d.com/programming-in-unity (dostęp 19.01.2019)},
+}
+
+@Book{Albahari2017,
+  title     = {C\# 7.0 in a Nutshell},
+  publisher = {O'Reilly UK Ltd.},
+  year      = {2017},
+  author    = {Albahari, Joseph},
+  isbn      = {1491987650},
+  date      = {2017-11-29},
+  ean       = {9781491987650},
+  url       = {https://www.ebook.de/de/product/29084295/joseph_albahari_c_7_0_in_a_nutshell.html},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

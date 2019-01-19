@@ -7,5 +7,8 @@
 \contentsline {section}{Przyk\IeC {\l }adowe zastosowania algorytm\IeC {\'o}w ewolucyjnych}{5}
 \contentsline {chapter}{U\IeC {\.z}yte technologie}{6}
 \contentsline {section}{Unity}{6}
-\contentsline {chapter}{Bibliografia}{7}
-\contentsline {chapter}{Spis rysunk\'ow}{8}
+\contentsline {section}{J\IeC {\k e}zyk C\texttt {\#}}{6}
+\contentsline {section}{Inkscape}{7}
+\contentsline {section}{Blender}{8}
+\contentsline {chapter}{Bibliografia}{10}
+\contentsline {chapter}{Spis rysunk\'ow}{11}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210) (preloaded format=pdflatex 2017.3.4)  17 JAN 2019 22:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210) (preloaded format=pdflatex 2017.3.4)  19 JAN 2019 23:12
 entering extended mode
 **./inzynierska.tex
 (inzynierska.tex
@@ -883,22 +883,26 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
-) (inzynierska.aux)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\cleveref\cleveref.sty"
+Package: cleveref 2013/12/28 v0.19 Intelligent cross-referencing
+)
+(inzynierska.aux)
 \openout1 = `inzynierska.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 25.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 26.
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -965,45 +969,45 @@ Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.16}).
 
 PGFPlots: reading {evolutionLog.csv}
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 27.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 28.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 27.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 28.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 27.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 28.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 27.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 28.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 27.
+(Font)              <12> on input line 28.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 27.
+(Font)              <8> on input line 28.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 27.
+(Font)              <6> on input line 28.
 
-Underfull \hbox (badness 2197) in paragraph at lines 27--27
+Underfull \hbox (badness 2197) in paragraph at lines 28--28
  []\T1/lmr/m/n/12 Praca in»ynierska wykonana 
  []
 
 
-Underfull \hbox (badness 5924) in paragraph at lines 27--27
+Underfull \hbox (badness 5924) in paragraph at lines 28--28
  []\T1/lmr/m/n/12 pod kierunkiem 
  []
 
 
-Underfull \hbox (badness 2894) in paragraph at lines 27--27
+Underfull \hbox (badness 2894) in paragraph at lines 28--28
  []\T1/lmr/m/n/12 Dr In». Bartosza Nowaka 
  []
 
@@ -1011,27 +1015,27 @@ Underfull \hbox (badness 2894) in paragraph at lines 27--27
 
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 1769) in paragraph at lines 27--27
+Underfull \hbox (badness 1769) in paragraph at lines 28--28
  []\T1/lmr/m/n/12 Engineer's Thesis is performed 
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 27--27
+Underfull \hbox (badness 1028) in paragraph at lines 28--28
  []\T1/lmr/m/n/12 in the Department of Mathematical 
  []
 
 
-Underfull \hbox (badness 1158) in paragraph at lines 27--27
+Underfull \hbox (badness 1158) in paragraph at lines 28--28
  \T1/lmr/m/n/12 Methods in Computer Science 
  []
 
 
-Underfull \hbox (badness 4279) in paragraph at lines 27--27
+Underfull \hbox (badness 4279) in paragraph at lines 28--28
  []\T1/lmr/m/n/12 under supervision of 
  []
 
 
-Underfull \hbox (badness 3482) in paragraph at lines 27--27
+Underfull \hbox (badness 3482) in paragraph at lines 28--28
  []\T1/lmr/m/n/12 Dr In». Bartosz Nowak 
  []
 
@@ -1042,7 +1046,11 @@ Underfull \hbox (badness 3482) in paragraph at lines 27--27
 ] (inzynierska.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 2.
-)
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 10.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+))
 \tf@toc=\write4
 \openout4 = `inzynierska.toc'.
 
@@ -1058,39 +1066,77 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 13.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 13.
-) (inzynierska.bbl [6
+ <unity.png, id=35, 851.55878pt x 707.70056pt>
+File: unity.png Graphic file (type png)
 
-]) [7
+<use unity.png>
+Package pdftex.def Info: unity.png used on input line 16.
+(pdftex.def)             Requested size: 483.0pt x 401.40657pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 20.
+[6
+
+] <inkscape.png, id=44, 778.60698pt x 685.88321pt>
+File: inkscape.png Graphic file (type png)
+ <use inkscape.png>
+Package pdftex.def Info: inkscape.png used on input line 27.
+(pdftex.def)             Requested size: 483.0pt x 425.4839pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<blender.png, id=45, 863.14925pt x 700.88264pt>
+File: blender.png Graphic file (type png)
+ <use blender.png>
+Package pdftex.def Info: blender.png used on input line 35.
+(pdftex.def)             Requested size: 483.0pt x 392.20284pt.
+)
+(inzynierska.bbl
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7 <./unity.png>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[8 <./inkscape.png>] [9 <./blender.png>]) [10
 
 ] (inzynierska.lof)
 \tf@lof=\write5
 \openout5 = `inzynierska.lof'.
 
+ [11
 
-[8
-
-] (inzynierska.aux) ) 
+]
+(inzynierska.aux) ) 
 Here is how much of TeX's memory you used:
- 23272 strings out of 493333
- 602522 string characters out of 3136600
- 778594 words of memory out of 3000000
- 26345 multiletter control sequences out of 15000+200000
- 83732 words of font info for 56 fonts, out of 3000000 for 9000
+ 24857 strings out of 493333
+ 636796 string characters out of 3136600
+ 789726 words of memory out of 3000000
+ 27915 multiletter control sequences out of 15000+200000
+ 85006 words of font info for 60 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,7n,127p,909b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-e
-c.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/P
-rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program File
-s (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmcsc10.pfb><C:/Program Files (x86)/Mi
-KTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
-ts/type1/public/lm/lmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
-lic/lm/lmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.
-pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Progr
-am Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files (x
-86)/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb>
-Output written on inzynierska.pdf (10 pages, 263375 bytes).
+ 73i,7n,127p,1301b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.
+enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/Pro
+gram Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files 
+(x86)/MiKTeX 2.9/fonts/type1/public/lm/lmcsc10.pfb><C:/Program Files (x86)/MiKT
+eX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
+/type1/public/lm/lmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
+c/lm/lmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pf
+b><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Program
+ Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files (x86
+)/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Program Files (x86)/MiKTeX 2.
+9/fonts/type1/public/lm/lmtk10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
+e1/public/lm/lmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/l
+m/lmtt12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtti10.p
+fb>
+Output written on inzynierska.pdf (13 pages, 961558 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
+ 112 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 28 words of extra memory for PDF output out of 10000 (max. 10000000)
 
