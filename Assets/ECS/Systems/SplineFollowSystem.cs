@@ -196,7 +196,6 @@ public class SplineFollowSystem : ComponentSystem
     {
 
         var obstaclePosition = newPosition - normalize(newPosition - currentPosition) * (carLength / 2); // pozycja przesunięta do tyłu o pół długości samochodu
-        //System.Diagnostics.Debug.WriteLine(obstaclePosition);
         return obstaclePosition;
     }
     private void DeSpawnCar(int carIndex)
@@ -209,8 +208,7 @@ public class SplineFollowSystem : ComponentSystem
         PostUpdateCommands.RemoveComponent<Accelerating>(carEntity);
         PostUpdateCommands.RemoveComponent<Acceleration>(carEntity);
         PostUpdateCommands.RemoveComponent<Heading>(carEntity);
-        PostUpdateCommands.SetComponent(carEntity, new Position2D(1000f, 0f)); // może niepotrzebne
+        PostUpdateCommands.SetComponent(carEntity, new Position2D(1000f, 0f));
         Cars.Transforms[carIndex].position = new Vector3(1000f, 0f, 0f); // wyrzuca samochód gdzieś daleko żeby schować
-        // TODO: powinien trafić do unused cars, sprawdzić
     }
 }

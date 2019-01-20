@@ -168,7 +168,7 @@ public class EcsBootstrap : MonoBehaviour
             NumberOfScenarioSteps = numberOfScenarioSteps, //4,
             NumberOfSplines = Splines.Length
         });
-        em.AddComponentData(configEntity, new GeneticConfig
+        em.AddComponentData(configEntity, new EvolutionaryConfig
         {
             GenerationPopulation = generationPopulation, //20,
             MinimumStepDuration = minScenarioStepDuration, //5f,

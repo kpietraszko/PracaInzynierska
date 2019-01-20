@@ -9,6 +9,9 @@
 \contentsline {section}{Unity}{6}
 \contentsline {section}{J\IeC {\k e}zyk C\texttt {\#}}{6}
 \contentsline {section}{Inkscape}{7}
-\contentsline {section}{Blender}{8}
-\contentsline {chapter}{Bibliografia}{10}
-\contentsline {chapter}{Spis rysunk\'ow}{11}
+\contentsline {section}{Blender}{9}
+\contentsline {chapter}{Funkcjonalno\IeC {\'s}\IeC {\'c} projektu}{10}
+\contentsline {section}{Wymagania funkcjonalne}{10}
+\contentsline {section}{Wymagania pozafunkcjonalne}{10}
+\contentsline {chapter}{Bibliografia}{12}
+\contentsline {chapter}{Spis rysunk\'ow}{13}

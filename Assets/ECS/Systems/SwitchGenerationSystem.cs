@@ -45,10 +45,10 @@ public class SwitchGenerationSystem : ComponentSystem
         public readonly int Length;
         public ComponentDataArray<Config> Configs;
     }
-    struct GeneticConfigData
+    struct EvolutionaryConfigData
     {
         public readonly int Length;
-        public ComponentDataArray<GeneticConfig> GeneticConfigs;
+        public ComponentDataArray<EvolutionaryConfig> EvolutionaryConfigs;
     }
     struct UiInfoData
     {
@@ -66,7 +66,7 @@ public class SwitchGenerationSystem : ComponentSystem
     [Inject] GenotypeData Genotypes;
     [Inject] ScenarioStepData ScenarioSteps;
     [Inject] ConfigData Config;
-    [Inject] GeneticConfigData GeneticConfig;
+    [Inject] EvolutionaryConfigData EvolutionaryConfig;
     [Inject] UiInfoData UiInfo;
 
     StreamWriter _performanceStream;
@@ -91,8 +91,8 @@ public class SwitchGenerationSystem : ComponentSystem
         Assert.AreEqual(Config.Length, 1);
 
         var config = Config.Configs[0];
-        var geneticConfig = GeneticConfig.GeneticConfigs[0];
-        var numberOfGenerations = GeneticConfig.GeneticConfigs[0].NumberOfGenerations;
+        var evolutionaryConfig = EvolutionaryConfig.EvolutionaryConfigs[0];
+        var numberOfGenerations = EvolutionaryConfig.EvolutionaryConfigs[0].NumberOfGenerations;
 
         if (NewGeneration.Length > 0)
         {
@@ -102,7 +102,7 @@ public class SwitchGenerationSystem : ComponentSystem
 
         if (EndedGeneration.Length > 0)
         {
-            Assert.AreEqual(Genotypes.Length, geneticConfig.GenerationPopulation);
+            Assert.AreEqual(Genotypes.Length, evolutionaryConfig.GenerationPopulation);
 
             DeleteAllScenarioSteps();
 
@@ -146,7 +146,7 @@ public class SwitchGenerationSystem : ComponentSystem
 
             // połączenie sinusoidy z sigmoid
             var mutationRate = (sin(previousGenerationId * (1 / ((targetNumberOfGenerations/1000f) + (previousGenerationId / 100)))) + 1) / 2f;
-            mutationRate *= geneticConfig.MaximumMutationRate;
+            mutationRate *= evolutionaryConfig.MaximumMutationRate;
             var logMessage = $"{previousGenerationId},{avg},{median},{best}";
             Debug.Log(logMessage);
             LogToFile(logMessage, "evolutionLog.csv");
@@ -171,28 +171,28 @@ public class SwitchGenerationSystem : ComponentSystem
                 var debugFirstNewGenotype = new List<float>();
                 var intermediatePopulation = new List<KeyValuePair<int, float>>();
                 // turnieje
-                for (int genotypeIndex = 0; genotypeIndex < geneticConfig.GenerationPopulation * 2; genotypeIndex++)
+                for (int genotypeIndex = 0; genotypeIndex < evolutionaryConfig.GenerationPopulation * 2; genotypeIndex++)
                 {
                     const int numberOfContestants = 3;
-                    var contestantsIndices = Enumerable.Range(0, numberOfContestants).Select(_ => Random.Range(0, geneticConfig.GenerationPopulation)).ToArray();
+                    var contestantsIndices = Enumerable.Range(0, numberOfContestants).Select(_ => Random.Range(0, evolutionaryConfig.GenerationPopulation)).ToArray();
                     var contestantsFitnesses = contestantsIndices.Select(i => new KeyValuePair<int, float>(i, fitnesses[i])).ToArray();
                     var winner = contestantsFitnesses.Aggregate((agg, next) => next.Value > agg.Value ? next : agg);
                     intermediatePopulation.Add(winner);
                 }
                 var matingPool = intermediatePopulation
                     .OrderByDescending(x => x.Value)
-                    .Take(geneticConfig.GenerationPopulation)
+                    .Take(evolutionaryConfig.GenerationPopulation)
                     .Select(x => x.Key)
                     .ToArray();
 
-                for (int genotypeIndex = 0; genotypeIndex < geneticConfig.GenerationPopulation; genotypeIndex++)
+                for (int genotypeIndex = 0; genotypeIndex < evolutionaryConfig.GenerationPopulation; genotypeIndex++)
                 {
                     var shouldCrossover = Random.Range(0f, 1f) > mutationRate;
                     var shouldMutate = false;
                     int? crossoverWith = null;
                     if (shouldCrossover)
                     {
-                        var selectableParents = Enumerable.Range(0, geneticConfig.GenerationPopulation).Where(x => x != genotypeIndex).ToArray();
+                        var selectableParents = Enumerable.Range(0, evolutionaryConfig.GenerationPopulation).Where(x => x != genotypeIndex).ToArray();
                         crossoverWith = selectableParents.ElementAt(Random.Range(0, selectableParents.Length));
                     }
                     else
@@ -214,7 +214,7 @@ public class SwitchGenerationSystem : ComponentSystem
                         if (shouldMutate)
                         {
                             stepDuration += Random.Range(1f, 20f) * (Random.Range(0, 2) * 2 - 1f); //razy losowy znak -1 lub 1
-                            stepDuration = clamp(stepDuration, geneticConfig.MinimumStepDuration, geneticConfig.MaximumStepDuration);
+                            stepDuration = clamp(stepDuration, evolutionaryConfig.MinimumStepDuration, evolutionaryConfig.MaximumStepDuration);
                         }
                         if (genotypeIndex == 0)
                         {
@@ -245,28 +245,6 @@ public class SwitchGenerationSystem : ComponentSystem
     {
         File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.csv"),
             $"Finished at {System.DateTime.Now.ToString("yyyy-MM-dd HH:mm")}{System.Environment.NewLine}");
-    }
-
-    int ChooseOneRandomlyWithWeights(IEnumerable<GenotypeNormalizedFitness> genotypesFitnesses, int? except = null) // nieprzetestowane
-    {
-        while (true)
-        {
-            var random = Random.Range(0f, 1f);
-            var sum = 0f;
-            foreach (var genotype in genotypesFitnesses)
-            {
-                sum += genotype.NormalizedFitness;
-                if (sum >= random)
-                {
-                    var index = genotype.Index;
-                    if (index == except)
-                    {
-                        break;
-                    }
-                    return genotype.Index;
-                }
-            }
-        }
     }
 
     float GetStepDuration(int genotypeId, int stepId)

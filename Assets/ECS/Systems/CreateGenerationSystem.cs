@@ -19,17 +19,17 @@ public class CreateGenerationSystem : ComponentSystem
         public readonly int Length;
         public ComponentDataArray<Config> Configs;
     }
-    struct GeneticConfigData
+    struct EvolutionaryConfigData
     {
         public readonly int Length;
-        public ComponentDataArray<GeneticConfig> GeneticConfigs;
+        public ComponentDataArray<EvolutionaryConfig> EvolutionaryConfigs;
     }
 
     struct StartSystemState : ISystemStateComponentData { }
 
     [Inject] StartData Start;
     [Inject] ConfigData Config;
-    [Inject] GeneticConfigData GeneticConfig;
+    [Inject] EvolutionaryConfigData EvolutionaryConfig;
 
     protected override void OnUpdate()
     {
@@ -38,11 +38,11 @@ public class CreateGenerationSystem : ComponentSystem
         PostUpdateCommands.AddComponent(Start.Entities[0], new StartSystemState());
         Assert.IsFalse(Config.Length == 0);
         var config = Config.Configs[0];
-        var geneticConfig = GeneticConfig.GeneticConfigs[0];
-        var generationPopulation = geneticConfig.GenerationPopulation;
+        var evolutionaryConfig = EvolutionaryConfig.EvolutionaryConfigs[0];
+        var generationPopulation = evolutionaryConfig.GenerationPopulation;
         var stepsInScenario = config.NumberOfScenarioSteps;
-        var minStepDuration = geneticConfig.MinimumStepDuration;
-        var maxStepDuration = geneticConfig.MaximumStepDuration;
+        var minStepDuration = evolutionaryConfig.MinimumStepDuration;
+        var maxStepDuration = evolutionaryConfig.MaximumStepDuration;
 
         for (int i = 0; i < generationPopulation; i++)
         {

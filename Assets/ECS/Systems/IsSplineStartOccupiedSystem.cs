@@ -55,7 +55,7 @@ public class IsSplineStartOccupiedSystem : ComponentSystem
                 var position = ControlPoints.Positions[i];
                 if (_splineStartPositions.ContainsValue(position))
                 {
-                    var splineIdWithSameStart = _splineStartPositions.FirstOrDefault(x => all(x.Value == position)).Key; // raczej działa
+                    var splineIdWithSameStart = _splineStartPositions.FirstOrDefault(x => all(x.Value == position)).Key; 
                     _sharedSplineStarts.Add(splineIdWithSameStart, splineId);
                 }
                 _splineStartPositions[splineId] = position;
@@ -67,7 +67,7 @@ public class IsSplineStartOccupiedSystem : ComponentSystem
         {
             var obstacle = Obstacles.Obstacles[obstacleIndex];
             var spaceRequiredToSpawn = 23.3f;
-            if (lengthsq(obstacle.Position - _splineStartPositions[obstacle.SplineId]) < spaceRequiredToSpawn * spaceRequiredToSpawn/*distance(obstacle.Position, _splineStartPositions[obstacle.SplineId]) < spaceRequiredToSpawn*/ /*możliwe że 1.5*carLength plus distanceBetweenCars*/)
+            if (lengthsq(obstacle.Position - _splineStartPositions[obstacle.SplineId]) < spaceRequiredToSpawn * spaceRequiredToSpawn)
             {
                 int splineId = obstacle.SplineId;
                 if (!_occupiedSplines.Contains(splineId))

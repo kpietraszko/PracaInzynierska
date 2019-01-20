@@ -91,8 +91,6 @@ public class BrakeOnObstacleSystem : ComponentSystem
     protected override void OnUpdate()
     {
         Assert.IsTrue(TimeSinceSimulationStart.TimeSinceSimulationStart.Length == 1);
-        //if (TimeSinceSimulationStart.TimeSinceSimulationStart[0].StepNumber % 2 == 0)
-            //return;
         Profiler.BeginSample("BrakeOnObstacleSystem Caching");
         // indeksery ComponentDataArray są wolne, dlatego zapisuję wartości przed wewnętrznymi pętlami
         #region caching
@@ -123,7 +121,7 @@ public class BrakeOnObstacleSystem : ComponentSystem
         var brakingDistanceOffset = 4.5f;
 
         Profiler.BeginSample("BrakeOnObstacleSystem NotBrakingCars");
-        if (TimeSinceSimulationStart.TimeSinceSimulationStart[0].StepNumber % 2 == 0) // co drugą klatkę animacji
+        if (TimeSinceSimulationStart.TimeSinceSimulationStart[0].StepNumber % 2 == 0) // co drugą klatkę symulacji
         {
             for (int carIndex = 0; carIndex < NotBrakingCars.Length; carIndex++)
             {
