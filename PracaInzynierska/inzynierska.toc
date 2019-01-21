@@ -13,5 +13,6 @@
 \contentsline {chapter}{Funkcjonalno\IeC {\'s}\IeC {\'c} projektu}{10}
 \contentsline {section}{Wymagania funkcjonalne}{10}
 \contentsline {section}{Wymagania pozafunkcjonalne}{10}
-\contentsline {chapter}{Bibliografia}{12}
-\contentsline {chapter}{Spis rysunk\'ow}{13}
+\contentsline {section}{Przypadki u\IeC {\.z}ycia}{10}
+\contentsline {chapter}{Bibliografia}{13}
+\contentsline {chapter}{Spis rysunk\'ow}{14}

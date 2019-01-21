@@ -16,7 +16,29 @@ Projekt jest wysoce wyspecjalizowany -- aplikacja przeprowadza wyłącznie proce
 \begin{figure}
 	\centering
 	\includegraphics[height=0.9\textheight]{diagram_aktywnosci}
-	\caption[Diagram aktywności aplikacji]{Diagram aktywności aplikacji}
+	\caption[Diagram aktywności przypadku użycia ,,Przeprowadź proces uczenia sygnalizacji'']{Diagram aktywności przypadku użycia ,,Przeprowadź proces uczenia sygnalizacji''}
 	\label{fig:diagramaktywnosci}
 \end{figure}
-
+\section*{Przypadki użycia}
+W projekt występuje tylko jeden przypadek użycia: ,,Przeprowadź proces optymalizacji sygnalizacji świetlnej''. Przedstawia go diagram aktywności na rysunku~\ref{fig:diagramaktywnosci} oraz (hm)~\ref{tab:scenariusz}.
+\begin{table}
+	\caption{Scenariusz przypadku użycia ,,Przeprowadź proces optymalizacji sygnalizacji świetlnej''}
+	\begin{tabularx}{\textwidth}{|l|X|}
+		\hline 
+		Nazwa & Przeprowadź proces optymalizacji sygnalizacji świetlnej \\ 
+		\hline 
+		Aktorzy & Użytkownik \\ 
+		\hline 
+		Opis & Funkcja pozwala użytkownikowi wywołać proces optymalizacji sygnalizacji świetlnej na skrzyżowaniu \\ 
+		\hline
+		Warunki początkowe & brak \\
+		\hline 
+		Główny przepływ zdarzeń & 1. Użytkownik wprowadza w menu głównym aplikacji ustawienia. \newline 
+		1.1 Użytkownik wprowadza ustawienia symulacji \newline
+		1.2 Użytkownik wprowadza ustawienia algorytmu ewolucyjnego \\ 
+		\hline
+		Warunki końcowe & Zakończono proces optymalizacji i wyświetlono wyniki uczenia \\
+		\hline
+	\end{tabularx} 
+	\label{tab:scenariusz}
+\end{table}

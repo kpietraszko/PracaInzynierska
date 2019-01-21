@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210) (preloaded format=pdflatex 2017.3.4)  20 JAN 2019 22:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210) (preloaded format=pdflatex 2017.3.4)  21 JAN 2019 22:28
 entering extended mode
 **./inzynierska.tex
 (inzynierska.tex
@@ -914,6 +914,16 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@dimlist=\toks34
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\tabularx.sty"
+Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
+\TX@col@width=\dimen181
+\TX@old@table=\dimen182
+\TX@old@col=\dimen183
+\TX@target=\dimen184
+\TX@delta=\dimen185
+\TX@cols=\count120
+\TX@ftn=\toks35
+)
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: 
 * paper: <default>
@@ -950,36 +960,36 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 (inzynierska.aux)
 \openout1 = `inzynierska.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 28.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 29.
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 ABD: EveryShipout initializing macros
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count120
-\scratchdimen=\dimen181
+\scratchcounter=\count121
+\scratchdimen=\dimen186
 \scratchbox=\box38
-\nofMPsegments=\count121
-\nofMParguments=\count122
-\everyMPshowfont=\toks35
-\MPscratchCnt=\count123
-\MPscratchDim=\dimen182
-\MPnumerator=\count124
-\makeMPintoPDFobject=\count125
-\everyMPtoPDFconversion=\toks36
+\nofMPsegments=\count122
+\nofMParguments=\count123
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count124
+\MPscratchDim=\dimen187
+\MPnumerator=\count125
+\makeMPintoPDFobject=\count126
+\everyMPtoPDFconversion=\toks37
 ) ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -1060,45 +1070,45 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.16}).
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 PGFPlots: reading {evolutionLog.csv}
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 30.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 31.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 30.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 31.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 30.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 31.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 30.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 31.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 30.
+(Font)              <12> on input line 31.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 30.
+(Font)              <8> on input line 31.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 30.
+(Font)              <6> on input line 31.
 
-Underfull \hbox (badness 1694) in paragraph at lines 30--30
+Underfull \hbox (badness 1694) in paragraph at lines 31--31
  []\T1/lmr/m/n/12 Praca in»ynierska wykonana 
  []
 
 
-Underfull \hbox (badness 5359) in paragraph at lines 30--30
+Underfull \hbox (badness 5359) in paragraph at lines 31--31
  []\T1/lmr/m/n/12 pod kierunkiem 
  []
 
 
-Underfull \hbox (badness 2351) in paragraph at lines 30--30
+Underfull \hbox (badness 2351) in paragraph at lines 31--31
  []\T1/lmr/m/n/12 Dr In». Bartosza Nowaka 
  []
 
@@ -1107,17 +1117,17 @@ Underfull \hbox (badness 2351) in paragraph at lines 30--30
 
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 1308) in paragraph at lines 30--30
+Underfull \hbox (badness 1308) in paragraph at lines 31--31
  []\T1/lmr/m/n/12 Engineer's Thesis is performed 
  []
 
 
-Underfull \hbox (badness 3701) in paragraph at lines 30--30
+Underfull \hbox (badness 3701) in paragraph at lines 31--31
  []\T1/lmr/m/n/12 under supervision of 
  []
 
 
-Underfull \hbox (badness 2913) in paragraph at lines 30--30
+Underfull \hbox (badness 2913) in paragraph at lines 31--31
  []\T1/lmr/m/n/12 Dr In». Bartosz Nowak 
  []
 
@@ -1171,37 +1181,37 @@ File: blender.png Graphic file (type png)
 Package pdftex.def Info: blender.png used on input line 35.
 (pdftex.def)             Requested size: 441.01773pt x 358.10847pt.
  [7 <./unity.png>] [8 <./inkscape.png>]) (funkcjonalnosc.tex
-[9 <./blender.png>] <diagram_aktywnosci.png, id=58, 1288.815pt x 3123.67pt>
+[9 <./blender.png>] <diagram_aktywnosci.png, id=58, 1288.815pt x 3119.655pt>
 File: diagram_aktywnosci.png Graphic file (type png)
 
 <use diagram_aktywnosci.png>
 Package pdftex.def Info: diagram_aktywnosci.png used on input line 18.
-(pdftex.def)             Requested size: 260.96394pt x 632.50047pt.
+(pdftex.def)             Requested size: 261.29826pt x 632.50047pt.
 ) (inzynierska.bbl [10
 
-] [11 <./diagram_aktywnosci.png>]
+] [11 <./diagram_aktywnosci.png>] [12]
 Overfull \hbox (27.65384pt too wide) in paragraph at lines 51--54
 []\T1/lmr/m/n/10.95 Unity Ma-nual - Gra-phics API sup-port.  https://docs.unity
 3d.com/Manual/GraphicsAPIs.html
  []
 
-) [12
+) [13
 
 ] (inzynierska.lof)
 \tf@lof=\write5
 \openout5 = `inzynierska.lof'.
 
- [13
+ [14
 
 ] (inzynierska.aux) ) 
 Here is how much of TeX's memory you used:
- 25348 strings out of 493333
- 644219 string characters out of 3136600
+ 25399 strings out of 493333
+ 644864 string characters out of 3136600
  802870 words of memory out of 3000000
- 28390 multiletter control sequences out of 15000+200000
+ 28438 multiletter control sequences out of 15000+200000
  85006 words of font info for 60 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,7n,127p,1294b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 73i,11n,127p,1294b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-e
 c.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/P
 rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program File
@@ -1216,9 +1226,9 @@ am Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files (x
 ype1/public/lm/lmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
 /lm/lmtt12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtti10
 .pfb>
-Output written on inzynierska.pdf (15 pages, 1099067 bytes).
+Output written on inzynierska.pdf (16 pages, 1096009 bytes).
 PDF statistics:
- 120 PDF objects out of 1000 (max. 8388607)
+ 123 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 
