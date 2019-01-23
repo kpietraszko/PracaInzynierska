@@ -14,5 +14,11 @@
 \contentsline {section}{Wymagania funkcjonalne}{10}
 \contentsline {section}{Wymagania pozafunkcjonalne}{10}
 \contentsline {section}{Przypadki u\IeC {\.z}ycia}{10}
-\contentsline {chapter}{Bibliografia}{13}
-\contentsline {chapter}{Spis rysunk\'ow}{14}
+\contentsline {section}{Przebieg przypadku u\IeC {\.z}ycia ,,Przeprowad\IeC {\'z} proces optymalizacji sygnalizacji \IeC {\'s}wietlnej''}{10}
+\contentsline {chapter}{Opis teoretyczny algorytmu ewolucyjnego}{12}
+\contentsline {section}{Pierwsze pokolenie}{12}
+\contentsline {section}{Funkcja dostosowania}{12}
+\contentsline {section}{Generowanie nowego pokolenia}{12}
+\contentsline {section}{Krzy\IeC {\.z}owanie i mutacja}{13}
+\contentsline {chapter}{Bibliografia}{14}
+\contentsline {chapter}{Spis rysunk\'ow}{15}

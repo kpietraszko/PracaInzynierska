@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210) (preloaded format=pdflatex 2017.3.4)  21 JAN 2019 22:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210) (preloaded format=pdflatex 2017.3.4)  23 JAN 2019 22:54
 entering extended mode
 **./inzynierska.tex
 (inzynierska.tex
@@ -1181,54 +1181,71 @@ File: blender.png Graphic file (type png)
 Package pdftex.def Info: blender.png used on input line 35.
 (pdftex.def)             Requested size: 441.01773pt x 358.10847pt.
  [7 <./unity.png>] [8 <./inkscape.png>]) (funkcjonalnosc.tex
-[9 <./blender.png>] <diagram_aktywnosci.png, id=58, 1288.815pt x 3119.655pt>
+[9 <./blender.png>] <diagram_aktywnosci.png, id=58, 1284.8pt x 3123.67pt>
 File: diagram_aktywnosci.png Graphic file (type png)
 
 <use diagram_aktywnosci.png>
 Package pdftex.def Info: diagram_aktywnosci.png used on input line 18.
-(pdftex.def)             Requested size: 261.29826pt x 632.50047pt.
-) (inzynierska.bbl [10
+(pdftex.def)             Requested size: 260.15097pt x 632.50047pt.
+) (algorytm.tex [10
 
-] [11 <./diagram_aktywnosci.png>] [12]
+] [11 <./diagram_aktywnosci.png>]
+Overfull \hbox (9.42772pt too wide) in alignment at lines 13--13
+[][][] 
+ []
+
+[12
+
+]
+Underfull \hbox (badness 10000) in alignment at lines 24--24
+[][][] 
+ []
+
+) (inzynierska.bbl [13]
 Overfull \hbox (27.65384pt too wide) in paragraph at lines 51--54
 []\T1/lmr/m/n/10.95 Unity Ma-nual - Gra-phics API sup-port.  https://docs.unity
 3d.com/Manual/GraphicsAPIs.html
  []
 
-) [13
+) [14
 
 ] (inzynierska.lof)
 \tf@lof=\write5
 \openout5 = `inzynierska.lof'.
 
- [14
+ [15
 
 ] (inzynierska.aux) ) 
 Here is how much of TeX's memory you used:
- 25399 strings out of 493333
- 644864 string characters out of 3136600
- 802870 words of memory out of 3000000
- 28438 multiletter control sequences out of 15000+200000
+ 25856 strings out of 493333
+ 658040 string characters out of 3136600
+ 1267626 words of memory out of 3000000
+ 28892 multiletter control sequences out of 15000+200000
  85006 words of font info for 60 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,11n,127p,1294b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 73i,11n,127p,1294b,1963s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-e
-c.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/P
-rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program File
-s (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmcsc10.pfb><C:/Program Files (x86)/Mi
-KTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
-ts/type1/public/lm/lmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
-lic/lm/lmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr7.
-pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Progr
-am Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Program Files (x
-86)/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Program Files (x86)/MiKTeX 
-2.9/fonts/type1/public/lm/lmtk10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
-ype1/public/lm/lmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
-/lm/lmtt12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtti10
-.pfb>
-Output written on inzynierska.pdf (16 pages, 1096009 bytes).
+c.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Progr
+am Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files (x
+86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}<C:/Program Files (x86)/MiKTeX 
+2.9/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
+ype1/public/lm/lmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
+/lm/lmcsc10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmmi12
+.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Pro
+gram Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files (
+x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Program Files (x86)/MiKTeX 
+2.9/fonts/type1/public/lm/lmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
+pe1/public/lm/lmr7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm
+/lmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><
+C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/public/lm/lmtk10.pfb><C:/Program Files (x86)/MiKTeX 2.9
+/fonts/type1/public/lm/lmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
+1/public/lm/lmtt12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm
+/lmtti10.pfb>
+Output written on inzynierska.pdf (17 pages, 1146355 bytes).
 PDF statistics:
- 123 PDF objects out of 1000 (max. 8388607)
+ 145 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

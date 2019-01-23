@@ -1,0 +1,21 @@
+Streszczona transkrypcja ostatniego spotkania z Nowakiem przed rozpoczęciem pisania (10.01.2019)
+Wykresy udane i nieudane, ale zaokrąglić do liczb całkowitych, żeby udany wykres był malejący w całej dziedzinie.
+
+Wersja prawie kompletna do konca miesiaca
+tak zebym mial czas sie doczepic zeby pan mógł 4. to oddac
+
+Wstęp od stworzenia swiata: komputery są pomocne również w zadaniach inżynieryjnych takich jak problemy optymalizacyjne np problem ustawienia optymalnych czasów (jak to ująć?)
+Opisać co to są problemy optymalizacyjne i do czego można zastosować sztuczną inteligencję.
+Rozdział 1.
+Użyte technologie i wzorzec ECS (niekoniecznie)
+Wymagania funkcjonalne i ew. niefunkcjonalne.
+Flowchart menu -> symulacja -> wyniki końcowe, 
+i też w tabelce scenariusz tego (aplikacja ma w sumie jeden scenariusz)
+Część realizacyjna, opisać jakiego algorytmu użyłem
+opis teoretyczny algorytmu. Opisać aplikację jak ma działać (jak skrzyzowanie działa, spline'y, co to scenariusz).
+Jeśli zabraknie stron to można opisać poruszanie samochodów.
+Zrzuty ekranu.
+Wykresy z opisem.
+Podsumowanie - co się udało zrobić, drobną rzecz której się nie udało, co można rozwinąć.
+
+Adi mówi że wymagania to już rozdział 2

@@ -20,25 +20,27 @@ Projekt jest wysoce wyspecjalizowany -- aplikacja przeprowadza wyłącznie proce
 	\label{fig:diagramaktywnosci}
 \end{figure}
 \section*{Przypadki użycia}
-W projekt występuje tylko jeden przypadek użycia: ,,Przeprowadź proces optymalizacji sygnalizacji świetlnej''. Przedstawia go diagram aktywności na rysunku~\ref{fig:diagramaktywnosci} oraz (hm)~\ref{tab:scenariusz}.
-\begin{table}
-	\caption{Scenariusz przypadku użycia ,,Przeprowadź proces optymalizacji sygnalizacji świetlnej''}
-	\begin{tabularx}{\textwidth}{|l|X|}
-		\hline 
-		Nazwa & Przeprowadź proces optymalizacji sygnalizacji świetlnej \\ 
-		\hline 
-		Aktorzy & Użytkownik \\ 
-		\hline 
-		Opis & Funkcja pozwala użytkownikowi wywołać proces optymalizacji sygnalizacji świetlnej na skrzyżowaniu \\ 
-		\hline
-		Warunki początkowe & brak \\
-		\hline 
-		Główny przepływ zdarzeń & 1. Użytkownik wprowadza w menu głównym aplikacji ustawienia. \newline 
-		1.1 Użytkownik wprowadza ustawienia symulacji \newline
-		1.2 Użytkownik wprowadza ustawienia algorytmu ewolucyjnego \\ 
-		\hline
-		Warunki końcowe & Zakończono proces optymalizacji i wyświetlono wyniki uczenia \\
-		\hline
-	\end{tabularx} 
-	\label{tab:scenariusz}
-\end{table}
+W projekt występuje tylko jeden przypadek użycia: ,,Przeprowadź proces optymalizacji sygnalizacji świetlnej''. Przedstawia go diagram aktywności na rysunku~\ref{fig:diagramaktywnosci}. 
+\section*{Przebieg przypadku użycia ,,Przeprowadź proces optymalizacji sygnalizacji świetlnej''}
+Użytkownik najpierw może ustawić konfigurację symulacji oraz algorytmu ewolucyjnego. Następne wybiera scenariusz (czyli kolejność zapalania się sygnalizatorów) co powoduje rozpoczęcie procesu uczenia. Aplikacja kolejno generuje, symuluje, a potem ocenia osobników pokolenia, jednocześnie wyświetlając na ekranie informacje o przebiegu uczenia. Pokolenia są kolejno generowane tak długo, aż zostanie osiągnięta ich liczba określona w konfiguracji. Następnie aplikacja wyświetla ekran końcowy prezentujący wyniki uczenia.
+%\begin{table}
+%	\caption{Scenariusz przypadku użycia ,,Przeprowadź proces optymalizacji sygnalizacji świetlnej''}
+%	\begin{tabularx}{\textwidth}{|l|X|}
+%		\hline 
+%		Nazwa & Przeprowadź proces optymalizacji sygnalizacji świetlnej \\ 
+%		\hline 
+%		Aktorzy & Użytkownik \\ 
+%		\hline 
+%		Opis & Funkcja pozwala użytkownikowi wywołać proces optymalizacji sygnalizacji świetlnej na skrzyżowaniu \\ 
+%		\hline
+%		Warunki początkowe & brak \\
+%		\hline 
+%		Główny przepływ zdarzeń & 
+%		1. Użytkownik wprowadza ustawienia symulacji w menu głównym\newline
+%		2. Użytkownik wprowadza ustawienia algorytmu ewolucyjnego w menu głównym\\ 
+%		\hline
+%		Warunki końcowe & Zakończono proces optymalizacji i wyświetlono wyniki uczenia \\
+%		\hline
+%	\end{tabularx} 
+%	\label{tab:scenariusz}
+%\end{table}
