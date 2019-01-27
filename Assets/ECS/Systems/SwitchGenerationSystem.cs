@@ -288,6 +288,7 @@ public class SwitchGenerationSystem : ComponentSystem
     {
         var uiInfo = UiInfo.UiInfos[0];
         uiInfo.CurrentGenerationInfo.enabled = false;
+        uiInfo.CurrentGenotypeInfo.enabled = false;
         uiInfo.PrevGenerationInfo.enabled = false;
         uiInfo.FinishInfo.enabled = true;
         uiInfo.FinishScreen.SetActive(true);
