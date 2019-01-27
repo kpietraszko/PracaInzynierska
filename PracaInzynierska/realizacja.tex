@@ -1,7 +1,4 @@
 \chapter*{Opis aplikacji}
-%Trochę o poruszaniu, spline'ach i narzędziu do nich (screen narzedzia)
-%Opisać co to scenariusze i narzędzie do nich (screen narzedzia)
-%Albo może te rzeczy w następnym rozdziale
 Po uruchomieniu aplikacji użytkownikowi najpierw ukazuje się ekran ładowania (przedstawiony na rysunku~\ref{fig:splash}), a następnie menu główne (widoczne na rysunku~\ref{fig:ap1}).
 \begin{figure}[h]
 	\centering
@@ -33,7 +30,7 @@ Po wybraniu ustawień użytkownik musi wybrać scenariusz. Jest to sekwencja syg
 \section*{Scenariusz} Na przykładzie Scenariusza~1 widocznego w menu: podczas pierwszego kroku scenariusza zielone będą sygnalizatory nr 1 i 5 (oznaczone na schemacie po lewej), zaś pozostałe będą czerwone. Po przejściu do drugiego kroku zielone będą sygnalizatory nr 2 i 6, podczas gdy pozostałe będą czerwone. Analogicznie w kolejnych krokach scenariusza. Długość każdego z tych kroków opisuje obecnie symulowany osobnik.
 \section*{Przebieg uczenia i symulacji ruchu}
 Po wybraniu scenariusza rozpoczyna się proces uczenia. Aplikację podczas tego procesu przedstawia rysunek~\ref{fig:ap2}. Lewa część ekranu prezentuje postęp symulacji ruchu drogowego z zastosowaniem parametrów obecnie symulowanego osobnika. Z początkiem symulacji osobnika samochody wjeżdżają na skrzyżowanie i poruszają się zgodnie z sygnalizacją. Sygnalizatory przełączają się w odpowiednim czasie, a kiedy skończy się ostatni krok scenariusza, cykl sygnalizacji się zapętla -- wraca do pierwszego kroku. Symulacja, trwa tak długo, aż wszystkie samochody opuszczą skrzyżowanie. Wtedy czas trwania symulacji jest zapisywany, zostanie później użyty do oceny dostosowania. Aplikacja przechodzi do symulacji kolejnego osobnika pokolenia -- na skrzyżowanie wjeżdża ta sama liczba samochodów, sygnalizacja zmienia się tym razem w odstępach określonych kolejnym osobnikiem. Cykl powtarza się aż symulacji poddane zostaną wszystkie osobniki pokolenia. Następnie aplikacja dokonuje oceny i generuje nowe pokolenie, co opisano w rozdziale \textit{Opis teoretyczny algorytmu ewolucyjnego}. Potem odbywa się symulacja osobników nowego pokolenia. Cykl ten powtarza się, aż osiągnięta zostanie liczba pokoleń określona w konfiguracji. \\
-Prawa część ekranu przedstawia stan uczenia -- numer obecnego pokolenia i osobnika. Po pierwszym pokoleniu dodatkowo w tej części wyświetlana jest informacja o tym, jaki był czas trwania symulacji najlepszego osobnika poprzedniego pokolenia. Prezentuje to rysunek~\ref{fig:ap3}. Z upływem pokoleń czas symulacji najlepszego osobnika spada, co jest widocznie jeśli porówna się rysunek~\ref{fig:ap4} do rysunku~\ref{fig:ap3}.
+Prawa część ekranu przedstawia stan uczenia -- numer obecnego pokolenia i osobnika. Po pierwszym pokoleniu dodatkowo w tej części wyświetlana jest informacja o tym, jaki był czas trwania symulacji najlepszego osobnika poprzedniego pokolenia. Prezentuje to rysunek~\ref{fig:ap3}. Z upływem pokoleń czas symulacji najlepszego osobnika spada, co jest widocznie, jeśli porówna się rysunek~\ref{fig:ap4} do rysunku~\ref{fig:ap3}.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\linewidth]{ap2}
@@ -52,6 +49,14 @@ Prawa część ekranu przedstawia stan uczenia -- numer obecnego pokolenia i oso
 	\caption[Proces uczenia i symulacji ruchu]{Proces uczenia i symulacji ruchu podczas 93. pokolenia}
 	\label{fig:ap4}
 \end{figure}
+\section*{Ekran końcowy}
+%tu opisać ekran końcowy
+%Następny rozdział albo w tym samym:
+%Trochę o poruszaniu, spline'ach i narzędziu do nich (screen narzedzia)
+%Narzędzie do scenariuszy (screen narzedzia)
+%Kolejny rozdział wyniki: głównie wykresy
+%Podsumowanie
+%Streszczenie, abstract i dopisać do wstępu opis rozdziałów
 
 
 

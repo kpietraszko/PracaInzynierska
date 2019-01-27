@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210) (preloaded format=pdflatex 2017.3.4)  27 JAN 2019 21:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210) (preloaded format=pdflatex 2017.3.4)  27 JAN 2019 22:41
 entering extended mode
 **./inzynierska.tex
 (inzynierska.tex
@@ -1205,44 +1205,44 @@ Underfull \hbox (badness 10000) in alignment at lines 32--32
 File: splash.png Graphic file (type png)
 
 <use splash.png>
-Package pdftex.def Info: splash.png used on input line 8.
+Package pdftex.def Info: splash.png used on input line 5.
 (pdftex.def)             Requested size: 441.01773pt x 241.16138pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--17
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
  []
 
 [15
 
  <./splash.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 18--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--20
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 21--22
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 22--23
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
 <ap1.png, id=85, 977.00859pt x 672.92915pt>
 File: ap1.png Graphic file (type png)
  <use ap1.png>
-Package pdftex.def Info: ap1.png used on input line 28.
+Package pdftex.def Info: ap1.png used on input line 25.
 (pdftex.def)             Requested size: 441.01773pt x 303.74971pt.
 
 Underfull \vbox (badness 2828) has occurred while \output is active []
@@ -1250,19 +1250,19 @@ Underfull \vbox (badness 2828) has occurred while \output is active []
  [16 <./ap1.png>] <ap2.png, id=90, 1308.35971pt x 736.33585pt>
 File: ap2.png Graphic file (type png)
  <use ap2.png>
-Package pdftex.def Info: ap2.png used on input line 39.
+Package pdftex.def Info: ap2.png used on input line 36.
 (pdftex.def)             Requested size: 441.01773pt x 248.19365pt.
 
 <ap3.png, id=91, 1307.67792pt x 736.33585pt>
 File: ap3.png Graphic file (type png)
  <use ap3.png>
-Package pdftex.def Info: ap3.png used on input line 45.
+Package pdftex.def Info: ap3.png used on input line 42.
 (pdftex.def)             Requested size: 441.01773pt x 248.32848pt.
 
 <ap4.png, id=92, 1306.31435pt x 736.33585pt>
 File: ap4.png Graphic file (type png)
  <use ap4.png>
-Package pdftex.def Info: ap4.png used on input line 51.
+Package pdftex.def Info: ap4.png used on input line 48.
 (pdftex.def)             Requested size: 441.01773pt x 248.58688pt.
 
 
@@ -1310,7 +1310,7 @@ Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)
 /fonts/type1/public/lm/lmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/lm/lmtt12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm
 /lmtti10.pfb>
-Output written on inzynierska.pdf (23 pages, 2417414 bytes).
+Output written on inzynierska.pdf (23 pages, 2417802 bytes).
 PDF statistics:
  170 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
