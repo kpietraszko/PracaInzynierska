@@ -61,4 +61,9 @@ Albahari, J.
 \newblock {\em C\texttt{\#} 7.0 in a Nutshell}.
 \newblock O'Reilly UK Ltd., 2017.
 
+\bibitem{EvolutionaryComputation2002}
+Thierens, D.
+\newblock {\em Adaptive mutation rate control schemes in genetic algorithms}.
+\newblock IEEE, 2002.
+
 \end{thebibliography}

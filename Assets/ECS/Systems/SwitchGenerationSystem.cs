@@ -281,7 +281,7 @@ public class SwitchGenerationSystem : ComponentSystem
     void SetPreviousGenerationUiInfo(float bestDuration)
     {
         UiInfo.UiInfos[0].PrevGenerationInfo.enabled = true;
-        UiInfo.UiInfos[0].PrevGenerationInfo.text = $"<b>Poprzednie pokolenie</b>\nCzas symulacji najlepszego genotypu: {bestDuration:F0} s";
+        UiInfo.UiInfos[0].PrevGenerationInfo.text = $"<b>Poprzednie pokolenie</b>\nCzas symulacji najlepszego osobnika: {bestDuration:F0} s";
     }
 
     void SetFinishUiInfo(float bestDuration, int numberOfGenerations, float[] scenarioStepsDurations)
@@ -291,7 +291,7 @@ public class SwitchGenerationSystem : ComponentSystem
         uiInfo.PrevGenerationInfo.enabled = false;
         uiInfo.FinishInfo.enabled = true;
         uiInfo.FinishScreen.SetActive(true);
-        var text = $"Po <b>{numberOfGenerations}</b> pokoleniach czas symulacji najlepszego genotypu to {bestDuration:F0} s.\n\n\nCzasy trwania kroków scenariusza najlepszego genotypu:\n";
+        var text = $"Po <b>{numberOfGenerations}</b> pokoleniach czas symulacji najlepszego osobnika to {bestDuration:F0} s.\n\n\nCzasy trwania kroków scenariusza najlepszego osobnika:\n";
 
         for (int i = 0; i < scenarioStepsDurations.Length; i++)
         {

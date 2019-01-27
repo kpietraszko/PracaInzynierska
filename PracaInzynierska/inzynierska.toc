@@ -10,7 +10,7 @@
 \contentsline {section}{J\IeC {\k e}zyk C\texttt {\#}}{6}
 \contentsline {section}{Inkscape}{7}
 \contentsline {section}{Blender}{9}
-\contentsline {chapter}{Funkcjonalno\IeC {\'s}\IeC {\'c} projektu}{10}
+\contentsline {chapter}{Projekt aplikacji}{10}
 \contentsline {section}{Wymagania funkcjonalne}{10}
 \contentsline {section}{Wymagania pozafunkcjonalne}{10}
 \contentsline {section}{Przypadki u\IeC {\.z}ycia}{10}
@@ -19,6 +19,10 @@
 \contentsline {section}{Pierwsze pokolenie}{12}
 \contentsline {section}{Funkcja dostosowania}{12}
 \contentsline {section}{Generowanie nowego pokolenia}{12}
-\contentsline {section}{Krzy\IeC {\.z}owanie i mutacja}{13}
-\contentsline {chapter}{Bibliografia}{14}
-\contentsline {chapter}{Spis rysunk\'ow}{15}
+\contentsline {section}{Mutacja i krzy\IeC {\.z}owanie}{13}
+\contentsline {chapter}{Opis aplikacji}{15}
+\contentsline {section}{Menu g\IeC {\l }\IeC {\'o}wne}{15}
+\contentsline {section}{Scenariusz}{17}
+\contentsline {section}{Przebieg symulacji}{17}
+\contentsline {chapter}{Bibliografia}{18}
+\contentsline {chapter}{Spis rysunk\'ow}{19}

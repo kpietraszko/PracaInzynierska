@@ -171,6 +171,6 @@ public class SwitchGenotypeSimSystem : ComponentSystem
     }
     void SetCurrentGenotypeUiInfo(int genotypeNumber)
     {
-        UiInfo.UiInfos[0].CurrentGenotypeInfo.text = $"Obecny genotyp: {genotypeNumber}";
+        UiInfo.UiInfos[0].CurrentGenotypeInfo.text = $"Obecny osobnik: {genotypeNumber}";
     }
 }

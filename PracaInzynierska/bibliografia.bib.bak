@@ -115,7 +115,6 @@
   year     = {2010},
   volume   = {7},
   number   = {4},
-  month    = {Dec},
   issn     = {2543-2141},
   abstract = {Evolutionary or bionic strategies have proven to be powerful tools in many optimisation studies. Starting with some parent generations, producing sets of children, selecting the best children to be new parents yields impressive improvements of the objective when used with some experience and sufficient equipment. During some years of research the parameters of evolutionary optimisation have been investigated. Many successful applications showed where and how to use it. Especially in the case of objective functions with some or many local maxima, evolutionary approaches may propose solutions which gradient based optimisation would hardly find.},
   day      = {01},
@@ -146,6 +145,15 @@
   date      = {2017-11-29},
   ean       = {9781491987650},
   url       = {https://www.ebook.de/de/product/29084295/joseph_albahari_c_7_0_in_a_nutshell.html},
+}
+
+@Book{EvolutionaryComputation2002,
+  title     = {Proceedings of the 2002 Congress on Evolutionary Computation: Hilton, Hawaiian Village Hotel, Honolulu, Hawaii, May 12-17, 2002},
+  publisher = {IEEE},
+  year      = {2002},
+  author    = {Thierens, Dirk},
+  isbn      = {0-7803-7282-4},
+  url       = {https://www.amazon.com/Proceedings-2002-Congress-Evolutionary-Computation/dp/0780372824?SubscriptionId=AKIAIOBINVZYXZQZ2U3A&tag=chimbori05-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=0780372824},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
