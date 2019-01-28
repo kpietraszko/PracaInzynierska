@@ -1,0 +1,45 @@
+\chapter*{Wyniki uczenia}
+W tym rozdziale przedstawione są wyniki uczenia sygnalizacji. 
+\pgfplotstableread[col sep = comma]{p10,randOvertapOsc,3tourn10,pr1.csv}\evoA
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}
+	[
+	grid=major,
+	width=0.85\textwidth,
+	xlabel=Pokolenie,
+	ylabel=Czas najlepszego osobnika,
+	xmin=0,
+	xmax=100,
+	ymin=0,
+	ytick={0,10,...,160}
+	]
+	\addplot+[mark=none,thick] table {\evoA};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{}
+	\label{fig:test2}
+\end{figure}
+
+\pgfplotstableread[col sep = comma]{pop10,tapOsc1over3,2tourn10of20.csv}\evoB
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}
+	[
+	grid=major,
+	width=0.85\textwidth,
+	xlabel=Pokolenie,
+	ylabel=Czas najlepszego osobnika,
+	xmin=0,
+	xmax=100,
+	ymin=0,
+	ytick={0,10,...,160}
+	]
+	\addplot+[mark=none,thick] table {\evoB};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{}
+	\label{fig:test}
+\end{figure}

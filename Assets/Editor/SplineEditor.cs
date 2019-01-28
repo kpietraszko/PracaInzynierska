@@ -37,9 +37,12 @@ public class SplineEditor : Editor
 				t += 1f / segments;
 			}
 			points.Add(spline[spline.ControlPointCount - 1]); //ostatni
+            var initColor = Handles.color;
+            Handles.color = Color.green;
 			Handles.DrawAAPolyLine(points.ToArray());
+            Handles.color = initColor;
             var trafficLightDrawPosition = spline.GetPointOnSpline(Mathf.Clamp01(spline.TrafficLights[0]));
-            Handles.DrawSolidDisc(trafficLightDrawPosition, Vector3.up, 1f);
+            //Handles.DrawSolidDisc(trafficLightDrawPosition, Vector3.up, 1f);
 			for (int i = 0; i < spline.ControlPointCount; i++)
 			{
 				EditorGUI.BeginChangeCheck();

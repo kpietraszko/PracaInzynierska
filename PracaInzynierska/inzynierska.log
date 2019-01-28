@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210) (preloaded format=pdflatex 2017.3.4)  27 JAN 2019 22:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210) (preloaded format=pdflatex 2017.3.4)  28 JAN 2019 22:26
 entering extended mode
 **./inzynierska.tex
 (inzynierska.tex
@@ -1268,29 +1268,66 @@ Package pdftex.def Info: ap4.png used on input line 48.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (inzynierska.bbl [17] [18 <./ap2.png> <./ap3.png>] [19 <./ap4.png>]
+<ap9.png, id=93, 1309.0415pt x 736.33585pt>
+File: ap9.png Graphic file (type png)
+ <use ap9.png>
+Package pdftex.def Info: ap9.png used on input line 56.
+(pdftex.def)             Requested size: 441.01773pt x 248.07005pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17]
+<ap6.png, id=98, 788.15207pt x 664.06584pt>
+File: ap6.png Graphic file (type png)
+ <use ap6.png>
+Package pdftex.def Info: ap6.png used on input line 67.
+(pdftex.def)             Requested size: 441.01773pt x 371.5906pt.
+
+<ap7.png, id=99, 344.30519pt x 173.85707pt>
+File: ap7.png Graphic file (type png)
+ <use ap7.png>
+Package pdftex.def Info: ap7.png used on input line 73.
+(pdftex.def)             Requested size: 352.81552pt x 178.16486pt.
+
+<ap8.png, id=100, 344.30519pt x 392.71245pt>
+File: ap8.png Graphic file (type png)
+ <use ap8.png>
+Package pdftex.def Info: ap8.png used on input line 79.
+(pdftex.def)             Requested size: 352.81552pt x 402.44298pt.
+) (wykresy.tex
+[18 <./ap2.png>] [19 <./ap3.png> <./ap4.png>] [20 <./ap9.png> <./ap6.png>]
+[21 <./ap7.png> <./ap8.png>]
+PGFPlots: reading {p10,randOvertapOsc,3tourn10,pr1.csv}
+PGFPlots: reading {pop10,tapOsc1over3,2tourn10of20.csv}
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (inzynierska.bbl [22
+
+] [23]
 Overfull \hbox (27.65384pt too wide) in paragraph at lines 51--54
 []\T1/lmr/m/n/10.95 Unity Ma-nual - Gra-phics API sup-port.  https://docs.unity
 3d.com/Manual/GraphicsAPIs.html
  []
 
-) [20
+) [24
 
 ] (inzynierska.lof)
 \tf@lof=\write5
 \openout5 = `inzynierska.lof'.
 
- [21
+ [25
 
 ] (inzynierska.aux) ) 
 Here is how much of TeX's memory you used:
- 25896 strings out of 493333
- 658483 string characters out of 3136600
- 1744810 words of memory out of 3000000
- 28924 multiletter control sequences out of 15000+200000
+ 25986 strings out of 493333
+ 660006 string characters out of 3136600
+ 1745020 words of memory out of 3000000
+ 29003 multiletter control sequences out of 15000+200000
  85006 words of font info for 60 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,11n,127p,1335b,1978s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 73i,12n,127p,1336b,1978s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-e
 c.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Progr
 am Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files (x
@@ -1310,9 +1347,9 @@ Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)
 /fonts/type1/public/lm/lmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/lm/lmtt12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm
 /lmtti10.pfb>
-Output written on inzynierska.pdf (23 pages, 2417802 bytes).
+Output written on inzynierska.pdf (27 pages, 2994398 bytes).
 PDF statistics:
- 170 PDF objects out of 1000 (max. 8388607)
+ 190 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 58 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 78 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -27,9 +27,9 @@ Ustawienia algorytmu ewolucyjnego przedstawiają się następująco:
 	\label{fig:ap1}
 \end{figure}
 Po wybraniu ustawień użytkownik musi wybrać scenariusz. Jest to sekwencja sygnalizatorów, które będą zielone w określonym kroku scenariusza. W lewym dolnym rogu menu (na rysunku~\ref{fig:ap1}) widoczny jest schemat z ponumerowanymi sygnalizatorami, mający na celu ułatwienie użytkownikowi zrozumienia różnicy między scenariuszami. 
-\section*{Scenariusz} Na przykładzie Scenariusza~1 widocznego w menu: podczas pierwszego kroku scenariusza zielone będą sygnalizatory nr 1 i 5 (oznaczone na schemacie po lewej), zaś pozostałe będą czerwone. Po przejściu do drugiego kroku zielone będą sygnalizatory nr 2 i 6, podczas gdy pozostałe będą czerwone. Analogicznie w kolejnych krokach scenariusza. Długość każdego z tych kroków opisuje obecnie symulowany osobnik.
+\section*{Scenariusz} Na przykładzie Scenariusza~1 widocznego w menu: podczas pierwszego kroku scenariusza zielone będą sygnalizatory nr 1 i 5 (oznaczone na schemacie po lewej), pozostałe zaś będą czerwone. Po przejściu do drugiego kroku zielone będą sygnalizatory nr 2 i 6, podczas gdy pozostałe będą czerwone. Analogicznie w kolejnych krokach scenariusza. Długość każdego z tych kroków opisuje obecnie symulowany osobnik.
 \section*{Przebieg uczenia i symulacji ruchu}
-Po wybraniu scenariusza rozpoczyna się proces uczenia. Aplikację podczas tego procesu przedstawia rysunek~\ref{fig:ap2}. Lewa część ekranu prezentuje postęp symulacji ruchu drogowego z zastosowaniem parametrów obecnie symulowanego osobnika. Z początkiem symulacji osobnika samochody wjeżdżają na skrzyżowanie i poruszają się zgodnie z sygnalizacją. Sygnalizatory przełączają się w odpowiednim czasie, a kiedy skończy się ostatni krok scenariusza, cykl sygnalizacji się zapętla -- wraca do pierwszego kroku. Symulacja, trwa tak długo, aż wszystkie samochody opuszczą skrzyżowanie. Wtedy czas trwania symulacji jest zapisywany, zostanie później użyty do oceny dostosowania. Aplikacja przechodzi do symulacji kolejnego osobnika pokolenia -- na skrzyżowanie wjeżdża ta sama liczba samochodów, sygnalizacja zmienia się tym razem w odstępach określonych kolejnym osobnikiem. Cykl powtarza się aż symulacji poddane zostaną wszystkie osobniki pokolenia. Następnie aplikacja dokonuje oceny i generuje nowe pokolenie, co opisano w rozdziale \textit{Opis teoretyczny algorytmu ewolucyjnego}. Potem odbywa się symulacja osobników nowego pokolenia. Cykl ten powtarza się, aż osiągnięta zostanie liczba pokoleń określona w konfiguracji. \\
+Po wybraniu scenariusza rozpoczyna się proces uczenia. Aplikację podczas tego procesu przedstawia rysunek~\ref{fig:ap2}. Lewa część ekranu prezentuje postęp symulacji ruchu drogowego z zastosowaniem parametrów obecnie symulowanego osobnika. Z początkiem symulacji osobnika samochody wjeżdżają na skrzyżowanie i poruszają się zgodnie z sygnalizacją. Sygnalizatory przełączają się w odpowiednim czasie, a kiedy skończy się ostatni krok scenariusza, cykl sygnalizacji się zapętla -- wraca do pierwszego kroku. Symulacja, trwa tak długo, aż wszystkie samochody opuszczą skrzyżowanie. Wtedy czas trwania symulacji jest zapisywany, zostanie później użyty do oceny dostosowania. Aplikacja przechodzi do symulacji kolejnego osobnika pokolenia -- na skrzyżowanie wjeżdża ta sama liczba samochodów, sygnalizacja zmienia się tym razem w odstępach określonych kolejnym osobnikiem. Cykl powtarza się, aż symulacji poddane zostaną wszystkie osobniki pokolenia. Następnie aplikacja dokonuje oceny i generuje nowe pokolenie, co opisano w rozdziale \textit{Opis teoretyczny algorytmu ewolucyjnego}. Potem odbywa się symulacja osobników nowego pokolenia. Cykl ten powtarza się, aż osiągnięta zostanie liczba pokoleń określona w konfiguracji. \\
 Prawa część ekranu przedstawia stan uczenia -- numer obecnego pokolenia i osobnika. Po pierwszym pokoleniu dodatkowo w tej części wyświetlana jest informacja o tym, jaki był czas trwania symulacji najlepszego osobnika poprzedniego pokolenia. Prezentuje to rysunek~\ref{fig:ap3}. Z upływem pokoleń czas symulacji najlepszego osobnika spada, co jest widocznie, jeśli porówna się rysunek~\ref{fig:ap4} do rysunku~\ref{fig:ap3}.
 \begin{figure}[h]
 	\centering
@@ -50,10 +50,36 @@ Prawa część ekranu przedstawia stan uczenia -- numer obecnego pokolenia i oso
 	\label{fig:ap4}
 \end{figure}
 \section*{Ekran końcowy}
-%tu opisać ekran końcowy
-%Następny rozdział albo w tym samym:
-%Trochę o poruszaniu, spline'ach i narzędziu do nich (screen narzedzia)
-%Narzędzie do scenariuszy (screen narzedzia)
+Po ukończeniu procesu uczenia użytkownikowi ukazuje się ekran końcowy (widoczny na rysunku~\ref{fig:ap9}), który przedstawia wyniki uczenia. Informacje prezentowane na tym ekranie to czas trwania symulacji najlepszego osobnika ostatniego pokolenia i jego parametry. Na tym ekranie znajduje się również przycisk \textit{Wyjdź}, który pozwala na zamknięcie aplikacji.
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{ap9}
+	\caption[Ekran końcowy]{Ekran końcowy}
+	\label{fig:ap9}
+\end{figure}
+
+\section*{Ruch pojazdów}
+Każdy pojazd porusza się wzdłuż jednej z 12 krzywych sklejanych -- przykładową przedstawiono na rysunku~\ref{fig:ap7} kolorem zielonym. Każda z nich składa się z krzywych Béziera.
+\section*{Dodatkowe proste narzędzia}Przy okazji powstawania tej aplikacji stworzono proste narzędzie do modyfikacji krzywych sklejanych. Pozwala ono w łatwy sposób przesuwać ich punkty kontrolne w trybie graficznym (co przedstawiono na rysunku~\ref{fig:ap6}) lub wprowadzając ich współrzędne (co ukazuje rysunek~\ref{fig:ap7}).
+\paragraph{}Stworzono również narzędzie do szybkiego tworzenia scenariuszy, widoczne na rysunku~\ref{fig:ap8}. Pozwala ono określić liczbę kroków i listę sygnalizatorów, które będą w danym kroku zielone.
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{ap6}
+	\caption[Narzędzie do modyfikacji krzywych sklejanych w trybie graficznym]{Narzędzie do modyfikacji krzywych sklejanych w trybie graficznym}
+	\label{fig:ap6}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\linewidth]{ap7}
+	\caption[Narzędzie do modyfikacji krzywych sklejanych w trybie tekstowym]{Narzędzie do modyfikacji krzywych sklejanych w trybie tekstowym}
+	\label{fig:ap7}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\linewidth]{ap8}
+	\caption[Narzędzie do tworzenia scenariuszy]{Narzędzie do tworzenia scenariuszy}
+	\label{fig:ap8}
+\end{figure}
 %Kolejny rozdział wyniki: głównie wykresy
 %Podsumowanie
 %Streszczenie, abstract i dopisać do wstępu opis rozdziałów

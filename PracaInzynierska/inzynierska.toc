@@ -25,5 +25,8 @@
 \contentsline {section}{Scenariusz}{17}
 \contentsline {section}{Przebieg uczenia i symulacji ruchu}{17}
 \contentsline {section}{Ekran ko\IeC {\'n}cowy}{17}
-\contentsline {chapter}{Bibliografia}{20}
-\contentsline {chapter}{Spis rysunk\'ow}{21}
+\contentsline {section}{Ruch pojazd\IeC {\'o}w}{18}
+\contentsline {section}{Dodatkowe proste narz\IeC {\k e}dzia}{18}
+\contentsline {chapter}{Wyniki uczenia}{22}
+\contentsline {chapter}{Bibliografia}{24}
+\contentsline {chapter}{Spis rysunk\'ow}{25}
