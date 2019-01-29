@@ -1,5 +1,6 @@
 \chapter*{Wyniki uczenia}
-W tym rozdziale przedstawione są wyniki uczenia sygnalizacji. 
+W tym rozdziale przedstawione są przykładowe wyniki uczenia sygnalizacji.\\
+Rysunek~\ref{fig:evoA} przedstawia rezultaty z użyciem algorytmu opisanego w rozdziale \textit{Opis teoretyczny algorytmu ewolucyjnego}. W tym przykładzie rozmiar populacji pokolenia wynosił 10 osobników, a pozostałe ustawienia były domyślne. Jeśli porównać najlepszego osobnika  ostatniego i pierwszego pokolenia, to nastąpiła 26-procentowa poprawa czasu.
 \pgfplotstableread[col sep = comma]{p10,randOvertapOsc,3tourn10,pr1.csv}\evoA
 \begin{figure}[h]
 	\centering
@@ -7,9 +8,9 @@ W tym rozdziale przedstawione są wyniki uczenia sygnalizacji.
 	\begin{axis}
 	[
 	grid=major,
-	width=0.85\textwidth,
+	width=1\textwidth,
 	xlabel=Pokolenie,
-	ylabel=Czas najlepszego osobnika,
+	ylabel=Czas najlepszego osobnika {[s]},
 	xmin=0,
 	xmax=100,
 	ymin=0,
@@ -18,10 +19,10 @@ W tym rozdziale przedstawione są wyniki uczenia sygnalizacji.
 	\addplot+[mark=none,thick] table {\evoA};
 	\end{axis}
 	\end{tikzpicture}
-	\caption{}
-	\label{fig:test2}
-\end{figure}
-
+	\caption{Wynik uczenia z 10 osobnikami w pokoleniu}
+	\label{fig:evoA}
+\end{figure}\\
+\paragraph{}Rysunek~\ref{fig:evoB} przedstawia wyniki z wykorzystaniem tego samego algorytmu co wyżej, z tą różnicą, że rozmiar turnieju to 2 osobników, a najlepszy osobnik nie przechodził bezwarunkowo do kolejnego pokolenia. Rozmiar populacji pokolenia to ponownie 10 osobników, maksymalny współczynnik mutacji to 0,33, a do pozostałych ustawień użyto domyślnych wartości. Ostatecznie uzyskano tutaj 43-procentowy spadek czasu, jednak to w dużej mierze zasługa wysokiego czasu w pierwszym pokoleniu.
 \pgfplotstableread[col sep = comma]{pop10,tapOsc1over3,2tourn10of20.csv}\evoB
 \begin{figure}[h]
 	\centering
@@ -29,17 +30,40 @@ W tym rozdziale przedstawione są wyniki uczenia sygnalizacji.
 	\begin{axis}
 	[
 	grid=major,
-	width=0.85\textwidth,
+	width=1\textwidth,
 	xlabel=Pokolenie,
-	ylabel=Czas najlepszego osobnika,
+	ylabel=Czas najlepszego osobnika {[s]},
 	xmin=0,
 	xmax=100,
 	ymin=0,
-	ytick={0,10,...,160}
+	ytick={0,10,...,200}
 	]
 	\addplot+[mark=none,thick] table {\evoB};
 	\end{axis}
 	\end{tikzpicture}
-	\caption{}
-	\label{fig:test}
+	\caption{Wynik uczenia inną wersją algorytmu}
+	\label{fig:evoB}
+\end{figure}
+\paragraph{}
+Z kolei na rysunku~\ref{fig:evoC} przedstawiono wyniki z wykorzystaniem stałego współczynnika mutacji równego 0,1 oraz populacji o rozmiarze 20 osobników. Uzyskano tu jedynie 6-procentowy spadek czasu między pierwszym a ostatnim pokoleniem.
+\pgfplotstableread[col sep = comma]{pop20,newermut0.1.csv}\evoC
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}
+	[
+	grid=major,
+	width=1\textwidth,
+	xlabel=Pokolenie,
+	ylabel=Czas najlepszego osobnika {[s]},
+	xmin=0,
+	xmax=83,
+	ymin=0,
+	ytick={0,10,...,190}
+	]
+	\addplot+[mark=none,thick] table {\evoC};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Wynik uczenia z 20 osobnikami w pokoleniu i stałym współczynnikiem mutacji}
+	\label{fig:evoC}
 \end{figure}

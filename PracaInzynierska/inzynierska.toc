@@ -1,32 +1,36 @@
 \select@language {polish}
 \contentsline {chapter}{Streszczenie}{1}
 \contentsline {chapter}{Abstract}{2}
-\contentsline {chapter}{Wst\IeC {\k e}p}{4}
-\contentsline {section}{Problemy optymalizacyjne}{4}
-\contentsline {section}{Algorytmy ewolucyjne}{4}
-\contentsline {section}{Przyk\IeC {\l }adowe zastosowania algorytm\IeC {\'o}w ewolucyjnych}{5}
-\contentsline {chapter}{U\IeC {\.z}yte technologie}{6}
-\contentsline {section}{Unity}{6}
-\contentsline {section}{J\IeC {\k e}zyk C\texttt {\#}}{6}
-\contentsline {section}{Inkscape}{7}
-\contentsline {section}{Blender}{9}
-\contentsline {chapter}{Projekt aplikacji}{10}
-\contentsline {section}{Wymagania funkcjonalne}{10}
-\contentsline {section}{Wymagania pozafunkcjonalne}{10}
-\contentsline {section}{Przypadki u\IeC {\.z}ycia}{10}
-\contentsline {section}{Przebieg przypadku u\IeC {\.z}ycia ,,Przeprowad\IeC {\'z} proces optymalizacji sygnalizacji \IeC {\'s}wietlnej''}{10}
-\contentsline {chapter}{Opis teoretyczny algorytmu ewolucyjnego}{12}
-\contentsline {section}{Pierwsze pokolenie}{12}
-\contentsline {section}{Funkcja dostosowania}{12}
-\contentsline {section}{Generowanie nowego pokolenia}{12}
-\contentsline {section}{Mutacja i krzy\IeC {\.z}owanie}{13}
-\contentsline {chapter}{Opis aplikacji}{15}
-\contentsline {section}{Menu g\IeC {\l }\IeC {\'o}wne}{15}
-\contentsline {section}{Scenariusz}{17}
-\contentsline {section}{Przebieg uczenia i symulacji ruchu}{17}
-\contentsline {section}{Ekran ko\IeC {\'n}cowy}{17}
-\contentsline {section}{Ruch pojazd\IeC {\'o}w}{18}
-\contentsline {section}{Dodatkowe proste narz\IeC {\k e}dzia}{18}
-\contentsline {chapter}{Wyniki uczenia}{22}
-\contentsline {chapter}{Bibliografia}{24}
-\contentsline {chapter}{Spis rysunk\'ow}{25}
+\contentsline {chapter}{Wst\IeC {\k e}p}{5}
+\contentsline {section}{Problemy optymalizacyjne}{5}
+\contentsline {section}{Algorytmy ewolucyjne}{5}
+\contentsline {section}{Przyk\IeC {\l }adowe zastosowania algorytm\IeC {\'o}w ewolucyjnych}{6}
+\contentsline {section}{Usprawnienie sygnalizacji \IeC {\'s}wietlnej jako problem optymalizacyjny}{6}
+\contentsline {chapter}{U\IeC {\.z}yte technologie}{7}
+\contentsline {section}{Unity}{7}
+\contentsline {section}{J\IeC {\k e}zyk C\texttt {\#}}{7}
+\contentsline {section}{Inkscape}{8}
+\contentsline {section}{Blender}{10}
+\contentsline {chapter}{Projekt aplikacji}{11}
+\contentsline {section}{Wymagania funkcjonalne}{11}
+\contentsline {section}{Wymagania pozafunkcjonalne}{11}
+\contentsline {section}{Przypadki u\IeC {\.z}ycia}{11}
+\contentsline {section}{Przebieg przypadku u\IeC {\.z}ycia ,,Przeprowad\IeC {\'z} proces optymalizacji sygnalizacji \IeC {\'s}wietlnej''}{11}
+\contentsline {chapter}{Opis teoretyczny algorytmu ewolucyjnego}{14}
+\contentsline {section}{Pierwsze pokolenie}{14}
+\contentsline {section}{Funkcja dostosowania}{14}
+\contentsline {section}{Generowanie nowego pokolenia}{14}
+\contentsline {section}{Mutacja i krzy\IeC {\.z}owanie}{15}
+\contentsline {chapter}{Opis aplikacji}{17}
+\contentsline {section}{Menu g\IeC {\l }\IeC {\'o}wne}{17}
+\contentsline {section}{Scenariusz}{19}
+\contentsline {section}{Przebieg uczenia i symulacji ruchu}{19}
+\contentsline {section}{Ekran ko\IeC {\'n}cowy}{19}
+\contentsline {section}{Ruch pojazd\IeC {\'o}w}{20}
+\contentsline {section}{Dodatkowe proste narz\IeC {\k e}dzia}{20}
+\contentsline {chapter}{Wyniki uczenia}{24}
+\contentsline {chapter}{Podsumowanie}{27}
+\contentsline {section}{Symulacja ruchu drogowego}{27}
+\contentsline {section}{Algorytm ewolucyjny czy tam uczenie}{27}
+\contentsline {chapter}{Bibliografia}{28}
+\contentsline {chapter}{Spis rysunk\'ow}{29}

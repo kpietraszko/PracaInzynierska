@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210) (preloaded format=pdflatex 2017.3.4)  28 JAN 2019 22:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210) (preloaded format=pdflatex 2017.3.4)  29 JAN 2019 22:53
 entering extended mode
 **./inzynierska.tex
 (inzynierska.tex
@@ -1138,7 +1138,7 @@ Underfull \hbox (badness 2913) in paragraph at lines 31--31
 ] (inzynierska.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 2.
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 10.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 11.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1149,9 +1149,9 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
  (wstep.tex
 [3
 
-] [4
+] [4] [5
 
-]) (technologie.tex [5]
+]) (technologie.tex [6]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 13.
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -1160,48 +1160,49 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 13.
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 14.
- <unity.png, id=35, 851.55878pt x 707.70056pt>
-File: unity.png Graphic file (type png)
 
-<use unity.png>
+<unity.png, id=38, 851.55878pt x 707.70056pt>
+File: unity.png Graphic file (type png)
+ <use unity.png>
 Package pdftex.def Info: unity.png used on input line 18.
 (pdftex.def)             Requested size: 441.01773pt x 366.5162pt.
- [6
+ [7
 
-] <inkscape.png, id=44, 778.60698pt x 685.88321pt>
+]
+<inkscape.png, id=47, 778.60698pt x 685.88321pt>
 File: inkscape.png Graphic file (type png)
-
-<use inkscape.png>
+ <use inkscape.png>
 Package pdftex.def Info: inkscape.png used on input line 27.
 (pdftex.def)             Requested size: 441.01773pt x 388.49805pt.
- <blender.png, id=45, 863.14925pt x 700.88264pt>
-File: blender.png Graphic file (type png)
 
-<use blender.png>
+<blender.png, id=48, 863.14925pt x 700.88264pt>
+File: blender.png Graphic file (type png)
+ <use blender.png>
 Package pdftex.def Info: blender.png used on input line 35.
 (pdftex.def)             Requested size: 441.01773pt x 358.10847pt.
- [7 <./unity.png>] [8 <./inkscape.png>]) (funkcjonalnosc.tex
-[9 <./blender.png>] <diagram_aktywnosci.png, id=58, 1284.8pt x 3123.67pt>
+ [8 <./unity.png>] [9 <./inkscape.png>]) (funkcjonalnosc.tex [10 <./blender.png
+>]
+<diagram_aktywnosci.png, id=61, 1284.8pt x 3123.67pt>
 File: diagram_aktywnosci.png Graphic file (type png)
 
 <use diagram_aktywnosci.png>
 Package pdftex.def Info: diagram_aktywnosci.png used on input line 18.
 (pdftex.def)             Requested size: 260.15097pt x 632.50047pt.
-) (algorytm.tex [10
+) (algorytm.tex [11
 
-] [11 <./diagram_aktywnosci.png>]
+] [12 <./diagram_aktywnosci.png>] [13]
 Overfull \hbox (9.42772pt too wide) in alignment at lines 16--16
 [][][] 
  []
 
-[12
+[14
 
 ]
 Underfull \hbox (badness 10000) in alignment at lines 32--32
 [][][] 
  []
 
-[13]) (realizacja.tex [14] <splash.png, id=81, 1302.90538pt x 712.47311pt>
+[15]) (realizacja.tex [16] <splash.png, id=87, 1302.90538pt x 712.47311pt>
 File: splash.png Graphic file (type png)
 
 <use splash.png>
@@ -1217,7 +1218,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
  []
 
-[15
+[17
 
  <./splash.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 18--19
@@ -1239,7 +1240,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
-<ap1.png, id=85, 977.00859pt x 672.92915pt>
+<ap1.png, id=92, 977.00859pt x 672.92915pt>
 File: ap1.png Graphic file (type png)
  <use ap1.png>
 Package pdftex.def Info: ap1.png used on input line 25.
@@ -1247,19 +1248,19 @@ Package pdftex.def Info: ap1.png used on input line 25.
 
 Underfull \vbox (badness 2828) has occurred while \output is active []
 
- [16 <./ap1.png>] <ap2.png, id=90, 1308.35971pt x 736.33585pt>
+ [18 <./ap1.png>] <ap2.png, id=97, 1308.35971pt x 736.33585pt>
 File: ap2.png Graphic file (type png)
  <use ap2.png>
 Package pdftex.def Info: ap2.png used on input line 36.
 (pdftex.def)             Requested size: 441.01773pt x 248.19365pt.
 
-<ap3.png, id=91, 1307.67792pt x 736.33585pt>
+<ap3.png, id=98, 1307.67792pt x 736.33585pt>
 File: ap3.png Graphic file (type png)
  <use ap3.png>
 Package pdftex.def Info: ap3.png used on input line 42.
 (pdftex.def)             Requested size: 441.01773pt x 248.32848pt.
 
-<ap4.png, id=92, 1306.31435pt x 736.33585pt>
+<ap4.png, id=99, 1306.31435pt x 736.33585pt>
 File: ap4.png Graphic file (type png)
  <use ap4.png>
 Package pdftex.def Info: ap4.png used on input line 48.
@@ -1268,7 +1269,7 @@ Package pdftex.def Info: ap4.png used on input line 48.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<ap9.png, id=93, 1309.0415pt x 736.33585pt>
+<ap9.png, id=100, 1309.0415pt x 736.33585pt>
 File: ap9.png Graphic file (type png)
  <use ap9.png>
 Package pdftex.def Info: ap9.png used on input line 56.
@@ -1276,55 +1277,82 @@ Package pdftex.def Info: ap9.png used on input line 56.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [17]
-<ap6.png, id=98, 788.15207pt x 664.06584pt>
+ [19]
+<ap6.png, id=104, 788.15207pt x 664.06584pt>
 File: ap6.png Graphic file (type png)
  <use ap6.png>
-Package pdftex.def Info: ap6.png used on input line 67.
+Package pdftex.def Info: ap6.png used on input line 68.
 (pdftex.def)             Requested size: 441.01773pt x 371.5906pt.
 
-<ap7.png, id=99, 344.30519pt x 173.85707pt>
+<ap7.png, id=105, 344.30519pt x 173.85707pt>
 File: ap7.png Graphic file (type png)
  <use ap7.png>
-Package pdftex.def Info: ap7.png used on input line 73.
+Package pdftex.def Info: ap7.png used on input line 74.
 (pdftex.def)             Requested size: 352.81552pt x 178.16486pt.
 
-<ap8.png, id=100, 344.30519pt x 392.71245pt>
+<ap8.png, id=106, 344.30519pt x 392.71245pt>
 File: ap8.png Graphic file (type png)
  <use ap8.png>
-Package pdftex.def Info: ap8.png used on input line 79.
+Package pdftex.def Info: ap8.png used on input line 80.
 (pdftex.def)             Requested size: 352.81552pt x 402.44298pt.
 ) (wykresy.tex
-[18 <./ap2.png>] [19 <./ap3.png> <./ap4.png>] [20 <./ap9.png> <./ap6.png>]
-[21 <./ap7.png> <./ap8.png>]
+[20 <./ap2.png>] [21 <./ap3.png> <./ap4.png>] [22 <./ap9.png> <./ap6.png>]
+[23 <./ap7.png> <./ap8.png>]
 PGFPlots: reading {p10,randOvertapOsc,3tourn10,pr1.csv}
+
+Overfull \hbox (13.41805pt too wide) in paragraph at lines 21--22
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--25
+
+ []
+
 PGFPlots: reading {pop10,tapOsc1over3,2tourn10of20.csv}
 
+Overfull \hbox (13.41805pt too wide) in paragraph at lines 43--44
+ [][] 
+ []
+
+
+Underfull \vbox (badness 2856) has occurred while \output is active []
+
+ [24
+
+]
+PGFPlots: reading {pop20,newermut0.1.csv}
+
+Overfull \hbox (0.8874pt too wide) in paragraph at lines 66--67
+ [][] 
+ []
+
+) (podsumowanie.tex
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (inzynierska.bbl [22
+[25] [26]) (inzynierska.bbl [27
 
-] [23]
+]
 Overfull \hbox (27.65384pt too wide) in paragraph at lines 51--54
 []\T1/lmr/m/n/10.95 Unity Ma-nual - Gra-phics API sup-port.  https://docs.unity
 3d.com/Manual/GraphicsAPIs.html
  []
 
-) [24
+) [28
 
 ] (inzynierska.lof)
 \tf@lof=\write5
 \openout5 = `inzynierska.lof'.
 
- [25
+ [29
 
 ] (inzynierska.aux) ) 
 Here is how much of TeX's memory you used:
- 25986 strings out of 493333
- 660006 string characters out of 3136600
- 1745020 words of memory out of 3000000
- 29003 multiletter control sequences out of 15000+200000
+ 26004 strings out of 493333
+ 660287 string characters out of 3136600
+ 1746057 words of memory out of 3000000
+ 29016 multiletter control sequences out of 15000+200000
  85006 words of font info for 60 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,12n,127p,1336b,1978s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1347,9 +1375,9 @@ Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)
 /fonts/type1/public/lm/lmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/lm/lmtt12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm
 /lmtti10.pfb>
-Output written on inzynierska.pdf (27 pages, 2994398 bytes).
+Output written on inzynierska.pdf (31 pages, 3002394 bytes).
 PDF statistics:
- 190 PDF objects out of 1000 (max. 8388607)
+ 203 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  78 words of extra memory for PDF output out of 10000 (max. 10000000)
 
