@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210) (preloaded format=pdflatex 2017.3.4)  29 JAN 2019 22:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210) (preloaded format=pdflatex 2017.3.4)  30 JAN 2019 23:07
 entering extended mode
 **./inzynierska.tex
 (inzynierska.tex
@@ -924,6 +924,14 @@ Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
 \TX@cols=\count120
 \TX@ftn=\toks35
 )
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count121
+\float@exts=\toks36
+\float@box=\box38
+\@float@everytoks=\toks37
+\@floatcapt=\box39
+)
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: 
 * paper: <default>
@@ -960,36 +968,36 @@ Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
 (inzynierska.aux)
 \openout1 = `inzynierska.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 29.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 30.
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 ABD: EveryShipout initializing macros
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count121
+\scratchcounter=\count122
 \scratchdimen=\dimen186
-\scratchbox=\box38
-\nofMPsegments=\count122
-\nofMParguments=\count123
-\everyMPshowfont=\toks36
-\MPscratchCnt=\count124
+\scratchbox=\box40
+\nofMPsegments=\count123
+\nofMParguments=\count124
+\everyMPshowfont=\toks38
+\MPscratchCnt=\count125
 \MPscratchDim=\dimen187
-\MPnumerator=\count125
-\makeMPintoPDFobject=\count126
-\everyMPtoPDFconversion=\toks37
+\MPnumerator=\count126
+\makeMPintoPDFobject=\count127
+\everyMPtoPDFconversion=\toks39
 ) ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -1070,45 +1078,45 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.16}).
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 PGFPlots: reading {evolutionLog.csv}
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 31.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 32.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 31.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 32.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 31.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 32.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 31.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 32.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 31.
+(Font)              <12> on input line 32.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 31.
+(Font)              <8> on input line 32.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 31.
+(Font)              <6> on input line 32.
 
-Underfull \hbox (badness 1694) in paragraph at lines 31--31
+Underfull \hbox (badness 1694) in paragraph at lines 32--32
  []\T1/lmr/m/n/12 Praca in»ynierska wykonana 
  []
 
 
-Underfull \hbox (badness 5359) in paragraph at lines 31--31
+Underfull \hbox (badness 5359) in paragraph at lines 32--32
  []\T1/lmr/m/n/12 pod kierunkiem 
  []
 
 
-Underfull \hbox (badness 2351) in paragraph at lines 31--31
+Underfull \hbox (badness 2351) in paragraph at lines 32--32
  []\T1/lmr/m/n/12 Dr In». Bartosza Nowaka 
  []
 
@@ -1117,17 +1125,17 @@ Underfull \hbox (badness 2351) in paragraph at lines 31--31
 
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 1308) in paragraph at lines 31--31
+Underfull \hbox (badness 1308) in paragraph at lines 32--32
  []\T1/lmr/m/n/12 Engineer's Thesis is performed 
  []
 
 
-Underfull \hbox (badness 3701) in paragraph at lines 31--31
+Underfull \hbox (badness 3701) in paragraph at lines 32--32
  []\T1/lmr/m/n/12 under supervision of 
  []
 
 
-Underfull \hbox (badness 2913) in paragraph at lines 31--31
+Underfull \hbox (badness 2913) in paragraph at lines 32--32
  []\T1/lmr/m/n/12 Dr In». Bartosz Nowak 
  []
 
@@ -1138,20 +1146,25 @@ Underfull \hbox (badness 2913) in paragraph at lines 31--31
 ] (inzynierska.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 2.
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 11.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 12.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-))
+) [3
+
+])
 \tf@toc=\write4
 \openout4 = `inzynierska.toc'.
 
  (wstep.tex
-[3
+[4] [5
 
-] [4] [5
+]
+Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
-]) (technologie.tex [6]
+ []
+
+) (technologie.tex [6] [7]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 13.
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -1160,37 +1173,36 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 13.
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 14.
-
-<unity.png, id=38, 851.55878pt x 707.70056pt>
+ <unity.png, id=40, 851.55878pt x 707.70056pt>
 File: unity.png Graphic file (type png)
- <use unity.png>
+
+<use unity.png>
 Package pdftex.def Info: unity.png used on input line 18.
 (pdftex.def)             Requested size: 441.01773pt x 366.5162pt.
- [7
+ [8
 
-]
-<inkscape.png, id=47, 778.60698pt x 685.88321pt>
+] <inkscape.png, id=49, 778.60698pt x 685.88321pt>
 File: inkscape.png Graphic file (type png)
- <use inkscape.png>
+
+<use inkscape.png>
 Package pdftex.def Info: inkscape.png used on input line 27.
 (pdftex.def)             Requested size: 441.01773pt x 388.49805pt.
-
-<blender.png, id=48, 863.14925pt x 700.88264pt>
+ <blender.png, id=50, 863.14925pt x 700.88264pt>
 File: blender.png Graphic file (type png)
- <use blender.png>
+
+<use blender.png>
 Package pdftex.def Info: blender.png used on input line 35.
 (pdftex.def)             Requested size: 441.01773pt x 358.10847pt.
- [8 <./unity.png>] [9 <./inkscape.png>]) (funkcjonalnosc.tex [10 <./blender.png
->]
-<diagram_aktywnosci.png, id=61, 1284.8pt x 3123.67pt>
+ [9 <./unity.png>] [10 <./inkscape.png>]) (funkcjonalnosc.tex
+[11 <./blender.png>] <diagram_aktywnosci.png, id=64, 1284.8pt x 3123.67pt>
 File: diagram_aktywnosci.png Graphic file (type png)
 
 <use diagram_aktywnosci.png>
-Package pdftex.def Info: diagram_aktywnosci.png used on input line 18.
-(pdftex.def)             Requested size: 260.15097pt x 632.50047pt.
-) (algorytm.tex [11
+Package pdftex.def Info: diagram_aktywnosci.png used on input line 22.
+(pdftex.def)             Requested size: 231.23442pt x 562.2286pt.
+) (algorytm.tex [12
 
-] [12 <./diagram_aktywnosci.png>] [13]
+] [13 <./diagram_aktywnosci.png>]
 Overfull \hbox (9.42772pt too wide) in alignment at lines 16--16
 [][][] 
  []
@@ -1202,7 +1214,7 @@ Underfull \hbox (badness 10000) in alignment at lines 32--32
 [][][] 
  []
 
-[15]) (realizacja.tex [16] <splash.png, id=87, 1302.90538pt x 712.47311pt>
+[15]) (realizacja.tex [16] <splash.png, id=86, 1302.90538pt x 712.47311pt>
 File: splash.png Graphic file (type png)
 
 <use splash.png>
@@ -1240,7 +1252,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
-<ap1.png, id=92, 977.00859pt x 672.92915pt>
+<ap1.png, id=91, 977.00859pt x 672.92915pt>
 File: ap1.png Graphic file (type png)
  <use ap1.png>
 Package pdftex.def Info: ap1.png used on input line 25.
@@ -1248,19 +1260,19 @@ Package pdftex.def Info: ap1.png used on input line 25.
 
 Underfull \vbox (badness 2828) has occurred while \output is active []
 
- [18 <./ap1.png>] <ap2.png, id=97, 1308.35971pt x 736.33585pt>
+ [18 <./ap1.png>] <ap2.png, id=96, 1308.35971pt x 736.33585pt>
 File: ap2.png Graphic file (type png)
  <use ap2.png>
 Package pdftex.def Info: ap2.png used on input line 36.
 (pdftex.def)             Requested size: 441.01773pt x 248.19365pt.
 
-<ap3.png, id=98, 1307.67792pt x 736.33585pt>
+<ap3.png, id=97, 1307.67792pt x 736.33585pt>
 File: ap3.png Graphic file (type png)
  <use ap3.png>
 Package pdftex.def Info: ap3.png used on input line 42.
 (pdftex.def)             Requested size: 441.01773pt x 248.32848pt.
 
-<ap4.png, id=99, 1306.31435pt x 736.33585pt>
+<ap4.png, id=98, 1306.31435pt x 736.33585pt>
 File: ap4.png Graphic file (type png)
  <use ap4.png>
 Package pdftex.def Info: ap4.png used on input line 48.
@@ -1269,7 +1281,7 @@ Package pdftex.def Info: ap4.png used on input line 48.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<ap9.png, id=100, 1309.0415pt x 736.33585pt>
+<ap9.png, id=99, 1309.0415pt x 736.33585pt>
 File: ap9.png Graphic file (type png)
  <use ap9.png>
 Package pdftex.def Info: ap9.png used on input line 56.
@@ -1278,19 +1290,19 @@ Package pdftex.def Info: ap9.png used on input line 56.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [19]
-<ap6.png, id=104, 788.15207pt x 664.06584pt>
+<ap6.png, id=103, 788.15207pt x 664.06584pt>
 File: ap6.png Graphic file (type png)
  <use ap6.png>
 Package pdftex.def Info: ap6.png used on input line 68.
 (pdftex.def)             Requested size: 441.01773pt x 371.5906pt.
 
-<ap7.png, id=105, 344.30519pt x 173.85707pt>
+<ap7.png, id=104, 344.30519pt x 173.85707pt>
 File: ap7.png Graphic file (type png)
  <use ap7.png>
 Package pdftex.def Info: ap7.png used on input line 74.
 (pdftex.def)             Requested size: 352.81552pt x 178.16486pt.
 
-<ap8.png, id=106, 344.30519pt x 392.71245pt>
+<ap8.png, id=105, 344.30519pt x 392.71245pt>
 File: ap8.png Graphic file (type png)
  <use ap8.png>
 Package pdftex.def Info: ap8.png used on input line 80.
@@ -1349,13 +1361,13 @@ Overfull \hbox (27.65384pt too wide) in paragraph at lines 51--54
 
 ] (inzynierska.aux) ) 
 Here is how much of TeX's memory you used:
- 26004 strings out of 493333
- 660287 string characters out of 3136600
- 1746057 words of memory out of 3000000
- 29016 multiletter control sequences out of 15000+200000
- 85006 words of font info for 60 fonts, out of 3000000 for 9000
+ 26062 strings out of 493333
+ 661054 string characters out of 3136600
+ 1747417 words of memory out of 3000000
+ 29070 multiletter control sequences out of 15000+200000
+ 81991 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,12n,127p,1336b,1978s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 73i,12n,127p,1336b,1982s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-e
 c.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Progr
 am Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files (x
@@ -1366,18 +1378,17 @@ ype1/public/lm/lmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
 .pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Pro
 gram Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Program Files (x86)/MiKTeX 
-2.9/fonts/type1/public/lm/lmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
-pe1/public/lm/lmr7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm
-/lmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><
-C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Program 
-Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files (x86)
-/MiKTeX 2.9/fonts/type1/public/lm/lmtk10.pfb><C:/Program Files (x86)/MiKTeX 2.9
-/fonts/type1/public/lm/lmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
-1/public/lm/lmtt12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm
-/lmtti10.pfb>
-Output written on inzynierska.pdf (31 pages, 3002394 bytes).
+2.9/fonts/type1/public/lm/lmr7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
+e1/public/lm/lmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/
+lmri10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb>
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program
+ Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtk10.pfb><C:/Program Files (x86
+)/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.
+9/fonts/type1/public/lm/lmtt12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
+e1/public/lm/lmtti10.pfb>
+Output written on inzynierska.pdf (31 pages, 2981452 bytes).
 PDF statistics:
- 203 PDF objects out of 1000 (max. 8388607)
+ 199 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  78 words of extra memory for PDF output out of 10000 (max. 10000000)
 

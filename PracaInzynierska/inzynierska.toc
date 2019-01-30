@@ -6,16 +6,17 @@
 \contentsline {section}{Algorytmy ewolucyjne}{5}
 \contentsline {section}{Przyk\IeC {\l }adowe zastosowania algorytm\IeC {\'o}w ewolucyjnych}{6}
 \contentsline {section}{Usprawnienie sygnalizacji \IeC {\'s}wietlnej jako problem optymalizacyjny}{6}
-\contentsline {chapter}{U\IeC {\.z}yte technologie}{7}
-\contentsline {section}{Unity}{7}
-\contentsline {section}{J\IeC {\k e}zyk C\texttt {\#}}{7}
-\contentsline {section}{Inkscape}{8}
-\contentsline {section}{Blender}{10}
-\contentsline {chapter}{Projekt aplikacji}{11}
-\contentsline {section}{Wymagania funkcjonalne}{11}
-\contentsline {section}{Wymagania pozafunkcjonalne}{11}
-\contentsline {section}{Przypadki u\IeC {\.z}ycia}{11}
-\contentsline {section}{Przebieg przypadku u\IeC {\.z}ycia ,,Przeprowad\IeC {\'z} proces optymalizacji sygnalizacji \IeC {\'s}wietlnej''}{11}
+\contentsline {section}{Zawarto\IeC {\'s}\IeC {\'c} pracy}{6}
+\contentsline {chapter}{U\IeC {\.z}yte technologie}{8}
+\contentsline {section}{Unity}{8}
+\contentsline {section}{J\IeC {\k e}zyk C\texttt {\#}}{8}
+\contentsline {section}{Inkscape}{9}
+\contentsline {section}{Blender}{11}
+\contentsline {chapter}{Projekt aplikacji}{12}
+\contentsline {section}{Wymagania funkcjonalne}{12}
+\contentsline {section}{Wymagania pozafunkcjonalne}{12}
+\contentsline {section}{Przypadki u\IeC {\.z}ycia}{12}
+\contentsline {section}{Przebieg przypadku u\IeC {\.z}ycia ,,Przeprowad\IeC {\'z} proces optymalizacji sygnalizacji \IeC {\'s}wietlnej''}{12}
 \contentsline {chapter}{Opis teoretyczny algorytmu ewolucyjnego}{14}
 \contentsline {section}{Pierwsze pokolenie}{14}
 \contentsline {section}{Funkcja dostosowania}{14}
@@ -28,9 +29,9 @@
 \contentsline {section}{Ekran ko\IeC {\'n}cowy}{19}
 \contentsline {section}{Ruch pojazd\IeC {\'o}w}{20}
 \contentsline {section}{Dodatkowe proste narz\IeC {\k e}dzia}{20}
-\contentsline {chapter}{Wyniki uczenia}{24}
+\contentsline {chapter}{Wyniki uczenia sygnalizacji}{24}
 \contentsline {chapter}{Podsumowanie}{27}
 \contentsline {section}{Symulacja ruchu drogowego}{27}
-\contentsline {section}{Algorytm ewolucyjny czy tam uczenie}{27}
+\contentsline {section}{Uczenie sygnalizacji \IeC {\'s}wietlnej}{27}
 \contentsline {chapter}{Bibliografia}{28}
 \contentsline {chapter}{Spis rysunk\'ow}{29}
