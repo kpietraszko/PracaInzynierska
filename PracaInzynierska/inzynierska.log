@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210) (preloaded format=pdflatex 2017.3.4)  30 JAN 2019 23:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210) (preloaded format=pdflatex 2017.3.4)  31 JAN 2019 21:41
 entering extended mode
 **./inzynierska.tex
 (inzynierska.tex
@@ -1139,25 +1139,24 @@ Underfull \hbox (badness 2913) in paragraph at lines 32--32
  []\T1/lmr/m/n/12 Dr In». Bartosz Nowak 
  []
 
-[2] (streszczenie.tex) (abstract.tex [1
+[2] (streszczenie.tex
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 4.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)) (abstract.tex [1
 
 ]) [2
 
 ] (inzynierska.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 2.
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 12.
-
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [3
+ [3
 
 ])
 \tf@toc=\write4
 \openout4 = `inzynierska.toc'.
 
- (wstep.tex
-[4] [5
+ (wstep.tex [4] [5
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 19--20
@@ -1173,7 +1172,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 13.
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 14.
- <unity.png, id=40, 851.55878pt x 707.70056pt>
+ <unity.png, id=41, 851.55878pt x 707.70056pt>
 File: unity.png Graphic file (type png)
 
 <use unity.png>
@@ -1386,7 +1385,7 @@ lmri10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb>
 )/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.
 9/fonts/type1/public/lm/lmtt12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
 e1/public/lm/lmtti10.pfb>
-Output written on inzynierska.pdf (31 pages, 2981452 bytes).
+Output written on inzynierska.pdf (31 pages, 2983600 bytes).
 PDF statistics:
  199 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -1,5 +1,5 @@
 \chapter*{Opis aplikacji}
-Po uruchomieniu aplikacji użytkownikowi najpierw ukazuje się ekran ładowania (przedstawiony na rysunku~\ref{fig:splash}), a następnie menu główne (widoczne na rysunku~\ref{fig:ap1}).
+Po uruchomieniu aplikacji, użytkownikowi najpierw ukazuje się ekran ładowania (przedstawiony na rysunku~\ref{fig:splash}), a następnie menu główne (widoczne na rysunku~\ref{fig:ap1}).
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\linewidth]{splash}
@@ -17,7 +17,7 @@ Ustawienia algorytmu ewolucyjnego przedstawiają się następująco:
 \begin{itemize}
 	\item Populacja pokolenia -- liczba osobników w każdym pokoleniu (stała $n$ w funkcji~\ref{fitness} w poprzednim rozdziale).\\
 	\item Liczba pokoleń -- liczba pokoleń, po których proces uczenia ma zostać przerwany. Oprócz tego wpływa na współczynnik mutacji (stała $g$ w funkcji~\ref{mutRate} w poprzednim rozdziale).\\
-	\item Długość kroku scenariusza -- zakres w jakim muszą się mieścić wartości parametrów osobników, a więc długości kroków scenariusza.\\
+	\item Długość kroku scenariusza -- zakres, w jakim muszą mieścić się wartości parametrów osobników, a więc długości kroków scenariusza.\\
 	\item Maksymalny współczynnik mutacji -- stała $m$ w funkcji~\ref{mutRate} w poprzednim rozdziale.\\
 \end{itemize}
 \begin{figure}[h]
@@ -59,7 +59,7 @@ Po ukończeniu procesu uczenia użytkownikowi ukazuje się ekran końcowy (widoc
 \end{figure}
 
 \section*{Ruch pojazdów}
-Każdy pojazd porusza się wzdłuż jednej z 12 krzywych sklejanych -- przykładową przedstawiono na rysunku~\ref{fig:ap7} kolorem zielonym. Każda z nich składa się z krzywych Béziera.
+Każdy pojazd porusza się wzdłuż jednej z 12 krzywych sklejanych -- przykładową przedstawiono na rysunku~\ref{fig:ap7} kolorem zielonym. Każda z nich składa się z krzywych Béziera drugiego stopnia.
 \section*{Dodatkowe proste narzędzia}Przy okazji powstawania tej aplikacji stworzono proste narzędzie do modyfikacji krzywych sklejanych. Pozwala ono w łatwy sposób przesuwać ich punkty kontrolne w trybie graficznym (co przedstawiono na rysunku~\ref{fig:ap6}) lub wprowadzając ich współrzędne (co ukazuje rysunek~\ref{fig:ap7}).
 \paragraph{}Stworzono również narzędzie do szybkiego tworzenia scenariuszy, widoczne na rysunku~\ref{fig:ap8}. Pozwala ono określić liczbę kroków i listę sygnalizatorów, które będą w danym kroku zielone.
 \paragraph{}Narzędzia te skróciły czas potrzebny na przygotowanie aplikacji i ułatwiły testowanie różnych rozwiązań.
