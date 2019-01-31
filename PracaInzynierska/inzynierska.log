@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210) (preloaded format=pdflatex 2017.3.4)  31 JAN 2019 21:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210) (preloaded format=pdflatex 2017.3.4)  31 JAN 2019 22:58
 entering extended mode
 **./inzynierska.tex
 (inzynierska.tex
@@ -1366,7 +1366,7 @@ Here is how much of TeX's memory you used:
  29070 multiletter control sequences out of 15000+200000
  81991 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,12n,127p,1336b,1982s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 73i,12n,127p,1335b,1982s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-e
 c.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Progr
 am Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files (x
@@ -1385,7 +1385,7 @@ lmri10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb>
 )/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.
 9/fonts/type1/public/lm/lmtt12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
 e1/public/lm/lmtti10.pfb>
-Output written on inzynierska.pdf (31 pages, 2983600 bytes).
+Output written on inzynierska.pdf (31 pages, 2983584 bytes).
 PDF statistics:
  199 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
