@@ -73,17 +73,6 @@ public class SwitchGenerationSystem : ComponentSystem
     float _previousBest;
     int stalledCount;
 
-    protected override void OnCreateManager()
-    {
-        File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.csv"),
-            $"{System.Environment.NewLine}{System.DateTime.Now.ToString("yyyy-MM-dd HH:mm")}{System.Environment.NewLine}" +
-            $"Generation,Average,Median,Best{System.Environment.NewLine}");
-
-        File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "bestDurationsLog.csv"),
-            $"{System.Environment.NewLine}{System.DateTime.Now.ToString("yyyy-MM-dd HH:mm")}{System.Environment.NewLine}" +
-            $"Generation,Step 1,Step 2,Step 3,Step 4{System.Environment.NewLine}");
-    }
-
     protected override void OnUpdate()
     {
         Assert.IsTrue(NewGeneration.Length <= 1);
@@ -139,24 +128,18 @@ public class SwitchGenerationSystem : ComponentSystem
 
             var avg = durations.Average();
             var orderedDurations = durations.OrderBy(x => x);
-            var median = (orderedDurations.ElementAt(durations.Length / 2 - 1)
-                + orderedDurations.ElementAt(durations.Length / 2)) / 2;
             float best = Genotypes.GenotypesSimulationDurations[bestIndex];
             var targetNumberOfGenerations = numberOfGenerations;
 
             // połączenie sinusoidy z sigmoid
             var mutationRate = (sin(previousGenerationId * (1 / ((targetNumberOfGenerations/1000f) + (previousGenerationId / 100)))) + 1) / 2f;
             mutationRate *= evolutionaryConfig.MaximumMutationRate;
-            var logMessage = $"{previousGenerationId},{avg},{median},{best}";
-            Debug.Log(logMessage);
-            LogToFile(logMessage, "evolutionLog.csv");
 
             var bestGenotypeStepsDurations = $"{previousGenerationId},";
             for (int stepIndex = 0; stepIndex < config.NumberOfScenarioSteps; stepIndex++)
             {
                 bestGenotypeStepsDurations += GetStepDuration(Genotypes.GenotypeIds[bestIndex], stepIndex) + ",";
             }
-            LogToFile(bestGenotypeStepsDurations, "bestDurationsLog.csv");
 
             if (previousGenerationId + 1 == numberOfGenerations)
             {
@@ -241,12 +224,6 @@ public class SwitchGenerationSystem : ComponentSystem
         }
     }
 
-    protected override void OnDestroyManager()
-    {
-        File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", "evolutionLog.csv"),
-            $"Finished at {System.DateTime.Now.ToString("yyyy-MM-dd HH:mm")}{System.Environment.NewLine}");
-    }
-
     float GetStepDuration(int genotypeId, int stepId)
     {
         for (int i = 0; i < ScenarioSteps.Length; i++)
@@ -266,11 +243,6 @@ public class SwitchGenerationSystem : ComponentSystem
         {
             PostUpdateCommands.DestroyEntity(ScenarioSteps.Entities[i]);
         }
-    }
-
-    void LogToFile(string message, string fileName)
-    {
-        File.AppendAllText(Path.Combine(Application.persistentDataPath, "logs", fileName), message + System.Environment.NewLine);
     }
 
     void SetCurrentGenerationUiInfo(float generationNumber)
